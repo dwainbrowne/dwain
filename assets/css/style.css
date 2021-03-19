@@ -1,0 +1,935 @@
+
+/*--------------
+All Contents
+--------------*/
+
+/*-----------------
+1. Reset.css
+2. Helper Classes
+3. Hamburger and Menu Styling
+4. Homepage sections styling
+5. About Page Styling
+6. Portfolio Page
+7. Projecr Single Page Styling
+8. Contact Page Stylins
+9. All Media Queries
+------------------*/
+
+
+/*----- 1. Reset.css -----*/
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* --- Common Styles ---*/
+
+h1 {
+	font-family: Montserrat;
+  font-size: 16px;
+}
+
+/*----- Helper Classes -----*/
+
+html * {
+	text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+   margin:0;
+   padding:0;
+   height:100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: Poppins;
+	color: #FFFFFF;
+}
+
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+
+::-moz-selection {
+    color: #1106CC;
+    background: #FFFFFF;
+}
+
+::selection {
+    color: #1106CC;
+    background: #FFFFFF;
+}
+
+.nopadding {
+	padding: 0;
+}
+
+.custompadding {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.custom-padding {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+
+#loading {
+   width: 100%;
+   height: 100%;
+   top: 0px;
+   left: 0px;
+   position: fixed;
+   opacity: 1;
+   background-color: #F9F9F9;
+   z-index: 999;
+   text-align: center;
+}
+
+.spacer {
+	width: 100%;
+	height: 50px;
+}
+
+.spacer-big {
+	width: 100%;
+	height: 100px;
+}
+
+
+
+/* -----Body Border -----*/
+
+#top, #bottom, #left, #right {
+	background: #FFFFFF;
+	position: fixed;
+  z-index: 111;
+	}
+#left, #right {
+		top: 0; bottom: 0;
+		width: 10px;
+		}
+#left { left: 0; }
+#right { right: 0; }
+
+#top {
+		left: 0; right: 0;
+		height: 10px;
+	}
+#bottom {
+		left: 0; right: 0;
+		height: 10px;
+	}
+
+#top { top: 0; }
+#bottom { bottom: 0; }
+
+/* ------ Body Border End ------*/
+
+
+.logo {
+	position: absolute;
+	top: 25px;
+	left: 65px;
+	font-family: 'Poppins';
+	font-size: 16px;
+	line-height: 1;
+	z-index: 11;
+	white-space: nowrap;
+	color: #222222;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0;
+	-webkit-transition: 0.5s;
+	-moz-transition: 0.5s;
+	-o-transition: 0.5s;
+	transition: 0.5s;
+}
+
+.back-btn {
+	top: 10px;
+	font-size: 21px !important;
+}
+
+.text {
+	top: 13px;
+	font-size: 21px;
+}
+
+.logo:hover, .logo:focus {
+	text-decoration: none;
+	color: #333333;
+}
+
+
+/* -----------------------------------------------------
+------------- 3. Home Page CSS Starts Here -------------
+-------------------------------------------------------*/
+
+.main {
+	width: 100%;
+	height: 100%;
+	background: #111;
+}
+
+.nav-link {
+	position: absolute;
+	right: 25px;
+	bottom: 25px;
+	font-family: 'Playfair Display';
+	font-size: 18px;
+	color: #FFFFFF;
+}
+
+.nav-link:hover {
+	text-decoration: none;
+	color: #C5283D;
+}
+
+.nav-link:after {
+	content: "";
+	display: block;
+	height: 1px;
+	width: 30px;
+	background: #FFFFFF;
+}
+
+.nav-link:hover:after {
+	background: #C5283D;
+}
+
+/* --------------------------------------------------
+------ Homepage Split Layout Styling Starts ---------
+---------------------------------------------------*/
+
+
+.left-section {
+    background: url(../images/dwain-browne-snapsuite-software-developer.jpg) no-repeat center center;
+		background-size: cover;
+		position: absolute;
+		right: 0;
+		top: 0;
+		bottom: 0;
+    width: 45%;
+		height: 100%;
+		overflow: hidden;
+    z-index: 1;
+}
+
+ .right-section {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+		width: 55%;
+		height: 100%;
+    background-size: cover;
+    background: #F9F9F9;
+    z-index: 99;
+    overflow: hidden;
+    overflow-y: auto;
+		box-shadow: 0 0px 30px #444444;
+}
+
+.intro-personal {
+	padding: 200px 0 0 10px;
+	max-width: 600px;
+}
+
+.intro-personal .intro-text h1 {
+	font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+	font-size: 28px;
+	font-weight: 300;
+	letter-spacing: -1px;
+	line-height: 1.3;
+	color: #333;
+}
+
+.intro-personal .intro-text span {
+	color: #C5283D;
+	font-weight: 500;
+}
+
+.btn-contact {
+	font-family: 'Poppins';
+	font-size: 16px;
+	font-weight: 500;
+	color: #FFFFFF;
+	display: inline-block;
+	letter-spacing: 1px;
+	background: #C5283D;
+	border: 2px solid;
+	border-radius: 50px;
+	border-color: #C5283D;
+	padding: 8px 14px;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	-webkit-transform: 0.5s;
+	-moz-transform: 0.5s;
+	transition: 0.5s;
+}
+
+.btn-contact:hover, .btn-contact:focus {
+	color: #C5283D;
+	background: transparent;
+	border-color: #C5283D;
+	text-decoration: none;
+}
+
+
+
+/*-----------------------------------------------------
+------------- About Page Styling Starts ---------------
+-----------------------------------------------------*/
+
+
+.about {
+	padding: 150px 50px 50px 50px;
+}
+
+.about .about-inner h1 {
+	font-family: 'Playfair Display';
+	font-size: 54px;
+	font-weight: 700;
+	line-height: 1.2;
+	letter-spacing: -1px;
+	color: #C5283D;
+}
+
+.about .about-inner h3 {
+	font-family: 'Playfair Display';
+	font-size: 26px;
+	font-weight: 400;
+	letter-spacing: 0;
+	line-height: 1.5;
+	color: #565656;
+	margin-bottom: 30px;
+}
+
+.about .about-inner p {
+	font-family: 'Poppins';
+	font-size: 14px;
+	font-weight: 400;
+	letter-spacing: 1px;
+	line-height: 1.7;
+	margin-top: 20px;
+	color: #333;
+}
+
+.about .about-inner a {
+	color: #C5283D;
+}
+
+.about .about-inner a:hover {
+	color: #C5283D;
+	text-decoration: none;
+}
+
+/*-----------------------------------------------------
+-------------- About Page Styling Ends ----------------
+-----------------------------------------------------*/
+
+
+
+/*-----------------------------------------------------
+--------- Portfolio Page Styling Starts ---------------
+-----------------------------------------------------*/
+
+.portfolio-split {
+	padding-top: 100px;
+}
+
+.portfolio-split .portfolio-intro {
+	padding: 50px;
+}
+
+.portfolio-split .portfolio-intro h1 {
+	font-family: 'Playfair Display';
+	font-size: 42px;
+	font-weight: 700;
+	color: #C5283D;
+	letter-spacing: -1px;
+	padding: 2px 4px;
+}
+
+.portfolio-split .portfolio-intro p {
+	font-family: Poppins;
+	font-size: 18px;
+	line-height: 1.4;
+	margin: 40px 0 0 0;
+	color: #666666;
+}
+
+
+.origin-portfolio {
+	padding-left: 35px;
+	padding-right: 35px;
+}
+
+.origin-portfolio nav {
+  padding-bottom: 30px;
+  text-align: left;
+}
+
+.origin-portfolio .categories ul li {
+ 	display: inline;
+	list-style: none;
+}
+
+.origin-portfolio .categories ul li a {
+   display: inline;
+   font-family: 'Playfair Display';
+   font-weight: 400;
+   font-size: 18px;
+   line-height: 2.5;
+   text-decoration: none;
+   color: #C5283D;
+   margin-left: 20px;
+}
+
+.origin-portfolio .categories ul li a.active {
+   text-decoration: line-through;
+   color: #C5283D;
+}
+
+.origin-portfolio_filter {
+   padding-left: 0;
+}
+
+.origin-portfolio_item {
+   overflow: hidden;
+   margin-bottom: 10px;
+   display: block;
+}
+
+.origin-portfolio-overlay {
+ background: rgba(0, 0, 0, 0.90);
+ position:absolute;
+ top: 0;
+ left: 5px;
+ height: calc(100% - 10px);
+ width: calc(100% - 10px);
+ opacity: 0;
+ -webkit-transition: 0.5s;
+ -moz-transition: 0.5s;
+ -o-transition: 0.5s;
+   transition: 0.5s;
+}
+
+.origin-overlay-items {
+ height: 300px;
+ position: absolute;
+ top: 45%;
+ left: 0;
+ right: 0;
+}
+
+
+.origin-overlay-items p {
+ margin-top: 1em;
+ opacity: 0;
+ font-size: 12px;
+ font-family: Poppins;
+ letter-spacing: 2px;
+ color: #111111;
+ padding: 5px 5px;
+ background: #FFFFFF;
+ display: inline-block;
+ -webkit-transform: translateY(20px);
+ -moz-transform: translateY(20px);
+ transform: translateY(20px);
+ -webkit-transition: 0.3s;
+ -moz-transition: 0.3s;
+ transition: 0.3s;
+ -webkit-transition-delay: 0.3s;
+ -moz-transition-delay: 0.3s;
+ transition-delay: 0.2s;
+}
+
+.origin-portfolio_item:focus, .origin-portfolio_item:hover {
+    text-decoration: none;
+}
+
+.origin-portfolio_item:hover .origin-portfolio-overlay {
+ transform: scale(1);
+ opacity: 1;
+}
+
+.origin-portfolio_item:hover h5, .origin-portfolio_item:hover p {
+ opacity: 1
+}
+
+.origin-portfolio_item:hover p {
+  opacity: 1;
+	-webkit-transform: translateY(0);
+	-moz-transform: translateY(0);
+	transform: translateY(0);
+  text-decoration: none;
+}
+
+
+/*-----------------------------------------------------
+----------- Portfolio Page Styling Ends ---------------
+-----------------------------------------------------*/
+
+
+/*--------------------------------------------------------
+----------- Project Single Styling Starts ---------------
+--------------------------------------------------------*/
+
+.project-single {
+	padding: 150px 50px 0 50px;
+}
+
+.project-single .project-intro h1 {
+	font-family: 'Playfair Display';
+	font-size: 42px;
+	font-weight: 700;
+	color: #C5283D;
+	letter-spacing: -1px;
+	padding: 2px 4px;
+}
+
+.project-single .project-intro p {
+	font-family: 'Playfair Display';
+	font-size: 20px;
+	line-height: 1.4;
+	margin: 40px 0 0 0;
+	color: #666666;
+}
+
+.project-img {
+	padding: 50px 0 50px 0;
+}
+
+.project-details p {
+	font-family: 'Playfair Display';
+	font-size: 18px;
+	line-height: 1.5;
+	color: #222222;
+	letter-spacing: 0;
+	padding: 20px 0 0 0;
+}
+
+
+.project-nav {
+	padding: 50px 0 50px 0;
+	overflow: hidden;
+	visibility: visible;
+}
+
+.project-main i {
+	font-size: 34px;
+	font-weight: 400;
+	color: #666666;
+}
+
+.project-nav .nav-icon {
+	display: inline;
+	font-size: 32px;
+	color: #666666;
+	float: left;
+}
+
+.project-nav .nav-icon.right {
+	display: inline;
+	float: right;
+}
+
+.project-nav .inner-nav {
+	display: inline;
+}
+
+.project-nav .inner-nav a {
+	display: block;
+	font-family: Poppins;
+	font-size: 16px;
+	font-weight: 600;
+	color: #666666;
+	margin: 8px 0 0 20px;
+	text-decoration: none;
+	-webkit-transition: 0.4s;
+	-moz-transition: 0.4s;
+	-o-transition: 0.4s;
+	transition: 0.4s;
+}
+
+.project-nav .right {
+	text-align: right;
+}
+
+.project-nav .right a {
+	display: block;
+	font-family: Poppins;
+	font-size: 16px;
+	font-weight: 600;
+	color: #666666;
+	text-decoration: none;
+	margin: 8px 20px 0 0;
+}
+
+.project-nav .inner-nav:hover a {
+	margin-left: 30px;
+}
+
+.project-nav .right:hover a {
+	margin-right: 30px;
+}
+
+/*-----------------------------------------------------
+----------- Project Single Styling Ends ---------------
+-----------------------------------------------------*/
+
+
+
+/*-----------------------------------------------------------
+--------------- Contact Page Styling Starts -----------------
+-------------------------------------------------------------*/
+
+.contact {
+	padding: 150px 50px 100px 50px;
+}
+
+.contact h1 {
+	font-family: 'Playfair Display';
+	font-size: 42px;
+	font-weight: 700;
+	color: #C5283D;
+	letter-spacing: -1px;
+}
+
+.contact p {
+	font-family: Poppins;
+	font-size: 18px;
+	line-height: 1.4;
+	margin: 40px 0 0 0;
+	color: #666666;
+}
+
+.contact-form {
+	padding-top: 75px;
+}
+
+label {
+	display: block;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333333;
+	text-align: left;
+}
+
+.form-control {
+  border: 0px;
+  border-radius: 0px;
+  margin-top: 10px;
+  background: transparent;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #999999;
+  -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,0);
+  box-shadow: inset 0 0px 0px rgba(0,0,0,0);
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.form-control:focus {
+  border-color: #FF0000;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.form-control::-webkit-input-placeholder {
+  font-family: Poppins;
+  font-size: 12px;
+  color: #999999;
+}
+.form-control:-moz-placeholder {
+  font-family: Poppins;
+  font-size: 12px;
+  color: #999999;
+}
+.form-control::-moz-placeholder {
+  font-family: Poppins;
+  font-size: 12px;
+  color: #999999;
+}
+.form-control:-ms-input-placeholder {
+  font-family: Poppins;
+  font-size: 12px;
+  color: #999999;
+}
+
+.text-muted {
+  font-family: Poppins;
+  font-size: 12px;
+  color: #222;
+}
+
+.text-muted strong {
+  color: #FF3333;
+}
+
+.btn-send {
+  font-family: Poppins;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+  border-radius: 0px;
+  color: #FFFFFF;
+  background: #FF0000;
+	border-color: #FF0000;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.btn-send:hover {
+  color: #FF0000;
+  background: transparent;
+	border-color: #FF0000;
+  outline: none !important;
+}
+
+.btn-send:focus {
+  color: #FFFFFF;
+  background: #FF0000;
+	border-color: #FF0000;
+  outline: none !important;
+}
+
+/* -------- Contact Section Styling Ends ---- */
+
+
+
+/* ----------------------------------------------------
+----------- Footer Styling Starts Here ----------------
+-----------------------------------------------------*/
+
+.footer-personal {
+	margin: 50px 0 50px 20px;
+}
+
+.lesspadding {
+	padding-top: 0;
+	padding-bottom: 30px;
+}
+
+.footer-personal ul {
+	list-style: none;
+}
+
+.footer-personal li {
+	display: inline;
+}
+
+.footer-personal a {
+	display: inline;
+	font-family: 'Playfair Display';
+	text-transform: capitalize;
+	font-size: 18px;
+	font-weight: 500;
+	padding-right: 20px;
+	letter-spacing: 1px;
+	color: #C5283D;
+	text-decoration: none;
+}
+
+.footer-personal a:hover, .footer-personal a:focus {
+  color: #C5283D;
+  text-decoration: line-through;
+}
+
+.footer-credits {
+	font-family: Poppins;
+	font-size: 12px;
+	margin-top: 20px;
+}
+
+.footer-credits span {
+	color: #C5283D;
+}
+
+
+/*----------------------------------------------------
+------------- All ------------------------------------
+--------------------- Media --------------------------
+------------------------------- Queries --------------
+-----------------------------------------------------*/
+
+ @media only screen and (min-width: 767px) {
+
+	#left, #right {
+			width: 25px;
+			}
+	#top {
+			height: 25px;
+		}
+	#bottom {
+			height: 25px;
+		}
+
+		.intro-personal {
+			padding: 220px 0 0 50px;
+		}
+
+		.footer-personal {
+			margin: 50px 0 20px 50px;
+		}
+
+	}
+
+		@media only screen and (max-width : 801px) {
+
+			.logo {
+				top: 50px;
+				left: 25px;
+			}
+
+	     .right-section {
+	        position: relative;
+	        width: 100%;
+	    }
+
+	     .left-section {
+	        position: relative;
+	        width: 100%;
+					left: 0;
+	        min-height: 100vh;
+	    }
+
+			.intro-personal {
+				padding: 200px 0 0 20px;
+			}
+
+
+			.about {
+				padding: 150px 20px 50px 20px;
+			}
+
+			.project-single {
+				padding: 150px 20px 0 20px;
+			}
+
+
+			.origin-portfolio {
+				padding-left: 15px;
+				padding-right: 15px;
+			}
+
+			.contact {
+				padding: 150px 20px 100px 20px;
+			}
+
+		}
+
+		@media only screen and (min-width: 802px) and (max-width : 1024px) {
+
+			.logo {
+				left: 30px;
+			}
+
+			.intro-personal {
+				padding: 200px 20px 0 20px;
+			}
+
+		}
+
+	 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+
+	   .right-section {
+	      -webkit-overflow-scrolling: touch;
+	  }
+	}
+
+	 @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
+
+	   .split-home .right-section,  .split-home .left-section{
+	      -webkit-overflow-scrolling: touch;
+	  }
+	}
+
+		@media only screen and (min-device-width : 320px) and (max-device-width : 736px) and (orientation: landscape) {
+	   .right-section {
+	      -webkit-overflow-scrolling: touch;
+	  }
+	}
+
+		@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape) {
+	     .left-section {
+	       min-height: 100vh;
+	    }
+	  }
+
+		@media only screen and (max-width: 420px) {
+
+		.intro-personal {
+			padding: 200px 0 0 10px;
+		}
+
+		.intro-personal .intro-text h1 {
+			font-size: 34px;
+			font-weight: 400;
+			line-height: 1.1;
+		}
+
+	}

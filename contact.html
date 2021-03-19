@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Origin Personal Portfolio Template</title>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/ionicons.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  </head>
+  <body>
+    <div id="loading"></div>
+    <div class="wrapper">
+      <div class="main">
+
+        <section class="split-home">
+
+          <section class="left-section wow fadeIn" data-wow-delay="3.1s">
+            <a class="nav-link" href="about.html">About</a>
+          </section>
+
+          <section class="right-section">
+            <a href="index.html" class="logo"><img src="assets/images/logo.png" width="40" height="40" alt="Logo" /></a>
+            <div class="col-md-12">
+              <div class="contact">
+                <h1 class="wow fadeInDown" data-wow-delay=".1s">Drop a line</h1>
+                <p class="wow fadeInDown" data-wow-delay=".2s">Not always I get a great client like you, just drop a line
+                  and I'll try to respond in a day or two in the worst case.
+                </p>
+              <div class="contact-form">
+                 <form id="contact-form" method="post" action="assets/php/contact.php" role="form">
+                   <div class="messages"></div>
+                   <div class="controls">
+                   <div class="row">
+                       <div class="col-md-6">
+                           <div class="form-group">
+                               <label for="form_name">Firstname *</label>
+                               <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required.">
+                               <div class="help-block with-errors"></div>
+                           </div>
+                       </div>
+                       <div class="col-md-6">
+                           <div class="form-group">
+                               <label for="form_lastname">Lastname *</label>
+                               <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required.">
+                               <div class="help-block with-errors"></div>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="row">
+                       <div class="col-md-6">
+                           <div class="form-group">
+                               <label for="form_email">Email *</label>
+                               <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
+                               <div class="help-block with-errors"></div>
+                           </div>
+                       </div>
+                       <div class="col-md-6">
+                           <div class="form-group">
+                               <label for="form_phone">Phone</label>
+                               <input id="form_phone" type="tel" name="phone" class="form-control" placeholder="Please enter your phone">
+                               <div class="help-block with-errors"></div>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="row">
+                       <div class="col-md-12">
+                           <div class="form-group">
+                               <label for="form_message">Message *</label>
+                               <textarea id="form_message" name="message" class="form-control" placeholder="Message for me *" rows="4" required="required" data-error="Please,leave us a message."></textarea>
+                               <div class="help-block with-errors"></div>
+                           </div>
+                       </div>
+                       <div class="col-md-12">
+                           <input type="submit" class="btn btn-success btn-send" value="Send message">
+                       </div>
+                     </div>
+                   </div>
+                 </form>
+               </div><!-- Contact Form -->
+             </div>
+            </div>
+            <div class="col-md-12">
+              <div class="footer-personal">
+                <ul>
+                  <li><a href="about.html">About me</a></li>
+                  <li><a href="portfolio.html">Portfolio</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              <br>
+             <span class="footer-credits">© Copyright 2017 - <span>Origin</span> Template</span>
+            </div>
+          </div>
+         </section>
+
+        </section>
+
+      </div><!-- Main -->
+    </div><!--Wrapper -->
+    <!-- JS Scripts -->
+    <script src="assets/js/jquery-2.1.1.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/contact.js"></script>
+    <script src="assets/js/validator.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <!-- JS Scripts -->
+  </body>
+</html>
