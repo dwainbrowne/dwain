@@ -8,12 +8,18 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,500,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css?v=20260529-2">
 </head>
 <body class="site-page">
   <nav class="page-nav" aria-label="Primary navigation">
     <a class="brand-link" href="index.html"><img src="assets/images/logo.png" alt="">Dwain Browne</a>
-    <div class="page-nav-links">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span class="screen-reader-text">Menu</span>
+    </button>
+    <div class="page-nav-links" id="primary-menu">
       <a href="about.html">About</a>
       <a href="companies.html">Companies</a>
       <a href="consultation.html">Consult</a>
@@ -26,7 +32,7 @@
   </nav>
 
   <main class="page-shell">
-    <section class="page-hero">
+    <section class="page-hero" data-hero-word="Work">
       <div>
         <p class="eyebrow">Work</p>
         <h1>Software companies, community, content, and speaking built around practical execution.</h1>
@@ -72,5 +78,6 @@
   <footer class="page-shell page-footer">
     <a href="index.html">Home</a> / <a href="companies.html">Companies</a> / <a href="blog.html">Blog</a>
   </footer>
+  <script src="assets/js/nav.js"></script>
 </body>
 </html>

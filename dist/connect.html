@@ -8,12 +8,18 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,500,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css?v=20260529-2">
 </head>
 <body class="site-page">
   <nav class="page-nav" aria-label="Primary navigation">
     <a class="brand-link" href="index.html"><img src="assets/images/logo.png" alt="">Dwain Browne</a>
-    <div class="page-nav-links">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span class="screen-reader-text">Menu</span>
+    </button>
+    <div class="page-nav-links" id="primary-menu">
       <a href="about.html">About</a>
       <a href="companies.html">Companies</a>
       <a href="consultation.html">Consult</a>
@@ -26,7 +32,7 @@
   </nav>
 
   <main class="page-shell">
-    <section class="page-hero">
+    <section class="page-hero" data-hero-word="Connect">
       <div>
         <p class="eyebrow">Connect</p>
         <h1>Find me wherever you prefer to learn, watch, or talk.</h1>
@@ -42,7 +48,7 @@
       <h2>Platforms</h2>
       <div class="social-grid">
         <a href="https://www.linkedin.com/in/dwainbrowne/" target="_blank" rel="noopener"><img width="28" height="28" src="assets/images/linkedIn.png" alt="">LinkedIn</a>
-        <a href="https://www.youtube.com/user/dwainbrowne" target="_blank" rel="noopener"><img width="28" height="28" src="assets/images/youtube.png" alt="">YouTube</a>
+        <a href="https://www.youtube.com/@dwainbrowne" target="_blank" rel="noopener"><img width="28" height="28" src="assets/images/youtube.png" alt="">YouTube</a>
         <a href="https://www.tiktok.com/@dwain.me" target="_blank" rel="noopener"><span>Tk</span>TikTok: dwain.me</a>
         <a href="https://www.tiktok.com/@dwainbrowne" target="_blank" rel="noopener"><span>Tk</span>TikTok: dwainbrowne</a>
         <a href="https://twitter.com/dwainbrowne" target="_blank" rel="noopener"><img width="28" height="28" src="assets/images/twitter.png" alt="">X / Twitter</a>
@@ -70,5 +76,6 @@
   <footer class="page-shell page-footer">
     <a href="index.html">Home</a> / <a href="consultation.html">Consultation</a> / <a href="speaking.html">Speaking</a>
   </footer>
+  <script src="assets/js/nav.js"></script>
 </body>
 </html>

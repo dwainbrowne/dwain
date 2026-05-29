@@ -8,12 +8,18 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,500,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css?v=20260529-2">
 </head>
 <body class="site-page">
   <nav class="page-nav" aria-label="Primary navigation">
     <a class="brand-link" href="index.html"><img src="assets/images/logo.png" alt="">Dwain Browne</a>
-    <div class="page-nav-links">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span class="screen-reader-text">Menu</span>
+    </button>
+    <div class="page-nav-links" id="primary-menu">
       <a href="about.html">About</a>
       <a href="companies.html">Companies</a>
       <a href="consultation.html">Consult</a>
@@ -26,7 +32,7 @@
   </nav>
 
   <main class="page-shell">
-    <section class="page-hero">
+    <section class="page-hero" data-hero-word="Community">
       <div>
         <p class="eyebrow">Vibe Code to Profit</p>
         <h1>A free community for people and organizations building real software with AI.</h1>
@@ -40,6 +46,25 @@
         <h2>Built for action</h2>
         <p>Cloudflare, AI tools, SaaS ideas, live builds, weekly Q&A, and honest founder conversations.</p>
       </aside>
+    </section>
+
+    <section class="content-section">
+      <div class="product-showcase vibe-showcase">
+        <div>
+          <p class="section-kicker">Skool community</p>
+          <h2>Vibe Code to Profit is where the build process meets the business process.</h2>
+          <p>The community is built around live builds, practical Cloudflare patterns, AI-assisted SaaS, and founder conversations about how to turn useful software into a real offer.</p>
+          <p>The public Skool page was blocked from direct fetching, so this section links directly to the community and uses the current site positioning rather than scraped copy.</p>
+          <div class="button-row">
+            <a class="db-button primary" href="https://www.skool.com/vibe-code-to-profit-7601" target="_blank" rel="noopener">Open Skool Community</a>
+            <a class="db-button secondary" href="live.html">Watch Video Lessons</a>
+          </div>
+        </div>
+        <figure class="product-screen dark-screen">
+          <img src="assets/images/products/vibe-coding-meets-distribution.png" alt="Vibe Coding Meets Distribution video thumbnail featuring Dwain Browne">
+          <figcaption>Community theme: build, launch, distribute</figcaption>
+        </figure>
+      </div>
     </section>
 
     <section class="content-section">
@@ -82,5 +107,6 @@
   <footer class="page-shell page-footer">
     <a href="index.html">Home</a> / <a href="live.html">Live</a> / <a href="connect.html">Connect</a>
   </footer>
+  <script src="assets/js/nav.js"></script>
 </body>
 </html>

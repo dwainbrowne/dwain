@@ -116,6 +116,18 @@ h1, h2, h3, h4, h5, h6 {
     background: #FFFFFF;
 }
 
+.screen-reader-text {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
 .nopadding {
 	padding: 0;
 }
@@ -261,7 +273,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .left-section {
-    background: url(../images/dwain-browne-snapsuite-software-developer.jpg) no-repeat center center;
+    background: url(../images/profile/dwain-browne-snapsuite-software-developer.jpg) no-repeat center center;
 		background-size: cover;
 		position: absolute;
 		right: 0;
@@ -958,9 +970,11 @@ label {
 	top: 0;
 	width: 100%;
 	min-height: 100vh;
-	background-position: right center;
-	opacity: 0.24;
-	filter: saturate(0.65) grayscale(15%) brightness(1.08);
+	background-image: url(../images/profile/business-dwain-browne.JPG);
+	background-position: center center;
+	background-size: cover;
+	opacity: 0.42;
+	filter: saturate(0.74) grayscale(8%) brightness(1.02);
 	z-index: 0;
 }
 
@@ -968,7 +982,9 @@ label {
 	content: "";
 	position: absolute;
 	inset: 0;
-	background: linear-gradient(90deg, rgba(247, 244, 239, 0.98) 0%, rgba(247, 244, 239, 0.9) 45%, rgba(247, 244, 239, 0.72) 100%);
+	background:
+		linear-gradient(90deg, rgba(247, 244, 239, 0.99) 0%, rgba(247, 244, 239, 0.9) 48%, rgba(247, 244, 239, 0.44) 100%),
+		linear-gradient(180deg, rgba(247, 244, 239, 0.04), rgba(247, 244, 239, 0.56));
 }
 
 .photo-caption {
@@ -1008,8 +1024,21 @@ label {
 }
 
 .profile-logo {
-	top: 34px;
-	left: 54px;
+	position: fixed;
+	top: 24px;
+	left: 34px;
+	z-index: 60;
+	display: block;
+	width: 42px;
+	height: 42px;
+	overflow: visible;
+	border-radius: 50%;
+}
+
+.profile-logo img {
+	display: block;
+	width: 42px;
+	height: 42px;
 }
 
 .site-nav {
@@ -1019,9 +1048,15 @@ label {
 	display: flex;
 	justify-content: center;
 	gap: 18px;
-	padding: 34px 130px 20px 130px;
+	padding: 34px 130px 20px 138px;
 	background: rgba(247, 244, 239, 0.94);
 	backdrop-filter: blur(14px);
+}
+
+.site-nav-links {
+	display: flex;
+	justify-content: center;
+	gap: 18px;
 }
 
 .site-nav a {
@@ -1034,6 +1069,59 @@ label {
 	text-decoration: none;
 }
 
+.nav-toggle {
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	width: 42px;
+	height: 42px;
+	padding: 0;
+	border: 1px solid rgba(38, 31, 27, 0.16);
+	border-radius: 8px;
+	background: rgba(255, 255, 255, 0.72);
+	cursor: pointer;
+}
+
+.nav-toggle span:not(.screen-reader-text) {
+	display: block;
+	position: absolute;
+	left: 50%;
+	width: 18px;
+	height: 2px;
+	border-radius: 999px;
+	background: #1d1917;
+	transform: translateX(-50%);
+	transition: top 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-toggle span:nth-child(1) {
+	top: 14px;
+}
+
+.nav-toggle span:nth-child(2) {
+	top: 20px;
+}
+
+.nav-toggle span:nth-child(3) {
+	top: 26px;
+}
+
+.nav-toggle.is-open span:nth-child(1) {
+	top: 20px;
+	transform: translateX(-50%) rotate(45deg);
+}
+
+.nav-toggle.is-open span:nth-child(2) {
+	opacity: 0;
+}
+
+.nav-toggle.is-open span:nth-child(3) {
+	top: 20px;
+	transform: translateX(-50%) rotate(-45deg);
+}
+
 .site-nav a:hover,
 .site-nav a:focus {
 	color: #C5283D;
@@ -1041,13 +1129,13 @@ label {
 }
 
 .profile-wrap {
-	max-width: 1180px;
+	max-width: 1240px;
 	margin: 0 auto;
 	padding: 94px 54px 10px 54px;
 }
 
 .site-hero {
-	max-width: 720px;
+	max-width: 880px;
 	padding: 38px 0 76px 0;
 }
 
@@ -1070,10 +1158,10 @@ label {
 }
 
 .site-hero h1 {
-	max-width: 720px;
-	font-size: clamp(40px, 5.2vw, 68px);
+	max-width: 850px;
+	font-size: clamp(38px, 4.5vw, 60px);
 	font-weight: 700;
-	line-height: 1.03;
+	line-height: 1.04;
 }
 
 .hero-copy,
@@ -1145,6 +1233,18 @@ label {
 .db-button.secondary:focus {
 	background: #C5283D;
 	color: #fff;
+}
+
+.page-hero .db-button.secondary {
+	border-color: rgba(255, 255, 255, 0.58);
+	color: #fff;
+}
+
+.page-hero .db-button.secondary:hover,
+.page-hero .db-button.secondary:focus {
+	border-color: #fff;
+	background: #fff;
+	color: #1d1917;
 }
 
 .quick-stats {
@@ -1270,9 +1370,103 @@ label {
 	border-radius: 8px;
 	background:
 		linear-gradient(180deg, rgba(247, 244, 239, 0.18), rgba(29, 25, 23, 0.18)),
-		url(../images/dwain-browne-snapsuite-software-developer.jpg) no-repeat center center;
+		url(../images/profile/dwain-browne-snapsuite-software-developer.jpg) no-repeat center center;
 	background-size: cover;
 	filter: saturate(0.76);
+}
+
+.image-panel-workstation {
+	background:
+		linear-gradient(90deg, rgba(247, 244, 239, 0.16), rgba(29, 25, 23, 0.2)),
+		url(../images/profile/multi-tasking-dwain-browne.jpg) no-repeat center center;
+	background-size: cover;
+	filter: saturate(0.72) grayscale(24%);
+}
+
+.image-panel-historic {
+	background:
+		linear-gradient(90deg, rgba(247, 244, 239, 0.1), rgba(29, 25, 23, 0.18)),
+		url(../images/profile/2000-dwain-browne.png) no-repeat center center;
+	background-size: cover;
+	filter: saturate(0.82);
+}
+
+.section-photo,
+.wide-photo,
+.hero-photo,
+.about-photo {
+	position: relative;
+	overflow: hidden;
+	border: 1px solid rgba(38, 31, 27, 0.12);
+	border-radius: 8px;
+	background-position: center center;
+	background-size: cover;
+}
+
+.section-photo {
+	min-height: 340px;
+}
+
+.section-photo:after,
+.wide-photo:after,
+.hero-photo:after,
+.about-photo:after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(135deg, rgba(247, 244, 239, 0.08), rgba(29, 25, 23, 0.2));
+}
+
+.business-friendly-photo {
+	background-image: url(../images/profile/business-friendly-dwain-browne.JPG);
+	background-position: center 28%;
+}
+
+.photo-backed {
+	position: relative;
+	overflow: hidden;
+	min-height: 280px;
+	background-position: center center;
+	background-size: cover;
+	color: #fff;
+}
+
+.photo-backed:before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(90deg, rgba(29, 25, 23, 0.88), rgba(29, 25, 23, 0.58), rgba(29, 25, 23, 0.2));
+	z-index: 0;
+}
+
+.photo-backed > * {
+	position: relative;
+	z-index: 1;
+}
+
+.photo-backed h3,
+.photo-backed p,
+.photo-backed li {
+	color: #fff;
+}
+
+.photo-backed .compact-list li:before {
+	background: #fff;
+}
+
+.relaxing-photo {
+	background-image: url(../images/profile/relaxing-dwain-browne.JPG);
+	background-position: center center;
+}
+
+.wide-photo {
+	min-height: 300px;
+	margin-top: 18px;
+}
+
+.snow-photo {
+	background-image: url(../images/profile/snow-dwain-browne.JPG);
+	background-position: center 45%;
 }
 
 .detail-card {
@@ -1420,8 +1614,40 @@ label {
 	}
 
 	.site-nav {
-		padding: 88px 20px 16px 20px;
+		display: grid;
+		grid-template-columns: 1fr auto;
+		align-items: center;
+		justify-content: stretch;
+		overflow-x: visible;
+		gap: 14px;
+		padding: 22px;
 		background: rgba(247, 244, 239, 0.97);
+		white-space: normal;
+	}
+
+	.site-nav .nav-toggle {
+		display: inline-flex;
+		justify-self: end;
+	}
+
+	.site-nav-links {
+		display: none;
+		grid-column: 1 / -1;
+		grid-template-columns: 1fr;
+		gap: 0;
+		width: 100%;
+		padding-top: 10px;
+	}
+
+	.site-nav-links.is-open {
+		display: grid;
+	}
+
+	.site-nav-links a {
+		display: block;
+		padding: 14px 0;
+		border-top: 1px solid rgba(38, 31, 27, 0.1);
+		text-align: left;
 	}
 
 	.profile-wrap {
@@ -1568,12 +1794,55 @@ label {
 }
 
 .page-hero {
+	position: relative;
 	display: grid;
 	grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
 	gap: 48px;
 	align-items: end;
-	padding: 82px 0 62px;
-	border-bottom: 1px solid rgba(38, 31, 27, 0.12);
+	min-height: 440px;
+	margin-top: 34px;
+	padding: 76px 54px 64px;
+	overflow: hidden;
+	border: 1px solid rgba(38, 31, 27, 0.12);
+	border-radius: 8px;
+	background:
+		linear-gradient(90deg, rgba(17, 16, 15, 0.98) 0%, rgba(28, 24, 22, 0.94) 44%, rgba(28, 24, 22, 0.78) 62%, rgba(28, 24, 22, 0.4) 100%),
+		url(../images/profile/business-friendly-dwain-browne.JPG) no-repeat right center;
+	background-size: cover;
+	box-shadow: 0 22px 54px rgba(31, 24, 20, 0.16);
+}
+
+.page-hero:before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background:
+		linear-gradient(180deg, rgba(12, 11, 10, 0.08), rgba(12, 11, 10, 0.38)),
+		radial-gradient(circle at 78% 28%, rgba(197, 40, 61, 0.3), rgba(197, 40, 61, 0) 34%);
+	z-index: 0;
+}
+
+.page-hero:after {
+	content: attr(data-hero-word);
+	position: absolute;
+	left: 38px;
+	bottom: -32px;
+	z-index: 0;
+	max-width: 100%;
+	font-family: 'Playfair Display', serif;
+	font-size: clamp(74px, 14vw, 178px);
+	font-weight: 700;
+	line-height: 0.8;
+	letter-spacing: 0;
+	color: rgba(255, 255, 255, 0.11);
+	filter: blur(2px);
+	white-space: nowrap;
+	pointer-events: none;
+}
+
+.page-hero > * {
+	position: relative;
+	z-index: 1;
 }
 
 .page-hero h1 {
@@ -1583,10 +1852,17 @@ label {
 	font-weight: 700;
 	line-height: 1.04;
 	letter-spacing: 0;
-	color: #1d1917;
+	color: #fff;
 }
 
-.page-hero p,
+.page-hero p {
+	margin-top: 24px;
+	font-family: Poppins, sans-serif;
+	font-size: 18px;
+	line-height: 1.75;
+	color: rgba(255, 255, 255, 0.82);
+}
+
 .page-lede {
 	margin-top: 24px;
 	font-family: Poppins, sans-serif;
@@ -1595,12 +1871,26 @@ label {
 	color: #4f4945;
 }
 
+.page-hero .eyebrow {
+	color: #f26477;
+}
+
 .hero-note {
 	padding: 24px;
-	border: 1px solid rgba(38, 31, 27, 0.12);
+	border: 1px solid rgba(255, 255, 255, 0.22);
 	border-radius: 8px;
-	background: #fff;
-	box-shadow: 0 18px 46px rgba(49, 37, 31, 0.08);
+	background: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(14px);
+	box-shadow: 0 18px 46px rgba(0, 0, 0, 0.18);
+}
+
+.hero-photo {
+	display: none;
+}
+
+.hero-photo-business {
+	background-image: url(../images/profile/business-friendly-dwain-browne.JPG);
+	background-position: center 22%;
 }
 
 .hero-note h2,
@@ -1615,11 +1905,13 @@ label {
 .hero-note h2 {
 	font-size: 24px;
 	line-height: 1.15;
+	color: #fff;
 }
 
 .hero-note p {
 	margin-top: 14px;
 	font-size: 15px;
+	color: rgba(255, 255, 255, 0.78);
 }
 
 .content-section {
@@ -1638,6 +1930,51 @@ label {
 	font-size: 16px;
 	line-height: 1.75;
 	color: #4f4945;
+	margin-bottom: 18px;
+}
+
+.content-section p + p {
+	margin-top: 18px;
+}
+
+.content-section p:last-child {
+	margin-bottom: 0;
+}
+
+.section-kicker {
+	margin: 0 0 10px;
+	font-family: Poppins, sans-serif;
+	font-size: 11px;
+	font-weight: 800;
+	letter-spacing: 0.14em;
+	line-height: 1.4;
+	text-transform: uppercase;
+	color: #C5283D;
+}
+
+.content-section .section-kicker,
+.media-copy .section-kicker {
+	margin: 0 0 10px;
+	font-size: 11px;
+	font-weight: 800;
+	line-height: 1.4;
+	color: #C5283D;
+}
+
+.bio-section .page-grid.two {
+	align-items: stretch;
+}
+
+.capability-card {
+	background:
+		linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.9)),
+		url(../images/profile/multi-tasking-dwain-browne.jpg) no-repeat center center;
+	background-size: cover;
+}
+
+.capability-card h3,
+.capability-card li {
+	color: #1d1917;
 }
 
 .page-grid {
@@ -1718,6 +2055,399 @@ label {
 	box-shadow: 0 18px 46px rgba(49, 37, 31, 0.08);
 }
 
+.product-showcase {
+	display: grid;
+	grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
+	gap: 42px;
+	align-items: center;
+}
+
+.product-showcase h2 {
+	margin-bottom: 18px;
+}
+
+.product-screen {
+	position: relative;
+	overflow: hidden;
+	margin: 0;
+	border: 1px solid rgba(38, 31, 27, 0.12);
+	border-radius: 8px;
+	background: #fff;
+	box-shadow: 0 24px 60px rgba(31, 24, 20, 0.16);
+}
+
+.product-screen img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.product-screen figcaption {
+	padding: 14px 18px;
+	border-top: 1px solid rgba(38, 31, 27, 0.1);
+	font-family: Poppins, sans-serif;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: #5d5651;
+}
+
+.dark-screen {
+	background: #101820;
+}
+
+.dark-screen figcaption {
+	border-color: rgba(255, 255, 255, 0.12);
+	color: rgba(255, 255, 255, 0.78);
+}
+
+.dashboard-product {
+	position: relative;
+	min-height: 390px;
+	padding: 44px 34px;
+	overflow: hidden;
+	border-radius: 8px;
+	background:
+		linear-gradient(135deg, rgba(54, 20, 83, 0.95), rgba(13, 140, 165, 0.9)),
+		linear-gradient(180deg, #fff, #f2f5f7);
+	box-shadow: 0 24px 60px rgba(31, 24, 20, 0.16);
+}
+
+.dashboard-window {
+	display: grid;
+	grid-template-columns: 118px 1fr;
+	min-height: 270px;
+	overflow: hidden;
+	border: 6px solid rgba(255, 255, 255, 0.72);
+	border-radius: 8px;
+	background: #f7f9fb;
+	box-shadow: 0 20px 42px rgba(0, 0, 0, 0.18);
+}
+
+.dashboard-sidebar {
+	display: flex;
+	flex-direction: column;
+	gap: 13px;
+	padding: 18px 14px;
+	background: linear-gradient(180deg, #3b0f5f, #24103f);
+	font-family: Poppins, sans-serif;
+	color: rgba(255, 255, 255, 0.78);
+}
+
+.dashboard-sidebar strong {
+	margin-bottom: 8px;
+	font-size: 13px;
+	color: #fff;
+}
+
+.dashboard-sidebar span {
+	font-size: 10px;
+}
+
+.dashboard-main {
+	padding: 18px;
+}
+
+.dashboard-search {
+	height: 28px;
+	margin-bottom: 18px;
+	padding: 7px 12px;
+	border-radius: 4px;
+	background: #e7e9ee;
+	font-family: Poppins, sans-serif;
+	font-size: 10px;
+	color: #69727e;
+}
+
+.metric-row {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 10px;
+}
+
+.metric {
+	min-height: 74px;
+	padding: 12px 10px;
+	border-radius: 5px;
+	font-family: Poppins, sans-serif;
+	color: #fff;
+}
+
+.metric b {
+	display: block;
+	font-size: 17px;
+	line-height: 1.1;
+}
+
+.metric small {
+	display: block;
+	margin-top: 8px;
+	font-size: 9px;
+	line-height: 1.35;
+}
+
+.metric.red {
+	background: #b83252;
+}
+
+.metric.amber {
+	background: #f6a623;
+}
+
+.metric.blue {
+	background: #1da8cf;
+}
+
+.metric.green {
+	background: #16a67b;
+}
+
+.chart-row {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 10px;
+	align-items: end;
+	height: 82px;
+	margin-top: 22px;
+	padding: 14px;
+	background: #fff;
+}
+
+.chart-row span {
+	display: block;
+	border-radius: 3px 3px 0 0;
+	background: #cfd6df;
+}
+
+.chart-row span:nth-child(1) {
+	height: 34px;
+}
+
+.chart-row span:nth-child(2) {
+	height: 54px;
+	background: #f6a623;
+}
+
+.chart-row span:nth-child(3) {
+	height: 42px;
+}
+
+.chart-row span:nth-child(4) {
+	height: 66px;
+	background: #18a1c7;
+}
+
+.chart-row span:nth-child(5) {
+	height: 48px;
+}
+
+.product-callout {
+	position: absolute;
+	max-width: 170px;
+	padding: 10px 12px;
+	border-radius: 8px;
+	background: rgba(17, 16, 15, 0.72);
+	font-family: Poppins, sans-serif;
+	font-size: 11px;
+	font-weight: 700;
+	line-height: 1.35;
+	color: #fff;
+	box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
+}
+
+.product-callout.top-left {
+	top: 18px;
+	left: 18px;
+}
+
+.product-callout.top-right {
+	top: 18px;
+	right: 18px;
+}
+
+.product-callout.bottom-left {
+	bottom: 18px;
+	left: 18px;
+}
+
+.phone-product {
+	display: flex;
+	justify-content: center;
+	padding: 26px;
+	border-radius: 8px;
+	background: linear-gradient(145deg, #ecfff4, #f8fafc 44%, #fff2e8);
+	box-shadow: 0 24px 60px rgba(31, 24, 20, 0.12);
+}
+
+.phone-shell {
+	width: min(100%, 300px);
+	min-height: 590px;
+	padding: 22px 16px;
+	border: 10px solid #111;
+	border-radius: 42px;
+	background: #f5f8f7;
+	box-shadow: 0 18px 44px rgba(0, 0, 0, 0.22);
+}
+
+.phone-header,
+.phone-user,
+.panel-title,
+.expense-list li {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-family: Poppins, sans-serif;
+}
+
+.phone-header {
+	font-size: 12px;
+	font-weight: 800;
+	color: #15191f;
+}
+
+.phone-header strong {
+	font-size: 11px;
+	letter-spacing: 0.08em;
+	color: #04d967;
+}
+
+.phone-user {
+	justify-content: flex-start;
+	gap: 12px;
+	margin: 26px 0 20px;
+}
+
+.phone-user span {
+	width: 34px;
+	height: 34px;
+	border-radius: 50%;
+	background: url(../images/profile/business-friendly-dwain-browne.JPG) no-repeat center top;
+	background-size: cover;
+}
+
+.phone-user strong,
+.phone-user small {
+	display: block;
+	line-height: 1.25;
+}
+
+.phone-user strong {
+	font-size: 13px;
+	color: #1d2530;
+}
+
+.phone-user small {
+	font-size: 10px;
+	color: #6d7886;
+}
+
+.expense-panel {
+	padding: 18px 16px;
+	border-radius: 14px;
+	background: #fff;
+	box-shadow: 0 12px 30px rgba(36, 46, 53, 0.08);
+}
+
+.panel-title {
+	font-size: 14px;
+	color: #141b24;
+}
+
+.panel-title span {
+	padding: 7px 12px;
+	border-radius: 999px;
+	background: #04d967;
+	font-size: 10px;
+	color: #062d18;
+}
+
+.notice {
+	margin: 24px 0;
+	padding: 14px;
+	border: 1px solid #f5c86b;
+	border-radius: 10px;
+	background: #fff7de;
+	font-family: Poppins, sans-serif;
+	font-size: 11px;
+	font-weight: 700;
+	color: #a9531b;
+}
+
+.donut-chart {
+	display: grid;
+	place-items: center;
+	width: 148px;
+	height: 148px;
+	margin: 0 auto 22px;
+	border-radius: 50%;
+	background: conic-gradient(#ff3142 0 54%, #ff6428 54% 74%, #f5b52b 74% 92%, #66ba35 92% 100%);
+}
+
+.donut-chart span {
+	display: grid;
+	place-items: center;
+	width: 86px;
+	height: 86px;
+	border-radius: 50%;
+	background: #fff;
+	font-family: Poppins, sans-serif;
+	font-size: 10px;
+	line-height: 1.35;
+	text-align: center;
+	color: #8791a0;
+}
+
+.donut-chart strong {
+	font-size: 18px;
+	color: #1c2430;
+}
+
+.expense-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.expense-list li {
+	gap: 8px;
+	padding: 10px 0;
+	border-bottom: 1px solid #edf0f2;
+	font-size: 12px;
+	color: #1c2430;
+}
+
+.expense-list li:last-child {
+	border-bottom: 0;
+}
+
+.expense-list strong {
+	flex: 1;
+	font-weight: 600;
+}
+
+.expense-list b {
+	font-size: 12px;
+}
+
+.dot {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+}
+
+.dot.red {
+	background: #ff3142;
+}
+
+.dot.orange {
+	background: #ff6428;
+}
+
+.dot.gold {
+	background: #f5b52b;
+}
+
 .media-grid {
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1759,6 +2489,19 @@ label {
 
 .media-copy {
 	padding: 20px;
+}
+
+.video-feature-grid .media-copy {
+	min-height: 210px;
+}
+
+.video-stat {
+	display: inline-block;
+	margin-top: 12px;
+	font-family: Poppins, sans-serif;
+	font-size: 12px;
+	font-weight: 700;
+	color: #6f645d;
 }
 
 .article-list {
@@ -1828,6 +2571,32 @@ label {
 	gap: 16px;
 }
 
+.about-photo-row {
+	display: grid;
+	grid-template-columns: 1.1fr 0.9fr 1.1fr;
+	gap: 18px;
+	margin-top: 28px;
+}
+
+.about-photo {
+	min-height: 220px;
+}
+
+.about-photo-workstation {
+	background-image: url(../images/profile/multi-tasking-dwain-browne.jpg);
+	background-position: center center;
+}
+
+.about-photo-early {
+	background-image: url(../images/profile/2000-dwain-browne.png);
+	background-position: center center;
+}
+
+.about-photo-relaxed {
+	background-image: url(../images/profile/relaxing-dwain-browne.JPG);
+	background-position: center center;
+}
+
 .timeline-item {
 	display: grid;
 	grid-template-columns: 140px minmax(0, 1fr);
@@ -1875,7 +2644,7 @@ label {
 	border-radius: 8px;
 	background:
 		linear-gradient(135deg, rgba(197, 40, 61, 0.16), rgba(29, 25, 23, 0.2)),
-		url(../images/dwain-browne-snapsuite-software-developer.jpg) no-repeat center center;
+		url(../images/profile/dwain-browne-snapsuite-software-developer.jpg) no-repeat center center;
 	background-size: cover;
 	filter: saturate(0.7);
 }
@@ -1948,21 +2717,53 @@ label {
 	text-decoration: none;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1120px) {
 	.page-nav {
-		display: block;
+		display: grid;
+		grid-template-columns: 1fr auto;
+		align-items: center;
+		gap: 16px;
 		padding: 22px;
 	}
 
 	.brand-link {
 		position: static;
+		justify-content: flex-start;
 	}
 
 	.page-nav-links {
+		grid-column: 1 / -1;
 		justify-content: center;
-		margin-top: 18px;
+		margin-top: 2px;
+	}
+}
+
+@media only screen and (max-width: 760px) {
+	.page-nav .nav-toggle {
+		display: inline-flex;
+		justify-self: end;
 	}
 
+	.page-nav-links {
+		display: none;
+		grid-template-columns: 1fr;
+		gap: 0;
+		width: 100%;
+	}
+
+	.page-nav-links.is-open {
+		display: grid;
+	}
+
+	.page-nav-links a {
+		display: block;
+		padding: 14px 0;
+		border-top: 1px solid rgba(38, 31, 27, 0.1);
+		text-align: left;
+	}
+}
+
+@media only screen and (max-width: 900px) {
 	.page-shell {
 		width: min(100% - 40px, 1120px);
 	}
@@ -1970,10 +2771,22 @@ label {
 	.page-hero,
 	.page-grid,
 	.page-grid.two,
+	.product-showcase,
 	.media-grid,
 	.article-list,
-	.article-layout {
+	.article-layout,
+	.about-photo-row {
 		grid-template-columns: 1fr;
+	}
+
+	.page-hero {
+		min-height: auto;
+		padding: 58px 34px 52px;
+		background-position: 64% center;
+	}
+
+	.page-hero:before {
+		background: linear-gradient(90deg, rgba(17, 16, 15, 0.96), rgba(17, 16, 15, 0.78));
 	}
 
 	.booking-panel {
@@ -1984,15 +2797,52 @@ label {
 		position: relative;
 		top: auto;
 	}
+
+	.hero-note {
+		max-width: 100%;
+	}
+
+	.product-showcase {
+		gap: 28px;
+	}
+
+	.dashboard-product {
+		min-height: 360px;
+		padding: 34px 22px 82px;
+	}
+
+	.product-callout {
+		position: relative;
+		inset: auto;
+		display: inline-block;
+		margin: 12px 8px 0 0;
+		max-width: none;
+	}
+
+	.product-callout.top-left,
+	.product-callout.top-right,
+	.product-callout.bottom-left {
+		inset: auto;
+		top: auto;
+		right: auto;
+		bottom: auto;
+		left: auto;
+	}
 }
 
 @media only screen and (max-width: 520px) {
 	.page-hero {
-		padding-top: 58px;
+		padding: 48px 24px 44px;
 	}
 
 	.page-hero h1 {
-		font-size: 36px;
+		font-size: 34px;
+	}
+
+	.page-hero:after {
+		left: 20px;
+		bottom: -12px;
+		font-size: 70px;
 	}
 
 	.content-section h2 {
@@ -2001,5 +2851,31 @@ label {
 
 	.timeline-item {
 		grid-template-columns: 1fr;
+	}
+
+	.dashboard-window {
+		grid-template-columns: 86px 1fr;
+	}
+
+	.dashboard-sidebar {
+		padding: 14px 10px;
+	}
+
+	.metric-row {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.phone-product {
+		padding: 16px;
+	}
+
+	.phone-shell {
+		min-height: 560px;
+		border-width: 8px;
+		border-radius: 34px;
+	}
+
+	.video-feature-grid .media-copy {
+		min-height: auto;
 	}
 }

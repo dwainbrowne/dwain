@@ -8,12 +8,18 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,500,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css?v=20260529-2">
 </head>
 <body class="site-page">
   <nav class="page-nav" aria-label="Primary navigation">
     <a class="brand-link" href="index.html"><img src="assets/images/logo.png" alt="">Dwain Browne</a>
-    <div class="page-nav-links">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span class="screen-reader-text">Menu</span>
+    </button>
+    <div class="page-nav-links" id="primary-menu">
       <a href="about.html">About</a>
       <a href="companies.html">Companies</a>
       <a href="consultation.html">Consult</a>
@@ -26,7 +32,7 @@
   </nav>
 
   <main class="page-shell">
-    <section class="page-hero">
+    <section class="page-hero" data-hero-word="SnapSuite">
       <div>
         <p class="eyebrow">SnapSuite</p>
         <h1>Software for contractors and skilled trades teams that want to get paid faster.</h1>
@@ -43,12 +49,45 @@
     </section>
 
     <section class="content-section">
-      <div class="page-grid two">
+      <div class="product-showcase snapsuite-showcase">
         <div>
+          <p class="section-kicker">Operations dashboard</p>
           <h2>Built for the work contractors actually do.</h2>
           <p>Skilled trades businesses need more than a basic CRM. They need job details, work orders, purchase orders, calls, payments, and project status to stay connected across the whole team.</p>
+          <p>SnapSuite is shaped around the daily operating questions contractors ask: what is incomplete, who is dispatched, which jobs are ready, and how much work is still waiting to be invoiced.</p>
+          <ul class="service-list">
+            <li>Advanced job search across client, location, technician, status, and other filters.</li>
+            <li>Real-time visibility into new service calls, dispatched workers, and completed jobs.</li>
+            <li>Notifications for jobs ready to go, waiting for materials, and preventive maintenance work.</li>
+          </ul>
         </div>
-        <div class="company-visual" aria-label="SnapSuite visual"></div>
+        <div class="dashboard-product snapsuite-product" aria-label="SnapSuite dashboard preview">
+          <div class="dashboard-window">
+            <div class="dashboard-sidebar">
+              <strong>SnapSuite</strong>
+              <span>Dashboard</span>
+              <span>Clients</span>
+              <span>Work Orders</span>
+              <span>Inventory</span>
+              <span>Reports</span>
+            </div>
+            <div class="dashboard-main">
+              <div class="dashboard-search">Search jobs, clients, technicians...</div>
+              <div class="metric-row">
+                <span class="metric red"><b>$818,341.72</b><small>Incomplete Jobs</small></span>
+                <span class="metric amber"><b>19</b><small>New Service Calls</small></span>
+                <span class="metric blue"><b>5</b><small>Dispatched</small></span>
+                <span class="metric green"><b>27</b><small>Completed</small></span>
+              </div>
+              <div class="chart-row">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+          <div class="product-callout top-left">Incomplete jobs and outstanding dollar value</div>
+          <div class="product-callout top-right">Real-time dispatch and completion data</div>
+          <div class="product-callout bottom-left">Advanced job search and filters</div>
+        </div>
       </div>
     </section>
 
@@ -67,6 +106,10 @@
           <h3>Voice and payments</h3>
           <p>Bring communication and payment workflows closer to the job so teams can move faster.</p>
         </article>
+        <article class="page-card">
+          <h3>Ready-to-go alerts</h3>
+          <p>Surface the jobs that need attention before crews, materials, or invoices fall through the cracks.</p>
+        </article>
       </div>
     </section>
   </main>
@@ -74,5 +117,6 @@
   <footer class="page-shell page-footer">
     <a href="companies.html">Companies</a> / <a href="leadscore.html">LeadScore AI</a> / <a href="connect.html">Connect</a>
   </footer>
+  <script src="assets/js/nav.js"></script>
 </body>
 </html>

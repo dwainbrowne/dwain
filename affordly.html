@@ -4,16 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Affordly | Dwain Browne</title>
-    <meta name="description" content="Affordly is a mobile app from Dwain Browne focused on financing clarity, debt payoff, and helping people make better financial decisions.">
+    <meta name="description" content="Affordly is a mobile app from Dwain Browne for tracking expenses, seeing a full-year P&L, and building better money habits for just $1/month after a free trial.">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,500,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css?v=20260529-2">
 </head>
 <body class="site-page">
   <nav class="page-nav" aria-label="Primary navigation">
     <a class="brand-link" href="index.html"><img src="assets/images/logo.png" alt="">Dwain Browne</a>
-    <div class="page-nav-links">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span class="screen-reader-text">Menu</span>
+    </button>
+    <div class="page-nav-links" id="primary-menu">
       <a href="about.html">About</a>
       <a href="companies.html">Companies</a>
       <a href="consultation.html">Consult</a>
@@ -26,32 +32,80 @@
   </nav>
 
   <main class="page-shell">
-    <section class="page-hero">
+    <section class="page-hero" data-hero-word="Affordly">
       <div>
         <p class="eyebrow">Affordly</p>
-        <h1>A mobile app for financing clarity and getting out of debt.</h1>
-        <p>Affordly helps people make better financing decisions, understand what they can afford, and work toward getting financially unstuck.</p>
+        <h1>Track every dollar, see the full-year picture, and build better money habits.</h1>
+        <p>Affordly helps people track expenses, understand where money is going, and see a clearer personal P&L without turning budgeting into a complicated project.</p>
+        <div class="button-row">
+          <a class="db-button primary" href="https://affordly.app/" target="_blank" rel="noopener">Visit Affordly</a>
+        </div>
       </div>
       <aside class="hero-note">
         <h2>Focus</h2>
-        <p>Financing, affordability, debt payoff, and clearer decision-making before money becomes stress.</p>
+        <p>Expense tracking, financial clarity, full-year P&L visibility, and habit building for $1/month after 30 days free.</p>
       </aside>
     </section>
 
     <section class="content-section">
-      <h2>What Affordly is meant to help with</h2>
+      <div class="product-showcase affordly-showcase">
+        <div>
+          <p class="section-kicker">Affordly app</p>
+          <h2>The simplest financial planner is the one people will actually use.</h2>
+          <p>Affordly is positioned around a small, practical promise: track expenses, see your P&L, and build better habits without needing a heavy finance system.</p>
+          <p>The product keeps attention on the decisions that matter each month: what came in, what went out, what is uncategorized, and where spending is drifting.</p>
+          <ul class="service-list">
+            <li>Track everyday expenses and organize spending categories.</li>
+            <li>See a full-year profit and loss view at a glance.</li>
+            <li>Build a consistent money habit with a lightweight $1/month tool.</li>
+          </ul>
+        </div>
+        <div class="phone-product" aria-label="Affordly mobile app preview">
+          <div class="phone-shell">
+            <div class="phone-header">
+              <span>12:09</span>
+              <strong>AFFORDLY</strong>
+              <span></span>
+            </div>
+            <div class="phone-user">
+              <span></span>
+              <div>
+                <strong>Dwain Browne</strong>
+                <small>Dwain Browne's Work...</small>
+              </div>
+            </div>
+            <div class="expense-panel">
+              <div class="panel-title">
+                <strong>Expense Breakdown</strong>
+                <span>Full Year</span>
+              </div>
+              <div class="notice">0 Uncategorized Transactions</div>
+              <div class="donut-chart"><span>Total<br><strong>$57.3k</strong></span></div>
+              <ul class="expense-list">
+                <li><span class="dot red"></span><strong>Housing</strong><b>$31,200</b></li>
+                <li><span class="dot orange"></span><strong>Uncategorized</strong><b>$11,400</b></li>
+                <li><span class="dot gold"></span><strong>Groceries</strong><b>$8,000</b></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>What Affordly helps with</h2>
       <div class="page-grid">
         <article class="page-card">
-          <h3>Financing decisions</h3>
-          <p>Help people understand the real impact of payment plans, financing options, and affordability.</p>
+          <h3>Expense tracking</h3>
+          <p>Give people a clearer way to capture transactions and keep spending categories visible.</p>
         </article>
         <article class="page-card">
-          <h3>Debt payoff</h3>
-          <p>Give users a clearer path to reduce debt and make progress with more confidence.</p>
+          <h3>Full-year P&L</h3>
+          <p>Show the annual picture so users can see patterns instead of reacting only to the current week.</p>
         </article>
         <article class="page-card">
-          <h3>Financial clarity</h3>
-          <p>Turn confusing money decisions into simpler, more understandable next steps.</p>
+          <h3>Better habits</h3>
+          <p>Keep the app light enough for regular use, with a 30-day free trial and simple $1/month pricing.</p>
         </article>
       </div>
     </section>
@@ -60,5 +114,6 @@
   <footer class="page-shell page-footer">
     <a href="companies.html">Companies</a> / <a href="snapsuite.html">SnapSuite</a> / <a href="leadscore.html">LeadScore AI</a>
   </footer>
+  <script src="assets/js/nav.js"></script>
 </body>
 </html>

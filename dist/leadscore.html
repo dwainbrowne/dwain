@@ -8,12 +8,18 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,500,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css?v=20260529-2">
 </head>
 <body class="site-page">
   <nav class="page-nav" aria-label="Primary navigation">
     <a class="brand-link" href="index.html"><img src="assets/images/logo.png" alt="">Dwain Browne</a>
-    <div class="page-nav-links">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span class="screen-reader-text">Menu</span>
+    </button>
+    <div class="page-nav-links" id="primary-menu">
       <a href="about.html">About</a>
       <a href="companies.html">Companies</a>
       <a href="consultation.html">Consult</a>
@@ -26,7 +32,7 @@
   </nav>
 
   <main class="page-shell">
-    <section class="page-hero">
+    <section class="page-hero" data-hero-word="LeadScore">
       <div>
         <p class="eyebrow">LeadScore AI</p>
         <h1>Cold outreach at scale for salespeople and small sales teams.</h1>
@@ -43,12 +49,17 @@
     </section>
 
     <section class="content-section">
-      <div class="page-grid two">
+      <div class="product-showcase leadscore-showcase">
         <div>
+          <p class="section-kicker">Pipeline system</p>
           <h2>Less manual work. Better outreach.</h2>
           <p>Cold outreach takes time because teams have to find the right leads, understand the account, personalize the message, and decide who deserves attention first. LeadScore AI is built to reduce that workload and improve the quality of the outreach at the same time.</p>
+          <p>The sales pipeline board brings lead research, prioritization, and outreach execution into one place so teams can keep momentum without manually sorting every account.</p>
         </div>
-        <div class="company-visual" aria-label="LeadScore AI visual"></div>
+        <figure class="product-screen">
+          <img src="assets/images/products/leadscore-ai-sales-pipeline-board.png" alt="LeadScore AI sales pipeline board showing lead stages and contact cards">
+          <figcaption>LeadScore AI sales pipeline board</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -84,5 +95,6 @@
   <footer class="page-shell page-footer">
     <a href="companies.html">Companies</a> / <a href="snapsuite.html">SnapSuite</a> / <a href="affordly.html">Affordly</a>
   </footer>
+  <script src="assets/js/nav.js"></script>
 </body>
 </html>

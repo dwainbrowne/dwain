@@ -8,12 +8,18 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,500,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css?v=20260529-2">
 </head>
 <body class="site-page">
   <nav class="page-nav" aria-label="Primary navigation">
     <a class="brand-link" href="index.html"><img src="assets/images/logo.png" alt="">Dwain Browne</a>
-    <div class="page-nav-links">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span class="screen-reader-text">Menu</span>
+    </button>
+    <div class="page-nav-links" id="primary-menu">
       <a href="about.html">About</a>
       <a href="companies.html">Companies</a>
       <a href="consultation.html">Consult</a>
@@ -26,43 +32,115 @@
   </nav>
 
   <main class="page-shell">
-    <section class="page-hero">
+    <section class="page-hero" data-hero-word="Live">
       <div>
         <p class="eyebrow">Live and video</p>
-        <h1>Friday live builds, vibe coding, and practical business content.</h1>
-        <p>I usually go live on Fridays on YouTube and TikTok. The content moves between software builds, AI workflows, Cloudflare, founder lessons, sales systems, and general business notes.</p>
+        <h1>Technology, coding, development, and entrepreneurship content.</h1>
+        <p>The main YouTube channel is focused on software builds, AI workflows, Cloudflare, coding, development, founder lessons, sales systems, and entrepreneurship.</p>
         <div class="button-row">
-          <a class="db-button primary" href="https://www.youtube.com/user/dwainbrowne" target="_blank" rel="noopener">YouTube Channel</a>
+          <a class="db-button primary" href="https://www.youtube.com/@dwainbrowne" target="_blank" rel="noopener">YouTube Channel</a>
           <a class="db-button secondary" href="https://www.tiktok.com/@dwain.me" target="_blank" rel="noopener">TikTok: dwain.me</a>
         </div>
       </div>
       <aside class="hero-note">
-        <h2>Two TikToks</h2>
-        <p>Follow dwain.me for vibe coding and dwainbrowne for broader business, tech, and personal content.</p>
+        <h2>Channel focus</h2>
+        <p>Main YouTube first for technology and entrepreneurship. Dwain: Unfinished is secondary and more focused on productivity and everyday workflow.</p>
       </aside>
     </section>
 
     <section class="content-section">
-      <h2>Video hubs</h2>
-      <div class="media-grid">
+      <h2>Featured videos by category</h2>
+      <p class="page-lede">These come from the main YouTube channel, which is focused on technology, coding, software development, AI systems, and entrepreneurship.</p>
+      <div class="media-grid video-feature-grid">
         <article class="media-card">
           <div class="media-frame">
-            <a href="https://www.youtube.com/user/dwainbrowne" target="_blank" rel="noopener">Open YouTube</a>
+            <iframe src="https://www.youtube.com/embed/vmhzwMBlLzc" title="Cloudflare-First SaaS in 2026 From Scratch using Opus 4.7" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
           <div class="media-copy">
-            <h3>YouTube videos and lives</h3>
-            <p>Longer lessons, live streams, technical walkthroughs, and product build sessions.</p>
-            <a href="https://www.youtube.com/user/dwainbrowne" target="_blank" rel="noopener">Open YouTube</a>
+            <p class="section-kicker">Technology</p>
+            <h3>Cloudflare-First SaaS in 2026 From Scratch</h3>
+            <p>Cloudflare, SaaS architecture, first customers, MVP thinking, and go-to-market planning.</p>
+            <span class="video-stat">108 views in public feed</span>
           </div>
         </article>
         <article class="media-card">
+          <div class="media-frame">
+            <iframe src="https://www.youtube.com/embed/tbWDEG5dJMU" title="Using AI to Run the Business Behind the App" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
           <div class="media-copy">
-            <h3>TikTok accounts</h3>
-            <p>Shorter lessons and daily thoughts split between vibe coding and general founder content.</p>
-            <ul class="service-list">
-              <li><a href="https://www.tiktok.com/@dwain.me" target="_blank" rel="noopener">dwain.me for vibe coding</a></li>
-              <li><a href="https://www.tiktok.com/@dwainbrowne" target="_blank" rel="noopener">dwainbrowne for general content</a></li>
-            </ul>
+            <p class="section-kicker">Codex and AI workflows</p>
+            <h3>Using AI to Run the Business Behind the App</h3>
+            <p>How AI tools, reusable workflows, and automation help a small team keep the business moving.</p>
+            <span class="video-stat">35 views in public feed</span>
+          </div>
+        </article>
+        <article class="media-card">
+          <div class="media-frame">
+            <iframe src="https://www.youtube.com/embed/VCQtmzfsAj8" title="Build Small | Scale Fast - Vibe Coding" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <div class="media-copy">
+            <p class="section-kicker">Beginner's Guide to Vibe Coding</p>
+            <h3>Build Small | Scale Fast - Vibe Coding</h3>
+            <p>A practical entry point for using AI to build focused software without overbuilding.</p>
+            <span class="video-stat">125 views in public feed</span>
+          </div>
+        </article>
+        <article class="media-card">
+          <div class="media-frame">
+            <iframe src="https://www.youtube.com/embed/FjnCWy1H58Q" title="Fixing Ugly AI App Designs With One Simple Trick" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <div class="media-copy">
+            <p class="section-kicker">AI app design</p>
+            <h3>Fixing Ugly AI App Designs With One Simple Trick</h3>
+            <p>Design direction for AI-generated apps so the finished product feels more consistent and usable.</p>
+            <span class="video-stat">127 views in public feed</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Dwain: Unfinished picks</h2>
+      <p class="page-lede">Dwain: Unfinished is secondary to the main channel. This section is for productivity, workspace setup, and practical non-technical workflow content.</p>
+      <div class="media-grid video-feature-grid">
+        <article class="media-card">
+          <div class="media-frame">
+            <iframe src="https://www.youtube.com/embed/rg9FaBhCTvw" title="Triple Monitor Setup: Seamless Integration" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <div class="media-copy">
+            <h3>Triple Monitor Setup: Seamless Integration</h3>
+            <p>A practical workspace and productivity setup video from the unfinished channel.</p>
+            <span class="video-stat">635 views in public feed</span>
+          </div>
+        </article>
+        <article class="media-card">
+          <div class="media-frame">
+            <iframe src="https://www.youtube.com/embed/qSANZRBb3Jw" title="Project Woes: Massive Monitor Gap!" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <div class="media-copy">
+            <h3>Project Woes: Massive Monitor Gap!</h3>
+            <p>Raw problem-solving around workspace setup and practical productivity friction.</p>
+            <span class="video-stat">582 views in public feed</span>
+          </div>
+        </article>
+        <article class="media-card">
+          <div class="media-frame">
+            <iframe src="https://www.youtube.com/embed/BMtgR0SyqBY" title="DIY Desk for Under $150" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <div class="media-copy">
+            <h3>DIY Desk for Under $150</h3>
+            <p>A non-technical productivity build focused on making the workspace more useful.</p>
+            <span class="video-stat">575 views in public feed</span>
+          </div>
+        </article>
+        <article class="media-card">
+          <div class="media-frame">
+            <iframe src="https://www.youtube.com/embed/BDlUdIr3Tes" title="Voice Command Efficiency: Simplifying Tech for Better Zoom Calls" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <div class="media-copy">
+            <h3>Voice Command Efficiency</h3>
+            <p>Simple tech and workflow ideas for better calls and less friction during the workday.</p>
+            <span class="video-stat">481 views in public feed</span>
           </div>
         </article>
       </div>
@@ -90,5 +168,6 @@
   <footer class="page-shell page-footer">
     <a href="index.html">Home</a> / <a href="community.html">Community</a> / <a href="blog.html">Blog</a>
   </footer>
+  <script src="assets/js/nav.js"></script>
 </body>
 </html>

@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/ionicons.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css?v=20260529-2">
   </head>
   <body>
     <div id="loading"></div>
@@ -31,14 +31,22 @@
             <a href="index.html" class="logo profile-logo"><img src="assets/images/logo.png" width="40" height="40" alt="Dwain Browne logo" /></a>
 
             <nav class="site-nav" aria-label="Primary navigation">
-              <a href="about.html">About</a>
-              <a href="companies.html">Companies</a>
-              <a href="consultation.html">Consult</a>
-              <a href="community.html">Community</a>
-              <a href="speaking.html">Speaking</a>
-              <a href="live.html">Live</a>
-              <a href="blog.html">Blog</a>
-              <a href="connect.html">Connect</a>
+              <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="home-primary-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="screen-reader-text">Menu</span>
+              </button>
+              <div class="site-nav-links" id="home-primary-menu">
+                <a href="about.html">About</a>
+                <a href="companies.html">Companies</a>
+                <a href="consultation.html">Consult</a>
+                <a href="community.html">Community</a>
+                <a href="speaking.html">Speaking</a>
+                <a href="live.html">Live</a>
+                <a href="blog.html">Blog</a>
+                <a href="connect.html">Connect</a>
+              </div>
             </nav>
 
             <div class="profile-wrap">
@@ -46,32 +54,35 @@
                 <p class="eyebrow wow fadeInDown" data-wow-delay=".1s">Hey, I am Dwain Browne.</p>
                 <h1 class="wow fadeInDown" data-wow-delay=".2s">I build software companies that help people work smarter, sell better, and get paid faster.</h1>
                 <p class="hero-copy wow fadeInDown" data-wow-delay=".3s">
-                  I am a Toronto-based founder and software builder with 25+ years of experience across design, web development, SaaS, AI, sales systems, and business operations.
+                  I am a Toronto-based founder and software architect who works at the intersection of business and technology, translating complex operating problems into scalable software systems.
                 </p>
                 <div class="button-row wow fadeInDown" data-wow-delay=".4s">
                   <a class="db-button primary" href="mailto:dwain@snapsuite.io?subject=Free%20consultation%20request">Book a Free Consultation</a>
                   <a class="db-button secondary" href="companies.html">Explore the Companies</a>
                 </div>
                 <div class="quick-stats" aria-label="Profile highlights">
-                  <span><strong>25+</strong> years across design, software, sales, and operations</span>
+                  <span><strong>25+</strong> years across software, sales, operations, and entrepreneurship</span>
+                  <span><strong>Builder</strong> across .NET, C#, TypeScript, Node.js, SQL, Postgres, Cosmos DB, and Cloudflare</span>
                   <span><strong>Founder</strong> of SnapSuite, LeadScore AI, Affordly, and Vibe Code to Profit</span>
-                  <span><strong>Live</strong> most Fridays on YouTube and TikTok</span>
                 </div>
               </section>
 
               <section class="profile-section" id="about">
                 <div class="section-heading">
                   <p class="eyebrow">About me</p>
-                  <h2>From graphic design to software companies.</h2>
+                  <h2>Business logic, software architecture, and entrepreneurial execution.</h2>
                 </div>
                 <div class="two-column visual-split">
                   <div>
                     <p>
-                      I started as a graphic designer, learned website development, moved deeper into software, and eventually started my own website design company. That path led me into skilled trades, sales systems, and the software products I build today.
+                      My strength is turning complex business logic into practical software that improves how organizations operate. I have worked across law firms, trade associations, trade companies, contractor and plumbing businesses, enterprise software teams, and medical companies, which gives me a rounded view of how real businesses actually run.
+                    </p>
+                    <p>
+                      Technically, my foundation is .NET and C#, with recent work centered on JavaScript, TypeScript, Node.js, Microsoft SQL, Postgres, Cosmos DB, Cloudflare Workers, Durable Objects, D1, AI systems, and real-time communication products.
                     </p>
                     <a class="text-link" href="about.html">Read the full story</a>
                   </div>
-                  <div class="image-panel" aria-label="Dwain Browne portrait"></div>
+                  <div class="image-panel image-panel-workstation" aria-label="Dwain Browne working at a multi-monitor software workstation"></div>
                 </div>
               </section>
 
@@ -109,17 +120,20 @@
                   <p class="eyebrow">Start here</p>
                   <h2>Book a free consultation.</h2>
                 </div>
-                <div class="feature-panel accent-panel">
-                  <p>
-                    If you are trying to build a software product, automate an internal workflow, improve your sales outreach, or figure out where AI fits in your business, book time and I will help you map the next practical move.
-                  </p>
-                  <ul class="check-list">
-                    <li>Product and SaaS build strategy</li>
-                    <li>AI workflow and automation planning</li>
-                    <li>Sales operations and outreach systems</li>
-                    <li>Founder-focused technical guidance</li>
-                  </ul>
-                  <a class="db-button primary" href="consultation.html">Book or Request Details</a>
+                <div class="two-column visual-split">
+                  <div class="feature-panel accent-panel">
+                    <p>
+                      If you are trying to build a software product, automate an internal workflow, improve your sales outreach, or figure out where AI fits in your business, book time and I will help you map the next practical move.
+                    </p>
+                    <ul class="check-list">
+                      <li>Product and SaaS build strategy</li>
+                      <li>AI workflow and automation planning</li>
+                      <li>Sales operations and outreach systems</li>
+                      <li>Founder-focused technical guidance</li>
+                    </ul>
+                    <a class="db-button primary" href="consultation.html">Book or Request Details</a>
+                  </div>
+                  <div class="section-photo business-friendly-photo" aria-label="Dwain Browne in a business setting"></div>
                 </div>
               </section>
 
@@ -135,7 +149,7 @@
                     </p>
                     <a class="text-link" href="vibe-code-to-profit.html">See the community page</a>
                   </div>
-                  <div class="detail-card">
+                  <div class="detail-card photo-backed relaxing-photo">
                     <h3>Inside the community</h3>
                     <ul class="compact-list">
                       <li>Weekly live builds and Q&A</li>
@@ -197,6 +211,7 @@
                     <a href="connect.html">Find both accounts</a>
                   </article>
                 </div>
+                <div class="wide-photo snow-photo" aria-label="Dwain Browne enjoying a winter day"></div>
               </section>
 
               <section class="profile-section" id="speaking">
@@ -254,7 +269,7 @@
                 </div>
                 <div class="social-grid">
                   <a href="https://www.linkedin.com/in/dwainbrowne/" target="_blank" rel="noopener"><img width="28" height="28" src="assets/images/linkedIn.png" alt="">LinkedIn</a>
-                  <a href="https://www.youtube.com/user/dwainbrowne" target="_blank" rel="noopener"><img width="28" height="28" src="assets/images/youtube.png" alt="">YouTube</a>
+                  <a href="https://www.youtube.com/@dwainbrowne" target="_blank" rel="noopener"><img width="28" height="28" src="assets/images/youtube.png" alt="">YouTube</a>
                   <a href="https://www.tiktok.com/@dwain.me" target="_blank" rel="noopener"><span>Tk</span>TikTok: dwain.me</a>
                   <a href="https://www.tiktok.com/@dwainbrowne" target="_blank" rel="noopener"><span>Tk</span>TikTok: dwainbrowne</a>
                   <a href="https://twitter.com/dwainbrowne" target="_blank" rel="noopener"><img width="28" height="28" src="assets/images/twitter.png" alt="">X / Twitter</a>
@@ -291,6 +306,7 @@
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/custom.js"></script>
+    <script src="assets/js/nav.js"></script>
     <!-- JS Scripts -->
   </body>
 </html>

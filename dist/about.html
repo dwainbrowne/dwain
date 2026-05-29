@@ -8,12 +8,18 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,500,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css?v=20260529-2">
 </head>
 <body class="site-page">
   <nav class="page-nav" aria-label="Primary navigation">
     <a class="brand-link" href="index.html"><img src="assets/images/logo.png" alt="">Dwain Browne</a>
-    <div class="page-nav-links">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span class="screen-reader-text">Menu</span>
+    </button>
+    <div class="page-nav-links" id="primary-menu">
       <a href="about.html">About</a>
       <a href="companies.html">Companies</a>
       <a href="consultation.html">Consult</a>
@@ -26,32 +32,51 @@
   </nav>
 
   <main class="page-shell">
-    <section class="page-hero">
+    <section class="page-hero" data-hero-word="About">
       <div>
         <p class="eyebrow">About me</p>
-        <h1>I have spent 25+ years turning design, technology, and business problems into software.</h1>
-        <p>I started as a graphic designer, learned website development, moved into software, built my own website design company, and kept following the problems that were worth solving.</p>
+        <h1>I build software systems where business complexity and technology execution meet.</h1>
+        <p>I help organizations translate complicated business rules, workflows, and operational constraints into scalable software that makes teams more efficient and businesses easier to run.</p>
         <div class="button-row">
           <a class="db-button primary" href="companies.html">See the Companies</a>
           <a class="db-button secondary" href="consultation.html">Book a Consultation</a>
         </div>
       </div>
-      <aside class="hero-note">
-        <h2>Current chapter</h2>
-        <p>SnapSuite, LeadScore AI, Affordly, Vibe Code to Profit, public content, and keynote sessions on AI, software, and business systems.</p>
-      </aside>
+      <aside class="hero-photo hero-photo-business" aria-label="Dwain Browne in a professional business setting"></aside>
+    </section>
+
+    <section class="content-section bio-section">
+      <h2>Dwain Browne</h2>
+      <div class="page-grid two">
+        <div>
+          <p class="page-lede">Dwain Browne is a technology entrepreneur, software developer, and cloud infrastructure architect with experience building software platforms, automation systems, and AI-driven business tools.</p>
+          <p>He is the Founder and CEO of SnapSuite and LeadScore AI, where he focuses on helping businesses improve operations, sales execution, workflow automation, and decision-making through modern software and artificial intelligence.</p>
+          <p>Dwain has spent more than two decades working across software systems, SaaS products, logistics technology, business automation, and cloud-based systems. His work is shaped by both founder-level business context and hands-on software execution.</p>
+          <p>In addition to his technical background, Dwain has practical experience working with businesses in field services, logistics, sales operations, and automation. His perspective as both a founder and builder allows him to understand how technology, infrastructure, and execution can support long-term business growth.</p>
+        </div>
+        <div class="detail-card capability-card">
+          <h3>Strategic focus</h3>
+          <ul class="compact-list">
+            <li>Technology strategy and cloud infrastructure</li>
+            <li>Workflow automation and AI systems</li>
+            <li>Scalable business operations</li>
+            <li>Sales execution and operational efficiency</li>
+            <li>Software platforms that turn complex business logic into practical systems</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <section class="content-section">
-      <h2>My story</h2>
+      <h2>The backstory</h2>
       <div class="page-grid two">
         <div>
-          <p class="page-lede">My career started with design. I wanted to understand how things looked, how they communicated, and how people experienced them.</p>
+          <p class="page-lede">Before the companies and platforms, my career started with design. I wanted to understand how things looked, how they communicated, and how people experienced them.</p>
           <p>From there, I moved into website development because I wanted to build the things I was designing. That opened the door to software, business workflows, customer problems, and eventually entrepreneurship.</p>
           <p>After starting my own website design company, I discovered the skilled trades market and saw how much operational work was still happening through paper, phone calls, disconnected tools, and manual follow-up. That became the foundation for SnapSuite.</p>
           <p>As I spent more time around business owners and sales teams, I kept seeing another problem: cold outreach and lead prioritization were taking too much manual effort. That led to LeadScore AI.</p>
         </div>
-        <div class="image-panel" aria-label="Dwain Browne portrait"></div>
+        <div class="image-panel image-panel-historic" aria-label="Dwain Browne early in his technology career"></div>
       </div>
     </section>
 
@@ -94,6 +119,24 @@
           </div>
         </article>
       </div>
+      <div class="about-photo-row" aria-label="Personal and professional moments from Dwain Browne's story">
+        <div class="about-photo about-photo-workstation"></div>
+        <div class="about-photo about-photo-early"></div>
+        <div class="about-photo about-photo-relaxed"></div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Technology and infrastructure</h2>
+      <div class="page-grid two">
+        <div>
+          <p class="page-lede">Dwain's technical background includes cloud infrastructure architecture, backend and frontend application development, API integrations, database design, automation workflows, and scalable software deployment.</p>
+          <p>He has hands-on experience with technologies including .NET, C#, Node.js, Python, Cloudflare, AWS, Azure, serverless architecture, distributed systems, and modern web application frameworks.</p>
+          <p>His work has involved designing and building systems that support business operations, data processing, customer management, sales automation, and AI-assisted workflows.</p>
+          <p>Dwain's role with the company is focused on providing strategic insight related to technology, cloud infrastructure, automation, AI systems, and scalable business operations.</p>
+        </div>
+        <div class="image-panel image-panel-workstation" aria-label="Dwain Browne working at a multi-monitor software workstation"></div>
+      </div>
     </section>
 
     <section class="content-section">
@@ -130,5 +173,6 @@
   <footer class="page-shell page-footer">
     <a href="index.html">Home</a> / <a href="companies.html">Companies</a> / <a href="connect.html">Connect</a>
   </footer>
+  <script src="assets/js/nav.js"></script>
 </body>
 </html>
