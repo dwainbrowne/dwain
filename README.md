@@ -4,14 +4,19 @@ Static personal profile site for Dwain Browne.
 
 ## Overview
 
-The site is built with plain HTML, CSS, and existing static assets. It presents Dwain's profile, consultation offer, Vibe Code 2 Profit community, LeadScore AI, speaking/keynote availability, live content, blog posts, and social links.
+The site is built with plain HTML, CSS, and existing static assets. It presents Dwain's profile, founder story, companies, consultation offer, Vibe Code to Profit community, speaking/keynote availability, live content, blog posts, and social links.
 
 ## Main Pages
 
 - `index.html` - homepage and profile overview
+- `about.html` - About Me story and background
+- `companies.html` - overview of Dwain's companies
+- `snapsuite.html` - SnapSuite company page
+- `leadscore.html` - LeadScore AI company page
+- `affordly.html` - Affordly company page
+- `vibe-code-to-profit.html` - Vibe Code to Profit company/community page
 - `consultation.html` - free consultation call-to-action
-- `community.html` - Vibe Code 2 Profit community
-- `leadscore.html` - LeadScore AI overview
+- `community.html` - Vibe Code to Profit community
 - `speaking.html` - keynote and workshop booking
 - `live.html` - YouTube, TikTok, and Friday live content hub
 - `connect.html` - social and platform links
