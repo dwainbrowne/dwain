@@ -1135,8 +1135,28 @@ label {
 }
 
 .site-hero {
-	max-width: 880px;
-	padding: 38px 0 76px 0;
+	position: relative;
+	width: 100vw;
+	min-height: 560px;
+	margin-left: calc(50% - 50vw);
+	margin-bottom: 22px;
+	padding: 118px max(34px, calc((100vw - 1120px) / 2 + 54px)) 102px;
+	overflow: hidden;
+	text-align: center;
+	background:
+		linear-gradient(90deg, rgba(17, 16, 15, 0.9), rgba(17, 16, 15, 0.72)),
+		url(../images/profile/business-dwain-browne.JPG) no-repeat center 32%;
+	background-size: cover;
+	box-shadow: 0 22px 54px rgba(31, 24, 20, 0.16);
+	isolation: isolate;
+}
+
+.site-hero:before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(180deg, rgba(12, 11, 10, 0.12), rgba(12, 11, 10, 0.42));
+	z-index: -1;
 }
 
 .eyebrow {
@@ -1159,9 +1179,11 @@ label {
 
 .site-hero h1 {
 	max-width: 850px;
+	margin: 0 auto;
 	font-size: clamp(38px, 4.5vw, 60px);
 	font-weight: 700;
 	line-height: 1.04;
+	color: #fff;
 }
 
 .hero-copy,
@@ -1177,9 +1199,9 @@ label {
 
 .hero-copy {
 	max-width: 650px;
-	margin-top: 28px;
+	margin: 28px auto 0;
 	font-size: 18px;
-	color: #3d3733;
+	color: rgba(255, 255, 255, 0.84);
 }
 
 .button-row {
@@ -1187,6 +1209,10 @@ label {
 	flex-wrap: wrap;
 	gap: 12px;
 	margin-top: 32px;
+}
+
+.site-hero .button-row {
+	justify-content: center;
 }
 
 .db-button {
@@ -1216,6 +1242,11 @@ label {
 	color: #C5283D;
 }
 
+.site-hero .db-button.secondary {
+	border-color: rgba(255, 255, 255, 0.72);
+	color: #fff;
+}
+
 .db-button:hover,
 .db-button:focus {
 	transform: translateY(-1px);
@@ -1235,6 +1266,13 @@ label {
 	color: #fff;
 }
 
+.site-hero .db-button.secondary:hover,
+.site-hero .db-button.secondary:focus {
+	border-color: #fff;
+	background: #fff;
+	color: #1d1917;
+}
+
 .page-hero .db-button.secondary {
 	border-color: rgba(255, 255, 255, 0.58);
 	color: #fff;
@@ -1252,19 +1290,23 @@ label {
 	grid-template-columns: repeat(3, minmax(0, 1fr));
 	gap: 14px;
 	margin-top: 42px;
+	max-width: 920px;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 .quick-stats span {
 	display: block;
 	min-height: 86px;
 	padding: 16px;
-	border: 1px solid rgba(38, 31, 27, 0.12);
+	border: 1px solid rgba(255, 255, 255, 0.22);
 	border-radius: 8px;
-	background: rgba(255, 255, 255, 0.48);
+	background: rgba(17, 16, 15, 0.48);
 	font-family: Poppins, sans-serif;
 	font-size: 12px;
 	line-height: 1.55;
-	color: #5d5651;
+	color: rgba(255, 255, 255, 0.78);
+	backdrop-filter: blur(10px);
 }
 
 .quick-stats strong {
@@ -1273,7 +1315,7 @@ label {
 	font-family: 'Playfair Display', serif;
 	font-size: 24px;
 	line-height: 1;
-	color: #1d1917;
+	color: #fff;
 }
 
 .profile-section {
@@ -1796,20 +1838,25 @@ label {
 .page-hero {
 	position: relative;
 	display: grid;
-	grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
-	gap: 48px;
-	align-items: end;
-	min-height: 440px;
-	margin-top: 34px;
-	padding: 76px 54px 64px;
+	grid-template-columns: minmax(0, 900px);
+	justify-content: center;
+	justify-items: center;
+	gap: 28px;
+	align-items: center;
+	width: 100vw;
+	min-height: 500px;
+	margin-top: 0;
+	margin-left: calc(50% - 50vw);
+	padding: 96px max(34px, calc((100vw - 1120px) / 2 + 54px)) 88px;
 	overflow: hidden;
-	border: 1px solid rgba(38, 31, 27, 0.12);
-	border-radius: 8px;
+	border: 0;
+	border-radius: 0;
 	background:
-		linear-gradient(90deg, rgba(17, 16, 15, 0.98) 0%, rgba(28, 24, 22, 0.94) 44%, rgba(28, 24, 22, 0.78) 62%, rgba(28, 24, 22, 0.4) 100%),
+		linear-gradient(90deg, rgba(17, 16, 15, 0.94) 0%, rgba(28, 24, 22, 0.86) 52%, rgba(28, 24, 22, 0.66) 100%),
 		url(../images/profile/business-friendly-dwain-browne.JPG) no-repeat right center;
 	background-size: cover;
 	box-shadow: 0 22px 54px rgba(31, 24, 20, 0.16);
+	text-align: center;
 }
 
 .page-hero:before {
@@ -1817,15 +1864,14 @@ label {
 	position: absolute;
 	inset: 0;
 	background:
-		linear-gradient(180deg, rgba(12, 11, 10, 0.08), rgba(12, 11, 10, 0.38)),
-		radial-gradient(circle at 78% 28%, rgba(197, 40, 61, 0.3), rgba(197, 40, 61, 0) 34%);
+		linear-gradient(180deg, rgba(12, 11, 10, 0.08), rgba(12, 11, 10, 0.42));
 	z-index: 0;
 }
 
 .page-hero:after {
 	content: attr(data-hero-word);
 	position: absolute;
-	left: 38px;
+	left: 50%;
 	bottom: -32px;
 	z-index: 0;
 	max-width: 100%;
@@ -1837,6 +1883,7 @@ label {
 	color: rgba(255, 255, 255, 0.11);
 	filter: blur(2px);
 	white-space: nowrap;
+	transform: translateX(-50%);
 	pointer-events: none;
 }
 
@@ -1847,6 +1894,7 @@ label {
 
 .page-hero h1 {
 	max-width: 720px;
+	margin: 0 auto;
 	font-family: 'Playfair Display', serif;
 	font-size: clamp(36px, 4.8vw, 62px);
 	font-weight: 700;
@@ -1856,7 +1904,10 @@ label {
 }
 
 .page-hero p {
+	max-width: 760px;
 	margin-top: 24px;
+	margin-right: auto;
+	margin-left: auto;
 	font-family: Poppins, sans-serif;
 	font-size: 18px;
 	line-height: 1.75;
@@ -1872,16 +1923,92 @@ label {
 }
 
 .page-hero .eyebrow {
+	margin-top: 0;
 	color: #f26477;
 }
 
+.page-hero .button-row {
+	justify-content: center;
+}
+
+.hero-image-about {
+	background-image:
+		linear-gradient(90deg, rgba(17, 16, 15, 0.92), rgba(28, 24, 22, 0.76)),
+		url(../images/profile/business-friendly-dwain-browne.JPG);
+	background-position: center 22%;
+}
+
+.hero-image-companies,
+.hero-image-work,
+.hero-image-featured,
+.hero-image-consultation {
+	background-image:
+		linear-gradient(90deg, rgba(17, 16, 15, 0.92), rgba(28, 24, 22, 0.76)),
+		url(../images/profile/multi-tasking-dwain-browne.jpg);
+	background-position: center center;
+}
+
+.hero-image-snapsuite {
+	background-image:
+		linear-gradient(90deg, rgba(17, 16, 15, 0.92), rgba(28, 24, 22, 0.76)),
+		url(../images/profile/dwain-browne-snapsuite-software-developer.jpg);
+	background-position: center 18%;
+}
+
+.hero-image-leadscore {
+	background-image:
+		linear-gradient(90deg, rgba(17, 16, 15, 0.94), rgba(28, 24, 22, 0.78)),
+		url(../images/products/leadscore-ai-sales-pipeline-board.png);
+	background-position: center center;
+}
+
+.hero-image-community,
+.hero-image-vibe,
+.hero-image-live {
+	background-image:
+		linear-gradient(90deg, rgba(17, 16, 15, 0.94), rgba(28, 24, 22, 0.76)),
+		url(../images/products/vibe-coding-meets-distribution.png);
+	background-position: center center;
+}
+
+.hero-image-affordly {
+	background-image:
+		linear-gradient(90deg, rgba(17, 16, 15, 0.92), rgba(28, 24, 22, 0.76)),
+		url(../images/profile/relaxing-dwain-browne.JPG);
+	background-position: center center;
+}
+
+.hero-image-speaking {
+	background-image:
+		linear-gradient(90deg, rgba(17, 16, 15, 0.92), rgba(28, 24, 22, 0.76)),
+		url(../images/profile/snow-dwain-browne.JPG);
+	background-position: center 42%;
+}
+
+.hero-image-blog {
+	background-image:
+		linear-gradient(90deg, rgba(17, 16, 15, 0.92), rgba(28, 24, 22, 0.76)),
+		url(../images/profile/2000-dwain-browne.png);
+	background-position: center center;
+}
+
+.hero-image-connect,
+.hero-image-contact {
+	background-image:
+		linear-gradient(90deg, rgba(17, 16, 15, 0.92), rgba(28, 24, 22, 0.76)),
+		url(../images/profile/business-dwain-browne.JPG);
+	background-position: center 36%;
+}
+
 .hero-note {
+	max-width: 560px;
 	padding: 24px;
 	border: 1px solid rgba(255, 255, 255, 0.22);
 	border-radius: 8px;
 	background: rgba(255, 255, 255, 0.1);
 	backdrop-filter: blur(14px);
 	box-shadow: 0 18px 46px rgba(0, 0, 0, 0.18);
+	text-align: center;
 }
 
 .hero-photo {
@@ -2053,6 +2180,161 @@ label {
 	align-items: center;
 	background: #fff;
 	box-shadow: 0 18px 46px rgba(49, 37, 31, 0.08);
+}
+
+.consultation-options {
+	margin-top: 30px;
+}
+
+.consultation-option {
+	position: relative;
+	overflow: hidden;
+	min-height: 100%;
+	background: rgba(255, 255, 255, 0.78);
+}
+
+.featured-option {
+	border-color: rgba(197, 40, 61, 0.34);
+	background: #fff;
+	box-shadow: 0 18px 46px rgba(49, 37, 31, 0.08);
+}
+
+.option-label {
+	display: inline-block;
+	margin-bottom: 18px;
+	font-family: Poppins, sans-serif;
+	font-size: 11px;
+	font-weight: 800;
+	letter-spacing: 0.14em;
+	line-height: 1.4;
+	text-transform: uppercase;
+	color: #C5283D;
+}
+
+.process-panel {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 18px;
+}
+
+.process-panel article,
+.consultation-form-panel {
+	border: 1px solid rgba(38, 31, 27, 0.12);
+	border-radius: 8px;
+	background: rgba(255, 255, 255, 0.68);
+}
+
+.process-panel article {
+	padding: 24px;
+}
+
+.process-panel span {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 34px;
+	height: 34px;
+	margin-bottom: 18px;
+	border-radius: 50%;
+	background: #C5283D;
+	font-family: Poppins, sans-serif;
+	font-size: 13px;
+	font-weight: 800;
+	color: #fff;
+}
+
+.process-panel h3,
+.form-intro h2 {
+	margin-bottom: 12px;
+	font-family: 'Playfair Display', serif;
+	font-weight: 700;
+	letter-spacing: 0;
+	color: #1d1917;
+}
+
+.process-panel h3 {
+	font-size: 25px;
+	line-height: 1.15;
+}
+
+.process-panel p {
+	font-size: 14px;
+}
+
+.consultation-form-panel {
+	display: grid;
+	grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+	gap: 34px;
+	padding: 30px;
+	background: #fff;
+	box-shadow: 0 18px 46px rgba(49, 37, 31, 0.08);
+}
+
+.form-intro h2 {
+	font-size: 34px;
+	line-height: 1.12;
+}
+
+.consultation-form {
+	display: grid;
+	gap: 18px;
+}
+
+.form-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 18px;
+}
+
+.consultation-form label {
+	display: grid;
+	gap: 9px;
+	margin: 0;
+	font-family: Poppins, sans-serif;
+	font-size: 13px;
+	font-weight: 700;
+	line-height: 1.4;
+	color: #1d1917;
+}
+
+.consultation-form input,
+.consultation-form select,
+.consultation-form textarea {
+	width: 100%;
+	min-height: 46px;
+	padding: 12px 13px;
+	border: 1px solid rgba(38, 31, 27, 0.16);
+	border-radius: 6px;
+	background: #f9f7f3;
+	font-family: Poppins, sans-serif;
+	font-size: 14px;
+	line-height: 1.5;
+	color: #1d1917;
+	outline: none;
+	transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.consultation-form textarea {
+	resize: vertical;
+}
+
+.consultation-form input:focus,
+.consultation-form select:focus,
+.consultation-form textarea:focus {
+	border-color: #C5283D;
+	background: #fff;
+}
+
+.consultation-form button {
+	justify-self: start;
+	margin-top: 4px;
+	cursor: pointer;
+}
+
+.form-note {
+	margin: 0;
+	font-size: 13px !important;
+	color: #6b625c !important;
 }
 
 .product-showcase {
@@ -2772,6 +3054,8 @@ label {
 	.page-grid,
 	.page-grid.two,
 	.product-showcase,
+	.process-panel,
+	.consultation-form-panel,
 	.media-grid,
 	.article-list,
 	.article-layout,
@@ -2790,6 +3074,10 @@ label {
 	}
 
 	.booking-panel {
+		grid-template-columns: 1fr;
+	}
+
+	.form-grid {
 		grid-template-columns: 1fr;
 	}
 
@@ -2840,7 +3128,7 @@ label {
 	}
 
 	.page-hero:after {
-		left: 20px;
+		left: 50%;
 		bottom: -12px;
 		font-size: 70px;
 	}
@@ -2851,6 +3139,14 @@ label {
 
 	.timeline-item {
 		grid-template-columns: 1fr;
+	}
+
+	.consultation-form-panel {
+		padding: 22px;
+	}
+
+	.consultation-form button {
+		width: 100%;
 	}
 
 	.dashboard-window {
