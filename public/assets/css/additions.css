@@ -1311,6 +1311,16 @@ html:has(.dm-header) {
 	text-wrap: balance;
 }
 
+.dm-links-why {
+	margin: 14px auto 0;
+	max-width: 400px;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 1.55;
+	color: #fff;
+	text-wrap: balance;
+}
+
 .dm-links-sub {
 	margin: 12px auto 0;
 	max-width: 380px;
@@ -1807,6 +1817,49 @@ html:has(.dm-header) {
 	color: rgba(255, 255, 255, 0.82) !important;
 }
 
+.dm-f-downsell {
+	margin: 0 0 8px;
+	padding: 24px;
+	border: 1px dashed rgba(197, 40, 61, 0.45);
+	border-radius: 16px;
+	background: #fff;
+	text-align: center;
+}
+
+.dm-f-body .dm-f-downsell h2 {
+	margin-bottom: 8px;
+	font-size: 24px;
+}
+
+.dm-f-body .dm-f-downsell p {
+	margin-bottom: 16px;
+	font-size: 16px;
+}
+
+.dm-f-cta-secondary {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 48px;
+	padding: 12px 20px;
+	border: 2px solid #C5283D;
+	border-radius: 12px;
+	color: #C5283D;
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	text-decoration: none;
+	transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dm-f-cta-secondary:hover,
+.dm-f-cta-secondary:focus {
+	background: #C5283D;
+	color: #fff;
+	text-decoration: none;
+}
+
 .dm-f-faq {
 	border-bottom: 1px solid rgba(38, 31, 27, 0.12);
 }
@@ -1937,16 +1990,19 @@ html:has(.dm-header) {
 	}
 }
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 560px) {
 	.dm-f-teacher {
-		grid-template-columns: 64px minmax(0, 1fr);
-		gap: 14px;
+		grid-template-columns: minmax(0, 1fr);
+		gap: 16px;
 	}
 
 	.dm-f-teacher img {
-		width: 64px;
-		height: 64px;
+		width: 72px;
+		height: 72px;
 	}
+}
+
+@media only screen and (max-width: 420px) {
 
 	.dm-f-stack li {
 		grid-template-columns: 32px minmax(0, 1fr);
