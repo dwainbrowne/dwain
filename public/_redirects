@@ -1,5 +1,12 @@
 /meet https://calendly.com/snapsuite/60min 301
 /skool https://www.skool.com/vibe-code-to-profit-7601/about 301
+/tiktok /links?src=tiktok 302
+/tt /links?src=tiktok 302
+/ig /links?src=instagram 302
+/instagram /links?src=instagram 302
+/yt /links?src=youtube 302
+/youtube /links?src=youtube 302
+/shorts /links?src=youtube 302
 /contact /connect#contact 301
 /contact.html /connect#contact 301
 /portfolio /companies 301

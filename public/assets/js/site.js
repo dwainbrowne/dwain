@@ -16,6 +16,58 @@
     });
   });
 
+  // ---------------- Fixed frosted header (Dwain 30-Sep) ----------------
+  // dm-scrolled: stronger blur once the page moves. dm-on-light: the dark hero
+  // has scrolled out from under the bar, so it switches to light frosted glass
+  // with ink text. --dm-header-h lets sticky elements and anchors clear the bar.
+  (function () {
+    var bar = document.querySelector(".dm-header");
+    if (!bar) return;
+    var hero = document.querySelector(".site-hero, .page-hero");
+    var menu = bar.querySelector(".page-nav-links");
+    function measure() {
+      if (menu && menu.classList.contains("is-open")) return; // the open menu is not the bar's height
+      document.documentElement.style.setProperty("--dm-header-h", bar.offsetHeight + "px");
+    }
+    function update() {
+      bar.classList.toggle("dm-scrolled", (window.pageYOffset || 0) > 8);
+      bar.classList.toggle("dm-on-light", !hero || hero.getBoundingClientRect().bottom <= bar.offsetHeight);
+    }
+    measure();
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", function () { measure(); update(); });
+  })();
+
+  // ---------------- Social visitor bar (Dwain 30-Sep) ----------------
+  // The <head> router marks <html data-dm-social> when a phone visitor from
+  // TikTok, YouTube or Instagram lands on an inner page. Point them to /links.
+  (function () {
+    var from = document.documentElement.getAttribute("data-dm-social");
+    if (!from) return;
+    try { if (window.sessionStorage.getItem("dm-bar-closed")) return; } catch (e) {}
+    var bar = document.createElement("div");
+    bar.className = "dm-social-bar";
+    bar.setAttribute("role", "region");
+    bar.setAttribute("aria-label", "Community and courses");
+    var link = document.createElement("a");
+    link.className = "dm-social-bar-link";
+    link.href = "/links?src=" + encodeURIComponent(from);
+    link.innerHTML = "<strong>New here?</strong> Start a business from scratch: free community, free course";
+    var close = document.createElement("button");
+    close.type = "button";
+    close.className = "dm-social-bar-close";
+    close.setAttribute("aria-label", "Close");
+    close.textContent = "×";
+    close.addEventListener("click", function () {
+      bar.remove();
+      try { window.sessionStorage.setItem("dm-bar-closed", "1"); } catch (e) {}
+    });
+    bar.appendChild(link);
+    bar.appendChild(close);
+    document.body.appendChild(bar);
+  })();
+
   // ---------------- TikTok-style titles (Dwain 10:04 PM; audit section 7) ----------------
   // Built from each card's own title (the h3 keeps the accessible title, so the
   // overlay is aria-hidden). Only the new thumbnail cards get one, never the
