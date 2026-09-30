@@ -1,0 +1,1016 @@
+/* ----------------------------------------------------
+   dwain.me additions (Sep 29, 2026)
+   Loaded AFTER the original stylesheets. Every selector here is NEW and
+   prefixed "dm-", scoped to content added in this update (video cards and
+   modal, company logos, contact form states, one-sheet print layout).
+   No original selector is overridden. Values reuse the original tokens:
+   #C5283D (accent), #1d1917 (ink), #4f4945 / #39332f (text),
+   #f7f4ef (page), rgba(38, 31, 27, 0.12) (borders), 8px / 6px radii,
+   Poppins and 'Playfair Display'.
+-----------------------------------------------------*/
+
+/* ---- Video cards (thumbnail button inside the original .media-frame) ---- */
+
+.dm-video-thumb {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	border: 0;
+	background: #1d1917;
+	cursor: pointer;
+}
+
+.dm-video-thumb img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.dm-video-thumb:after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 58px;
+	height: 40px;
+	border-radius: 6px;
+	background: #C5283D url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5v14l11-7z' fill='%23fff'/%3E%3C/svg%3E") center / 22px no-repeat;
+	transform: translate(-50%, -50%);
+	transition: background-color 0.2s ease;
+}
+
+.dm-video-thumb:hover:after,
+.dm-video-thumb:focus:after {
+	background-color: #1d1917;
+}
+
+.dm-video-thumb:focus {
+	outline: 2px solid #C5283D;
+	outline-offset: 2px;
+}
+
+.dm-video-title {
+	color: #1d1917;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.dm-video-title:hover,
+.dm-video-title:focus {
+	color: #C5283D;
+	text-decoration: none;
+}
+
+.dm-video-grid {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media only screen and (max-width: 900px) {
+	.dm-video-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media only screen and (max-width: 520px) {
+	.dm-video-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* The original .media-card a / .media-frame a rules style plain links as
+   uppercase red text; these scoped rules restore normal card links inside
+   the new video cards only (.dm-video-card). */
+.dm-video-card .dm-video-thumb {
+	display: block;
+	margin-top: 0;
+}
+
+.dm-video-card .dm-video-title {
+	display: inline;
+	margin-top: 0;
+	font-size: inherit;
+	font-weight: inherit;
+	letter-spacing: 0;
+	line-height: inherit;
+	text-transform: none;
+	color: #1d1917;
+}
+
+.dm-video-card .dm-video-title:hover,
+.dm-video-card .dm-video-title:focus {
+	color: #C5283D;
+}
+
+.dm-video-series {
+	margin-top: 42px;
+}
+
+/* Same values as the original .page-card h3 / .media-card h3 heading style. */
+.dm-series-title {
+	margin-bottom: 18px;
+	font-family: Poppins, sans-serif;
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 1.35;
+	color: #1d1917;
+}
+
+.dm-video-series:first-of-type {
+	margin-top: 0;
+}
+
+.dm-see-more {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin-top: 24px;
+}
+
+.dm-hidden-item {
+	display: none;
+}
+
+.dm-show-all .dm-hidden-item {
+	display: block;
+}
+
+/* ---- Video modal ---- */
+
+.dm-modal {
+	position: fixed;
+	inset: 0;
+	z-index: 1000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 24px;
+	background: rgba(12, 12, 16, 0.86);
+}
+
+.dm-modal[hidden] {
+	display: none;
+}
+
+.dm-modal-dialog {
+	position: relative;
+	width: min(1040px, 100%);
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	border-radius: 8px;
+	background: #1d1917;
+	box-shadow: 0 22px 54px rgba(0, 0, 0, 0.4);
+}
+
+.dm-modal-frame {
+	aspect-ratio: 16 / 9;
+	background: #000;
+}
+
+.dm-modal-frame iframe {
+	display: block;
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+
+.dm-modal-bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	padding: 14px 18px;
+	font-family: Poppins, sans-serif;
+}
+
+.dm-modal-title {
+	margin: 0;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1.4;
+	color: #fff;
+}
+
+.dm-modal-link {
+	flex: none;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.78);
+	text-decoration: none;
+}
+
+.dm-modal-link:hover,
+.dm-modal-link:focus {
+	color: #C5283D;
+	text-decoration: none;
+}
+
+.dm-modal-close {
+	position: absolute;
+	top: -48px;
+	right: 0;
+	width: 40px;
+	height: 40px;
+	padding: 0;
+	border: 1px solid rgba(255, 255, 255, 0.26);
+	border-radius: 8px;
+	background: rgba(12, 12, 16, 0.36);
+	color: #fff;
+	font-family: Poppins, sans-serif;
+	font-size: 22px;
+	line-height: 1;
+	cursor: pointer;
+}
+
+.dm-modal-close:hover,
+.dm-modal-close:focus {
+	background: #C5283D;
+	border-color: #C5283D;
+}
+
+.dm-modal-open {
+	overflow: hidden;
+}
+
+@media only screen and (max-width: 760px) {
+	.dm-modal {
+		padding: 64px 0 0;
+		align-items: flex-start;
+	}
+
+	.dm-modal-dialog {
+		width: 100%;
+		border-radius: 0;
+		border-right: 0;
+		border-left: 0;
+	}
+
+	.dm-modal-close {
+		top: -52px;
+		right: 12px;
+	}
+
+	.dm-modal-bar {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}
+
+/* ---- Company logos inside original cards ---- */
+
+.dm-logo {
+	display: block;
+	height: 42px;
+	width: auto;
+	margin-bottom: 16px;
+}
+
+.dm-logo-square {
+	width: 42px;
+	border-radius: 8px;
+}
+
+.dm-wordmark {
+	display: inline-block;
+	margin-bottom: 16px;
+	font-family: 'Playfair Display', serif;
+	font-size: 22px;
+	font-weight: 700;
+	line-height: 42px;
+	color: #1d1917;
+}
+
+.dm-link-list {
+	margin-top: 8px;
+}
+
+.dm-link-list a {
+	margin-right: 14px;
+}
+
+/* ---- Contact form states (inside the original .consultation-form) ---- */
+
+.dm-field-error {
+	display: none;
+	font-size: 12px;
+	font-weight: 600;
+	color: #C5283D;
+}
+
+.dm-invalid .dm-field-error {
+	display: block;
+}
+
+.dm-invalid input,
+.dm-invalid select,
+.dm-invalid textarea {
+	border-color: #C5283D;
+}
+
+.dm-optional {
+	font-weight: 400;
+	color: #6b625c;
+}
+
+.dm-honeypot {
+	position: absolute;
+	left: -10000px;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+.dm-form-status {
+	display: none;
+	padding: 14px;
+	border: 1px solid #C5283D;
+	border-radius: 6px;
+	background: #fff;
+	font-family: Poppins, sans-serif;
+	font-size: 13px;
+	line-height: 1.55;
+	color: #1d1917;
+}
+
+.dm-form-status.dm-error {
+	display: block;
+}
+
+.dm-form-success h3 {
+	margin-bottom: 12px;
+	font-family: 'Playfair Display', serif;
+	font-size: 28px;
+	font-weight: 700;
+	line-height: 1.15;
+	color: #1d1917;
+}
+
+.dm-form-success[hidden] {
+	display: none;
+}
+
+/* ---- Talk cards and bios ---- */
+
+.dm-talk-meta {
+	margin-bottom: 14px;
+	font-family: Poppins, sans-serif;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	line-height: 1.6;
+	color: #6f645d;
+}
+
+.dm-copy-source p + p {
+	margin-top: 14px;
+}
+
+.dm-copy-button {
+	margin-top: 18px;
+	cursor: pointer;
+}
+
+.dm-headshot {
+	display: block;
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+	border-radius: 8px;
+	margin-bottom: 16px;
+	background: #1d1917;
+}
+
+.dm-headshot-portrait {
+	object-position: 50% 20%;
+}
+
+/* ---- One-sheet (screen + print) ---- */
+
+.dm-sheet-head {
+	display: grid;
+	grid-template-columns: 150px minmax(0, 1fr);
+	gap: 26px;
+	align-items: center;
+}
+
+.dm-sheet-head img {
+	width: 150px;
+	height: 184px;
+	object-fit: cover;
+	object-position: 50% 15%;
+	border-radius: 8px;
+}
+
+.dm-sheet-head h1 {
+	font-family: 'Playfair Display', serif;
+	font-size: 40px;
+	font-weight: 700;
+	line-height: 1.05;
+	color: #1d1917;
+}
+
+@media only screen and (max-width: 760px) {
+	.dm-sheet-head {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media print {
+	@page {
+		size: letter;
+		margin: 0.35in 0.45in;
+	}
+
+	.dm-one-sheet .page-nav,
+	.dm-one-sheet .page-footer,
+	.dm-one-sheet .dm-no-print {
+		display: none !important;
+	}
+
+	.dm-one-sheet,
+	.dm-one-sheet .site-page {
+		background: #fff;
+	}
+
+	.dm-one-sheet .content-section {
+		padding: 6px 0;
+		border-bottom: 0;
+	}
+
+	.dm-one-sheet .content-section h2 {
+		margin-bottom: 8px;
+		font-size: 17px;
+	}
+
+	.dm-one-sheet .content-section p,
+	.dm-one-sheet .service-list li,
+	.dm-one-sheet .page-card p {
+		font-size: 9pt;
+		line-height: 1.35;
+	}
+
+	.dm-one-sheet .page-card {
+		padding: 10px 12px;
+		break-inside: avoid;
+	}
+
+	.dm-one-sheet .page-card h3 {
+		margin-bottom: 6px;
+		font-size: 10.5pt;
+	}
+
+	.dm-one-sheet .service-list {
+		margin-top: 8px;
+	}
+
+	.dm-one-sheet .service-list li {
+		margin-bottom: 4px;
+	}
+
+	.dm-one-sheet .page-grid.two {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 12px;
+	}
+
+	.dm-one-sheet .page-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 12px;
+	}
+
+	.dm-one-sheet .page-shell {
+		width: 100%;
+	}
+
+	.dm-one-sheet .dm-sheet-head img {
+		width: 1.2in;
+		height: 1.45in;
+	}
+
+	.dm-one-sheet .dm-sheet-head h1 {
+		font-size: 26pt;
+	}
+
+	.dm-one-sheet *,
+	.dm-one-sheet *::before {
+		-webkit-print-color-adjust: exact;
+		print-color-adjust: exact;
+	}
+
+	.dm-one-sheet .page-grid + p {
+		margin-top: 10px;
+	}
+}
+
+/* ---- Shared header (Dwain 9:32 PM): same header on every page ----
+   The logo lockup's left edge lines up with the centred content container
+   (the original .page-shell: min(1120px, 100% - 72px), or 100% - 40px under
+   900px). Symmetric padding keeps the nav links centred on the page. Only the
+   new dm-header hook is targeted. */
+html:has(.dm-header) {
+	scrollbar-gutter: stable;
+}
+
+.dm-header {
+	padding-right: max(36px, calc((100% - 1120px) / 2));
+	padding-left: max(36px, calc((100% - 1120px) / 2));
+}
+
+/* Frosted bar + hairline (Dwain 29-Sep): separates the header from the hero
+   without changing its size or link positions. */
+.dm-header {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+	background: rgba(12, 12, 16, 0.42);
+	-webkit-backdrop-filter: blur(14px) saturate(140%);
+	backdrop-filter: blur(14px) saturate(140%);
+}
+
+.dm-header .brand-link {
+	left: max(36px, calc((100% - 1120px) / 2));
+}
+
+@media only screen and (max-width: 900px) {
+	.dm-header {
+		padding-right: 20px;
+		padding-left: 20px;
+	}
+}
+
+@media only screen and (max-width: 760px) {
+	.dm-header .page-nav-links {
+		max-height: calc(100vh - 110px);
+		overflow-y: auto;
+	}
+}
+
+/* ---- Video area side navigation (Dwain 9:32 PM) ----
+   Desktop: a sticky column listing every video section. Mobile: a compact,
+   horizontally scrolling chip row above the sections. Original tokens only. */
+.dm-video-layout {
+	display: grid;
+	grid-template-columns: 180px minmax(0, 1fr);
+	gap: 36px;
+	align-items: start;
+}
+
+.dm-video-main {
+	min-width: 0;
+}
+
+.dm-side-nav {
+	position: sticky;
+	top: 24px;
+	z-index: 20;
+	padding: 72px 0 24px;
+}
+
+.dm-side-nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.dm-side-nav li {
+	margin: 0;
+	padding: 0;
+}
+
+.dm-side-link {
+	display: block;
+	padding: 8px 0 8px 14px;
+	border-left: 2px solid rgba(38, 31, 27, 0.12);
+	font-family: Poppins, sans-serif;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	line-height: 1.4;
+	text-transform: uppercase;
+	color: #6f645d;
+	text-decoration: none;
+}
+
+.dm-side-link:hover,
+.dm-side-link:focus,
+.dm-side-link.dm-active {
+	border-left-color: #C5283D;
+	color: #C5283D;
+	text-decoration: none;
+}
+
+.dm-video-anchor {
+	scroll-margin-top: 24px;
+}
+
+/* Homepage: the video area sits in the original 920px profile column, so it
+   uses the full profile width and two-column video grids. */
+.dm-video-area {
+	max-width: none;
+}
+
+.dm-video-area .dm-side-nav {
+	padding-top: 0;
+}
+
+.dm-video-area .dm-video-grid {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.dm-video-block {
+	padding-bottom: 56px;
+}
+
+.dm-video-block + .dm-video-block {
+	padding-top: 56px;
+	border-top: 1px solid rgba(38, 31, 27, 0.12);
+}
+
+@media only screen and (max-width: 900px) {
+	.dm-video-layout {
+		display: block;
+	}
+
+	.dm-side-nav {
+		top: 0;
+		margin: 0 -20px;
+		padding: 12px 20px;
+		overflow-x: auto;
+		background: #f7f4ef;
+		border-bottom: 1px solid rgba(38, 31, 27, 0.12);
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.dm-side-nav .section-kicker {
+		display: none;
+	}
+
+	.dm-side-nav ul {
+		display: flex;
+		gap: 8px;
+		width: max-content;
+	}
+
+	.dm-side-link {
+		padding: 8px 12px;
+		border: 1px solid rgba(38, 31, 27, 0.12);
+		border-radius: 6px;
+		background: #fff;
+		white-space: nowrap;
+	}
+
+	.dm-side-link:hover,
+	.dm-side-link:focus,
+	.dm-side-link.dm-active {
+		border-color: #C5283D;
+	}
+
+	.dm-video-anchor {
+		scroll-margin-top: 72px;
+	}
+
+	.dm-video-area .dm-side-nav {
+		margin: 0 -22px;
+		padding: 12px 22px;
+	}
+}
+
+@media only screen and (max-width: 520px) {
+	.dm-video-area .dm-video-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* ---- Mobile hero fix (layout bug on the live site too) ----
+   Under 900px the original CSS sets .page-hero to one column, but
+   .page-hero:has(.hero-note) is more specific and keeps two columns, so the
+   hero note overlapped the text and buttons at 390px. The new dm-hero hook
+   restores the single column the original media query intended. */
+@media only screen and (max-width: 900px) {
+	.dm-hero:has(.hero-note) {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.dm-hero .hero-note {
+		justify-self: start;
+	}
+}
+
+/* ---- Shorts (Dwain 9:45 PM): vertical 9:16 cards ----
+   Desktop: a grid, 6 per row (4 in the narrower homepage column).
+   Mobile: a swipeable row with scroll-snap that scrolls inside itself. */
+.dm-shorts-row {
+	display: grid;
+	grid-template-columns: repeat(6, minmax(0, 1fr));
+	gap: 14px;
+}
+
+.dm-video-area .dm-shorts-row {
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.dm-short-card {
+	min-width: 0;
+}
+
+.dm-short-card .dm-short-thumb {
+	position: relative;
+	display: block;
+	aspect-ratio: 9 / 16;
+	margin: 0 0 10px;
+	overflow: hidden;
+	border: 1px solid rgba(38, 31, 27, 0.12);
+	border-radius: 8px;
+	background: #1d1917;
+}
+
+.dm-short-card .dm-short-thumb img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.dm-short-card .dm-short-thumb:after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 44px;
+	height: 32px;
+	border-radius: 6px;
+	background: #C5283D url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5v14l11-7z' fill='%23fff'/%3E%3C/svg%3E") center / 18px no-repeat;
+	transform: translate(-50%, -50%);
+}
+
+.dm-short-card .section-kicker {
+	margin-bottom: 6px;
+}
+
+.dm-short-card h3 {
+	margin: 0;
+	font-family: Poppins, sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1.35;
+	color: #1d1917;
+}
+
+.dm-short-card .dm-video-title {
+	color: #1d1917;
+	text-decoration: none;
+}
+
+.dm-short-card .dm-video-title:hover,
+.dm-short-card .dm-video-title:focus {
+	color: #C5283D;
+	text-decoration: none;
+}
+
+@media only screen and (max-width: 900px) {
+	.dm-shorts-row,
+	.dm-video-area .dm-shorts-row {
+		display: flex;
+		gap: 12px;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		padding-bottom: 8px;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.dm-short-card {
+		flex: 0 0 42%;
+		scroll-snap-align: start;
+	}
+}
+
+/* 9:16 player for Shorts in the modal */
+.dm-modal-vertical {
+	width: min(420px, 100%);
+}
+
+.dm-modal-vertical .dm-modal-frame {
+	aspect-ratio: 9 / 16;
+	max-height: calc(100vh - 160px);
+}
+
+/* ---- Header "Get in touch" (Dwain 9:42 PM) ----
+   The live primary button (db-button primary), sized for the header. It is
+   absolutely positioned on the right content edge, so the centred nav links
+   keep the same x-positions on every page. Under 760px it moves into the
+   mobile menu (dm-menu-cta) so the bar does not crowd or overflow. */
+.dm-header .dm-header-cta {
+	position: absolute;
+	top: 12px;
+	right: max(36px, calc((100% - 1120px) / 2));
+	min-height: 36px;
+	padding: 8px 14px;
+	font-size: 12px;
+	white-space: nowrap;
+}
+
+.dm-header .page-nav-links .dm-menu-cta {
+	display: none;
+}
+
+@media only screen and (max-width: 1120px) {
+	.dm-header .dm-header-cta {
+		top: 21px;
+	}
+}
+
+@media only screen and (max-width: 900px) {
+	.dm-header .dm-header-cta {
+		right: 20px;
+	}
+}
+
+@media only screen and (max-width: 760px) {
+	.dm-header .dm-header-cta {
+		display: none;
+	}
+
+	.dm-header .page-nav-links .dm-menu-cta {
+		display: block;
+		color: #fff;
+	}
+}
+
+/* ---- Company logos on dark page heroes: a white chip keeps real colours legible ---- */
+.dm-hero-logo {
+	display: inline-flex;
+	align-items: center;
+	height: 52px;
+	margin-bottom: 20px;
+	padding: 8px 14px;
+	border-radius: 8px;
+	background: #fff;
+}
+
+.dm-hero-logo img {
+	display: block;
+	height: 36px;
+	width: auto;
+}
+
+.dm-hero-logo-square {
+	padding: 6px;
+}
+
+.dm-hero-logo-square img {
+	height: 40px;
+}
+
+.dm-hero-wordmark {
+	font-family: 'Playfair Display', serif;
+	font-size: 20px;
+	font-weight: 700;
+	color: #1d1917;
+}
+
+/* ---- TikTok-style slanted titles on video cards (Dwain 10:04 PM) ----
+   Spec: _brief/source/2026-09-29-tiktok-audit.md section 7. A layer added
+   over the new thumbnail buttons only (never the original iframe embeds).
+   Visible on render; after the card is 50% in view it holds 5 s, then fades
+   out in 240 ms; hover and keyboard focus bring it back (150 ms); with
+   prefers-reduced-motion it stays put. Colours come from the site palette
+   (audit 7.2). Dark ink text on the yellow, orange, pink and green boxes. */
+.dm-video-card .dm-video-thumb,
+.dm-short-card .dm-short-thumb,
+.dm-modal-frame {
+	position: relative;
+	overflow: hidden;
+	container-type: inline-size;
+}
+
+.dm-tt-title {
+	--tt-bg: rgba(197, 40, 61, 0.82);
+	--tt-fg: #fff;
+	--tt-angle: -10deg;
+	--tt-exit-ms: 240ms;
+	position: absolute;
+	left: 48%;
+	top: 27%;
+	z-index: 2;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 72%;
+	min-height: 3.34em;
+	min-height: calc(2lh + 1.1em);
+	padding: 0.55em 1em;
+	border-radius: 0.45em;
+	background: var(--tt-bg);
+	color: var(--tt-fg);
+	font: 700 clamp(14px, 5.4cqi, 26px) / 1.12 Poppins, sans-serif;
+	letter-spacing: 0;
+	text-align: center;
+	text-transform: none;
+	text-wrap: balance;
+	transform: translate(-50%, -50%) rotate(var(--tt-angle));
+	pointer-events: none;
+	opacity: 1;
+	transition: opacity var(--tt-exit-ms) linear;
+}
+
+.dm-tt-title > span {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	/* Poppins ascenders and descenders (about 1.4em) are taller than the 1.12
+	   line-height, so glyphs spilled about 2px past the clip box. The padding
+	   keeps them inside; the equal negative margin keeps the box size unchanged. */
+	padding: 0.16em 0;
+	margin: -0.16em 0;
+}
+
+.dm-tt-title.dm-tt-out {
+	opacity: 0;
+}
+
+.dm-video-card:hover .dm-tt-title,
+.dm-video-card:focus-within .dm-tt-title,
+.dm-short-card:hover .dm-tt-title,
+.dm-short-card:focus-within .dm-tt-title {
+	opacity: 1;
+	transition-duration: 150ms;
+}
+
+/* Shorts are vertical and narrow: a wider box nearer the top. */
+.dm-short-card .dm-tt-title {
+	top: 22%;
+	width: 86%;
+	font-size: clamp(12px, 9cqi, 20px);
+}
+
+/* In the modal the title sits over the playing video for 60 s; YouTube's
+   controls stay clickable (pointer-events: none above). */
+.dm-modal-frame .dm-tt-title {
+	top: 18%;
+	width: 60%;
+	font-size: clamp(16px, 4.2cqi, 30px);
+}
+
+/* Topic colours (audit 7.2, site palette only). */
+[data-dm-topic="developer"] .dm-tt-title,
+.dm-tt-title[data-dm-topic="developer"] {
+	--tt-bg: rgba(29, 25, 23, 0.8);
+	--tt-fg: #fff;
+}
+
+[data-dm-topic="cloudflare"] .dm-tt-title,
+[data-dm-topic="azure"] .dm-tt-title,
+.dm-tt-title[data-dm-topic="cloudflare"],
+.dm-tt-title[data-dm-topic="azure"] {
+	--tt-bg: rgba(255, 100, 40, 0.85);
+	--tt-fg: #1d1917;
+}
+
+[data-dm-topic="tutorials"] .dm-tt-title,
+.dm-tt-title[data-dm-topic="tutorials"] {
+	--tt-bg: rgba(102, 186, 53, 0.88);
+	--tt-fg: #1d1917;
+}
+
+[data-dm-topic="entrepreneur"] .dm-tt-title,
+.dm-tt-title[data-dm-topic="entrepreneur"] {
+	--tt-bg: rgba(197, 40, 61, 0.82);
+	--tt-fg: #fff;
+}
+
+[data-dm-topic="productivity"] .dm-tt-title,
+.dm-tt-title[data-dm-topic="productivity"] {
+	--tt-bg: rgba(246, 166, 35, 0.88);
+	--tt-fg: #1d1917;
+}
+
+[data-dm-topic="snapsuite"] .dm-tt-title,
+.dm-tt-title[data-dm-topic="snapsuite"] {
+	--tt-bg: rgba(245, 181, 43, 0.88);
+	--tt-fg: #1d1917;
+}
+
+[data-dm-topic="leadscore"] .dm-tt-title,
+.dm-tt-title[data-dm-topic="leadscore"] {
+	--tt-bg: rgba(242, 100, 119, 0.88);
+	--tt-fg: #1d1917;
+}
+
+[data-dm-topic="lives"] .dm-tt-title,
+.dm-tt-title[data-dm-topic="lives"] {
+	--tt-bg: rgba(255, 49, 66, 0.85);
+	--tt-fg: #fff;
+	font-size: clamp(19px, 5.4cqi, 26px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.dm-tt-title {
+		transition: none;
+	}
+
+	.dm-tt-title.dm-tt-out {
+		opacity: 1;
+	}
+}
