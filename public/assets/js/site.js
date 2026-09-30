@@ -256,7 +256,7 @@
     Object.keys(rules).forEach(function (name) { if (!check(name) && !firstBad) firstBad = form.elements[name]; });
     if (firstBad) { firstBad.focus(); return; }
     if (window.location.protocol === "file:") {
-      showError("The form needs the site to be served (bun run dev), not opened as a file. You can also email dwain@snapsuite.io.");
+      showError("The form needs the site to be served (bun run dev), not opened as a file. You can also book a call at dwain.me/meet.");
       return;
     }
     var data = {};
@@ -273,9 +273,9 @@
       .then(function (r) {
         if (r.res.ok && r.body.ok) { form.hidden = true; success.hidden = false; success.focus(); return; }
         if (r.body.errors) Object.keys(r.body.errors).forEach(function (n) { if (form.elements[n]) setError(n, r.body.errors[n]); });
-        showError(r.body.message || "Something went wrong on my end. Please try again, or email dwain@snapsuite.io.");
+        showError(r.body.message || "Something went wrong on my end. Please try again, or book a call at dwain.me/meet.");
       })
-      .catch(function () { showError("Couldn't reach the server. Check your connection and try again, or email dwain@snapsuite.io."); })
+      .catch(function () { showError("Couldn't reach the server. Check your connection and try again, or book a call at dwain.me/meet."); })
       .then(function () { submit.disabled = false; submit.textContent = label; });
   });
 })();

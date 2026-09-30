@@ -1014,3 +1014,17 @@ html:has(.dm-header) {
 		opacity: 1;
 	}
 }
+
+/* ---- Booking panel with two buttons (Dwain 30-Sep: form OR calendar, never email) ---- */
+.dm-booking-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	justify-content: flex-end;
+}
+
+@media only screen and (max-width: 760px) {
+	.dm-booking-actions {
+		justify-content: flex-start;
+	}
+}
