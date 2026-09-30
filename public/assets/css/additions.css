@@ -1279,9 +1279,9 @@ html:has(.dm-header) {
 
 .dm-links-avatar {
 	display: block;
-	width: 104px;
-	height: 104px;
-	margin: 0 auto 16px;
+	width: 76px;
+	height: 76px;
+	margin: 0 auto 12px;
 	border: 3px solid rgba(255, 255, 255, 0.92);
 	border-radius: 50%;
 	object-fit: cover;
@@ -1305,16 +1305,16 @@ html:has(.dm-header) {
 .dm-links h1 {
 	margin: 0;
 	font-family: 'Playfair Display', serif;
-	font-size: clamp(30px, 8vw, 38px);
+	font-size: clamp(22px, 6vw, 26px);
 	font-weight: 700;
 	line-height: 1.1;
 	text-wrap: balance;
 }
 
 .dm-links-why {
-	margin: 14px auto 0;
+	margin: 10px auto 0;
 	max-width: 400px;
-	font-size: 16px;
+	font-size: 14px;
 	font-weight: 500;
 	line-height: 1.55;
 	color: #fff;
@@ -1322,9 +1322,9 @@ html:has(.dm-header) {
 }
 
 .dm-links-sub {
-	margin: 12px auto 0;
+	margin: 8px auto 0;
 	max-width: 380px;
-	font-size: 15px;
+	font-size: 14px;
 	line-height: 1.6;
 	color: rgba(255, 255, 255, 0.8);
 	text-wrap: balance;
