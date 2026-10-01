@@ -23,7 +23,7 @@
   (function () {
     var bar = document.querySelector(".dm-header");
     if (!bar) return;
-    var hero = document.querySelector(".site-hero, .page-hero");
+    var hero = document.querySelector(".site-hero, .page-hero, .dm-f-hero, .dm-links");
     var menu = bar.querySelector(".page-nav-links");
     function measure() {
       if (menu && menu.classList.contains("is-open")) return; // the open menu is not the bar's height
@@ -68,58 +68,6 @@
     document.body.appendChild(bar);
   })();
 
-  // ---------------- TikTok-style titles (Dwain 10:04 PM; audit section 7) ----------------
-  // Built from each card's own title (the h3 keeps the accessible title, so the
-  // overlay is aria-hidden). Only the new thumbnail cards get one, never the
-  // original iframe embeds.
-  var REDUCE = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var CARD_HOLD_MS = 5000, MODAL_HOLD_MS = 60000;
-  // Test hook only (verification server): <html data-dm-tt-hold="500"> shortens the card hold.
-  var holdAttr = parseInt(document.documentElement.getAttribute("data-dm-tt-hold"), 10);
-  if (holdAttr > 0) CARD_HOLD_MS = holdAttr;
-
-  function ttHook(title) {
-    var t = (title || "").trim();
-    var head = t.split(/:\s| \| /)[0];
-    return head.length >= 12 && head.length < t.length ? head : t;
-  }
-  function ttMake(text, topic) {
-    var el = document.createElement("span");
-    el.className = "dm-tt-title";
-    el.setAttribute("aria-hidden", "true");
-    if (topic) el.setAttribute("data-dm-topic", topic);
-    var inner = document.createElement("span");
-    inner.textContent = text;
-    el.appendChild(inner);
-    return el;
-  }
-  function ttTopic(node) {
-    var sec = node.closest ? node.closest("[data-dm-topic]") : null;
-    return sec ? sec.getAttribute("data-dm-topic") : "";
-  }
-
-  (function () {
-    var thumbs = document.querySelectorAll(".dm-video-card .dm-video-thumb, .dm-short-card .dm-short-thumb");
-    if (!thumbs.length) return;
-    var io = "IntersectionObserver" in window ? new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        io.unobserve(e.target);
-        if (REDUCE) return;
-        setTimeout(function () {
-          var t = e.target.querySelector(".dm-tt-title");
-          if (t) t.classList.add("dm-tt-out");
-        }, CARD_HOLD_MS);
-      });
-    }, { threshold: 0.5 }) : null;
-    Array.prototype.forEach.call(thumbs, function (thumb) {
-      var text = thumb.getAttribute("data-dm-hook") || ttHook(thumb.getAttribute("data-dm-title") || (thumb.querySelector("img") || {}).alt);
-      if (!text) return;
-      thumb.appendChild(ttMake(text));
-      if (io) io.observe(thumb);
-    });
-  })();
-
   // ---------------- Video modal ----------------
   // Cards are plain links to YouTube (works without JS). With JS, clicking
   // the thumbnail or title opens a modal and only then creates the iframe.
@@ -160,10 +108,6 @@
     iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
     iframe.allowFullscreen = true;
     frame.appendChild(iframe);
-    var tt = ttMake(trigger.getAttribute("data-dm-hook") || ttHook(title), ttTopic(trigger));
-    tt.style.setProperty("--tt-exit-ms", "0ms"); // TikTok hard cut in the player
-    frame.appendChild(tt);
-    if (!REDUCE) setTimeout(function () { tt.classList.add("dm-tt-out"); }, MODAL_HOLD_MS);
     modal.querySelector(".dm-modal-title").textContent = title;
     modal.querySelector(".dm-modal-link").href = (trigger.hasAttribute("data-dm-vertical") ? "https://www.youtube.com/shorts/" : "https://www.youtube.com/watch?v=") + encodeURIComponent(id);
     modal.hidden = false;

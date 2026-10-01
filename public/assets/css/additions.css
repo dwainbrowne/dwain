@@ -9,6 +9,253 @@
    Poppins and 'Playfair Display'.
 -----------------------------------------------------*/
 
+/* ---- Shared header + footer on the funnel pages (Dwain 1-Oct) ----
+   /links and the offer landing pages do not load the original Bootstrap or
+   style.css (their own rules are further down). These are the original
+   style.css rules the shared header() and footer() rely on, copied as-is
+   and scoped to those pages with :where(.dm-funnel), which adds no specificity, so the
+   dm-header / dm-footer rules below apply exactly as on every other page.
+   They sit first in this file, i.e. in the same cascade position as
+   style.css on the other pages. Only additions: the margin and line-height
+   the original reset gives these elements on the other pages. */
+:where(.dm-funnel) .page-nav {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 30;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 28px;
+	margin: 0;
+	padding: 24px 54px;
+	border-bottom: 0;
+	background: linear-gradient(180deg, rgba(12, 12, 16, 0.72), rgba(12, 12, 16, 0));
+	backdrop-filter: none;
+	font-size: 16px;
+	line-height: 1;
+}
+
+:where(.dm-funnel) .brand-link {
+	position: absolute;
+	left: 54px;
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	font-family: Poppins, sans-serif;
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: #fff;
+	text-decoration: none;
+}
+
+:where(.dm-funnel) .brand-link img {
+	width: 34px;
+	height: 34px;
+}
+
+:where(.dm-funnel) .page-nav-links {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 17px;
+}
+
+:where(.dm-funnel) .page-nav-links a {
+	font-family: Poppins, sans-serif;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.78);
+	text-decoration: none;
+}
+
+:where(.dm-funnel) .page-nav a:hover,
+:where(.dm-funnel) .page-nav a:focus,
+:where(.dm-funnel) .brand-link:hover,
+:where(.dm-funnel) .brand-link:focus {
+	color: #C5283D;
+	text-decoration: none;
+}
+
+:where(.dm-funnel) .nav-toggle {
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	width: 42px;
+	height: 42px;
+	margin: 0;
+	padding: 0;
+	border: 1px solid rgba(255, 255, 255, 0.26);
+	border-radius: 8px;
+	background: rgba(12, 12, 16, 0.36);
+	cursor: pointer;
+}
+
+:where(.dm-funnel) .nav-toggle span:not(.screen-reader-text) {
+	display: block;
+	position: absolute;
+	left: 50%;
+	width: 18px;
+	height: 2px;
+	border-radius: 999px;
+	background: #fff;
+	transform: translateX(-50%);
+	transition: top 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+
+:where(.dm-funnel) .nav-toggle span:nth-child(1) {
+	top: 14px;
+}
+
+:where(.dm-funnel) .nav-toggle span:nth-child(2) {
+	top: 20px;
+}
+
+:where(.dm-funnel) .nav-toggle span:nth-child(3) {
+	top: 26px;
+}
+
+:where(.dm-funnel) .nav-toggle.is-open span:nth-child(1) {
+	top: 20px;
+	transform: translateX(-50%) rotate(45deg);
+}
+
+:where(.dm-funnel) .nav-toggle.is-open span:nth-child(2) {
+	opacity: 0;
+}
+
+:where(.dm-funnel) .nav-toggle.is-open span:nth-child(3) {
+	top: 20px;
+	transform: translateX(-50%) rotate(-45deg);
+}
+
+:where(.dm-funnel) .screen-reader-text {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+:where(.dm-funnel) .db-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 46px;
+	padding: 12px 18px;
+	border: 1px solid #C5283D;
+	border-radius: 6px;
+	font-family: Poppins, sans-serif;
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	text-decoration: none;
+	transition: 0.2s ease;
+}
+
+:where(.dm-funnel) .db-button.primary {
+	background: #C5283D;
+	color: #fff;
+}
+
+:where(.dm-funnel) .db-button:hover,
+:where(.dm-funnel) .db-button:focus {
+	transform: translateY(-1px);
+	text-decoration: none;
+}
+
+:where(.dm-funnel) .db-button.primary:hover,
+:where(.dm-funnel) .db-button.primary:focus {
+	background: #1d1917;
+	border-color: #1d1917;
+	color: #fff;
+}
+
+:where(.dm-funnel) .page-shell {
+	width: min(1120px, calc(100% - 72px));
+	margin: 0 auto;
+}
+
+:where(.dm-funnel) .page-footer {
+	padding: 46px 0 70px;
+	font-family: Poppins, sans-serif;
+	font-size: 12px;
+	color: #5d5651;
+}
+
+:where(.dm-funnel) .page-footer a {
+	color: #C5283D;
+	text-decoration: none;
+}
+
+@media only screen and (max-width: 1120px) {
+	:where(.dm-funnel) .page-nav {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		align-items: center;
+		gap: 16px;
+		padding: 22px;
+	}
+
+	:where(.dm-funnel) .brand-link {
+		position: static;
+		justify-content: flex-start;
+	}
+
+	:where(.dm-funnel) .page-nav-links {
+		grid-column: 1 / -1;
+		justify-content: center;
+		margin-top: 2px;
+	}
+}
+
+@media only screen and (max-width: 760px) {
+	:where(.dm-funnel) .page-nav .nav-toggle {
+		display: inline-flex;
+		justify-self: end;
+	}
+
+	:where(.dm-funnel) .page-nav-links {
+		display: none;
+		grid-template-columns: 1fr;
+		gap: 0;
+		width: 100%;
+	}
+
+	:where(.dm-funnel) .page-nav-links.is-open {
+		display: grid;
+		padding: 10px 14px 0;
+		border: 1px solid rgba(255, 255, 255, 0.18);
+		border-radius: 8px;
+		background: rgba(12, 12, 16, 0.9);
+	}
+
+	:where(.dm-funnel) .page-nav-links a {
+		display: block;
+		padding: 14px 0;
+		border-top: 1px solid rgba(255, 255, 255, 0.12);
+		text-align: left;
+	}
+}
+
+@media only screen and (max-width: 900px) {
+	:where(.dm-funnel) .page-shell {
+		width: min(100% - 40px, 1120px);
+	}
+}
+
 /* ---- Video cards (thumbnail button inside the original .media-frame) ---- */
 
 .dm-video-thumb {
@@ -373,6 +620,12 @@
 	cursor: pointer;
 }
 
+/* "Show all N lives" reuses the copy-button class; in the Lives button row it
+   lines up with its neighbours (no copy-button top margin). */
+.dm-see-more .dm-copy-button {
+	margin-top: 0;
+}
+
 .dm-headshot {
 	display: block;
 	width: 100%;
@@ -388,6 +641,12 @@
 }
 
 /* ---- One-sheet (screen + print) ---- */
+
+/* Space between the screen-only button row and the photo/intro block
+   (the row is hidden in print, so the PDF layout is unchanged). */
+.dm-one-sheet .button-row.dm-no-print {
+	margin-bottom: 24px;
+}
 
 .dm-sheet-head {
 	display: grid;
@@ -1046,151 +1305,12 @@ html:has(.dm-header) {
 	color: #1d1917;
 }
 
-/* ---- TikTok-style slanted titles on video cards (Dwain 10:04 PM) ----
-   Spec: _brief/source/2026-09-29-tiktok-audit.md section 7. A layer added
-   over the new thumbnail buttons only (never the original iframe embeds).
-   Visible on render; after the card is 50% in view it holds 5 s, then fades
-   out in 240 ms; hover and keyboard focus bring it back (150 ms); with
-   prefers-reduced-motion it stays put. Colours come from the site palette
-   (audit 7.2). Dark ink text on the yellow, orange, pink and green boxes. */
+/* ---- Video thumbnails and the modal player clip their own content ---- */
 .dm-video-card .dm-video-thumb,
 .dm-short-card .dm-short-thumb,
 .dm-modal-frame {
 	position: relative;
 	overflow: hidden;
-	container-type: inline-size;
-}
-
-.dm-tt-title {
-	--tt-bg: rgba(197, 40, 61, 0.82);
-	--tt-fg: #fff;
-	--tt-angle: -10deg;
-	--tt-exit-ms: 240ms;
-	position: absolute;
-	left: 48%;
-	top: 27%;
-	z-index: 2;
-	box-sizing: border-box;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 72%;
-	min-height: 3.34em;
-	min-height: calc(2lh + 1.1em);
-	padding: 0.55em 1em;
-	border-radius: 0.45em;
-	background: var(--tt-bg);
-	color: var(--tt-fg);
-	font: 700 clamp(14px, 5.4cqi, 26px) / 1.12 Poppins, sans-serif;
-	letter-spacing: 0;
-	text-align: center;
-	text-transform: none;
-	text-wrap: balance;
-	transform: translate(-50%, -50%) rotate(var(--tt-angle));
-	pointer-events: none;
-	opacity: 1;
-	transition: opacity var(--tt-exit-ms) linear;
-}
-
-.dm-tt-title > span {
-	display: -webkit-box;
-	overflow: hidden;
-	-webkit-line-clamp: 2;
-	-webkit-box-orient: vertical;
-	/* Poppins ascenders and descenders (about 1.4em) are taller than the 1.12
-	   line-height, so glyphs spilled about 2px past the clip box. The padding
-	   keeps them inside; the equal negative margin keeps the box size unchanged. */
-	padding: 0.16em 0;
-	margin: -0.16em 0;
-}
-
-.dm-tt-title.dm-tt-out {
-	opacity: 0;
-}
-
-.dm-video-card:hover .dm-tt-title,
-.dm-video-card:focus-within .dm-tt-title,
-.dm-short-card:hover .dm-tt-title,
-.dm-short-card:focus-within .dm-tt-title {
-	opacity: 1;
-	transition-duration: 150ms;
-}
-
-/* Shorts are vertical and narrow: a wider box nearer the top. */
-.dm-short-card .dm-tt-title {
-	top: 22%;
-	width: 86%;
-	font-size: clamp(12px, 9cqi, 20px);
-}
-
-/* In the modal the title sits over the playing video for 60 s; YouTube's
-   controls stay clickable (pointer-events: none above). */
-.dm-modal-frame .dm-tt-title {
-	top: 18%;
-	width: 60%;
-	font-size: clamp(16px, 4.2cqi, 30px);
-}
-
-/* Topic colours (audit 7.2, site palette only). */
-[data-dm-topic="developer"] .dm-tt-title,
-.dm-tt-title[data-dm-topic="developer"] {
-	--tt-bg: rgba(29, 25, 23, 0.8);
-	--tt-fg: #fff;
-}
-
-[data-dm-topic="cloudflare"] .dm-tt-title,
-[data-dm-topic="azure"] .dm-tt-title,
-.dm-tt-title[data-dm-topic="cloudflare"],
-.dm-tt-title[data-dm-topic="azure"] {
-	--tt-bg: rgba(255, 100, 40, 0.85);
-	--tt-fg: #1d1917;
-}
-
-[data-dm-topic="tutorials"] .dm-tt-title,
-.dm-tt-title[data-dm-topic="tutorials"] {
-	--tt-bg: rgba(102, 186, 53, 0.88);
-	--tt-fg: #1d1917;
-}
-
-[data-dm-topic="entrepreneur"] .dm-tt-title,
-.dm-tt-title[data-dm-topic="entrepreneur"] {
-	--tt-bg: rgba(197, 40, 61, 0.82);
-	--tt-fg: #fff;
-}
-
-[data-dm-topic="productivity"] .dm-tt-title,
-.dm-tt-title[data-dm-topic="productivity"] {
-	--tt-bg: rgba(246, 166, 35, 0.88);
-	--tt-fg: #1d1917;
-}
-
-[data-dm-topic="snapsuite"] .dm-tt-title,
-.dm-tt-title[data-dm-topic="snapsuite"] {
-	--tt-bg: rgba(245, 181, 43, 0.88);
-	--tt-fg: #1d1917;
-}
-
-[data-dm-topic="leadscore"] .dm-tt-title,
-.dm-tt-title[data-dm-topic="leadscore"] {
-	--tt-bg: rgba(242, 100, 119, 0.88);
-	--tt-fg: #1d1917;
-}
-
-[data-dm-topic="lives"] .dm-tt-title,
-.dm-tt-title[data-dm-topic="lives"] {
-	--tt-bg: rgba(255, 49, 66, 0.85);
-	--tt-fg: #fff;
-	font-size: clamp(19px, 5.4cqi, 26px);
-}
-
-@media (prefers-reduced-motion: reduce) {
-	.dm-tt-title {
-		transition: none;
-	}
-
-	.dm-tt-title.dm-tt-out {
-		opacity: 1;
-	}
 }
 
 /* ---- Booking panel with two buttons (Dwain 30-Sep: form OR calendar, never email) ---- */
@@ -1204,6 +1324,222 @@ html:has(.dm-header) {
 @media only screen and (max-width: 760px) {
 	.dm-booking-actions {
 		justify-content: flex-start;
+	}
+}
+
+/* ---- Shared footer (Dwain 1-Oct): one footer on every page ----
+   Sits on the original .page-shell width and .page-footer type. Existing
+   tokens only: the .brand-link lockup, the .section-kicker heading, the
+   .social-grid chip, the hairline border, #C5283D / #1d1917 / #4f4945 / #5d5651. */
+.dm-footer {
+	margin-top: 28px;
+	border-top: 1px solid rgba(38, 31, 27, 0.12);
+	line-height: 1.5;
+}
+
+.dm-footer-top {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 22px 40px;
+	padding-bottom: 34px;
+}
+
+.dm-footer-about {
+	flex: 0 1 300px;
+}
+
+.dm-footer .dm-footer-brand {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	font-family: Poppins, sans-serif;
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: #1d1917;
+	text-decoration: none;
+}
+
+.dm-footer-brand img {
+	width: 34px;
+	height: 34px;
+}
+
+.dm-footer-about p {
+	margin: 14px 0 0;
+	font-family: Poppins, sans-serif;
+	font-size: 13px;
+	line-height: 1.6;
+	color: #5d5651;
+}
+
+.dm-footer-social {
+	display: flex;
+	flex: 1 1 520px;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	gap: 10px;
+}
+
+.dm-footer .dm-footer-social a {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	min-height: 40px;
+	padding: 7px 12px 7px 8px;
+	border: 1px solid rgba(38, 31, 27, 0.12);
+	border-radius: 8px;
+	background: rgba(255, 255, 255, 0.62);
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 1.25;
+	color: #1d1917;
+	text-decoration: none;
+}
+
+.dm-footer-social img {
+	width: 24px;
+	height: 24px;
+}
+
+.dm-footer-social span {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	background: #1d1917;
+	color: #fff;
+	font-size: 10px;
+}
+
+.dm-footer-cols {
+	display: grid;
+	grid-template-columns: repeat(6, minmax(0, 1fr));
+	gap: 34px 28px;
+	padding: 34px 0;
+	border-top: 1px solid rgba(38, 31, 27, 0.12);
+}
+
+.dm-footer-group + .dm-footer-group {
+	margin-top: 28px;
+}
+
+.dm-footer-heading {
+	margin: 0 0 12px;
+	font-family: Poppins, sans-serif;
+	font-size: 11px;
+	font-weight: 800;
+	letter-spacing: 0.14em;
+	line-height: 1.4;
+	text-transform: uppercase;
+	color: #C5283D;
+}
+
+.dm-footer-group ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.dm-footer-group li {
+	margin: 0 0 9px;
+}
+
+.dm-footer .dm-footer-group a {
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 1.45;
+	color: #4f4945;
+	text-decoration: none;
+}
+
+.dm-footer .dm-footer-brand:hover,
+.dm-footer .dm-footer-brand:focus,
+.dm-footer .dm-footer-group a:hover,
+.dm-footer .dm-footer-group a:focus {
+	color: #C5283D;
+	text-decoration: none;
+}
+
+.dm-footer .dm-footer-social a:hover,
+.dm-footer .dm-footer-social a:focus {
+	border-color: #C5283D;
+	color: #C5283D;
+	text-decoration: none;
+}
+
+.dm-footer-legal {
+	margin: 0;
+	padding-top: 22px;
+	border-top: 1px solid rgba(38, 31, 27, 0.12);
+	font-family: Poppins, sans-serif;
+	font-size: 12px;
+	line-height: 1.5;
+	color: #5d5651;
+}
+
+.dm-footer-legal span {
+	color: #C5283D;
+}
+
+/* Homepage: line the footer up with the original .profile-wrap content edge. */
+.profile-content .dm-footer {
+	width: auto;
+	max-width: 1240px;
+	margin-top: 0;
+	padding-right: 54px;
+	padding-left: 54px;
+}
+
+@media only screen and (max-width: 1100px) {
+	.profile-content .dm-footer {
+		padding-right: 34px;
+		padding-left: 34px;
+	}
+}
+
+@media only screen and (max-width: 1000px) {
+	.dm-footer-cols {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+@media only screen and (max-width: 801px) {
+	.profile-content .dm-footer {
+		padding-right: 22px;
+		padding-left: 22px;
+	}
+}
+
+@media only screen and (max-width: 760px) {
+	.dm-footer-top {
+		flex-direction: column;
+		gap: 22px;
+	}
+
+	.dm-footer-about,
+	.dm-footer-social {
+		flex: 0 1 auto;
+	}
+
+	.dm-footer-social {
+		justify-content: flex-start;
+	}
+
+	.dm-footer-cols {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media only screen and (max-width: 520px) {
+	.dm-footer-cols {
+		grid-template-columns: 1fr;
+		gap: 28px;
 	}
 }
 
@@ -2080,4 +2416,24 @@ html:has(.dm-header) {
 	line-height: 1;
 	color: #4f4945;
 	cursor: pointer;
+}
+
+/* ---- Funnel pages with the shared header + footer (Dwain 1-Oct) ----
+   The fixed header replaces the old small brand bar (dm-f-top). The /links
+   column starts below the header. The footer sits on the site's page colour
+   (#f7f4ef), the same as on every other page, above /links' blurred photo. */
+.dm-links-page .dm-links {
+	padding-top: calc(var(--dm-header-h) + 32px);
+}
+
+.dm-funnel-foot {
+	position: relative;
+	z-index: 1;
+	background: #f7f4ef;
+	color: #1d1917;
+}
+
+.dm-funnel-foot .dm-footer {
+	margin-top: 0;
+	border-top: 0;
 }
