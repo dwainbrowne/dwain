@@ -2448,13 +2448,11 @@ html[data-dm-funnel]::-webkit-scrollbar {
    unchanged. From 1100px up the same content becomes a full page: a split hero
    with the portrait shown sharp, the offers as a numbered three-column grid of
    glass cards, "Why listen to me" on a cream panel, and a closing call to
-   action. Everything marked dm-lx exists for this layout only.
+   action. Everything marked dm-lx exists for this layout only, and carries
+   the hidden attribute so a browser holding an older copy of this file never
+   shows it unstyled; the first rule in the wide block lifts it.
    Tokens are the ones these pages already use: #C5283D, #f26477 (small text on
    dark), #0c0c10, #1d1917, #4f4945, #f7f4ef, 'Playfair Display', Poppins. */
-.dm-links h1 em {
-	font-style: inherit;
-}
-
 @media only screen and (max-width: 1099.98px) {
 
 	.dm-links-page .dm-lx {
@@ -2463,6 +2461,12 @@ html[data-dm-funnel]::-webkit-scrollbar {
 }
 
 @media only screen and (min-width: 1100px) {
+
+	/* Lifts the hidden attribute. Kept to one class so every rule below can
+	   still choose flex or grid. */
+	.dm-lx {
+		display: block;
+	}
 
 	/* Backdrop: soft colour instead of the blurred photo, plus a faint grain. */
 	.dm-links-page {
@@ -2559,7 +2563,7 @@ html[data-dm-funnel]::-webkit-scrollbar {
 		text-wrap: balance;
 	}
 
-	.dm-links h1 em {
+	.dm-links h1 span {
 		display: block;
 		margin-top: 0.14em;
 		padding-bottom: 0.08em;
