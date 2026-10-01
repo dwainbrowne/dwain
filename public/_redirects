@@ -14,3 +14,12 @@
 /portfolio.html /companies 301
 /portfolio-single /companies 301
 /portfolio-single.html /companies 301
+/speaker /speaking 301
+/speakers /speaking 301
+/book /meet 301
+/booking /meet 301
+/videos /live 301
+/videos.html /live 301
+/courses /links 302
+/course /links 302
+/404 /does-not-exist 302
