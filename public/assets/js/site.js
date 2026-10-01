@@ -279,6 +279,16 @@
       showError("The form needs the site to be served (bun run dev), not opened as a file. You can also book a call at dwain.me/meet.");
       return;
     }
+    // Human check (Cloudflare Turnstile). It runs by itself while the form is
+    // being filled in; if it hasn't finished or couldn't load, say so plainly.
+    var humanCheck = form.querySelector(".cf-turnstile");
+    if (humanCheck && !(form.elements["cf-turnstile-response"] && form.elements["cf-turnstile-response"].value)) {
+      if (window.turnstile) { try { window.turnstile.reset(); } catch (err) {} }
+      showError(window.turnstile
+        ? "Still running the quick security check. Give it a few seconds and press Send again."
+        : "The security check couldn't load (an ad blocker can do that). Turn it off for this page and reload, or book a call at dwain.me/meet.");
+      return;
+    }
     var data = {};
     new FormData(form).forEach(function (v, k) { data[k] = typeof v === "string" ? v.trim() : v; });
     data.attribution = attribution();

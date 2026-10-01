@@ -2437,3 +2437,8 @@ html[data-dm-funnel]::-webkit-scrollbar {
 	border-color: #f26477;
 	color: #f26477;
 }
+
+/* ---- Turnstile human check on the contact form: takes no room unless Cloudflare needs a click ---- */
+.dm-turnstile:not(:empty) {
+	margin: 4px 0 14px;
+}
