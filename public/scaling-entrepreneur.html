@@ -26,6 +26,23 @@
     <meta name="twitter:title" content="The Scaling Entrepreneur | Dwain Browne">
     <meta name="twitter:description" content="You already have a few customers bringing in some revenue. I'll show you the systems you need in place, the procedures, and the things you need to be thinking about to go from $10K to $1,000,000, without burning out. Plus how to cut costs, and how to use AI to do more with less.">
     <meta name="twitter:image" content="https://dwain.me/assets/images/og-image.png">
+    <script>
+(function () {
+  try {
+    var ss = window.sessionStorage, ls = window.localStorage, q = new URLSearchParams(location.search);
+    var r = document.referrer || "", external = r && r.indexOf(location.host) < 0;
+    var tags = {};
+    ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "src", "ref", "gclid", "fbclid", "ttclid"].forEach(function (k) {
+      var v = q.get(k); if (v) tags[k] = v.slice(0, 100);
+    });
+    var visit = JSON.stringify({ landing: (location.pathname + location.search).slice(0, 200), referrer: external ? r.slice(0, 300) : "", tags: tags, at: new Date().toISOString() });
+    if (!ss.getItem("dm-visit")) ss.setItem("dm-visit", visit);
+    if (!ls.getItem("dm-first")) ls.setItem("dm-first", visit);
+    var pages = JSON.parse(ss.getItem("dm-pages") || "[]");
+    if (pages[pages.length - 1] !== location.pathname) { pages.push(location.pathname); ss.setItem("dm-pages", JSON.stringify(pages.slice(-15))); }
+  } catch (e) {}
+})();
+</script>
 </head>
 <body class="dm-funnel dm-f-page dm-f-scaling">
   <nav class="page-nav dm-header" aria-label="Primary navigation">
@@ -57,7 +74,7 @@
       <p class="dm-f-sub">You already have a few customers bringing in some revenue. I'll show you the systems you need in place, the procedures, and the things you need to be thinking about to go from $10K to $1,000,000, without burning out. Plus how to cut costs, and how to use AI to do more with less.</p>
       <div class="dm-f-video dm-f-poster" role="img" aria-label="Dwain Browne"><span class="dm-f-poster-name">The Scaling Entrepreneur</span></div>
       <div class="dm-f-cta-block" id="dm-f-hero-cta">
-        <a class="dm-f-cta" href="connect.html?interest=Courses#contact">Reserve your copy for $97</a>
+        <a class="dm-f-cta" href="connect.html?interest=Courses&amp;offer=scaling#contact">Reserve your copy for $97</a>
         <p class="dm-f-cta-note">For businesses that already have customers.</p>
       </div>
     </div>
@@ -116,7 +133,7 @@
           <li>The tools</li>
           <li>The practice and the discipline</li>
         </ul>
-        <a class="dm-f-cta" href="connect.html?interest=Courses#contact">Reserve your copy for $97</a>
+        <a class="dm-f-cta" href="connect.html?interest=Courses&amp;offer=scaling#contact">Reserve your copy for $97</a>
         <p class="dm-f-cta-note">For businesses that already have customers.</p>
       </section>
 
@@ -136,7 +153,7 @@
       <section class="dm-f-final">
         <h2>Stop being the bottleneck in your own business.</h2>
         <p>$97 gets you the systems, the process and the tools to grow past doing everything yourself.</p>
-        <a class="dm-f-cta" href="connect.html?interest=Courses#contact">Reserve your copy for $97</a>
+        <a class="dm-f-cta" href="connect.html?interest=Courses&amp;offer=scaling#contact">Reserve your copy for $97</a>
       </section>
 
       <p class="dm-f-disclaimer">Results depend on your effort, your market and your circumstances. No specific income or revenue is promised.</p>
@@ -146,7 +163,7 @@
 
   <div class="dm-f-sticky" id="dm-f-sticky" aria-hidden="true">
     <span class="dm-f-sticky-label"><strong>The Scaling Entrepreneur</strong>$97</span>
-    <a tabindex="-1" class="dm-f-cta dm-f-cta-small" href="connect.html?interest=Courses#contact">Reserve for $97</a>
+    <a tabindex="-1" class="dm-f-cta dm-f-cta-small" href="connect.html?interest=Courses&amp;offer=scaling#contact">Reserve for $97</a>
   </div>
   <div class="dm-funnel-foot">
   <footer class="page-shell page-footer dm-footer">

@@ -26,6 +26,23 @@
     <meta name="twitter:title" content="The Solo Entrepreneur | Dwain Browne">
     <meta name="twitter:description" content="No prior experience needed. I'll teach you everything, in the order you'll need it: setting up the company, landing your first customer, getting to your first 10, and solving the problems that stop most people.">
     <meta name="twitter:image" content="https://dwain.me/assets/images/og-image.png">
+    <script>
+(function () {
+  try {
+    var ss = window.sessionStorage, ls = window.localStorage, q = new URLSearchParams(location.search);
+    var r = document.referrer || "", external = r && r.indexOf(location.host) < 0;
+    var tags = {};
+    ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "src", "ref", "gclid", "fbclid", "ttclid"].forEach(function (k) {
+      var v = q.get(k); if (v) tags[k] = v.slice(0, 100);
+    });
+    var visit = JSON.stringify({ landing: (location.pathname + location.search).slice(0, 200), referrer: external ? r.slice(0, 300) : "", tags: tags, at: new Date().toISOString() });
+    if (!ss.getItem("dm-visit")) ss.setItem("dm-visit", visit);
+    if (!ls.getItem("dm-first")) ls.setItem("dm-first", visit);
+    var pages = JSON.parse(ss.getItem("dm-pages") || "[]");
+    if (pages[pages.length - 1] !== location.pathname) { pages.push(location.pathname); ss.setItem("dm-pages", JSON.stringify(pages.slice(-15))); }
+  } catch (e) {}
+})();
+</script>
 </head>
 <body class="dm-funnel dm-f-page dm-f-solo">
   <nav class="page-nav dm-header" aria-label="Primary navigation">
@@ -57,7 +74,7 @@
       <p class="dm-f-sub">No prior experience needed. I'll teach you everything, in the order you'll need it: setting up the company, landing your first customer, getting to your first 10, and solving the problems that stop most people.</p>
       <div class="dm-f-video dm-f-poster" role="img" aria-label="Dwain Browne"><span class="dm-f-poster-name">The Solo Entrepreneur</span></div>
       <div class="dm-f-cta-block" id="dm-f-hero-cta">
-        <a class="dm-f-cta" href="connect.html?interest=Courses#contact">Reserve your copy for $49</a>
+        <a class="dm-f-cta" href="connect.html?interest=Courses&amp;offer=solo#contact">Reserve your copy for $49</a>
         <p class="dm-f-cta-note">No experience needed. No money needed to start.</p>
       </div>
     </div>
@@ -114,7 +131,7 @@
           <li>The problems you'll run into, and how to solve them</li>
           <li>The road to $10K a month</li>
         </ul>
-        <a class="dm-f-cta" href="connect.html?interest=Courses#contact">Reserve your copy for $49</a>
+        <a class="dm-f-cta" href="connect.html?interest=Courses&amp;offer=solo#contact">Reserve your copy for $49</a>
         <p class="dm-f-cta-note">No experience needed. No money needed to start.</p>
       </section>
 
@@ -136,7 +153,7 @@
       <section class="dm-f-final">
         <h2>You can keep thinking about starting a business, or you can start.</h2>
         <p>$49 gets you the whole playbook, from setting up to your first 10 customers and beyond.</p>
-        <a class="dm-f-cta" href="connect.html?interest=Courses#contact">Reserve your copy for $49</a>
+        <a class="dm-f-cta" href="connect.html?interest=Courses&amp;offer=solo#contact">Reserve your copy for $49</a>
       </section>
 
       <p class="dm-f-disclaimer">Results depend on your effort, your market and your circumstances. No specific income or revenue is promised.</p>
@@ -146,7 +163,7 @@
 
   <div class="dm-f-sticky" id="dm-f-sticky" aria-hidden="true">
     <span class="dm-f-sticky-label"><strong>The Solo Entrepreneur</strong>$49</span>
-    <a tabindex="-1" class="dm-f-cta dm-f-cta-small" href="connect.html?interest=Courses#contact">Reserve for $49</a>
+    <a tabindex="-1" class="dm-f-cta dm-f-cta-small" href="connect.html?interest=Courses&amp;offer=solo#contact">Reserve for $49</a>
   </div>
   <div class="dm-funnel-foot">
   <footer class="page-shell page-footer dm-footer">

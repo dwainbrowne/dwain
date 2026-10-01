@@ -26,6 +26,23 @@
     <meta name="twitter:title" content="1:1 Strategy Call | Dwain Browne">
     <meta name="twitter:description" content="A private 60-minute session on your business: your idea, your first customers, your pricing, your systems, your software, or where AI fits.">
     <meta name="twitter:image" content="https://dwain.me/assets/images/og-image.png">
+    <script>
+(function () {
+  try {
+    var ss = window.sessionStorage, ls = window.localStorage, q = new URLSearchParams(location.search);
+    var r = document.referrer || "", external = r && r.indexOf(location.host) < 0;
+    var tags = {};
+    ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "src", "ref", "gclid", "fbclid", "ttclid"].forEach(function (k) {
+      var v = q.get(k); if (v) tags[k] = v.slice(0, 100);
+    });
+    var visit = JSON.stringify({ landing: (location.pathname + location.search).slice(0, 200), referrer: external ? r.slice(0, 300) : "", tags: tags, at: new Date().toISOString() });
+    if (!ss.getItem("dm-visit")) ss.setItem("dm-visit", visit);
+    if (!ls.getItem("dm-first")) ls.setItem("dm-first", visit);
+    var pages = JSON.parse(ss.getItem("dm-pages") || "[]");
+    if (pages[pages.length - 1] !== location.pathname) { pages.push(location.pathname); ss.setItem("dm-pages", JSON.stringify(pages.slice(-15))); }
+  } catch (e) {}
+})();
+</script>
 </head>
 <body class="dm-funnel dm-f-page dm-f-call">
   <nav class="page-nav dm-header" aria-label="Primary navigation">
@@ -57,7 +74,7 @@
       <p class="dm-f-sub">A private 60-minute session on your business: your idea, your first customers, your pricing, your systems, your software, or where AI fits.</p>
       <div class="dm-f-video dm-f-poster" role="img" aria-label="Dwain Browne"><span class="dm-f-poster-name">1:1 Strategy Call</span></div>
       <div class="dm-f-cta-block" id="dm-f-hero-cta">
-        <a class="dm-f-cta" href="connect.html?interest=Entrepreneurship%20consultation#contact">Book Now</a>
+        <a class="dm-f-cta" href="connect.html?interest=Entrepreneurship%20consultation&amp;offer=call#contact">Book Now</a>
         <p class="dm-f-cta-note">60 minutes, one on one.</p>
       </div>
     </div>
@@ -116,7 +133,7 @@
           <li>25+ years of experience on your problem</li>
           <li>A concrete plan</li>
         </ul>
-        <a class="dm-f-cta" href="connect.html?interest=Entrepreneurship%20consultation#contact">Book Now</a>
+        <a class="dm-f-cta" href="connect.html?interest=Entrepreneurship%20consultation&amp;offer=call#contact">Book Now</a>
         <p class="dm-f-cta-note">60 minutes, one on one.</p>
       </section>
 
@@ -136,7 +153,7 @@
       <section class="dm-f-final">
         <h2>Get an hour of answers instead of months of guessing.</h2>
         <p>Book your call and bring your hardest question.</p>
-        <a class="dm-f-cta" href="connect.html?interest=Entrepreneurship%20consultation#contact">Book Now</a>
+        <a class="dm-f-cta" href="connect.html?interest=Entrepreneurship%20consultation&amp;offer=call#contact">Book Now</a>
       </section>
 
       <p class="dm-f-back"><a href="links.html">See all options</a></p>
@@ -145,7 +162,7 @@
 
   <div class="dm-f-sticky" id="dm-f-sticky" aria-hidden="true">
     <span class="dm-f-sticky-label"><strong>1:1 Strategy Call</strong>$179</span>
-    <a tabindex="-1" class="dm-f-cta dm-f-cta-small" href="connect.html?interest=Entrepreneurship%20consultation#contact">Book Now</a>
+    <a tabindex="-1" class="dm-f-cta dm-f-cta-small" href="connect.html?interest=Entrepreneurship%20consultation&amp;offer=call#contact">Book Now</a>
   </div>
   <div class="dm-funnel-foot">
   <footer class="page-shell page-footer dm-footer">

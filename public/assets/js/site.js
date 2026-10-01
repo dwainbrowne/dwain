@@ -209,6 +209,27 @@
     Array.prototype.forEach.call(form.interest.options, function (o) { if (o.value === preset) form.interest.value = preset; });
   }
 
+  var formShownAt = Date.now();
+  // Where the visitor came from (recorded by VISIT_TRACKER in <head>); sent with the form.
+  function attribution() {
+    var read = function (store, key) { try { return JSON.parse(window[store].getItem(key) || "null"); } catch (e) { return null; } };
+    var tz = "";
+    try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch (e) {}
+    return JSON.stringify({
+      visit: read("sessionStorage", "dm-visit"),
+      first: read("localStorage", "dm-first"),
+      pages: read("sessionStorage", "dm-pages") || [],
+      social: (function () { try { return window.sessionStorage.getItem("dm-social") || ""; } catch (e) { return ""; } })(),
+      page: window.location.pathname + window.location.search,
+      from: document.referrer || "",
+      offer: params.get("offer") || "",
+      tz: tz,
+      lang: navigator.language || "",
+      screen: window.screen ? window.screen.width + "x" + window.screen.height : "",
+      elapsedMs: Date.now() - formShownAt,
+    });
+  }
+
   var statusBox = document.getElementById("dm-form-status");
   var success = document.getElementById("dm-form-success");
   var submit = form.querySelector("button[type=submit]");
@@ -216,8 +237,11 @@
   var rules = {
     name: function (v) { return v.length >= 2 && v.length <= 100 ? "" : "Please add your name."; },
     email: function (v) { return EMAIL_RE.test(v) && v.length <= 200 ? "" : "Please add an email address I can reply to."; },
-    company: function (v) { return v.length <= 150 ? "" : "That company name is a bit long."; },
-    phone: function (v) { return !v || /^[0-9+().\-\s]{7,25}$/.test(v) ? "" : "That phone number doesn't look right. It's optional, so you can leave it blank."; },
+    company: function (v) { return v.length >= 2 && v.length <= 150 ? "" : "Please add your company name."; },
+    phone: function (v) {
+      var n = v.replace(/\D/g, "").length;
+      return /^\+?[0-9().\-\s]{7,25}$/.test(v) && n >= 7 && n <= 15 ? "" : "Please add a phone number with the area code.";
+    },
     interest: function (v) { return v ? "" : "Pick what you'd like to talk about."; },
     message: function (v) { return v.length >= 10 && v.length <= 5000 ? "" : "Add a short message (at least 10 characters)."; },
   };
@@ -257,6 +281,7 @@
     }
     var data = {};
     new FormData(form).forEach(function (v, k) { data[k] = typeof v === "string" ? v.trim() : v; });
+    data.attribution = attribution();
     submit.disabled = true;
     var label = submit.textContent;
     submit.textContent = "Sending...";
@@ -272,6 +297,11 @@
         showError(r.body.message || "Something went wrong on my end. Please try again, or book a call at dwain.me/meet.");
       })
       .catch(function () { showError("Couldn't reach the server. Check your connection and try again, or book a call at dwain.me/meet."); })
-      .then(function () { submit.disabled = false; submit.textContent = label; });
+      .then(function () {
+        submit.disabled = false;
+        submit.textContent = label;
+        // A Turnstile token is single-use; get a fresh one for the next try.
+        if (!form.hidden && window.turnstile) { try { window.turnstile.reset(); } catch (e) {} }
+      });
   });
 })();
