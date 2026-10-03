@@ -94,27 +94,27 @@
     <article class="article-body">
       <p class="article-meta">AI developer</p>
       <h1>I ran GitHub Spec Kit on a 5,500-line Nuxt 2 app and still got lost.</h1>
-      <p>Most of the GitHub Spec Kit tests I'd seen ran on light to-do apps. I don't work on those, so in an October 2025 video I ran it on the front end of my contractor SaaS. It didn't go the way I hoped.</p>
+      <p>Most of the <a href="https://github.com/github/spec-kit">GitHub Spec Kit</a> tests I'd seen ran on light to-do apps. I don't work on those, so in an October 2025 video I ran it on the front end of my contractor SaaS. It didn't go the way I hoped.</p>
       <h2>The business case</h2>
       <p>I want more speed from AI on an application that already exists. The app I tested manages contractors, jobs, work orders, billing, dispatch, time tracking and purchase orders. The code goes back about four or five years, and we've been making small improvements since. Lately I've been trying to add features faster with AI, which is why Spec Kit caught my interest.</p>
       <p>So the question is whether Spec Kit holds up on a sizable project you already run. I'd bet you're working on a larger codebase too. YouTube has plenty of demo applications. I'm fine with demos, but I want to see how people do this in production so I can apply it to mine.</p>
-      <p>In the video I said Spec Kit is early technology, and in a couple of months it might turn into something great. The future I care about is vibe coding on existing applications, where you add new parts to code that's been around for years. I also said that in every experiment I'd run up to then, I hadn't been able to get Spec Kit to work the way it was being sold. I documented where it stood in October 2025 so you can judge whether it fits your project.</p>
+      <p>In the video I said Spec Kit is early technology, and in a couple of months it might turn into something great. The future I care about is vibe coding on existing applications, where you add new parts to code that's been around for years. I also said that in every experiment I'd run up to then, I hadn't been able to get Spec Kit to work the way it was being sold. I documented where it stood in October 2025 so you can judge whether it fits your project.</p> <p>Update, October 2026: Spec Kit has changed since this video. A few days after it went up, version 0.0.57 (October 7, 2025) renamed the commands I used: /constitution, /specify, /plan, /tasks, /clarify, /analyze and /implement. They're now /speckit.constitution, /speckit.specify and so on, and in GitHub Copilot's default skills mode you type them as /speckit-specify. The --ai flag on specify init has been replaced by --integration, so today you'd pick Copilot with --integration copilot. Spec Kit has since added a /speckit.converge step and reached version 1.0.0 on August 21, 2026. The <a href="https://github.github.io/spec-kit/">Spec Kit docs</a> and <a href="https://github.github.io/spec-kit/reference/agentic-sdd.html">command reference</a> show the current workflow.</p>
       <h2>The app I tested</h2>
-      <p>The front end has about 5,500 lines of code, counted with a command I got from ChatGPT. That count leaves out the back end. In the video I called it not super large, but not small either. It prints to PDF, sends email, generates invoices, runs calculations and tracks time.</p>
-      <p>The stack is Nuxt 2 and Vue 2, so it's on the older side.</p>
+      <p>The front end has about 5,500 lines of code, counted with a command I got from <a href="https://openai.com/index/chatgpt/">ChatGPT</a>. That count leaves out the back end. In the video I called it not super large, but not small either. It prints to PDF, sends email, generates invoices, runs calculations and tracks time.</p>
+      <p>The stack is <a href="https://v2.nuxt.com/">Nuxt 2</a> and <a href="https://v2.vuejs.org/">Vue 2</a>, so it's on the older side.</p>
       <p>I also had a GitHub board full of outstanding tasks. My plan was to export that list and have Spec Kit create specifications for those tasks. I respect the work the GitHub team is doing on Spec Kit. I put this test out so other developers chasing more speed from AI can learn from where I got stuck. If I was using it wrong, I asked people to tell me in the comments.</p>
-      <p>This was the deeper pass after my earlier video on why Spec Kit isn't for me.</p>
+      <p>This was the deeper pass after my <a href="https://www.youtube.com/watch?v=DTgb4dY44ts">earlier video on why Spec Kit isn't for me</a>.</p>
       <h2>Set the constitution</h2>
-      <p>I ran specify init with GitHub Copilot, then set up the constitution, which holds your non-negotiables. I asked for Nuxt 2 best practices based on the Nuxt documentation. That run took about four and a half minutes.</p>
-      <p>The first problem showed up right away. I asked for a specification file, and Spec Kit put a task list in place too. I keep running into that. It generates more than I ask for with GPT-5. It did the same with Claude, back when I thought Claude was the problem.</p>
-      <p>I then had it change the constitution to client-side only, with no server-side rendering and Auth0 protecting the whole application. I also told it to use JavaScript only, because Nuxt 2 doesn't support TypeScript well.</p>
+      <p>I ran <a href="https://github.github.io/spec-kit/installation.html">specify init</a> with <a href="https://github.com/features/copilot">GitHub Copilot</a>, then set up the constitution, which holds your non-negotiables. I asked for Nuxt 2 best practices based on the Nuxt documentation. That run took about four and a half minutes.</p>
+      <p>The first problem showed up right away. I asked for a specification file, and Spec Kit put a task list in place too. I keep running into that. It generates more than I ask for with <a href="https://openai.com/index/introducing-gpt-5/">GPT-5</a>. It did the same with <a href="https://claude.com/product/overview">Claude</a>, back when I thought Claude was the problem.</p>
+      <p>I then had it change the constitution to client-side only, with no server-side rendering and <a href="https://auth0.com/">Auth0</a> protecting the whole application. I also told it to use JavaScript only, because Nuxt 2 doesn't support <a href="https://www.typescriptlang.org/">TypeScript</a> well.</p>
       <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin:1.5rem 0;border-radius:12px"><iframe style="position:absolute;inset:0;width:100%;height:100%;border:0" src="https://www.youtube-nocookie.com/embed/wahL-wIqQ9c" title="Can Spec Kit Handle Large Projects? — My Honest Review" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
       <p>I walk through the whole run on screen, from the constitution to /implement, in the full video on my channel: <a href="https://www.youtube.com/watch?v=wahL-wIqQ9c">Spec Kit on a large Nuxt 2 project on YouTube</a>.</p>
       <h2>Describe the product</h2>
       <p>Specify comes next, where you describe what you're building. I described construction management software for the trades, such as plumbers, electrical companies, garage door and HVAC businesses. It covers quotes, jobs, work orders, technicians in the field, scheduling, billing, multiple locations, signatures, invoices and payments. The draft specification took another five or six minutes.</p>
       <p>Then I ran /plan with the stack: Nuxt 2 and Vue 2, no TypeScript files, a centralized API layer, components, and the existing design and style guide. I had already put the stack in the constitution by mistake, so the plan overlapped with it.</p>
       <h2>Feed it the board</h2>
-      <p>I exported my GitHub board as a TSV file and ran /tasks against it. Forty minutes into the process, all the tasks sat in one file under a single 001 spec folder. The documentation example looked different, and I didn't think all of those tasks belonged in one file. Maybe I was thinking about it all wrong.</p>
+      <p>I <a href="https://docs.github.com/en/issues/planning-and-tracking-with-projects/managing-your-project/exporting-your-projects-data">exported my GitHub board</a> as a TSV file and ran /tasks against it. Forty minutes into the process, all the tasks sat in one file under a single 001 spec folder. The documentation example looked different, and I didn't think all of those tasks belonged in one file. Maybe I was thinking about it all wrong.</p>
       <p>Clarify asked me five questions. One of them assumed I was building an MVP. This is a full-fledged application, not an MVP.</p>
       <p>Analyze reported that the implementation plan was empty, so I had to run /plan again. I didn't know what to put in it the second time. By then Spec Kit had created 28 files, including YAML files, a task file, a specs file and a research file. I couldn't tell what /implement would do. It might work one task at a time, go to town on everything, or only tackle the tests.</p>
       <h2>Where I got stuck</h2>
@@ -128,8 +128,8 @@
     <aside class="article-sidebar">
       <h2>More from Dwain</h2>
       <a href="https://dwain.me/strategy-call?src=blog">Book a strategy call</a>
-      <a href="../live.html">Watch live builds</a>
-      <a href="../community.html">Join VibeCode 2 Profit</a>
+      <a href="/live">Watch live builds</a>
+      <a href="/community">Join VibeCode 2 Profit</a>
     </aside>
   </main>
 
