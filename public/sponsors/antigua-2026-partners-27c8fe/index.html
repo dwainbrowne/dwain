@@ -69,10 +69,21 @@ footer{padding:2.25rem 0 3rem;font:.85rem/1.6 system-ui,sans-serif;color:var(--m
 .website-link{font:700 .95rem/1.5 system-ui,sans-serif;text-underline-offset:4px}
 .company-band{margin:2.75rem 0 1.5rem;padding:1.25rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .company-band .eyebrow{color:var(--muted);font-size:.7rem}
-.company-logos{display:flex;align-items:center;gap:2.5rem;justify-content:space-between;max-width:46rem}
-.company{display:flex;align-items:center;gap:.6rem;min-width:0;font:700 1rem/1.4 system-ui,sans-serif}
-.company img{height:46px;width:46px;object-fit:contain}
-.company.snapsuite img{width:180px;height:auto;max-width:100%}
+.company-logos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem;width:100%}
+.company{display:flex;flex-direction:column;min-width:0;padding:1.25rem;border:1px solid var(--line);background:var(--card);color:var(--ink);text-decoration:none}
+.company:hover{border-color:var(--red)}
+.brand-lockup{display:flex;align-items:center;justify-content:center;gap:.7rem;min-height:88px;width:100%;margin-bottom:1rem}
+.brand-lockup img{width:72px;height:72px;object-fit:contain}
+.brand-lockup strong{font:700 1.25rem/1.3 system-ui,sans-serif}
+.company.snapsuite img{width:240px;height:auto;max-width:100%}
+.company p{font:1rem/1.55 system-ui,sans-serif;margin-bottom:1rem}
+.brand-visit{color:var(--red);font:700 .9rem/1.5 system-ui,sans-serif;text-decoration:underline;text-underline-offset:3px;margin-top:auto}
+.speaker-about{padding:1.5rem;background:var(--card);border-left:4px solid var(--red);border-bottom:1px solid var(--line);margin:1.5rem 0}.speaker-about h2{font-size:clamp(1.5rem,3vw,2rem)}.speaker-about p:last-child{margin-bottom:0}
+.workflow-grid{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;margin:1.75rem 0;padding:0}
+.workflow-grid>li{padding:1.5rem;border:1px solid var(--line);background:var(--card)}
+.workflow-grid p:last-child{margin-bottom:0}
+.connection-note{padding:1.5rem;background:var(--card);border-left:4px solid var(--red)}
+.connection-note p:last-child{margin-bottom:0}
 .card.lead{background:#8e1022;color:#fffaf0;border:1px solid #8e1022;border-top:6px solid #f1c75b}
 .card.lead .eyebrow,.card.lead .price small,.card.lead .count{color:#fff1c8}
 .card.lead a{color:#fffaf0}.card.lead a:focus-visible{outline-color:#fffaf0}
@@ -93,8 +104,9 @@ footer{padding:2.25rem 0 3rem;font:.85rem/1.6 system-ui,sans-serif;color:var(--m
 .presentation>a{font:.92rem/1.5 system-ui,sans-serif;text-underline-offset:3px}
 .video-frame{position:relative;aspect-ratio:16/9;background:#1d1915;margin:1rem 0;overflow:hidden}
 .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-@media(max-width:800px){.hero-grid{grid-template-columns:minmax(0,1fr);gap:1.75rem}.speaker-portrait{max-width:20rem;justify-self:start;grid-row:1}.hero-copy h1{font-size:clamp(2.1rem,7vw,3rem)}.company-logos{gap:1rem}.company{font-size:.88rem}.company.snapsuite img{width:150px}.presentations{grid-template-columns:minmax(0,1fr)}.presentation h3,.presentation .eyebrow{min-height:0}}
-@media(max-width:480px){.speaker-portrait{max-width:15rem;box-shadow:8px 8px 0 #e5d9c3}.company-logos{gap:.6rem}.company{flex-direction:column;gap:.35rem;font-size:.75rem;text-align:center;flex:1}.company img{width:38px;height:38px}.company.snapsuite img{width:112px;height:38px}.hero-actions{gap:1rem}.hero-actions .button{width:100%}.card{padding:1.3rem}.card .price{font-size:2.5rem}}
+@media(max-width:800px){.hero-grid{grid-template-columns:minmax(0,1fr);gap:1.75rem}.speaker-portrait{max-width:20rem;justify-self:start;grid-row:1}.hero-copy h1{font-size:clamp(2.1rem,7vw,3rem)}.company-logos{gap:1rem}.brand-lockup{flex-direction:column}.company.snapsuite img{width:200px}.presentations{grid-template-columns:minmax(0,1fr)}.presentation h3,.presentation .eyebrow{min-height:0}}
+@media(max-width:600px){.company-logos,.workflow-grid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:480px){.speaker-portrait{max-width:15rem;box-shadow:8px 8px 0 #e5d9c3}.company-logos,.workflow-grid{grid-template-columns:minmax(0,1fr)}.company{padding:1.25rem}.brand-lockup{flex-direction:row;min-height:92px}.company.snapsuite img{width:240px}.hero-actions{gap:1rem}.hero-actions .button{width:100%}.card{padding:1.3rem}.card .price{font-size:2.5rem}}
 </style>
 </head>
 <body>
@@ -107,27 +119,44 @@ footer{padding:2.25rem 0 3rem;font:.85rem/1.6 system-ui,sans-serif;color:var(--m
     <div class="hero-grid">
       <div class="hero-copy">
         <h1>Bring practical AI skills to Antiguan businesses.</h1>
-        <p class="lede">Sponsor an evening of useful learning for business owners who want clearer workflows, less scattered paperwork and better follow-up.</p>
-        <p class="speaker-bio">Originally from Antigua and now based in Toronto, Dwain Browne brings over 25 years of experience in entrepreneurship, business and software development. As founder of SnapSuite and LeadScore AI, he helps business owners across North America manage their work and use AI to run their businesses more efficiently.</p>
+        <p class="lede">Sponsor an evening that shows business owners how to use their voice to prepare work, arrange follow-ups and check what needs attention, with AI assistants and human approval.</p>
+        <p class="speaker-bio">Originally from Antigua and now based in Toronto, Dwain Browne is an entrepreneur with 25+ years in business, technology and software development. As founder of SnapSuite and LeadScore AI, he brings hands-on experience building practical software for business owners.</p>
         <div class="hero-actions">
           <a class="button" href="https://dwain.me/meet">Discuss sponsorship <span aria-hidden="true">↗</span></a>
-          <a class="website-link" href="https://dwain.me">Visit my website <span aria-hidden="true">↗</span></a>
+          <a class="website-link" href="https://dwain.me" target="_blank" rel="noopener noreferrer">Visit my website <span aria-hidden="true">↗</span></a>
         </div>
         <p class="note">Book a call with Dwain to discuss fit, the proposed benefits and next steps. No commitment is required.</p>
       </div>
       <figure class="speaker-portrait">
         <img src="/assets/images/profile/business-friendly-dwain-browne.JPG" width="2596" height="3213" alt="Dwain Browne, Antiguan founder and speaker" fetchpriority="high" decoding="async">
-        <figcaption><strong>Dwain Browne</strong><span>Antiguan · Toronto-based<br>25+ years in entrepreneurship, business and software development.</span></figcaption>
+        <figcaption><strong>Dwain Browne</strong><span>Antiguan · Toronto-based<br>25+ years in entrepreneurship, business, technology and software development.</span></figcaption>
       </figure>
     </div>
     <div class="company-band" aria-label="Products founded by Dwain Browne">
       <p class="eyebrow">Hands-on experience building practical software</p>
       <div class="company-logos">
-        <div class="company snapsuite"><img src="/assets/images/logos/snapsuite-logo.png" width="346" height="113" alt="SnapSuite"></div>
-        <div class="company"><img src="/assets/images/logos/leadscore-icon.png" width="512" height="512" alt=""><span>LeadScore AI</span></div>
-        <div class="company"><img src="/assets/images/logos/affordly-icon.svg" width="192" height="192" alt=""><span>Affordly</span></div>
+        <a class="company snapsuite" href="https://www.snapsuite.io" target="_blank" rel="noopener noreferrer">
+          <div class="brand-lockup"><img src="/assets/images/logos/snapsuite-logo.png" width="346" height="113" alt="SnapSuite"></div>
+          <p>Software for service businesses to manage jobs, quotes, work orders and invoices.</p>
+          <span class="brand-visit">Visit SnapSuite <span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="company" href="https://getleadscore.ai" target="_blank" rel="noopener noreferrer">
+          <div class="brand-lockup"><img src="/assets/images/logos/leadscore-icon.png" width="512" height="512" alt=""><strong>LeadScore AI</strong></div>
+          <p>AI sales outreach tool and modern CRM system.</p>
+          <span class="brand-visit">Visit LeadScore AI <span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="company" href="https://affordly.app/" target="_blank" rel="noopener noreferrer">
+          <div class="brand-lockup"><img src="/assets/images/logos/affordly-icon.svg" width="192" height="192" alt=""><strong>Affordly</strong></div>
+          <p>A budgeting app to help you manage your budget.</p>
+          <span class="brand-visit">Visit Affordly <span aria-hidden="true">↗</span></span>
+        </a>
       </div>
     </div>
+    <section class="speaker-about" aria-labelledby="h-speaker-about">
+      <h2 id="h-speaker-about">About the speaker</h2>
+      <p>Originally from Antigua and now based in Toronto, Dwain Browne brings over 25 years of experience. As founder of SnapSuite and LeadScore AI, he helps business owners across North America manage their work and use AI to run their businesses more efficiently.</p>
+      <p>His hands-on experience includes building practical software for service-business operations and AI sales outreach. He brings that experience across entrepreneurship, business, technology and software development to demonstrations that help participants understand the work, review the next step and plan a practical improvement.</p>
+    </section>
     <ul class="facts" aria-label="Proposed event details">
       <li><b>Proposed date</b>Tuesday, October 27, 2026</li>
       <li><b>Proposed time</b>7:00 to 9:00 PM, Antigua local time</li>
@@ -142,21 +171,28 @@ footer{padding:2.25rem 0 3rem;font:.85rem/1.6 system-ui,sans-serif;color:var(--m
 <section aria-labelledby="h-seminar">
   <div class="wrap">
     <hr class="rule">
-    <h2 id="h-seminar">Practical skills for everyday business work</h2>
+    <h2 id="h-seminar">Use your voice to get everyday business work done.</h2>
     <p>The target audience includes trades and construction businesses, heavy-duty equipment businesses, service industries and property management firms. The audience mix, attendance and final capacity are still to be confirmed.</p>
-    <p class="lede">The evening uses worked examples and time to map one recurring business task. Attendees explore ways software and AI can help, with people reviewing outputs before use. Any product or consulting next step remains optional.</p>
-    <div class="grid">
-      <div><h3>Job to invoice</h3><p>Mapping the steps between a customer request and money received, and finding where time and details get lost.</p></div>
-      <div><h3>AI drafts, checked by people</h3><p>Using AI to draft quotes, emails and summaries, with a person reviewing every one before it goes out.</p></div>
-      <div><h3>Paperwork in order</h3><p>Organizing sample receipts and invoices, naming files clearly and flagging missing information for review.</p></div>
-    </div>
-    <h3 style="margin-top:2rem">What each attendee takes home</h3>
+    <p class="lede">Talk through a customer request and see how an AI assistant can prepare the next step using information from your business tools. The planned demonstrations focus on defined, repeatable tasks, with people checking the details and approving actions.</p>
+    <ol class="workflow-grid" aria-label="Planned voice-led assistant examples">
+      <li><p class="eyebrow">01 · Enquiry to quote</p><h3>Speak the request. Prepare the quote.</h3><p>Using a sample customer request, see how an assistant can organize the customer’s needs, job details and missing information into a quote preparation task for you to review.</p></li>
+      <li><p class="eyebrow">02 · Customer follow-up</p><h3>Line up the right follow-up.</h3><p>Ask for the next step on an enquiry, quote or invoice. Explore how an assistant can prepare a proposed follow-up or reminder using the status of the work, with your approval before a customer-facing action.</p></li>
+      <li><p class="eyebrow">03 · Work still outstanding</p><h3>Ask what needs your attention.</h3><p>Use a voice question to check unfinished jobs, quotes awaiting a decision or invoices awaiting payment. Learn what information your tools need to provide for a useful status summary.</p></li>
+      <li><p class="eyebrow">04 · Connected information</p><h3>Carry the details into the next step.</h3><p>Follow customer and job information from an enquiry to a quote, completed work and an invoice. See which tools need to share the details so they can be reviewed once and reused, rather than repeatedly entered.</p></li>
+    </ol>
+    <aside class="connection-note" aria-labelledby="h-assistants">
+      <h3 id="h-assistants">What we mean by “digital employees”</h3>
+      <p>AI assistants given a specific job: preparing quote information, checking outstanding work or lining up a follow-up. They work with instructions and relevant business information; people stay in control of decisions and approvals.</p>
+      <p>We’ll look at how enquiry and quoting tools, job-management software, invoicing or accounting tools and a customer follow-up system (CRM) can share information. A built-in connection or a clear, reviewed handoff can help the next task use the right customer, job and status.</p>
+    </aside>
+    <h3 style="margin-top:2rem">Leave with a practical starting point</h3>
     <ul class="plain">
-      <li>A workflow map for one recurring business task</li>
-      <li>A prompt kit for everyday business drafts</li>
-      <li>A checklist for reviewing AI output before it is used</li>
-      <li>A seven-day plan for putting one change into practice</li>
+      <li>A map of one recurring task: what you could say, what the assistant needs to know and where you approve the next step</li>
+      <li>Reusable AI instructions for defining one assistant task and checking missing details</li>
+      <li>A review checklist for checking information and approving customer-facing actions</li>
+      <li>A seven-day plan to try one small improvement with the tools you already use</li>
     </ul>
+    <p class="note">The two-hour seminar is for learning, demonstrations and planning. It does not promise a fully installed assistant or an autonomous system for your business. Any product or consulting next step remains optional.</p>
   </div>
 </section>
 
@@ -283,7 +319,7 @@ footer{padding:2.25rem 0 3rem;font:.85rem/1.6 system-ui,sans-serif;color:var(--m
       <h3>Start with a conversation</h3>
       <a class="button" href="https://dwain.me/meet">Discuss sponsorship <span aria-hidden="true">↗</span></a>
       <p class="note">Book a call with Dwain to discuss fit, the proposed benefits and next steps. No commitment is required.</p>
-      <p class="note"><a href="https://dwain.me">Visit my website <span aria-hidden="true">↗</span></a></p>
+      <p class="note"><a href="https://dwain.me" target="_blank" rel="noopener noreferrer">Visit my website <span aria-hidden="true">↗</span></a></p>
     </div>
   </div>
 </section>
