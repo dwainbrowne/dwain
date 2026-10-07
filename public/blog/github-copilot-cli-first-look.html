@@ -3,32 +3,31 @@
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>GitHub Spec Kit on a Large Nuxt 2 Production Codebase | Dwain Browne</title>
-    <meta name="description" content="Dwain Browne ran GitHub Spec Kit on a 5,500-line Nuxt 2 contractor app in a 2025 test and came away with dozens of files and no clear next step.">
-    <meta property="article:published_time" content="2025-10-04T11:53:00-04:00">
-    <meta property="article:modified_time" content="2026-10-02">
-    <meta name="keywords" content="GitHub Spec Kit, AI">
+    <title>GitHub Copilot CLI Review: A Real Bug Fix Test | Dwain Browne</title>
+    <meta name="description" content="Dwain Browne tested GitHub Copilot CLI in its September 2025 public preview on a real calendar bug: the setup, the permission prompts and what it fixed.">
+    <meta property="article:published_time" content="2025-09-26T10:35:47-04:00">
+    <meta property="article:modified_time" content="2026-10-07">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,500,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css?v=20260529-9">
     <link rel="stylesheet" type="text/css" href="../assets/css/additions.css">
-    <link rel="canonical" href="https://dwain.me/blog/spec-kit-large-projects">
+    <link rel="canonical" href="https://dwain.me/blog/github-copilot-cli-first-look">
     <link rel="icon" type="image/png" href="../assets/images/logo.png">
     <meta property="og:type" content="article">
     <meta name="author" content="Dwain Browne">
     <meta property="og:site_name" content="Dwain Browne">
-    <meta property="og:title" content="GitHub Spec Kit on a Large Nuxt 2 Production Codebase | Dwain Browne">
-    <meta property="og:description" content="Dwain Browne ran GitHub Spec Kit on a 5,500-line Nuxt 2 contractor app in a 2025 test and came away with dozens of files and no clear next step.">
-    <meta property="og:url" content="https://dwain.me/blog/spec-kit-large-projects">
+    <meta property="og:title" content="GitHub Copilot CLI Review: A Real Bug Fix Test | Dwain Browne">
+    <meta property="og:description" content="Dwain Browne tested GitHub Copilot CLI in its September 2025 public preview on a real calendar bug: the setup, the permission prompts and what it fixed.">
+    <meta property="og:url" content="https://dwain.me/blog/github-copilot-cli-first-look">
     <meta property="og:image" content="https://dwain.me/assets/images/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Dwain Browne, founder and CEO of SnapSuite and LeadScore AI">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@dwainbrowne">
-    <meta name="twitter:title" content="GitHub Spec Kit on a Large Nuxt 2 Production Codebase | Dwain Browne">
-    <meta name="twitter:description" content="Dwain Browne ran GitHub Spec Kit on a 5,500-line Nuxt 2 contractor app in a 2025 test and came away with dozens of files and no clear next step.">
+    <meta name="twitter:title" content="GitHub Copilot CLI Review: A Real Bug Fix Test | Dwain Browne">
+    <meta name="twitter:description" content="Dwain Browne tested GitHub Copilot CLI in its September 2025 public preview on a real calendar bug: the setup, the permission prompts and what it fixed.">
     <meta name="twitter:image" content="https://dwain.me/assets/images/og-image.png">
     <script>
 (function () {
@@ -73,15 +72,15 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "@id": "https://dwain.me/blog/spec-kit-large-projects#article",
-  "mainEntityOfPage": "https://dwain.me/blog/spec-kit-large-projects",
-  "headline": "I ran GitHub Spec Kit on a 5,500-line Nuxt 2 app and still got lost.",
-  "description": "Dwain Browne ran GitHub Spec Kit on a 5,500-line Nuxt 2 contractor app in a 2025 test and came away with dozens of files and no clear next step.",
+  "@id": "https://dwain.me/blog/github-copilot-cli-first-look#article",
+  "mainEntityOfPage": "https://dwain.me/blog/github-copilot-cli-first-look",
+  "headline": "I pointed GitHub Copilot CLI at a real calendar bug, and it fixed it.",
+  "description": "Dwain Browne tested GitHub Copilot CLI in its September 2025 public preview on a real calendar bug: the setup, the permission prompts and what it fixed.",
   "image": "https://dwain.me/assets/images/og-image.png",
-  "datePublished": "2025-10-04T11:53:00-04:00",
-  "dateModified": "2026-10-02",
+  "datePublished": "2025-09-26T10:35:47-04:00",
+  "dateModified": "2026-10-07",
   "articleSection": "AI developer",
-  "keywords": "GitHub Spec Kit, AI",
+  "keywords": "AI",
   "inLanguage": "en-CA",
   "author": {
     "@type": "Person",
@@ -97,12 +96,12 @@
   },
   "video": {
     "@type": "VideoObject",
-    "name": "Can Spec Kit Handle Large Projects? My Honest Review",
-    "description": "Dwain Browne ran GitHub Spec Kit on a 5,500-line Nuxt 2 contractor app in a 2025 test and came away with dozens of files and no clear next step.",
-    "thumbnailUrl": "https://i.ytimg.com/vi/wahL-wIqQ9c/hqdefault.jpg",
-    "uploadDate": "2025-10-04T11:53:00-04:00",
-    "embedUrl": "https://www.youtube-nocookie.com/embed/wahL-wIqQ9c",
-    "contentUrl": "https://www.youtube.com/watch?v=wahL-wIqQ9c"
+    "name": "GitHub Copilot CLI (2025 Version) First Look",
+    "description": "Dwain Browne tested GitHub Copilot CLI in its September 2025 public preview on a real calendar bug: the setup, the permission prompts and what it fixed.",
+    "thumbnailUrl": "https://i.ytimg.com/vi/D0dCLQOt_lo/hqdefault.jpg",
+    "uploadDate": "2025-09-26T10:35:47-04:00",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/D0dCLQOt_lo",
+    "contentUrl": "https://www.youtube.com/watch?v=D0dCLQOt_lo"
   }
 }
     </script>
@@ -133,39 +132,46 @@
 
   <main class="page-shell article-layout">
     <article class="article-body">
-      <p class="article-meta">AI developer &middot; <time datetime="2025-10-04">October 4, 2025</time></p>
-      <h1>I ran GitHub Spec Kit on a 5,500-line Nuxt 2 app and still got lost.</h1>
-      <p>Most of the <a href="https://github.com/github/spec-kit">GitHub Spec Kit</a> tests I'd seen ran on light to-do apps. I don't work on those, so in an October 2025 video I ran it on the front end of my contractor SaaS. It didn't go the way I hoped.</p>
+      <p class="article-meta">AI developer &middot; <time datetime="2025-09-26">September 26, 2025</time></p>
+      <h1>I pointed GitHub Copilot CLI at a real calendar bug, and it fixed it.</h1>
+      <p>GitHub Copilot CLI fixed a real bug in my calendar app, but it made me work for it. I tested it in a September 2025 first look, right after GitHub released it in public preview, on production code instead of a demo app.</p>
       <h2>The business case</h2>
-      <p>I want more speed from AI on an application that already exists. The app I tested manages contractors, jobs, work orders, billing, dispatch, time tracking and purchase orders. The code goes back about four or five years, and we've been making small improvements since. Lately I've been trying to add features faster with AI, which is why Spec Kit caught my interest.</p>
-      <p>So the question is whether Spec Kit holds up on a sizable project you already run. I'd bet you're working on a larger codebase too. YouTube has plenty of demo applications. I'm fine with demos, but I want to see how people do this in production so I can apply it to mine.</p>
-      <p>In the video I said Spec Kit is early technology, and in a couple of months it might turn into something great. The future I care about is vibe coding on existing applications, where you add new parts to code that's been around for years. I also said that in every experiment I'd run up to then, I hadn't been able to get Spec Kit to work the way it was being sold. I documented where it stood in October 2025 so you can judge whether it fits your project.</p> <p>Update, October 2026: Spec Kit has changed since this video. A few days after it went up, version 0.0.57 (October 7, 2025) renamed the commands I used: /constitution, /specify, /plan, /tasks, /clarify, /analyze and /implement. They're now /speckit.constitution, /speckit.specify and so on, and in GitHub Copilot's default skills mode you type them as /speckit-specify. The --ai flag on specify init has been replaced by --integration, so today you'd pick Copilot with --integration copilot. Spec Kit has since added a /speckit.converge step and reached version 1.0.0 on August 21, 2026. The <a href="https://github.github.io/spec-kit/">Spec Kit docs</a> and <a href="https://github.github.io/spec-kit/reference/agentic-sdd.html">command reference</a> show the current workflow.</p>
-      <h2>The app I tested</h2>
-      <p>The front end has about 5,500 lines of code, counted with a command I got from <a href="https://openai.com/index/chatgpt/">ChatGPT</a>. That count leaves out the back end. In the video I called it not super large, but not small either. It prints to PDF, sends email, generates invoices, runs calculations and tracks time.</p>
-      <p>The stack is <a href="https://v2.nuxt.com/">Nuxt 2</a> and <a href="https://v2.vuejs.org/">Vue 2</a>, so it's on the older side.</p>
-      <p>I also had a GitHub board full of outstanding tasks. My plan was to export that list and have Spec Kit create specifications for those tasks. I respect the work the GitHub team is doing on Spec Kit. I put this test out so other developers chasing more speed from AI can learn from where I got stuck. If I was using it wrong, I asked people to tell me in the comments.</p>
-      <p>This was the deeper pass after my <a href="https://www.youtube.com/watch?v=DTgb4dY44ts">earlier video on why Spec Kit isn't for me</a>.</p>
-      <h2>Set the constitution</h2>
-      <p>I ran <a href="https://github.github.io/spec-kit/installation.html">specify init</a> with <a href="https://github.com/features/copilot">GitHub Copilot</a>, then set up the constitution, which holds your non-negotiables. I asked for Nuxt 2 best practices based on the Nuxt documentation. That run took about four and a half minutes.</p>
-      <p>The first problem showed up right away. I asked for a specification file, and Spec Kit put a task list in place too. I keep running into that. It generates more than I ask for with <a href="https://openai.com/index/introducing-gpt-5/">GPT-5</a>. It did the same with <a href="https://claude.com/product/overview">Claude</a>, back when I thought Claude was the problem.</p>
-      <p>I then had it change the constitution to client-side only, with no server-side rendering and <a href="https://auth0.com/">Auth0</a> protecting the whole application. I also told it to use JavaScript only, because Nuxt 2 doesn't support <a href="https://www.typescriptlang.org/">TypeScript</a> well.</p>
-      <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin:1.5rem 0;border-radius:12px"><iframe style="position:absolute;inset:0;width:100%;height:100%;border:0" src="https://www.youtube-nocookie.com/embed/wahL-wIqQ9c" title="Can Spec Kit Handle Large Projects? — My Honest Review" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-      <p><strong>Jump to</strong></p><ul><li><a href="https://www.youtube.com/watch?v=wahL-wIqQ9c&amp;t=0s">0:00 Introduction: Can Spec Kit work on large projects?</a></li><li><a href="https://www.youtube.com/watch?v=wahL-wIqQ9c&amp;t=62s">1:02 Background on the application</a></li><li><a href="https://www.youtube.com/watch?v=wahL-wIqQ9c&amp;t=125s">2:05 Initial struggles with Spec Kit</a></li><li><a href="https://www.youtube.com/watch?v=wahL-wIqQ9c&amp;t=156s">2:36 Setting up the experiment</a></li><li><a href="https://www.youtube.com/watch?v=wahL-wIqQ9c&amp;t=379s">6:19 Running initial commands</a></li><li><a href="https://www.youtube.com/watch?v=wahL-wIqQ9c&amp;t=572s">9:32 Describing the product (/specify)</a></li><li><a href="https://www.youtube.com/watch?v=wahL-wIqQ9c&amp;t=887s">14:47 Clarifying and adjusting the plan</a></li><li><a href="https://www.youtube.com/watch?v=wahL-wIqQ9c&amp;t=1255s">20:55 Final thoughts and conclusion</a></li></ul>
-      <p>I walk through the whole run on screen, from the constitution to /implement, in the full video on my channel: <a href="https://www.youtube.com/watch?v=wahL-wIqQ9c">Spec Kit on a large Nuxt 2 project on YouTube</a>.</p>
-      <h2>Describe the product</h2>
-      <p>Specify comes next, where you describe what you're building. I described construction management software for the trades, such as plumbers, electrical companies, garage door and HVAC businesses. It covers quotes, jobs, work orders, technicians in the field, scheduling, billing, multiple locations, signatures, invoices and payments. The draft specification took another five or six minutes.</p>
-      <p>Then I ran /plan with the stack: Nuxt 2 and Vue 2, no TypeScript files, a centralized API layer, components, and the existing design and style guide. I had already put the stack in the constitution by mistake, so the plan overlapped with it.</p>
-      <h2>Feed it the board</h2>
-      <p>I <a href="https://docs.github.com/en/issues/planning-and-tracking-with-projects/managing-your-project/exporting-your-projects-data">exported my GitHub board</a> as a TSV file and ran /tasks against it. Forty minutes into the process, all the tasks sat in one file under a single 001 spec folder. The documentation example looked different, and I didn't think all of those tasks belonged in one file. Maybe I was thinking about it all wrong.</p>
-      <p>Clarify asked me five questions. One of them assumed I was building an MVP. This is a full-fledged application, not an MVP.</p>
-      <p>Analyze reported that the implementation plan was empty, so I had to run /plan again. I didn't know what to put in it the second time. By then Spec Kit had created 28 files, including YAML files, a task file, a specs file and a research file. I couldn't tell what /implement would do. It might work one task at a time, go to town on everything, or only tackle the tests.</p>
+      <p>GitHub had just dropped a terminal tool built to compete with <a href="https://www.anthropic.com/claude-code">Claude Code</a>, which I called the undisputed king of this space at the time. If you build software for a living, the useful test is whether a new tool can do real work on the code you already ship. I'm not interested in watching these tools build demo apps.</p>
+      <p>I gave <a href="https://github.com/features/copilot/cli">GitHub Copilot CLI</a> a real bug and shared my raw takes as I went. I held the full Claude comparison for a later video. The question I had was whether a new terminal agent earns a spot in a builder's day, and what gets in the way.</p>
+      <p>Install speed wasn't the hard part. Permission prompts, seeing what changed, and starting in the right folder decide whether you keep using it. Copilot CLI has changed a lot since September 2025, so treat the details below as a dated first look and check <a href="https://docs.github.com/en/copilot/concepts/agents/about-copilot-cli">GitHub's current Copilot CLI docs</a> before you rely on them.</p>
+      <h2>A brand-new preview</h2>
+      <p>When I recorded, the tool was in public preview and there wasn't much information about it. The <a href="https://github.com/github/copilot-cli/issues">GitHub issues list</a> was filling up fast. I counted about 22 issues the first time I looked and about 36 by the time I recorded.</p>
+      <p>One detail stood out. At the time, Windows support was marked experimental, which I found fascinating coming from Microsoft, the company that makes Windows. Also, don't confuse this tool with the <a href="https://github.com/github/gh-copilot">older Copilot CLI</a> from about three years earlier. I thought that one was being deprecated, but the name itself isn't new.</p>
+      <h2>Install and sign in</h2>
+      <p>Setup was quick. You install it with npm (<a href="https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli">GitHub's install guide</a>), then type <code>copilot</code> in the terminal. On camera I said you need a paid GitHub account for it to work, so check the <a href="https://github.com/features/copilot/plans">Copilot plans page</a> for what's required today.</p>
+      <p>The first screen asked permission to read files. It looked a lot like Claude, maybe simpler, because it only had the basics. Slash commands handled login and logout with autocomplete, and sign-in was the standard browser flow with a code. There was no tab completion, so I used its change-working-directory command to point it at my project.</p>
+      <h2>The real bug</h2>
+      <p>The test was a calendar system I was building, where the items on the calendar are jobs. When you drag a job to a new spot, a "select time" modal is supposed to let you pick the time and save it. It didn't. The modal wasn't running the same update logic as the rest of the calendar, so I asked Copilot CLI to fix that.</p>
+      <div class="embed-responsive embed-responsive-16by9" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin:1.5rem 0;border-radius:12px"><iframe style="position:absolute;inset:0;width:100%;height:100%;border:0" src="https://www.youtube-nocookie.com/embed/D0dCLQOt_lo" title="GitHub Copilot CLI (2025 Version) First Look" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <p><strong>Jump to</strong></p>
+      <ul>
+      <li><a href="https://www.youtube.com/watch?v=D0dCLQOt_lo&amp;t=0s">0:00 Introduction to GitHub Copilot CLI</a></li>
+      <li><a href="https://www.youtube.com/watch?v=D0dCLQOt_lo&amp;t=39s">0:39 Exploring the GitHub Copilot CLI</a></li>
+      <li><a href="https://www.youtube.com/watch?v=D0dCLQOt_lo&amp;t=83s">1:23 Installation and Setup</a></li>
+      <li><a href="https://www.youtube.com/watch?v=D0dCLQOt_lo&amp;t=129s">2:09 Running on a Real Project</a></li>
+      <li><a href="https://www.youtube.com/watch?v=D0dCLQOt_lo&amp;t=212s">3:32 Troubleshooting &amp; Observations</a></li>
+      <li><a href="https://www.youtube.com/watch?v=D0dCLQOt_lo&amp;t=415s">6:55 Final Thoughts &amp; Comparison</a></li>
+      <li><a href="https://www.youtube.com/watch?v=D0dCLQOt_lo&amp;t=547s">9:07 Conclusion &amp; Call to Action</a></li>
+      </ul>
+      <p>I walk through the install, the stuck run and the fix on screen in the full video on my channel: <a href="https://www.youtube.com/watch?v=D0dCLQOt_lo">GitHub Copilot CLI first look on YouTube</a>.</p>
       <h2>Where I got stuck</h2>
-      <p>I ran /implement next, and it told me there were 30-plus test specs to write across integration and UI, and a backlog of 101 items. It hadn't built anything yet. I told it to proceed. Two hours in, another 28 files had changed. After I asked it to fix the test setup, I had another 35 files of tests, and I didn't know what they were testing.</p>
-      <p>In the video's intro I put my time on this at around four hours. By the end I felt overwhelmed. I'd have to sit down and go through those files one by one to understand them. Spec Kit was producing files faster than I could review them. I came away lost and confused, with no clear end.</p>
-      <p>I'm probably doing something wrong, and I said so on camera. Something about the concepts wasn't clicking for me yet. My opinion from the earlier video still stood.</p>
-      <h2>Test it on your codebase</h2>
-      <p>The point of a Spec Kit trial is whether it helps you add features to an application you already run. Demos teach you the commands. I needed to see the workflow on billing, PDFs and a real backlog.</p>
-      <p>If you're trying to get more speed from AI on a large existing codebase and want a second set of eyes on your next move, that's what I cover in a <a href="https://dwain.me/strategy-call?src=blog">1:1 strategy call</a>.</p>
+      <p>The first run went off the rails. It asked to access paths outside my project and started looking through my whole folder, outside the calendar project. I said no, exited and started over.</p>
+      <p>That one was on me. You have to <code>cd</code> into the project folder before you launch <code>copilot</code>. I thought I could set the path from inside the prompt box, but it's a plain text box.</p>
+      <p>On the second run I passed the allow-all-tools flag. It still asked me for permissions, asked whether to add directories to an allowed list, and kept saying a parent directory didn't exist. I understand why a tool asks before it touches your code. In practice the constant prompts were annoying.</p>
+      <h2>What it got right</h2>
+      <p>After one follow-up prompt, where I told it I saw no API calls in the network tab when I dragged a job in month view, I checked a job on the 23rd, went back to the view, and the fix had worked. It did a pretty good job, and I could trace along the code as it worked.</p>
+      <p>I liked the formatting more than what I'd been getting from Claude, which was a little off for me. The output had nice emojis, and it called out the functions it was calling so I had some visibility. In that September 2025 build it ran by default on <a href="https://www.anthropic.com/news/claude-4">Claude Sonnet 4</a>. You could switch to <a href="https://developers.openai.com/api/docs/models/gpt-5">GPT-5</a> with an environment variable set before launching. GitHub keeps the current list on its <a href="https://docs.github.com/en/copilot/reference/ai-models/supported-models">supported models page</a>.</p>
+      <h2>Terminal versus the IDE</h2>
+      <p>My biggest gap was feedback. In <a href="https://code.visualstudio.com">VS Code</a> I see the files changing in a side panel, skim the changes as they happen, and choose what to keep or revert. That's how I work. In the CLI preview I tested, I could see that a file changed, but not what changed in it.</p>
+      <p>For me that was a disadvantage. If you live in the command line, it may not bother you at all, and any terminal tool gives up some of that visibility.</p>
+      <h2>Test it on real code</h2>
+      <p>Overall it was a pleasant experience, and I was excited about it as an early preview. The point of a first look like this is to put a new AI coding tool on the code you actually ship and see where it helps and where it slows you down. I have a related run with <a href="https://dwain.me/blog/spec-kit-large-projects">GitHub Spec Kit on a large Nuxt 2 app</a> and a post on <a href="https://dwain.me/blog/vibe-coding-engineering-judgment">keeping engineering judgment in vibe coding</a>.</p>
+      <p>If you're deciding which AI coding tools belong in your workflow and want a second set of eyes on it, that's what I cover in a <a href="https://dwain.me/strategy-call?src=blog">1:1 strategy call</a>.</p>
       <section id="author-blurb">
         <h2>About Dwain</h2>
         <div class="dm-f-teacher">
@@ -181,7 +187,7 @@
       <h2>More from Dwain</h2>
       <a href="https://dwain.me/strategy-call?src=blog">Book a strategy call</a>
       <a href="/live">Watch live builds</a>
-      <a href="/community">Join VibeCode 2 Profit</a>
+      <a href="/community">Join Vibe Code to Profit</a>
     </aside>
   </main>
 
