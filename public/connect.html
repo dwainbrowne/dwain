@@ -65,8 +65,9 @@
   } catch (e) {}
 })();
 </script>
+<meta name="referrer" content="no-referrer">
 </head>
-<body class="site-page">
+<body class="site-page" data-clarity-mask="True">
   <nav class="page-nav dm-header" aria-label="Primary navigation">
     <a class="brand-link" href="/"><img src="assets/images/logo.png" alt="">Dwain Browne</a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
@@ -112,29 +113,29 @@
           <p class="form-note">Rather talk it through? <a href="https://dwain.me/meet" target="_blank" rel="noopener">Book a call</a>, or <a href="consultation/">see the consultation options</a>.</p>
         </div>
         <div>
-          <form class="consultation-form" id="dm-contact-form" action="api/contact" method="post" novalidate>
+          <form data-clarity-mask="True" class="consultation-form" id="dm-contact-form" action="api/contact" method="post" novalidate>
             <div class="form-grid">
             <label>Your name
-              <input name="name" type="text" autocomplete="name" required maxlength="100">
+              <input data-clarity-mask="True" name="name" type="text" autocomplete="name" required maxlength="100">
               <span class="dm-field-error" aria-live="polite"></span>
             </label>
             <label>Email
-              <input name="email" type="email" autocomplete="email" required maxlength="200">
+              <input data-clarity-mask="True" name="email" type="email" autocomplete="email" required maxlength="200">
               <span class="dm-field-error" aria-live="polite"></span>
             </label>
             </div>
             <div class="form-grid">
             <label>Company
-              <input name="company" type="text" autocomplete="organization" required maxlength="150">
+              <input data-clarity-mask="True" name="company" type="text" autocomplete="organization" required maxlength="150">
               <span class="dm-field-error" aria-live="polite"></span>
             </label>
             <label>Phone
-              <input name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="25" placeholder="416 555 0100">
+              <input data-clarity-mask="True" name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="25" placeholder="416 555 0100">
               <span class="dm-field-error" aria-live="polite"></span>
             </label>
             </div>
             <label>What would you like to talk about?
-              <select name="interest" required>
+              <select data-clarity-mask="True" name="interest" required>
                 <option value="">Choose one</option>
                 <option>Software consultation</option>
                 <option>Architecture consultation</option>
@@ -150,10 +151,10 @@
               <span class="dm-field-error" aria-live="polite"></span>
             </label>
             <label>Message
-              <textarea name="message" rows="6" required maxlength="5000"></textarea>
+              <textarea data-clarity-mask="True" name="message" rows="6" required maxlength="5000"></textarea>
               <span class="dm-field-error" aria-live="polite"></span>
             </label>
-            <div class="dm-honeypot" aria-hidden="true"><label>Leave this empty <input name="website" type="text" tabindex="-1" autocomplete="off"></label></div>
+            <div class="dm-honeypot" aria-hidden="true"><label>Leave this empty <input data-clarity-mask="True" name="website" type="text" tabindex="-1" autocomplete="off"></label></div>
             <div class="cf-turnstile dm-turnstile" data-sitekey="0x4AAAAAAFLLiSz8C8tWkck3" data-appearance="interaction-only" data-theme="light" data-refresh-expired="auto"></div>
             <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
             <div class="dm-form-status" id="dm-form-status" role="alert" tabindex="-1"></div>
@@ -271,7 +272,10 @@
     </nav>
     <p class="dm-footer-legal">&copy; Copyright 2026 <span>Dwain Browne</span>. All rights reserved.</p>
   </footer>
+<div class="page-shell"><p><a href="/privacy">Privacy</a> · <button class="db-button" type="button" data-dm-cookie-choices>Cookie choices</button></p></div>
   <script src="assets/js/nav.js"></script>
   <script src="assets/js/site.js"></script>
+<script id="dm-analytics-config" type="application/json">{"providers":{},"page":"/connect","paths":["/","/about","/companies","/snapsuite","/leadscore","/affordly","/speaking","/live","/blog","/blog/vibe-coding-engineering-judgment","/blog/lead-scoring-prioritization","/blog/smallest-system-that-proves-the-point","/blog/read-ai-vs-fireflies-vs-otter","/blog/spec-kit-large-projects","/blog/spec-kit-alternative-large-codebase","/blog/github-copilot-cli-first-look","/blog/prove-the-ai-roi","/blog/cloudflare-30k-saas","/community","/vibe-code-to-profit","/connect","/speaking-trade-operations","/speaking-sales","/speaking-ai-operations","/speaking-vibe-code-to-profit","/press-kit","/one-sheet","/lives","/404.html","/consultation/","/privacy","/links","/free-community","/free-course","/solo-entrepreneur","/scaling-entrepreneur","/strategy-call","/weekly-live"],"anchors":["primary-menu","contact","dm-contact-form","dm-form-status","dm-form-success"],"videos":[]}</script>
+    <script src="/assets/js/analytics.js"></script>
 </body>
 </html>
