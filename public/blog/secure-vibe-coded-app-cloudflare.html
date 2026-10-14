@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Cloudflare Zero Trust Login for a Vibe-Coded Lovable App | Dwain Browne</title>
+    <meta name="description" content="Dwain Browne put a login in front of a Lovable app with Cloudflare Workers, Zero Trust Access and Auth0 in a September 2025 video, with no app code written.">
+    <meta property="article:published_time" content="2025-09-24T00:01:02-04:00">
+    <meta property="article:modified_time" content="2026-10-14">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css?v=20260529-9">
+    <link rel="stylesheet" type="text/css" href="../assets/css/additions.css">
+    <link rel="canonical" href="https://dwain.me/blog/secure-vibe-coded-app-cloudflare">
+    <link rel="icon" type="image/png" href="../assets/images/logo.png">
+    <meta property="og:type" content="article">
+    <meta name="author" content="Dwain Browne">
+    <meta property="og:site_name" content="Dwain Browne">
+    <meta property="og:title" content="Cloudflare Zero Trust Login for a Vibe-Coded Lovable App | Dwain Browne">
+    <meta property="og:description" content="Dwain Browne put a login in front of a Lovable app with Cloudflare Workers, Zero Trust Access and Auth0 in a September 2025 video, with no app code written.">
+    <meta property="og:url" content="https://dwain.me/blog/secure-vibe-coded-app-cloudflare">
+    <meta property="og:image" content="https://dwain.me/assets/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Dwain Browne, founder and CEO of SnapSuite and LeadScore AI">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@dwainbrowne">
+    <meta name="twitter:title" content="Cloudflare Zero Trust Login for a Vibe-Coded Lovable App | Dwain Browne">
+    <meta name="twitter:description" content="Dwain Browne put a login in front of a Lovable app with Cloudflare Workers, Zero Trust Access and Auth0 in a September 2025 video, with no app code written.">
+    <meta name="twitter:image" content="https://dwain.me/assets/images/og-image.png">
+    <script>
+(function () {
+  try {
+    var ss = window.sessionStorage, ls = window.localStorage, q = new URLSearchParams(location.search);
+    var r = document.referrer || "", external = r && r.indexOf(location.host) < 0;
+    var tags = {};
+    ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "src", "ref", "gclid", "fbclid", "ttclid"].forEach(function (k) {
+      var v = q.get(k); if (v) tags[k] = v.slice(0, 100);
+    });
+    var visit = JSON.stringify({ landing: (location.pathname + location.search).slice(0, 200), referrer: external ? r.slice(0, 300) : "", tags: tags, at: new Date().toISOString() });
+    if (!ss.getItem("dm-visit")) ss.setItem("dm-visit", visit);
+    if (!ls.getItem("dm-first")) ls.setItem("dm-first", visit);
+    var pages = JSON.parse(ss.getItem("dm-pages") || "[]");
+    if (pages[pages.length - 1] !== location.pathname) { pages.push(location.pathname); ss.setItem("dm-pages", JSON.stringify(pages.slice(-15))); }
+  } catch (e) {}
+})();
+</script>
+    <script>
+(function () {
+  try {
+    var q = new URLSearchParams(location.search), ss = window.sessionStorage;
+    if (q.get("full") === "1") { ss.setItem("dm-full", "1"); return; }
+    if (ss.getItem("dm-full")) return;
+    var ua = navigator.userAgent || "", ref = (document.referrer || "").toLowerCase();
+    if (ref.indexOf(location.host) > -1) return;
+    var phone = /iPhone|iPod|Android.*Mobile|Mobile Safari|musical_ly|BytedanceWebview|Instagram/i.test(ua) || (window.matchMedia && matchMedia("(pointer: coarse)").matches && Math.min(screen.width, screen.height) < 600);
+    if (!phone) return;
+    var tag = (q.get("src") || q.get("ref") || q.get("utm_source") || "").toLowerCase();
+    var from = /tiktok|^tt$/.test(tag) || /musical_ly|bytedance|tiktok/i.test(ua) || /tiktok\.com/.test(ref) ? "tiktok"
+      : /instagram|^ig$/.test(tag) || /Instagram/.test(ua) || /instagram\.com/.test(ref) ? "instagram"
+      : /youtube|shorts|^yt$/.test(tag) || /youtube\.com|youtu\.be|android\.youtube/.test(ref) ? "youtube" : "";
+    if (!from) return;
+    ss.setItem("dm-social", from);
+    var home = /^\/(index(\.html)?)?$/.test(location.pathname);
+    if (home && !ss.getItem("dm-routed")) { ss.setItem("dm-routed", "1"); location.replace("/links?src=" + from); return; }
+    document.documentElement.setAttribute("data-dm-social", from);
+  } catch (e) {}
+})();
+</script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": "https://dwain.me/blog/secure-vibe-coded-app-cloudflare#article",
+  "mainEntityOfPage": "https://dwain.me/blog/secure-vibe-coded-app-cloudflare",
+  "headline": "I put a real login in front of a Lovable app with Cloudflare Access and Auth0.",
+  "description": "Dwain Browne put a login in front of a Lovable app with Cloudflare Workers, Zero Trust Access and Auth0 in a September 2025 video, with no app code written.",
+  "image": "https://dwain.me/assets/images/og-image.png",
+  "datePublished": "2025-09-24T00:01:02-04:00",
+  "dateModified": "2026-10-14",
+  "articleSection": "AI developer",
+  "keywords": "AI",
+  "inLanguage": "en-CA",
+  "author": {
+    "@type": "Person",
+    "@id": "https://dwain.me/#person",
+    "name": "Dwain Browne",
+    "url": "https://dwain.me/about"
+  },
+  "publisher": {
+    "@id": "https://dwain.me/#person"
+  },
+  "isPartOf": {
+    "@id": "https://dwain.me/#website"
+  },
+  "video": {
+    "@type": "VideoObject",
+    "name": "How to Secure a Vibe Coded App with Cloudflare in 20 Minutes",
+    "description": "Dwain Browne put a login in front of a Lovable app with Cloudflare Workers, Zero Trust Access and Auth0 in a September 2025 video, with no app code written.",
+    "thumbnailUrl": "https://i.ytimg.com/vi/kGI2tPHQ6Gs/hqdefault.jpg",
+    "uploadDate": "2025-09-24T00:01:02-04:00",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/kGI2tPHQ6Gs",
+    "contentUrl": "https://www.youtube.com/watch?v=kGI2tPHQ6Gs"
+  }
+}
+    </script>
+<meta name="referrer" content="no-referrer">
+</head>
+<body class="site-page" data-clarity-mask="True">
+  <nav class="page-nav dm-header" aria-label="Primary navigation">
+    <a class="brand-link" href="/"><img src="../assets/images/logo.png" alt="">Dwain Browne</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span class="screen-reader-text">Menu</span>
+    </button>
+    <div class="page-nav-links" id="primary-menu">
+      <a href="/about">About</a>
+      <a href="/companies">Companies</a>
+      <a href="../consultation/">Consult</a>
+      <a href="/community">Community</a>
+      <a href="/links">Courses</a>
+      <a href="/speaking">Speaking</a>
+      <a href="/live">Videos</a>
+      <a href="/blog">Blog</a>
+      <a href="/connect">Connect</a>
+      <a class="dm-menu-cta" href="/connect#contact">Get in touch</a>
+    </div>
+    <a class="db-button primary dm-header-cta" href="/connect#contact">Get in touch</a>
+  </nav>
+
+  <main class="page-shell article-layout">
+    <article class="article-body">
+      <p class="article-meta">AI developer &middot; <time datetime="2025-09-24">September 24, 2025</time></p>
+      <h1>I put a real login in front of a Lovable app with Cloudflare Access and Auth0.</h1>
+      <p>An app you generate with AI is open to anyone who has the link. In a September 2025 video I showed how I put a real login screen in front of one with Cloudflare and Auth0, without writing a line of app code.</p>
+      <h2>The business case</h2>
+      <p>AI app builders get you a working app in minutes. They don't decide who gets to use it. If the app touches your business or your team's work, an open URL is a problem.</p>
+      <p>The setup I showed was free for up to 50 users. Cloudflare Zero Trust sits in front of the app and asks for a login before anyone reaches it, and Auth0 handles the accounts. The end state in the video was a login page with your logo, email and password fields, and a sign-up button. I called it production-grade security for free, with no code written.</p>
+      <p>Security is a big topic, and I said up front that one video can't cover all of it. What it gives you are the pieces to lock down any vibe-coded app. For the code side of the same problem, see why <a href="https://dwain.me/blog/vibe-coding-engineering-judgment">vibe coding still needs engineering judgment</a>. This setup fits an internal or team app best. I said it can handle sign-ups, but it isn't the best workflow for that.</p>
+      <h2>Get the app onto Cloudflare</h2>
+      <p>My demo was an AI teleprompter called Talk Topic that I generated in <a href="https://docs.lovable.dev/introduction/welcome">Lovable</a>. Any AI app generator works. You need three accounts: <a href="https://github.com">GitHub</a>, Cloudflare and <a href="https://auth0.com">Auth0</a>.</p>
+      <p>Lovable's built-in <a href="https://docs.lovable.dev/integrations/github">GitHub connection</a> moved the code into a new repo. In Cloudflare I went to Compute, then Workers &amp; Pages, created a <a href="https://workers.cloudflare.com">Cloudflare Worker</a> and imported that repo. The first deploy failed, and I expected it to. Lovable's output doesn't carry the settings Cloudflare needs.</p>
+      <p>I cloned the repo with the <a href="https://cli.github.com">GitHub CLI</a>, opened it in <a href="https://code.visualstudio.com">Visual Studio Code</a> and asked <a href="https://github.com/features/copilot">GitHub Copilot</a> to add the Cloudflare Workers configuration. I pasted the build errors in as context. In about 5 minutes it added a <a href="https://developers.cloudflare.com/workers/wrangler/configuration/">Wrangler config file</a>, which tells the build where the static HTML, CSS and JavaScript bundle lives.</p>
+      <p>A second deploy failed on a missing directory. I pasted that log back into Copilot, committed the fix, and the build went through. From then on, every push to the repo triggered a new Cloudflare build and publish.</p>
+      <h2>Public until you lock it</h2>
+      <p>Once it deployed, the app lived on a Cloudflare worker URL, and anyone could open it. As I put it in the video, I was technically no further along than I was with Lovable.</p>
+      <p>The next step is registering the app in Auth0. I'm not affiliated with them, but I've used them for years, and they're owned by <a href="https://www.okta.com">Okta</a>. I created an application and picked Regular Web App, even though the app itself is a single-page app. Then I collected three values from its settings: the domain, the client ID and the client secret.</p>
+      <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin:1.5rem 0;border-radius:12px"><iframe style="position:absolute;inset:0;width:100%;height:100%;border:0" src="https://www.youtube-nocookie.com/embed/kGI2tPHQ6Gs" title="How to Secure a Vibe Coded App with Cloudflare in 20 Minutes" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <p><strong>Jump to</strong></p>
+      <ul>
+      <li><a href="https://www.youtube.com/watch?v=kGI2tPHQ6Gs&amp;t=0s">0:00 Introduction</a></li>
+      <li><a href="https://www.youtube.com/watch?v=kGI2tPHQ6Gs&amp;t=67s">1:07 Overview of Vibe Coded App</a></li>
+      <li><a href="https://www.youtube.com/watch?v=kGI2tPHQ6Gs&amp;t=114s">1:54 Connecting GitHub and CloudFlare</a></li>
+      <li><a href="https://www.youtube.com/watch?v=kGI2tPHQ6Gs&amp;t=190s">3:10 Configuring CloudFlare for Deployment</a></li>
+      <li><a href="https://www.youtube.com/watch?v=kGI2tPHQ6Gs&amp;t=247s">4:07 Fixing Deployment Issues</a></li>
+      <li><a href="https://www.youtube.com/watch?v=kGI2tPHQ6Gs&amp;t=381s">6:21 Using Visual Studio Code for Configuration</a></li>
+      <li><a href="https://www.youtube.com/watch?v=kGI2tPHQ6Gs&amp;t=552s">9:12 Deploying and Testing the Application</a></li>
+      <li><a href="https://www.youtube.com/watch?v=kGI2tPHQ6Gs&amp;t=584s">9:44 Introduction to Auth0 and Okta</a></li>
+      <li><a href="https://www.youtube.com/watch?v=kGI2tPHQ6Gs&amp;t=683s">11:23 Setting Up Zero Trust with CloudFlare</a></li>
+      <li><a href="https://www.youtube.com/watch?v=kGI2tPHQ6Gs&amp;t=894s">14:54 Setting Up CloudFlare Authentication</a></li>
+      <li><a href="https://www.youtube.com/watch?v=kGI2tPHQ6Gs&amp;t=927s">15:27 Configuring DNS and CloudFlare Worker</a></li>
+      <li><a href="https://www.youtube.com/watch?v=kGI2tPHQ6Gs&amp;t=989s">16:29 Integrating Auth0 with CloudFlare</a></li>
+      <li><a href="https://www.youtube.com/watch?v=kGI2tPHQ6Gs&amp;t=1090s">18:10 Obtaining Configuration URLs via ChatGPT</a></li>
+      <li><a href="https://www.youtube.com/watch?v=kGI2tPHQ6Gs&amp;t=1175s">19:35 Finalizing Auth0 Setup</a></li>
+      <li><a href="https://www.youtube.com/watch?v=kGI2tPHQ6Gs&amp;t=1248s">20:48 Testing and Troubleshooting</a></li>
+      <li><a href="https://www.youtube.com/watch?v=kGI2tPHQ6Gs&amp;t=1463s">24:23 Creating and Applying Security Policies</a></li>
+      <li><a href="https://www.youtube.com/watch?v=kGI2tPHQ6Gs&amp;t=1675s">27:55 Conclusion and Next Steps</a></li>
+      </ul>
+      <p>I walk through every click on screen in the full video on my channel: <a href="https://www.youtube.com/watch?v=kGI2tPHQ6Gs">securing a vibe-coded app with Cloudflare on YouTube</a>.</p>
+      <h2>Put Access in front</h2>
+      <p>In <a href="https://www.cloudflare.com/zero-trust/products/access/">Cloudflare Zero Trust</a> you first name your team, which stands for your organization. Remember that name. It comes back later in the login URLs.</p>
+      <p>On the free plan, up to 50 users could use the app before paid seats kicked in. It still asked me for a payment method. In the video I said you'd pay $7 per user once you passed 50. As of October 2026, Cloudflare's <a href="https://www.cloudflare.com/plans/">plans page</a> lists a free tier for up to 50 users and Pay-as-you-go at $7 per user a month, and that plan bills every user, not just the ones past 50. Check it before you count on those numbers.</p>
+      <p>Go to Access, then Applications, and add a self-hosted application. Session duration is how long before someone has to log in again. I suggested 15 minutes for something sensitive and 30 minutes to 6 hours otherwise. Set the public endpoint to the worker's domain. To use your own domain, add it as a <a href="https://developers.cloudflare.com/workers/configuration/routing/custom-domains/">custom domain</a> under the worker's Domains &amp; Routes settings and point your registrar at Cloudflare. After I saved, a refresh of the app showed Cloudflare's block page. Cloudflare has renamed these menus since September 2025. As of October 2026, its <a href="https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/self-hosted-public-app/">self-hosted app guide</a> has you go to Access controls, then Applications, and add a public hostname, which has to be a domain on your Cloudflare account. Login methods now sit under Integrations, then Identity providers.</p>
+      <h2>Connect Auth0 with OpenID Connect</h2>
+      <p>Under login methods, add a new one and choose <a href="https://openid.net/developers/how-connect-works/">OpenID Connect</a>. Skip the Okta option, even though Okta owns Auth0. Paste in the Auth0 client ID and client secret.</p>
+      <p>The next part got wonky. Cloudflare wants an authorization URL, a token URL and a certificate URL, and the Auth0 dashboard doesn't show them. I asked an AI chat assistant for Auth0's well-known configuration URL, opened it in the browser, and copied the authorization endpoint, the token endpoint and the JWKS URL. Auth0 documents that <a href="https://auth0.com/docs/get-started/applications/configure-applications-with-oidc-discovery">discovery endpoint</a>, and <a href="https://developers.cloudflare.com/cloudflare-one/identity/idp-integration/generic-oidc/">Cloudflare's generic OIDC guide</a> lists the same fields. I also turned on PKCE for extra security.</p>
+      <p>Back on the Access application, select only the new login method and turn on instant auth, which skips the identity provider picker.</p>
+      <p>The first login attempt errored, which I expected. Auth0 didn't know about Cloudflare yet. The error details include a callback URL built from your Zero Trust team name. Paste it into Auth0's Allowed Callback URLs. Then paste the base of that URL, with the path removed, into Allowed Logout URLs and Allowed Origins.</p>
+      <h2>The error that cost me a night</h2>
+      <p>Next came "This account does not have access." It kept coming back. I got so frustrated that I shut my computer at about 4 AM and went to bed. When I came back hours later, it worked. My read is that Cloudflare and Auth0 take a while to sync.</p>
+      <p>If you hit it, re-check every field on the login method: the app ID, the client secret and each URL. Then click Test. If the test passes, you haven't done anything wrong.</p>
+      <h2>Tighten it with policies</h2>
+      <p>A policy is a rule. I made one called North America only and allowed Canada and the United States. You can add rules for specific email addresses, or require two-factor, SMS or one-time password checks. Creating a policy doesn't apply it. Attach it to the application, confirm, then save the application.</p>
+      <p>To test logging out, use a fresh incognito window. An existing Cloudflare session lets you straight back in.</p>
+      <h2>What the login is for</h2>
+      <p>The point is to get the app you built in front of the people who need it, and nobody else. I said in the video that a deeper breakdown of the moving parts was coming. If you want to understand how Cloudflare fits together from the ground up, start with my <a href="https://dwain.me/free-course?src=blog">free Cloudflare course</a>.</p>
+      <section id="author-blurb">
+        <h2>About Dwain</h2>
+        <div class="dm-f-teacher">
+          <img src="../assets/images/profile/dwain-headshot.jpg" alt="Dwain Browne" width="96" height="96" loading="lazy">
+          <div>
+            <p>I'm Dwain Browne, Founder of LeadScore AI and SnapSuite. I'm a Toronto-based software architect with 25+ years across software, sales, operations and entrepreneurship. SnapSuite helps contractors and trades teams get paid faster, and LeadScore AI shows you which leads deserve your next call. I also run Vibe Code to Profit, a community helping people build software with AI.</p>
+            <p><a href="https://www.youtube.com/@dwainbrowne">YouTube</a> &middot; <a href="https://www.linkedin.com/in/dwainbrowne">LinkedIn</a> &middot; <a href="https://calendly.com/snapsuite/60min">Book a call</a></p>
+          </div>
+        </div>
+      </section>
+    </article>
+    <aside class="article-sidebar">
+      <h2>More from Dwain</h2>
+      <a href="https://dwain.me/free-course?src=blog">Take the free Cloudflare course</a>
+      <a href="/live">Watch live builds</a>
+      <a href="/community">Join Vibe Code to Profit</a>
+    </aside>
+  </main>
+
+  <footer class="page-shell page-footer dm-footer">
+    <div class="dm-footer-top">
+      <div class="dm-footer-about">
+        <a class="dm-footer-brand" href="/"><img src="/assets/images/logo.png" alt="">Dwain Browne</a>
+        <p>Founder and CEO of SnapSuite and LeadScore AI. Toronto, Canada.</p>
+      </div>
+      <div class="dm-footer-social" role="group" aria-label="Social media">
+        <a href="https://www.youtube.com/@dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on YouTube (@dwainbrowne)"><img width="24" height="24" src="/assets/images/youtube.png" alt=""><span class="dm-footer-social-label">YouTube <span>@dwainbrowne</span></span></a>
+        <a href="https://www.youtube.com/@dwainunfinished" target="_blank" rel="noopener" aria-label="Dwain on YouTube (@dwainunfinished)"><img width="24" height="24" src="/assets/images/youtube.png" alt=""><span class="dm-footer-social-label">YouTube <span>@dwainunfinished</span></span></a>
+        <a href="https://www.tiktok.com/@dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on TikTok (@dwainbrowne)"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="#1d1917"/><path fill="#fff" transform="translate(5.4 5.4) scale(0.55)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg><span class="dm-footer-social-label">TikTok <span>@dwainbrowne</span></span></a>
+        <a href="https://www.tiktok.com/@dwain.me" target="_blank" rel="noopener" aria-label="Dwain on TikTok (@dwain.me)"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="#1d1917"/><path fill="#fff" transform="translate(5.4 5.4) scale(0.55)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg><span class="dm-footer-social-label">TikTok <span>@dwain.me</span></span></a>
+        <a href="https://instagram.com/dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on Instagram (@dwainbrowne)"><img width="24" height="24" src="/assets/images/instagram.png" alt=""><span class="dm-footer-social-label">Instagram <span>@dwainbrowne</span></span></a>
+        <a href="https://twitter.com/dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on X (@dwainbrowne)"><img width="24" height="24" src="/assets/images/twitter.png" alt=""><span class="dm-footer-social-label">X <span>@dwainbrowne</span></span></a>
+        <a href="https://www.linkedin.com/in/dwainbrowne/" target="_blank" rel="noopener" aria-label="Dwain on LinkedIn (@dwainbrowne)"><img width="24" height="24" src="/assets/images/linkedIn.png" alt=""><span class="dm-footer-social-label">LinkedIn <span>@dwainbrowne</span></span></a>
+        <a href="https://www.pinterest.ca/dwainbrowne/" target="_blank" rel="noopener" aria-label="Dwain on Pinterest (@dwainbrowne)"><img width="24" height="24" src="/assets/images/pinterest.png" alt=""><span class="dm-footer-social-label">Pinterest <span>@dwainbrowne</span></span></a>
+      </div>
+    </div>
+    <nav class="dm-footer-cols" aria-label="Footer">
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Explore</p>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/live">Videos</a></li>
+          <li><a href="/speaking">Speaking</a></li>
+          <li><a href="/press-kit">Press Kit</a></li>
+          <li><a href="/one-sheet">One Sheet</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Companies</p>
+        <ul>
+          <li><a href="/companies">All companies</a></li>
+          <li><a href="/snapsuite">SnapSuite</a></li>
+          <li><a href="/leadscore">LeadScore</a></li>
+          <li><a href="/affordly">Affordly</a></li>
+          <li><a href="/vibe-code-to-profit">VibeCode 2 Profit</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Learn</p>
+        <ul>
+          <li><a href="/links">Start an AI business</a></li>
+          <li><a href="/free-course">Free course</a></li>
+          <li><a href="/free-community">Free community</a></li>
+          <li><a href="/community">Community</a></li>
+          <li><a href="/weekly-live">Weekly live</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Work with Dwain</p>
+        <ul>
+          <li><a href="/consultation/">Consult</a></li>
+          <li><a href="/strategy-call">Strategy call</a></li>
+          <li><a href="/connect">Connect</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group dm-footer-group-wide">
+        <p class="dm-footer-heading">Blog</p>
+        <ul>
+          <li><a href="/blog/secure-vibe-coded-app-cloudflare">I put a real login in front of a Lovable app with Cloudflare Access and Auth0</a></li>
+          <li><a href="/blog/cloudflare-30k-saas">I mapped a Cloudflare SaaS architecture before writing any code</a></li>
+          <li><a href="/blog/prove-the-ai-roi">I measure my AI spend against a 10x return</a></li>
+          <li><a href="/blog/github-copilot-cli-first-look">I pointed GitHub Copilot CLI at a real calendar bug, and it fixed it</a></li>
+          <li><a href="/blog/spec-kit-alternative-large-codebase">I manage half a million lines with a monorepo and overnight Copilot agents</a></li>
+          <li><a href="/blog">All posts</a></li>
+        </ul>
+      </div>
+    </nav>
+    <p class="dm-footer-legal">&copy; Copyright 2026 <span>Dwain Browne</span>. All rights reserved.</p>
+  </footer>
+<div class="page-shell"><p><a href="/privacy">Privacy</a> · <button class="db-button" type="button" data-dm-cookie-choices>Cookie choices</button></p></div>
+  <script src="../assets/js/nav.js"></script>
+  <script src="../assets/js/site.js"></script>
+<script id="dm-analytics-config" type="application/json">{"providers":{},"page":"/blog/secure-vibe-coded-app-cloudflare","paths":["/","/about","/companies","/snapsuite","/leadscore","/affordly","/speaking","/live","/blog","/blog/vibe-coding-engineering-judgment","/blog/lead-scoring-prioritization","/blog/smallest-system-that-proves-the-point","/blog/read-ai-vs-fireflies-vs-otter","/blog/spec-kit-large-projects","/blog/spec-kit-alternative-large-codebase","/blog/github-copilot-cli-first-look","/blog/prove-the-ai-roi","/blog/cloudflare-30k-saas","/blog/secure-vibe-coded-app-cloudflare","/community","/vibe-code-to-profit","/connect","/speaking-trade-operations","/speaking-sales","/speaking-ai-operations","/speaking-vibe-code-to-profit","/press-kit","/one-sheet","/lives","/404.html","/consultation/","/privacy","/links","/free-community","/free-course","/solo-entrepreneur","/scaling-entrepreneur","/strategy-call","/weekly-live"],"anchors":["primary-menu","author-blurb"],"videos":[]}</script>
+    <script src="/assets/js/analytics.js"></script>
+</body>
+</html>
