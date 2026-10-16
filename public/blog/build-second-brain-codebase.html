@@ -135,14 +135,14 @@
     <article class="article-body">
       <p class="article-meta">AI developer &middot; <time datetime="2026-07-31">July 31, 2026</time></p>
       <h1>I built a second brain for my codebase so releases keep shipping while I'm away.</h1>
-      <p>In a July 2026 live stream I walked through the loop I built to take a client's bug report to a tested release with as little of my time as possible. I was about to leave on vacation, and I wanted the code to keep shipping without me at the desk.</p>
+      <p>In a July 2026 <a href="https://dwain.me/live">live stream</a> I walked through the loop I built to take a client's bug report to a tested release with as little of my time as possible. I was about to leave on vacation, and I wanted the code to keep shipping without me at the desk.</p>
       <h2>The business case</h2>
       <p>As a solo developer, the hardest part of my day was deciding what to work on. Which bug to fix, which build to tune, what to deploy, what to test. In July 2026 I said every team faces the same problem of moving faster without breaking anything.</p>
       <p>My goal was blunt. As the developer and the business owner, I should be able to step away from the computer for a week and still ship code reliably, done the way I'd do it. My release pace away from the desk should match my pace at it. That's what the second brain is for.</p>
       <p><a href="https://github.com/openai/codex">Codex</a>, <a href="https://claude.com/product/overview">Claude</a> and the Sentry plugin change fast, so read this as where my setup stood in July 2026.</p>
       <h2>Why a second brain</h2>
       <p>A second brain means moving what's in your head, your notes, SOPs and workflows, into a system so you have room to think. I'd used <a href="https://www.onenote.com">OneNote</a> for years and started and quit second-brain systems many times. The notes went stale, and nobody wants to go back and update old notes.</p>
-      <p>AI changed that for me. I put a process in markdown, let the AI run it, and have it improve the process over time while I monitor it. Then I pointed the idea at code. The loop is: watch the code, decide what to work on, act on it, verify it, and learn from the result.</p>
+      <p>AI changed that for me. I put a process in markdown, <a href="https://dwain.me/speaking-ai-operations">let the AI run it</a>, and have it improve the process over time while I monitor it. Then I pointed the idea at code. The loop is: watch the code, decide what to work on, act on it, verify it, and learn from the result.</p>
       <h2>Bug report to issue</h2>
       <p>On stream I filed a real request from my app's demo account. I dictated it on the communications page: add a filter for incoming and outgoing calls, and collapse the crowded filters behind an icon. An AI cleaned up my rough notes and sent them with a screenshot.</p>
       <p>The intake AI worked out what the request was about and gave it a priority of P1, P2 or P3. It classified the module, emailed the client a thank-you, and opened a <a href="https://docs.github.com/en/issues">GitHub issue</a>. This one came back P3, with reasons: a new filtering feature, not blocking, not a defect. Nothing moves until the AI justifies its decision.</p>
