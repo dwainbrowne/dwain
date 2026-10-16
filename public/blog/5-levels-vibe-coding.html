@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>The 5 Levels of Vibe Coding and Why I Sit Between 3 and 4 | Dwain Browne</title>
+    <meta name="description" content="In a June 2026 live stream, Dwain Browne covered five levels of building software with AI, what he does at each one, and why token costs belong in your price.">
+    <meta property="article:published_time" content="2026-06-12T14:15:00-04:00">
+    <meta property="article:modified_time" content="2026-10-16">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css?v=20260529-9">
+    <link rel="stylesheet" type="text/css" href="../assets/css/additions.css">
+    <link rel="canonical" href="https://dwain.me/blog/5-levels-vibe-coding">
+    <link rel="icon" type="image/png" href="../assets/images/logo.png">
+    <meta property="og:type" content="article">
+    <meta name="author" content="Dwain Browne">
+    <meta property="og:site_name" content="Dwain Browne">
+    <meta property="og:title" content="The 5 Levels of Vibe Coding and Why I Sit Between 3 and 4 | Dwain Browne">
+    <meta property="og:description" content="In a June 2026 live stream, Dwain Browne covered five levels of building software with AI, what he does at each one, and why token costs belong in your price.">
+    <meta property="og:url" content="https://dwain.me/blog/5-levels-vibe-coding">
+    <meta property="og:image" content="https://dwain.me/assets/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Dwain Browne, founder and CEO of SnapSuite and LeadScore AI">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@dwainbrowne">
+    <meta name="twitter:title" content="The 5 Levels of Vibe Coding and Why I Sit Between 3 and 4 | Dwain Browne">
+    <meta name="twitter:description" content="In a June 2026 live stream, Dwain Browne covered five levels of building software with AI, what he does at each one, and why token costs belong in your price.">
+    <meta name="twitter:image" content="https://dwain.me/assets/images/og-image.png">
+    <script>
+(function () {
+  try {
+    var ss = window.sessionStorage, ls = window.localStorage, q = new URLSearchParams(location.search);
+    var r = document.referrer || "", external = r && r.indexOf(location.host) < 0;
+    var tags = {};
+    ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "src", "ref", "gclid", "fbclid", "ttclid"].forEach(function (k) {
+      var v = q.get(k); if (v) tags[k] = v.slice(0, 100);
+    });
+    var visit = JSON.stringify({ landing: (location.pathname + location.search).slice(0, 200), referrer: external ? r.slice(0, 300) : "", tags: tags, at: new Date().toISOString() });
+    if (!ss.getItem("dm-visit")) ss.setItem("dm-visit", visit);
+    if (!ls.getItem("dm-first")) ls.setItem("dm-first", visit);
+    var pages = JSON.parse(ss.getItem("dm-pages") || "[]");
+    if (pages[pages.length - 1] !== location.pathname) { pages.push(location.pathname); ss.setItem("dm-pages", JSON.stringify(pages.slice(-15))); }
+  } catch (e) {}
+})();
+</script>
+    <script>
+(function () {
+  try {
+    var q = new URLSearchParams(location.search), ss = window.sessionStorage;
+    if (q.get("full") === "1") { ss.setItem("dm-full", "1"); return; }
+    if (ss.getItem("dm-full")) return;
+    var ua = navigator.userAgent || "", ref = (document.referrer || "").toLowerCase();
+    if (ref.indexOf(location.host) > -1) return;
+    var phone = /iPhone|iPod|Android.*Mobile|Mobile Safari|musical_ly|BytedanceWebview|Instagram/i.test(ua) || (window.matchMedia && matchMedia("(pointer: coarse)").matches && Math.min(screen.width, screen.height) < 600);
+    if (!phone) return;
+    var tag = (q.get("src") || q.get("ref") || q.get("utm_source") || "").toLowerCase();
+    var from = /tiktok|^tt$/.test(tag) || /musical_ly|bytedance|tiktok/i.test(ua) || /tiktok\.com/.test(ref) ? "tiktok"
+      : /instagram|^ig$/.test(tag) || /Instagram/.test(ua) || /instagram\.com/.test(ref) ? "instagram"
+      : /youtube|shorts|^yt$/.test(tag) || /youtube\.com|youtu\.be|android\.youtube/.test(ref) ? "youtube" : "";
+    if (!from) return;
+    ss.setItem("dm-social", from);
+    var home = /^\/(index(\.html)?)?$/.test(location.pathname);
+    if (home && !ss.getItem("dm-routed")) { ss.setItem("dm-routed", "1"); location.replace("/links?src=" + from); return; }
+    document.documentElement.setAttribute("data-dm-social", from);
+  } catch (e) {}
+})();
+</script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": "https://dwain.me/blog/5-levels-vibe-coding#article",
+  "mainEntityOfPage": "https://dwain.me/blog/5-levels-vibe-coding",
+  "headline": "I sit between Level 3 and Level 4 of vibe coding, and almost nobody is at Level 5.",
+  "description": "In a June 2026 live stream, Dwain Browne covered five levels of building software with AI, what he does at each one, and why token costs belong in your price.",
+  "image": "https://dwain.me/assets/images/og-image.png",
+  "datePublished": "2026-06-12T14:15:00-04:00",
+  "dateModified": "2026-10-16",
+  "articleSection": "AI developer",
+  "keywords": "AI",
+  "inLanguage": "en-CA",
+  "author": {
+    "@type": "Person",
+    "@id": "https://dwain.me/#person",
+    "name": "Dwain Browne",
+    "url": "https://dwain.me/about"
+  },
+  "publisher": {
+    "@id": "https://dwain.me/#person"
+  },
+  "isPartOf": {
+    "@id": "https://dwain.me/#website"
+  },
+  "video": {
+    "@type": "VideoObject",
+    "name": "The 5 Levels of Vibe Coding",
+    "description": "In a June 2026 live stream, Dwain Browne covered five levels of building software with AI, what he does at each one, and why token costs belong in your price.",
+    "thumbnailUrl": "https://i.ytimg.com/vi/in0WsnJkymg/hqdefault.jpg",
+    "uploadDate": "2026-06-12T14:15:00-04:00",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/in0WsnJkymg",
+    "contentUrl": "https://www.youtube.com/watch?v=in0WsnJkymg"
+  }
+}
+    </script>
+<meta name="referrer" content="no-referrer">
+</head>
+<body class="site-page" data-clarity-mask="True">
+  <nav class="page-nav dm-header" aria-label="Primary navigation">
+    <a class="brand-link" href="/"><img src="../assets/images/logo.png" alt="">Dwain Browne</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span class="screen-reader-text">Menu</span>
+    </button>
+    <div class="page-nav-links" id="primary-menu">
+      <a href="/about">About</a>
+      <a href="/companies">Companies</a>
+      <a href="../consultation/">Consult</a>
+      <a href="/community">Community</a>
+      <a href="/links">Courses</a>
+      <a href="/speaking">Speaking</a>
+      <a href="/live">Videos</a>
+      <a href="/blog">Blog</a>
+      <a href="/connect">Connect</a>
+      <a class="dm-menu-cta" href="/connect#contact">Get in touch</a>
+    </div>
+    <a class="db-button primary dm-header-cta" href="/connect#contact">Get in touch</a>
+  </nav>
+
+  <main class="page-shell article-layout">
+    <article class="article-body">
+      <p class="article-meta">AI developer &middot; <time datetime="2026-06-12">June 12, 2026</time></p>
+      <h1>I sit between Level 3 and Level 4 of vibe coding, and almost nobody is at Level 5.</h1>
+      <p>In a June 2026 live stream I walked through five levels of building software with AI, from handing it small tasks to letting it run the whole loop. I&#x27;ve been a software developer for over 20 years, and I put myself between Level 3 and Level 4. Each step up asks for more trust in the AI and burns more tokens.</p>
+      <h2>The business case</h2>
+      <p>Vibe coding has no shared language for skill levels yet, so I made up a working scale. Knowing where you sit tells you what to practice next and what your work will cost.</p>
+      <p>That cost changed for me in June 2026. My <a href="https://github.com/features/copilot">GitHub Copilot</a> billing moved from a flat monthly fee to usage billing on June 1. The month before, I&#x27;d spent about $400 including overages. I spent about $400 on my first day under the new billing, a pace that would turn a $400 month into about $10,000. I moved my coding to <a href="https://github.com/openai/codex">Codex</a> and upgraded my <a href="https://apps.apple.com/us/app/chatgpt/id6448311069">ChatGPT</a> plan from $20 to $200.</p>
+      <p>The free lunch is over. The higher levels only make sense when the work you sell covers the tokens. Treat every price and model name here as June 2026 and check the vendor pages.</p>
+      <h2>Five levels in brief</h2>
+      <ul>
+        <li>Level 1: you offload small tasks, like a page or one section of a page.</li>
+        <li>Level 2: you hand the AI a feature-sized job and work it in a chat loop. I think most people are here, in tools like <a href="https://docs.lovable.dev">Lovable</a>, <a href="https://docs.replit.com">Replit</a>, <a href="https://v0.app">v0</a> and <a href="https://bolt.new">Bolt</a>.</li>
+        <li>Level 3: you work from a spec and steer, like a junior project manager.</li>
+        <li>Level 4: you act like a product manager and check back on the outcome.</li>
+        <li>Level 5: the AI finds and fixes bugs, writes the tests and iterates on the spec, with you almost outside the loop. Like full self-driving, it&#x27;s very hard to reach, and nobody is fully there yet.</li>
+      </ul>
+      <h2>Level 1 while learning</h2>
+      <p>If you&#x27;re learning to code, don&#x27;t let the AI write all of it, or you end up renting your knowledge from an AI company. I started about three years ago, pasting JavaScript functions I didn&#x27;t know into ChatGPT and still writing the code by hand.</p>
+      <p>I&#x27;m doing the same now with <a href="https://go.dev">Go</a>, because I want pages that my C# back end loads in about 2 seconds to load in under 200 milliseconds. I asked the AI for the basics, then typed each step myself, from <code>go mod init</code> to <code>fmt.Println</code> and <code>go run .</code>. Skipping the autocomplete is what helps your brain learn.</p>
+      <p>Vibe coders can scale. I&#x27;ve vibe coded properly for about a year and a half without spaghetti code, because I still decide where services split.</p>
+      <h2>Level 2 builds intuition</h2>
+      <p>Level 2 is the loop: screenshot, prompt, read, fix, repeat. It&#x27;s the most underrated skill in vibe coding and where newer vibe coders should spend the most time, because intuition comes from prompting and reading.</p>
+      <p>On stream, a save failed in my app, so I gave the AI three things: a screenshot of the page, the error from the back-end logs, and the request copied as cURL from the browser&#x27;s network tab. Then I read about 60 to 70% of what the AI writes as it works. It slows my brain down enough to see where it&#x27;s heading, so I can stop it when it drifts.</p>
+      <p>Most of the time I&#x27;m on one or two things at once. Each model has its own feel, and you only learn it by sitting with it. It took me about six months to move from Level 1 to Level 2. With <a href="https://claude.com/product/overview">Claude</a> Opus 4.6 I stopped telling the model which files to look at. My AI also writes documentation for each feature after every job and reads it before writing new code. I wrote more on <a href="https://dwain.me/blog/vibe-coding-engineering-judgment">reading along as the AI works</a>.</p>
+<!-- EMBED HERE: 40-60% of body words above -->
+<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin:1.5rem 0;border-radius:12px"><iframe style="position:absolute;inset:0;width:100%;height:100%;border:0" src="https://www.youtube-nocookie.com/embed/in0WsnJkymg" title="The 5 Levels of Vibe Coding" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<p><strong>Jump to</strong></p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=in0WsnJkymg&amp;t=0s">0:00 Who I am, and the five levels at a glance</a></li>
+<li><a href="https://www.youtube.com/watch?v=in0WsnJkymg&amp;t=888s">14:48 Level 1: offloading tasks without outsourcing your brain</a></li>
+<li><a href="https://www.youtube.com/watch?v=in0WsnJkymg&amp;t=1145s">19:05 What usage billing did to my AI costs</a></li>
+<li><a href="https://www.youtube.com/watch?v=in0WsnJkymg&amp;t=1825s">30:25 Level 1 in practice: learning Go, and can vibe coders scale</a></li>
+<li><a href="https://www.youtube.com/watch?v=in0WsnJkymg&amp;t=3179s">52:59 Level 2: screenshots, logs and the iterative loop</a></li>
+<li><a href="https://www.youtube.com/watch?v=in0WsnJkymg&amp;t=4269s">1:11:09 Level 3: separate features on Cloudflare D1 and iframes</a></li>
+<li><a href="https://www.youtube.com/watch?v=in0WsnJkymg&amp;t=5023s">1:23:43 Model costs, passing them on, and a security prompt</a></li>
+<li><a href="https://www.youtube.com/watch?v=in0WsnJkymg&amp;t=6723s">1:52:03 Levels 4 and 5: managing agents and my support-ticket pipeline</a></li>
+</ul>
+      <p>I build at each level on screen in the full stream on my channel: <a href="https://www.youtube.com/watch?v=in0WsnJkymg">the five levels, live</a>.</p>
+      <h2>Level 3 needs isolation</h2>
+      <p>Level 3 means trusting the AI to run on a feature for an hour or more. That only works when a bad run can&#x27;t break your main app.</p>
+      <p>My main app&#x27;s database has about 120 tables. Instead of adding more, I build each new feature as its own <a href="https://workers.cloudflare.com">Cloudflare Worker</a> with its own small <a href="https://developers.cloudflare.com/d1/">D1</a> database, embed it in the main app, and push anything shared back through a small sync layer. If the experiment fails, I throw it away and the main app is untouched.</p>
+      <p>The main app runs on older <a href="https://vuejs.org">Vue</a> 2 and <a href="https://nuxt.com">Nuxt</a> 2, so new sections like the calendar use newer frameworks inside an iframe. The iframe sends a message up when it needs the parent app&#x27;s side panel. For the calendar I gave the AI the back end, the database and the structure it had to match, then let it run. The <a href="https://dwain.me/blog/cloudflare-30k-saas">Cloudflare architecture</a> behind this has its own post.</p>
+      <h2>Level 4 and support tickets</h2>
+      <p>Level 4 looks like product management. You kick off several jobs and let the AI run. I can handle about three at most, because I still review the code and steer.</p>
+      <p>My closest attempt is support tickets. Each one that comes into my business is triaged and scored. The AI analyzes the screenshot, checks the documentation, classifies the problem, writes a QA test plan, drafts the customer reply and opens a <a href="https://github.com">GitHub</a> issue. I can assign the ticket to an agent and only look again when it&#x27;s marked done. The AI does about 90% of the heavy lifting, and a human still reviews it. Next I want it to deploy on its own, run the tests every time and take before-and-after screenshots.</p>
+      <h2>Price the tokens in</h2>
+      <p>The developer mindset sees $200 of AI and calls it expensive. The business mindset asks whether the customer will pay for it. If a widget costs me $250 to produce, AI included, I want to charge about $500. If the customer will only pay $250, then tokens are a problem. Know your cost of goods sold.</p>
+      <p>Mistakes cost money too. A rate-limit bug in my app let through about a billion requests in four days. Because it ran on <a href="https://www.cloudflare.com">Cloudflare</a>, the bill was about $304. My own security prompt covers this kind of risk. It asks the AI to review the app like a senior security and production-readiness engineer, to assume bots, spam, abuse and DDoS traffic, and to sort the fixes into now, within 7 days, and risks that could hurt me financially.</p>
+      <h2>Where to start</h2>
+      <p>Find your level and practice the next one. If you&#x27;re learning, stay at Level 1 longer than feels comfortable. If you&#x27;re shipping, spend real time in the Level 2 loop before you hand over whole features, and build the isolation that makes Level 3 safe. Moving up is about automating more of the work you can charge for.</p>
+      <p>If you&#x27;re building with AI and want help working out your next level and what it will cost, <a href="https://dwain.me/strategy-call?src=blog">book a strategy call</a>.</p>
+      <section id="author-blurb">
+        <h2>About Dwain</h2>
+        <div class="dm-f-teacher">
+          <img src="../assets/images/profile/dwain-headshot.jpg" alt="Dwain Browne" width="96" height="96" loading="lazy">
+          <div>
+            <p>I'm Dwain Browne, Founder of LeadScore AI and SnapSuite. I'm a Toronto-based software architect with 25+ years across software, sales, operations and entrepreneurship. SnapSuite helps contractors and trades teams get paid faster, and LeadScore AI shows you which leads deserve your next call. I also run Vibe Code to Profit, a community helping people build software with AI.</p>
+            <p><a href="https://www.youtube.com/@dwainbrowne">YouTube</a> &middot; <a href="https://www.linkedin.com/in/dwainbrowne">LinkedIn</a> &middot; <a href="https://calendly.com/snapsuite/60min">Book a call</a></p>
+          </div>
+        </div>
+      </section>
+
+    </article>
+    <aside class="article-sidebar">
+      <h2>More from Dwain</h2>
+      <a href="https://dwain.me/strategy-call?src=blog">Book a strategy call</a>
+      <a href="/live">Watch live builds</a>
+      <a href="/community">Join Vibe Code to Profit</a>
+    </aside>
+  </main>
+
+  <footer class="page-shell page-footer dm-footer">
+    <div class="dm-footer-top">
+      <div class="dm-footer-about">
+        <a class="dm-footer-brand" href="/"><img src="/assets/images/logo.png" alt="">Dwain Browne</a>
+        <p>Founder and CEO of SnapSuite and LeadScore AI. Toronto, Canada.</p>
+      </div>
+      <div class="dm-footer-social" role="group" aria-label="Social media">
+        <a href="https://www.youtube.com/@dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on YouTube (@dwainbrowne)"><img width="24" height="24" src="/assets/images/youtube.png" alt=""><span class="dm-footer-social-label">YouTube <span>@dwainbrowne</span></span></a>
+        <a href="https://www.youtube.com/@dwainunfinished" target="_blank" rel="noopener" aria-label="Dwain on YouTube (@dwainunfinished)"><img width="24" height="24" src="/assets/images/youtube.png" alt=""><span class="dm-footer-social-label">YouTube <span>@dwainunfinished</span></span></a>
+        <a href="https://www.tiktok.com/@dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on TikTok (@dwainbrowne)"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="#1d1917"/><path fill="#fff" transform="translate(5.4 5.4) scale(0.55)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg><span class="dm-footer-social-label">TikTok <span>@dwainbrowne</span></span></a>
+        <a href="https://www.tiktok.com/@dwain.me" target="_blank" rel="noopener" aria-label="Dwain on TikTok (@dwain.me)"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="#1d1917"/><path fill="#fff" transform="translate(5.4 5.4) scale(0.55)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg><span class="dm-footer-social-label">TikTok <span>@dwain.me</span></span></a>
+        <a href="https://instagram.com/dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on Instagram (@dwainbrowne)"><img width="24" height="24" src="/assets/images/instagram.png" alt=""><span class="dm-footer-social-label">Instagram <span>@dwainbrowne</span></span></a>
+        <a href="https://twitter.com/dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on X (@dwainbrowne)"><img width="24" height="24" src="/assets/images/twitter.png" alt=""><span class="dm-footer-social-label">X <span>@dwainbrowne</span></span></a>
+        <a href="https://www.linkedin.com/in/dwainbrowne/" target="_blank" rel="noopener" aria-label="Dwain on LinkedIn (@dwainbrowne)"><img width="24" height="24" src="/assets/images/linkedIn.png" alt=""><span class="dm-footer-social-label">LinkedIn <span>@dwainbrowne</span></span></a>
+        <a href="https://www.pinterest.ca/dwainbrowne/" target="_blank" rel="noopener" aria-label="Dwain on Pinterest (@dwainbrowne)"><img width="24" height="24" src="/assets/images/pinterest.png" alt=""><span class="dm-footer-social-label">Pinterest <span>@dwainbrowne</span></span></a>
+      </div>
+    </div>
+    <nav class="dm-footer-cols" aria-label="Footer">
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Explore</p>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/live">Videos</a></li>
+          <li><a href="/speaking">Speaking</a></li>
+          <li><a href="/press-kit">Press Kit</a></li>
+          <li><a href="/one-sheet">One Sheet</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Companies</p>
+        <ul>
+          <li><a href="/companies">All companies</a></li>
+          <li><a href="/snapsuite">SnapSuite</a></li>
+          <li><a href="/leadscore">LeadScore</a></li>
+          <li><a href="/affordly">Affordly</a></li>
+          <li><a href="/vibe-code-to-profit">VibeCode 2 Profit</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Learn</p>
+        <ul>
+          <li><a href="/links">Start an AI business</a></li>
+          <li><a href="/free-course">Free course</a></li>
+          <li><a href="/free-community">Free community</a></li>
+          <li><a href="/community">Community</a></li>
+          <li><a href="/weekly-live">Weekly live</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Work with Dwain</p>
+        <ul>
+          <li><a href="/consultation/">Consult</a></li>
+          <li><a href="/strategy-call">Strategy call</a></li>
+          <li><a href="/connect">Connect</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group dm-footer-group-wide">
+        <p class="dm-footer-heading">Blog</p>
+        <ul>
+          <li><a href="/blog/5-levels-vibe-coding">I sit between Level 3 and Level 4 of vibe coding, and almost nobody is at Level 5</a></li>
+          <li><a href="/blog/non-u-s-entrepreneurs-can-start">I run two U.S. software companies from Canada, and Stripe Atlas did the setup</a></li>
+          <li><a href="/blog/2026-entrepreneur-ai-coding-stack">I stopped asking which AI model is best and started asking what each job needs</a></li>
+          <li><a href="/blog/building-a-business-on-cloudflare">I kept my stack cheap on Cloudflare so I could learn how to sell</a></li>
+          <li><a href="/blog/turning-meeting-transcripts-into-action-items">I'm building my own meeting manager so every summary knows the client</a></li>
+          <li><a href="/blog">All posts</a></li>
+        </ul>
+      </div>
+    </nav>
+    <p class="dm-footer-legal">&copy; Copyright 2026 <span>Dwain Browne</span>. All rights reserved.</p>
+  </footer>
+<div class="page-shell"><p><a href="/privacy">Privacy</a> · <button class="db-button" type="button" data-dm-cookie-choices>Cookie choices</button></p></div>
+  <script src="../assets/js/nav.js"></script>
+  <script src="../assets/js/site.js"></script>
+<script id="dm-analytics-config" type="application/json">{"providers":{},"page":"/blog/5-levels-vibe-coding","paths":["/","/about","/companies","/snapsuite","/leadscore","/affordly","/speaking","/live","/blog","/blog/vibe-coding-engineering-judgment","/blog/lead-scoring-prioritization","/blog/smallest-system-that-proves-the-point","/blog/read-ai-vs-fireflies-vs-otter","/blog/spec-kit-large-projects","/blog/spec-kit-alternative-large-codebase","/blog/github-copilot-cli-first-look","/blog/prove-the-ai-roi","/blog/cloudflare-30k-saas","/blog/secure-vibe-coded-app-cloudflare","/blog/build-second-brain-codebase","/blog/turning-meeting-transcripts-into-action-items","/blog/building-a-business-on-cloudflare","/blog/2026-entrepreneur-ai-coding-stack","/blog/non-u-s-entrepreneurs-can-start","/blog/5-levels-vibe-coding","/community","/vibe-code-to-profit","/connect","/speaking-trade-operations","/speaking-sales","/speaking-ai-operations","/speaking-vibe-code-to-profit","/press-kit","/one-sheet","/lives","/404.html","/consultation/","/privacy","/links","/free-community","/free-course","/solo-entrepreneur","/scaling-entrepreneur","/strategy-call","/weekly-live"],"anchors":["primary-menu","author-blurb"],"videos":[]}</script>
+    <script src="/assets/js/analytics.js"></script>
+</body>
+</html>
