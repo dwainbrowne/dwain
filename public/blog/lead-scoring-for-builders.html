@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Lead Scoring for Builders: One Rep, 100,000 Leads | Dwain Browne</title>
+    <meta name="description" content="In a March 2026 live stream, Dwain Browne explained lead scoring for vibe coders who have never sold, then rebuilt his LeadScore AI site from app screenshots.">
+    <meta property="article:published_time" content="2026-03-27T13:10:00-04:00">
+    <meta property="article:modified_time" content="2026-10-16">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css?v=20260529-9">
+    <link rel="stylesheet" type="text/css" href="../assets/css/additions.css">
+    <link rel="canonical" href="https://dwain.me/blog/lead-scoring-for-builders">
+    <link rel="icon" type="image/png" href="../assets/images/logo.png">
+    <meta property="og:type" content="article">
+    <meta name="author" content="Dwain Browne">
+    <meta property="og:site_name" content="Dwain Browne">
+    <meta property="og:title" content="Lead Scoring for Builders: One Rep, 100,000 Leads | Dwain Browne">
+    <meta property="og:description" content="In a March 2026 live stream, Dwain Browne explained lead scoring for vibe coders who have never sold, then rebuilt his LeadScore AI site from app screenshots.">
+    <meta property="og:url" content="https://dwain.me/blog/lead-scoring-for-builders">
+    <meta property="og:image" content="https://dwain.me/assets/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Dwain Browne, founder and CEO of SnapSuite and LeadScore AI">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@dwainbrowne">
+    <meta name="twitter:title" content="Lead Scoring for Builders: One Rep, 100,000 Leads | Dwain Browne">
+    <meta name="twitter:description" content="In a March 2026 live stream, Dwain Browne explained lead scoring for vibe coders who have never sold, then rebuilt his LeadScore AI site from app screenshots.">
+    <meta name="twitter:image" content="https://dwain.me/assets/images/og-image.png">
+    <script>
+(function () {
+  try {
+    var ss = window.sessionStorage, ls = window.localStorage, q = new URLSearchParams(location.search);
+    var r = document.referrer || "", external = r && r.indexOf(location.host) < 0;
+    var tags = {};
+    ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "src", "ref", "gclid", "fbclid", "ttclid"].forEach(function (k) {
+      var v = q.get(k); if (v) tags[k] = v.slice(0, 100);
+    });
+    var visit = JSON.stringify({ landing: (location.pathname + location.search).slice(0, 200), referrer: external ? r.slice(0, 300) : "", tags: tags, at: new Date().toISOString() });
+    if (!ss.getItem("dm-visit")) ss.setItem("dm-visit", visit);
+    if (!ls.getItem("dm-first")) ls.setItem("dm-first", visit);
+    var pages = JSON.parse(ss.getItem("dm-pages") || "[]");
+    if (pages[pages.length - 1] !== location.pathname) { pages.push(location.pathname); ss.setItem("dm-pages", JSON.stringify(pages.slice(-15))); }
+  } catch (e) {}
+})();
+</script>
+    <script>
+(function () {
+  try {
+    var q = new URLSearchParams(location.search), ss = window.sessionStorage;
+    if (q.get("full") === "1") { ss.setItem("dm-full", "1"); return; }
+    if (ss.getItem("dm-full")) return;
+    var ua = navigator.userAgent || "", ref = (document.referrer || "").toLowerCase();
+    if (ref.indexOf(location.host) > -1) return;
+    var phone = /iPhone|iPod|Android.*Mobile|Mobile Safari|musical_ly|BytedanceWebview|Instagram/i.test(ua) || (window.matchMedia && matchMedia("(pointer: coarse)").matches && Math.min(screen.width, screen.height) < 600);
+    if (!phone) return;
+    var tag = (q.get("src") || q.get("ref") || q.get("utm_source") || "").toLowerCase();
+    var from = /tiktok|^tt$/.test(tag) || /musical_ly|bytedance|tiktok/i.test(ua) || /tiktok\.com/.test(ref) ? "tiktok"
+      : /instagram|^ig$/.test(tag) || /Instagram/.test(ua) || /instagram\.com/.test(ref) ? "instagram"
+      : /youtube|shorts|^yt$/.test(tag) || /youtube\.com|youtu\.be|android\.youtube/.test(ref) ? "youtube" : "";
+    if (!from) return;
+    ss.setItem("dm-social", from);
+    var home = /^\/(index(\.html)?)?$/.test(location.pathname);
+    if (home && !ss.getItem("dm-routed")) { ss.setItem("dm-routed", "1"); location.replace("/links?src=" + from); return; }
+    document.documentElement.setAttribute("data-dm-social", from);
+  } catch (e) {}
+})();
+</script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": "https://dwain.me/blog/lead-scoring-for-builders#article",
+  "mainEntityOfPage": "https://dwain.me/blog/lead-scoring-for-builders",
+  "headline": "One salesperson should be able to work 100,000 leads, and lead scoring is how I get there.",
+  "description": "In a March 2026 live stream, Dwain Browne explained lead scoring for vibe coders who have never sold, then rebuilt his LeadScore AI site from app screenshots.",
+  "image": "https://dwain.me/assets/images/og-image.png",
+  "datePublished": "2026-03-27T13:10:00-04:00",
+  "dateModified": "2026-10-16",
+  "articleSection": "Sales in the age of AI",
+  "keywords": "Scaling sales systems",
+  "inLanguage": "en-CA",
+  "author": {
+    "@type": "Person",
+    "@id": "https://dwain.me/#person",
+    "name": "Dwain Browne",
+    "url": "https://dwain.me/about"
+  },
+  "publisher": {
+    "@id": "https://dwain.me/#person"
+  },
+  "isPartOf": {
+    "@id": "https://dwain.me/#website"
+  },
+  "video": {
+    "@type": "VideoObject",
+    "name": "Live Vibe Coding Q&A with Cloudflare",
+    "description": "In a March 2026 live stream, Dwain Browne explained lead scoring for vibe coders who have never sold, then rebuilt his LeadScore AI site from app screenshots.",
+    "thumbnailUrl": "https://i.ytimg.com/vi/EBBCKojYdU0/hqdefault.jpg",
+    "uploadDate": "2026-03-27T13:10:00-04:00",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/EBBCKojYdU0",
+    "contentUrl": "https://www.youtube.com/watch?v=EBBCKojYdU0"
+  }
+}
+    </script>
+<meta name="referrer" content="no-referrer">
+</head>
+<body class="site-page" data-clarity-mask="True">
+  <nav class="page-nav dm-header" aria-label="Primary navigation">
+    <a class="brand-link" href="/"><img src="../assets/images/logo.png" alt="">Dwain Browne</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span class="screen-reader-text">Menu</span>
+    </button>
+    <div class="page-nav-links" id="primary-menu">
+      <a href="/about">About</a>
+      <a href="/companies">Companies</a>
+      <a href="../consultation/">Consult</a>
+      <a href="/community">Community</a>
+      <a href="/links">Courses</a>
+      <a href="/speaking">Speaking</a>
+      <a href="/live">Videos</a>
+      <a href="/blog">Blog</a>
+      <a href="/connect">Connect</a>
+      <a class="dm-menu-cta" href="/connect#contact">Get in touch</a>
+    </div>
+    <a class="db-button primary dm-header-cta" href="/connect#contact">Get in touch</a>
+  </nav>
+
+  <main class="page-shell article-layout">
+    <article class="article-body">
+      <p class="article-meta">Sales in the age of AI &middot; <time datetime="2026-03-27">March 27, 2026</time></p>
+      <h1>One salesperson should be able to work 100,000 leads, and lead scoring is how I get there.</h1>
+      <p>In a March 2026 live stream I spent less time coding than talking about the part most vibe coders skip, which is selling what they built. My goal for <a href="https://getleadscore.ai">LeadScore AI</a> is one salesperson managing 100,000 leads without feeling overwhelmed. I said on the stream that if the app can&#x27;t do that, it&#x27;s a royal failure. This is the model behind it, and how I rebuilt the product&#x27;s website live from screenshots of the app.</p>
+      <h2>The business case</h2>
+      <p>Most builders can ship an app now. Getting it in front of buyers is where things stall. The traditional sales playbook is get a list, segment it, cold call and network. It&#x27;s standard, and it&#x27;s dated. One person can&#x27;t work 100,000 leads that way.</p>
+      <p>I build around one problem: keeping each conversation personal to the lead while the system does the work for 100,000 people. That takes automation. LeadScore AI is about a year old, with roughly six months of dedicated work in it.</p>
+      <p>If you&#x27;ve never sold anything, start with three ideas: what a lead is, how leads differ, and how you score them.</p>
+      <h2>What a lead is</h2>
+      <p>A viewer asked what a lead is. A lead is anyone interested in what you sell. At a car dealership, that&#x27;s someone who walks in, answers a flyer or an email, or calls to book a test drive. Online, it&#x27;s someone who finds you through a <a href="https://www.google.com/ads/">Google ad</a> or an organic result, lands on your page and leaves a name and email in your database.</p>
+      <p>Leads sit at different stages, and I use star ratings. A one-star lead might buy a car in a year, a two-star lead in six months and a three-star lead in about a month. A five-star lead wants to buy now. When you sell at scale you sort, and you call the fives first. The path from one star to five is the buyer&#x27;s journey: brochures, calls, deals and events.</p>
+      <h2>Scoring the lead</h2>
+      <p>Scoring turns those stars into a number. Each action that brings a lead closer to buying earns points. In my example, a real business website, a phone number and a newsletter signup are each worth 10 points. The scale is arbitrary. The working assumption is that a lead who reaches 100 buys. That&#x27;s why the product is called LeadScore AI.</p>
+      <p>In the demo account, imported leads carry notes and live scores, and they move through pipeline tabs from initial outreach to proposal. The system can also plug into <a href="https://www.leadfeeder.com">Leadfeeder</a>, which turns a website visitor&#x27;s IP address into a company name. I said it isn&#x27;t 100% accurate, but it&#x27;s fairly accurate.</p>
+      <h2>Scores that move</h2>
+      <p>The score keeps changing. A traditional salesperson chases: you call back next month and the buyer hasn&#x27;t had time to think about it. In LeadScore AI the system sends the check-in email. If the reply is &quot;not now, check back in a few months&quot;, AI schedules the next email and keeps doing that in the background while it re-scores the lead.</p>
+      <p>When you open the tool, you ask for the people most interested and pick up the phone. The goal is to bring the decision back to a person without the heavy lifting.</p>
+      <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin:1.5rem 0;border-radius:12px"><iframe style="position:absolute;inset:0;width:100%;height:100%;border:0" src="https://www.youtube-nocookie.com/embed/EBBCKojYdU0" title="Live Vibe Coding Q&amp;A with Cloudflare" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <p><strong>Jump to</strong></p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=EBBCKojYdU0&amp;t=0s">0:00 Setup, and the goal: one rep, 100,000 leads</a></li>
+<li><a href="https://www.youtube.com/watch?v=EBBCKojYdU0&amp;t=746s">12:26 What a lead is, the buyer&#x27;s journey and lead scoring</a></li>
+<li><a href="https://www.youtube.com/watch?v=EBBCKojYdU0&amp;t=1486s">24:46 Inside LeadScore AI, and a live bug fix by prompt</a></li>
+<li><a href="https://www.youtube.com/watch?v=EBBCKojYdU0&amp;t=2515s">41:55 Q&amp;A: AI Gateway, OpenClaw vs Claude, Remotion</a></li>
+<li><a href="https://www.youtube.com/watch?v=EBBCKojYdU0&amp;t=3503s">58:23 Monorepos on Cloudflare, launch checklist, Claude in VS Code</a></li>
+<li><a href="https://www.youtube.com/watch?v=EBBCKojYdU0&amp;t=4767s">1:19:27 Keeping up with AI, and web app to mobile shell</a></li>
+<li><a href="https://www.youtube.com/watch?v=EBBCKojYdU0&amp;t=5743s">1:35:43 Rebuilding the LeadScore AI site from app screenshots</a></li>
+<li><a href="https://www.youtube.com/watch?v=EBBCKojYdU0&amp;t=7638s">2:07:18 Shipping to Cloudflare, credits and observability</a></li>
+</ul>
+      <p>The full stream, including the live bug fix and the rest of the Q&amp;A, is on my channel: <a href="https://www.youtube.com/watch?v=EBBCKojYdU0">my March 2026 live stream on YouTube</a>.</p>
+      <h2>Questions from the stream</h2>
+      <p>A viewer building a SaaS back end asked about autoscaling. My answer was that on <a href="https://workers.cloudflare.com">Cloudflare Workers</a> a brand-new app could reach about 10,000 users for around $5 a month, unless you&#x27;re building something like your own LLM. That was my estimate in March 2026, and I said I&#x27;d put my money on it.</p>
+      <p>Another viewer worried about agents running up model costs. I pointed them to <a href="https://developers.cloudflare.com/ai-gateway/">Cloudflare AI Gateway</a>, which monitors calls across models so you can put hard caps on token use per account.</p>
+      <p>On <a href="https://openclaw.ai">OpenClaw</a> versus <a href="https://claude.com/product/overview">Claude</a>, OpenClaw gives you more extension points, so you can have it open a browser, send a Slack message or control a thermostat. That openness brings more security risk, and setup is finicky. Claude is more restricted because it&#x27;s built for corporate use, where security comes first. For anyone new, I recommend Claude.</p>
+      <h2>The site, built backwards</h2>
+      <p>Then I rebuilt the LeadScore AI marketing site live, the reverse of how most people do it. Build the app first. Screenshot it. Give the screenshots to the model and let it work out what the copy should say.</p>
+      <p>I started in <a href="https://docs.lovable.dev">Lovable</a> with a prompt describing the customer: business owners and sales professionals at roughly $5 to $10 million in revenue, and the goal of one salesperson managing 100,000 leads. I added full-page screenshots of the old site, taken with <a href="https://gofullpage.com">GoFullPage</a>, to keep the design style, plus the pricing page and FAQ. Next I screenshotted the demo account&#x27;s leads and pipeline screens, dropped them into <a href="https://apps.apple.com/us/app/chatgpt/id6448311069">ChatGPT</a> for homepage and feature copy, and fed that back to Lovable.</p>
+      <p>For proper design work I&#x27;d use <a href="https://stitch.withgoogle.com">Google Stitch</a>. For speed, Lovable gets to good enough in one shot. The business is getting to sales, and design time doesn&#x27;t make sales.</p>
+      <h2>Shipping to Cloudflare</h2>
+      <p>I connected the Lovable project to <a href="https://github.com">GitHub</a> and deployed it to Cloudflare Workers. The first build failed. I pasted the troubleshooting section from my Cloudflare course in the <a href="https://www.skool.com/vibe-code-to-profit-7601">Vibe Code to Profit</a> community, plus the build log, into <a href="https://code.visualstudio.com">VS Code</a>, and that gave the model enough context to fix it. I walk through the wider setup in <a href="https://dwain.me/blog/building-a-business-on-cloudflare">building a business on Cloudflare</a>.</p>
+      <h2>Selling is the work</h2>
+      <p>The app exists so a buyer can say yes. With scores, one salesperson knows which buyer to call today. With a site built from the real product, everyone else can see what it does.</p>
+      <p>If you&#x27;ve built something and the next step is your first paying customers, that&#x27;s what we work on when you <a href="https://dwain.me/solo-entrepreneur?src=blog">start as a solo founder</a>.</p>
+      <section id="author-blurb">
+        <h2>About Dwain</h2>
+        <div class="dm-f-teacher">
+          <img src="../assets/images/profile/dwain-headshot.jpg" alt="Dwain Browne" width="96" height="96" loading="lazy">
+          <div>
+            <p>I'm Dwain Browne, Founder of LeadScore AI and SnapSuite. I'm a Toronto-based software architect with 25+ years across software, sales, operations and entrepreneurship. SnapSuite helps contractors and trades teams get paid faster, and LeadScore AI shows you which leads deserve your next call. I also run Vibe Code to Profit, a community helping people build software with AI.</p>
+            <p><a href="https://www.youtube.com/@dwainbrowne">YouTube</a> &middot; <a href="https://www.linkedin.com/in/dwainbrowne">LinkedIn</a> &middot; <a href="https://calendly.com/snapsuite/60min">Book a call</a></p>
+          </div>
+        </div>
+      </section>
+
+    </article>
+    <aside class="article-sidebar">
+      <h2>More from Dwain</h2>
+      <a href="https://dwain.me/solo-entrepreneur?src=blog">Get your first customers</a>
+      <a href="/live">Watch live builds</a>
+      <a href="/community">Join Vibe Code to Profit</a>
+    </aside>
+  </main>
+
+  <footer class="page-shell page-footer dm-footer">
+    <div class="dm-footer-top">
+      <div class="dm-footer-about">
+        <a class="dm-footer-brand" href="/"><img src="/assets/images/logo.png" alt="">Dwain Browne</a>
+        <p>Founder and CEO of SnapSuite and LeadScore AI. Toronto, Canada.</p>
+      </div>
+      <div class="dm-footer-social" role="group" aria-label="Social media">
+        <a href="https://www.youtube.com/@dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on YouTube (@dwainbrowne)"><img width="24" height="24" src="/assets/images/youtube.png" alt=""><span class="dm-footer-social-label">YouTube <span>@dwainbrowne</span></span></a>
+        <a href="https://www.youtube.com/@dwainunfinished" target="_blank" rel="noopener" aria-label="Dwain on YouTube (@dwainunfinished)"><img width="24" height="24" src="/assets/images/youtube.png" alt=""><span class="dm-footer-social-label">YouTube <span>@dwainunfinished</span></span></a>
+        <a href="https://www.tiktok.com/@dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on TikTok (@dwainbrowne)"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="#1d1917"/><path fill="#fff" transform="translate(5.4 5.4) scale(0.55)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg><span class="dm-footer-social-label">TikTok <span>@dwainbrowne</span></span></a>
+        <a href="https://www.tiktok.com/@dwain.me" target="_blank" rel="noopener" aria-label="Dwain on TikTok (@dwain.me)"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="#1d1917"/><path fill="#fff" transform="translate(5.4 5.4) scale(0.55)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg><span class="dm-footer-social-label">TikTok <span>@dwain.me</span></span></a>
+        <a href="https://instagram.com/dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on Instagram (@dwainbrowne)"><img width="24" height="24" src="/assets/images/instagram.png" alt=""><span class="dm-footer-social-label">Instagram <span>@dwainbrowne</span></span></a>
+        <a href="https://twitter.com/dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on X (@dwainbrowne)"><img width="24" height="24" src="/assets/images/twitter.png" alt=""><span class="dm-footer-social-label">X <span>@dwainbrowne</span></span></a>
+        <a href="https://www.linkedin.com/in/dwainbrowne/" target="_blank" rel="noopener" aria-label="Dwain on LinkedIn (@dwainbrowne)"><img width="24" height="24" src="/assets/images/linkedIn.png" alt=""><span class="dm-footer-social-label">LinkedIn <span>@dwainbrowne</span></span></a>
+        <a href="https://www.pinterest.ca/dwainbrowne/" target="_blank" rel="noopener" aria-label="Dwain on Pinterest (@dwainbrowne)"><img width="24" height="24" src="/assets/images/pinterest.png" alt=""><span class="dm-footer-social-label">Pinterest <span>@dwainbrowne</span></span></a>
+      </div>
+    </div>
+    <nav class="dm-footer-cols" aria-label="Footer">
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Explore</p>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/live">Videos</a></li>
+          <li><a href="/speaking">Speaking</a></li>
+          <li><a href="/press-kit">Press Kit</a></li>
+          <li><a href="/one-sheet">One Sheet</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Companies</p>
+        <ul>
+          <li><a href="/companies">All companies</a></li>
+          <li><a href="/snapsuite">SnapSuite</a></li>
+          <li><a href="/leadscore">LeadScore</a></li>
+          <li><a href="/affordly">Affordly</a></li>
+          <li><a href="/vibe-code-to-profit">VibeCode 2 Profit</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Learn</p>
+        <ul>
+          <li><a href="/links">Start an AI business</a></li>
+          <li><a href="/free-course">Free course</a></li>
+          <li><a href="/free-community">Free community</a></li>
+          <li><a href="/community">Community</a></li>
+          <li><a href="/weekly-live">Weekly live</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Work with Dwain</p>
+        <ul>
+          <li><a href="/consultation/">Consult</a></li>
+          <li><a href="/strategy-call">Strategy call</a></li>
+          <li><a href="/connect">Connect</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group dm-footer-group-wide">
+        <p class="dm-footer-heading">Blog</p>
+        <ul>
+          <li><a href="/blog/lead-scoring-for-builders">One salesperson should be able to work 100,000 leads, and lead scoring is how I get there</a></li>
+          <li><a href="/blog/vibe-coding-cloudflare-build-meeting-manager">I started my own meeting manager with a sketch, not a database</a></li>
+          <li><a href="/blog/5-levels-vibe-coding">I sit between Level 3 and Level 4 of vibe coding, and almost nobody is at Level 5</a></li>
+          <li><a href="/blog/non-u-s-entrepreneurs-can-start">I run two U.S. software companies from Canada, and Stripe Atlas did the setup</a></li>
+          <li><a href="/blog/2026-entrepreneur-ai-coding-stack">I stopped asking which AI model is best and started asking what each job needs</a></li>
+          <li><a href="/blog">All posts</a></li>
+        </ul>
+      </div>
+    </nav>
+    <p class="dm-footer-legal">&copy; Copyright 2026 <span>Dwain Browne</span>. All rights reserved.</p>
+  </footer>
+<div class="page-shell"><p><a href="/privacy">Privacy</a> · <button class="db-button" type="button" data-dm-cookie-choices>Cookie choices</button></p></div>
+  <script src="../assets/js/nav.js"></script>
+  <script src="../assets/js/site.js"></script>
+<script id="dm-analytics-config" type="application/json">{"providers":{},"page":"/blog/lead-scoring-for-builders","paths":["/","/about","/companies","/snapsuite","/leadscore","/affordly","/speaking","/live","/blog","/blog/vibe-coding-engineering-judgment","/blog/lead-scoring-prioritization","/blog/smallest-system-that-proves-the-point","/blog/read-ai-vs-fireflies-vs-otter","/blog/spec-kit-large-projects","/blog/spec-kit-alternative-large-codebase","/blog/github-copilot-cli-first-look","/blog/prove-the-ai-roi","/blog/cloudflare-30k-saas","/blog/secure-vibe-coded-app-cloudflare","/blog/build-second-brain-codebase","/blog/turning-meeting-transcripts-into-action-items","/blog/building-a-business-on-cloudflare","/blog/2026-entrepreneur-ai-coding-stack","/blog/non-u-s-entrepreneurs-can-start","/blog/5-levels-vibe-coding","/blog/vibe-coding-cloudflare-build-meeting-manager","/blog/lead-scoring-for-builders","/community","/vibe-code-to-profit","/connect","/speaking-trade-operations","/speaking-sales","/speaking-ai-operations","/speaking-vibe-code-to-profit","/press-kit","/one-sheet","/lives","/404.html","/consultation/","/privacy","/links","/free-community","/free-course","/solo-entrepreneur","/scaling-entrepreneur","/strategy-call","/weekly-live"],"anchors":["primary-menu","author-blurb"],"videos":[]}</script>
+    <script src="/assets/js/analytics.js"></script>
+</body>
+</html>
