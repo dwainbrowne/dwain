@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Keep SaaS Up in an AWS Outage With Cloudflare | Dwain Browne</title>
+    <meta name="description" content="In an October 2025 video, Dwain Browne explained how to keep a SaaS app running through an AWS outage with Cloudflare DNS, Workers, KV, Queues and D1.">
+    <meta property="article:published_time" content="2025-10-21T03:02:00-04:00">
+    <meta property="article:modified_time" content="2026-10-22">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css?v=20260529-9">
+    <link rel="stylesheet" type="text/css" href="../assets/css/additions.css">
+    <link rel="canonical" href="https://dwain.me/blog/how-to-survive-an-aws-outage-with-cloudflare">
+    <link rel="icon" type="image/png" href="../assets/images/logo.png">
+    <meta property="og:type" content="article">
+    <meta name="author" content="Dwain Browne">
+    <meta property="og:site_name" content="Dwain Browne">
+    <meta property="og:title" content="Keep SaaS Up in an AWS Outage With Cloudflare | Dwain Browne">
+    <meta property="og:description" content="In an October 2025 video, Dwain Browne explained how to keep a SaaS app running through an AWS outage with Cloudflare DNS, Workers, KV, Queues and D1.">
+    <meta property="og:url" content="https://dwain.me/blog/how-to-survive-an-aws-outage-with-cloudflare">
+    <meta property="og:image" content="https://dwain.me/assets/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Dwain Browne, founder and CEO of SnapSuite and LeadScore AI">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@dwainbrowne">
+    <meta name="twitter:title" content="Keep SaaS Up in an AWS Outage With Cloudflare | Dwain Browne">
+    <meta name="twitter:description" content="In an October 2025 video, Dwain Browne explained how to keep a SaaS app running through an AWS outage with Cloudflare DNS, Workers, KV, Queues and D1.">
+    <meta name="twitter:image" content="https://dwain.me/assets/images/og-image.png">
+    <script>
+(function () {
+  try {
+    var ss = window.sessionStorage, ls = window.localStorage, q = new URLSearchParams(location.search);
+    var r = document.referrer || "", external = r && r.indexOf(location.host) < 0;
+    var tags = {};
+    ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "src", "ref", "gclid", "fbclid", "ttclid"].forEach(function (k) {
+      var v = q.get(k); if (v) tags[k] = v.slice(0, 100);
+    });
+    var visit = JSON.stringify({ landing: (location.pathname + location.search).slice(0, 200), referrer: external ? r.slice(0, 300) : "", tags: tags, at: new Date().toISOString() });
+    if (!ss.getItem("dm-visit")) ss.setItem("dm-visit", visit);
+    if (!ls.getItem("dm-first")) ls.setItem("dm-first", visit);
+    var pages = JSON.parse(ss.getItem("dm-pages") || "[]");
+    if (pages[pages.length - 1] !== location.pathname) { pages.push(location.pathname); ss.setItem("dm-pages", JSON.stringify(pages.slice(-15))); }
+  } catch (e) {}
+})();
+</script>
+    <script>
+(function () {
+  try {
+    var q = new URLSearchParams(location.search), ss = window.sessionStorage;
+    if (q.get("full") === "1") { ss.setItem("dm-full", "1"); return; }
+    if (ss.getItem("dm-full")) return;
+    var ua = navigator.userAgent || "", ref = (document.referrer || "").toLowerCase();
+    if (ref.indexOf(location.host) > -1) return;
+    var phone = /iPhone|iPod|Android.*Mobile|Mobile Safari|musical_ly|BytedanceWebview|Instagram/i.test(ua) || (window.matchMedia && matchMedia("(pointer: coarse)").matches && Math.min(screen.width, screen.height) < 600);
+    if (!phone) return;
+    var tag = (q.get("src") || q.get("ref") || q.get("utm_source") || "").toLowerCase();
+    var from = /tiktok|^tt$/.test(tag) || /musical_ly|bytedance|tiktok/i.test(ua) || /tiktok\.com/.test(ref) ? "tiktok"
+      : /instagram|^ig$/.test(tag) || /Instagram/.test(ua) || /instagram\.com/.test(ref) ? "instagram"
+      : /youtube|shorts|^yt$/.test(tag) || /youtube\.com|youtu\.be|android\.youtube/.test(ref) ? "youtube" : "";
+    if (!from) return;
+    ss.setItem("dm-social", from);
+    var home = /^\/(index(\.html)?)?$/.test(location.pathname);
+    if (home && !ss.getItem("dm-routed")) { ss.setItem("dm-routed", "1"); location.replace("/links?src=" + from); return; }
+    document.documentElement.setAttribute("data-dm-social", from);
+  } catch (e) {}
+})();
+</script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": "https://dwain.me/blog/how-to-survive-an-aws-outage-with-cloudflare#article",
+  "mainEntityOfPage": "https://dwain.me/blog/how-to-survive-an-aws-outage-with-cloudflare",
+  "headline": "You can keep a SaaS app up through a cloud outage without paying for every region twice.",
+  "description": "In an October 2025 video, Dwain Browne explained how to keep a SaaS app running through an AWS outage with Cloudflare DNS, Workers, KV, Queues and D1.",
+  "image": "https://dwain.me/assets/images/og-image.png",
+  "datePublished": "2025-10-21T03:02:00-04:00",
+  "dateModified": "2026-10-22",
+  "articleSection": "Architecture",
+  "keywords": "Operational efficiency",
+  "inLanguage": "en-CA",
+  "author": {
+    "@type": "Person",
+    "@id": "https://dwain.me/#person",
+    "name": "Dwain Browne",
+    "url": "https://dwain.me/about"
+  },
+  "publisher": {
+    "@id": "https://dwain.me/#person"
+  },
+  "isPartOf": {
+    "@id": "https://dwain.me/#website"
+  },
+  "video": {
+    "@type": "VideoObject",
+    "name": "How to Survive an AWS Outage with Cloudflare.",
+    "description": "In an October 2025 video, Dwain Browne explained how to keep a SaaS app running through an AWS outage with Cloudflare DNS, Workers, KV, Queues and D1.",
+    "thumbnailUrl": "https://i.ytimg.com/vi/1OMyLzhZe8o/hqdefault.jpg",
+    "uploadDate": "2025-10-21T03:02:00-04:00",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/1OMyLzhZe8o",
+    "contentUrl": "https://www.youtube.com/watch?v=1OMyLzhZe8o"
+  }
+}
+    </script>
+<meta name="referrer" content="no-referrer">
+</head>
+<body class="site-page" data-clarity-mask="True">
+  <nav class="page-nav dm-header" aria-label="Primary navigation">
+    <a class="brand-link" href="/"><img src="../assets/images/logo.png" alt="">Dwain Browne</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span class="screen-reader-text">Menu</span>
+    </button>
+    <div class="page-nav-links" id="primary-menu">
+      <a href="/about">About</a>
+      <a href="/companies">Companies</a>
+      <a href="../consultation/">Consult</a>
+      <a href="/community">Community</a>
+      <a href="/links">Courses</a>
+      <a href="/speaking">Speaking</a>
+      <a href="/live">Videos</a>
+      <a href="/blog">Blog</a>
+      <a href="/connect">Connect</a>
+      <a class="dm-menu-cta" href="/connect#contact">Get in touch</a>
+    </div>
+    <a class="db-button primary dm-header-cta" href="/connect#contact">Get in touch</a>
+  </nav>
+
+  <main class="page-shell article-layout">
+    <article class="article-body">
+      <p class="article-meta">Architecture &middot; <time datetime="2025-10-21">October 21, 2025</time></p>
+      <h1>You can keep a SaaS app up through a cloud outage without paying for every region twice.</h1>
+      <p>I recorded this video in October 2025, the day <a href="https://aws.amazon.com">Amazon Web Services</a> had a major outage. Apps people use every day went dark, and so did parts of AWS itself. It got me thinking as a SaaS founder about one thing: what it would take for my own app to stay up through a day like that.</p>
+      <h2>The business case</h2>
+      <p>Any cloud provider can go down. I said that up front in the video and I still mean it. The real question is whether you can soften an outage in a way you can afford. You can always copy your whole setup into a second region. The problem is the bill.</p>
+      <p>My answer was to spread the parts of the app that matter most across <a href="https://www.cloudflare.com">Cloudflare</a>&#x27;s network, without moving everything. The goal is an app that degrades during an outage instead of going fully offline. As a founder, that difference shows up in trust and churn.</p>
+      <p>I have no inside knowledge of how AWS runs, or how any of the affected SaaS companies run. This is a general framework built from what I read and how I understand these services.</p>
+      <h2>The single-region stack</h2>
+      <p>If you&#x27;re like most startups on AWS, you&#x27;re probably running <a href="https://aws.amazon.com/dynamodb/">DynamoDB</a> for data, <a href="https://aws.amazon.com/lambda/">Lambda</a> functions, <a href="https://aws.amazon.com/s3/">S3</a> for files and <a href="https://aws.amazon.com/route53/">Route 53</a> for DNS. Most of that sits in one region, because a multi-region setup is expensive. So most teams put their data in one place and hope for the best.</p>
+      <p>Your own region isn&#x27;t the only risk. Services you depend on, like <a href="https://auth0.com">Auth0</a>, <a href="https://stripe.com">Stripe</a> or <a href="https://developers.openai.com">OpenAI</a>, can also feel the ripple when a big region has trouble.</p>
+      <h2>What broke in Virginia</h2>
+      <p>In the video I gave my reading of the reports that day. The US East region in Northern Virginia is a big hub for AWS, so a lot of traffic and DNS lookups lean on it. Then DynamoDB in that region hit a DNS problem, and services there couldn&#x27;t reach the database.</p>
+      <p>AWS later published its own <a href="https://aws.amazon.com/message/101925/">post-event summary</a>. It says the trigger was a latent race condition in DynamoDB&#x27;s automated DNS management, which left an empty DNS record for the service&#x27;s regional endpoint in us-east-1. Other AWS services that depend on DynamoDB, including Lambda, saw errors as well. That matches the shape I described. Your data and your DNS path all leaned on one place.</p>
+      <h2>The usual fix costs double</h2>
+      <p>The traditional answer is a second copy. You run your database and services in another region, say US West, replicate data between the two and put global DNS in front. When one region fails, DNS sends traffic to the other.</p>
+      <p>It works, but you pay for both. If one region costs you $100, the second costs you another $100. On top of that, someone has to keep both copies identical, watch the replication and sort out routing problems, which costs a small team time as well as money.</p>
+      <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin:1.5rem 0;border-radius:12px"><iframe style="position:absolute;inset:0;width:100%;height:100%;border:0" src="https://www.youtube-nocookie.com/embed/1OMyLzhZe8o" title="How to Survive an AWS Outage with Cloudflare." loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <p><strong>Jump to</strong></p>
+      <ul>
+      <li><a href="https://www.youtube.com/watch?v=1OMyLzhZe8o&amp;t=0s">0:00 AWS went down: could your app survive?</a></li>
+      <li><a href="https://www.youtube.com/watch?v=1OMyLzhZe8o&amp;t=81s">1:21 The single-region startup stack</a></li>
+      <li><a href="https://www.youtube.com/watch?v=1OMyLzhZe8o&amp;t=162s">2:42 What went wrong in US East</a></li>
+      <li><a href="https://www.youtube.com/watch?v=1OMyLzhZe8o&amp;t=307s">5:07 The usual fix: a second region at double the cost</a></li>
+      <li><a href="https://www.youtube.com/watch?v=1OMyLzhZe8o&amp;t=387s">6:27 Cloudflare&#x27;s anycast DNS and edge network</a></li>
+      <li><a href="https://www.youtube.com/watch?v=1OMyLzhZe8o&amp;t=486s">8:06 Workers, KV caching and Queues</a></li>
+      <li><a href="https://www.youtube.com/watch?v=1OMyLzhZe8o&amp;t=627s">10:27 D1 for edge data and graceful degradation</a></li>
+      <li><a href="https://www.youtube.com/watch?v=1OMyLzhZe8o&amp;t=759s">12:39 Why outages cost you trust</a></li>
+      </ul>
+      <p>I sketch the whole architecture on screen in the full video on my channel: <a href="https://www.youtube.com/watch?v=1OMyLzhZe8o">Surviving an AWS outage with Cloudflare on YouTube</a>.</p>
+      <h2>Anycast DNS first</h2>
+      <p>Cloudflare&#x27;s network is built differently. In the video I said Cloudflare runs in north of 320 locations. Its <a href="https://www.cloudflare.com/network/">network page</a> now lists 348 cities.</p>
+      <p>Its DNS is a global anycast system. A lookup can be answered from many locations at once, so there&#x27;s no single central point of failure. Someone would have to take down the whole network before your DNS stopped resolving.</p>
+      <h2>Workers in place of Lambda</h2>
+      <p>Next, run your code on <a href="https://workers.cloudflare.com">Cloudflare Workers</a> instead of Lambda functions in one region. Workers run at the edge, across many locations. A request comes in, gets routed to a nearby location and runs there. If several locations have trouble, the others still answer.</p>
+      <h2>A cache in front</h2>
+      <p>At some point your code needs data, and if your main database lives in one region, you still have to go back to it. This is where <a href="https://developers.cloudflare.com/kv/">Workers KV</a> helps. The Worker checks KV first. On a miss, it reads from your database and saves the result, so the next request hits the cache.</p>
+      <p>Plan for one limit. KV is <a href="https://developers.cloudflare.com/kv/concepts/how-kv-works/">eventually consistent</a>, so a change can take a little while to show up everywhere. Cache the critical paths where slightly stale data won&#x27;t hurt the user or any decision they need to make.</p>
+      <h2>Queues hold the writes</h2>
+      <p>For writes, I&#x27;d add <a href="https://developers.cloudflare.com/queues/">Cloudflare Queues</a>. The request lands in the queue first, and the queue passes it on to your backend in AWS. During an outage, those writes wait. Whether the database is gone for two hours or three, the queue holds them until the backend comes back.</p>
+      <h2>D1 for edge data</h2>
+      <p>Cloudflare also has <a href="https://developers.cloudflare.com/d1/">D1</a>, a serverless database with SQLite&#x27;s SQL semantics. It&#x27;s relational, while DynamoDB is NoSQL, so I wouldn&#x27;t swap one for the other wholesale.</p>
+      <p>What you can do is move certain workloads to the edge. Settings, per-user configuration and authentication config are good candidates. If your core backend fails, those pieces can still load, and the user gets a reduced app with some features missing. That beats a full outage and a pile of unhappy customers.</p>
+      <h2>What customers care about</h2>
+      <p>As I said in the video, no customer cares that AWS had an outage. You can tell them, but it means nothing to them. They gave you money for a service, and that service is down.</p>
+      <p>In the video I argued this setup can cost significantly less than what many teams pay AWS. I didn&#x27;t put numbers on it, so treat that as my view. I&#x27;m also not telling you to move everything to Cloudflare tomorrow. Cloudflare has <a href="https://dwain.me/blog/cloudflare-outage-validate-your-data">outages too</a>, and I&#x27;m not a spokesperson for them. Disclosure: in April 2026 I said Cloudflare gave me a $25,000 credit as sponsorship. No affiliate links. There are trade-offs on every platform. Pick based on your stage, the services you need and how much outage risk you can live with.</p>
+      <p>If you want to build this way, <a href="https://dwain.me/free-course?src=blog">take my free Cloudflare course</a>. For more on how I run a business on the platform, read <a href="https://dwain.me/blog/building-a-business-on-cloudflare">building a business on Cloudflare</a> and <a href="https://dwain.me/blog/cloudflare-for-non-technical-founders">Cloudflare for non-technical founders</a>.</p>
+      <section id="author-blurb">
+        <h2>About Dwain</h2>
+        <div class="dm-f-teacher">
+          <img src="../assets/images/profile/dwain-headshot.jpg" alt="Dwain Browne" width="96" height="96" loading="lazy">
+          <div>
+            <p>I'm Dwain Browne, Founder of LeadScore AI and SnapSuite. I'm a Toronto-based software architect with 25+ years across software, sales, operations and entrepreneurship. SnapSuite helps contractors and trades teams get paid faster, and LeadScore AI shows you which leads deserve your next call. I also run Vibe Code to Profit, a community helping people build software with AI.</p>
+            <p><a href="https://www.youtube.com/@dwainbrowne">YouTube</a> &middot; <a href="https://www.linkedin.com/in/dwainbrowne">LinkedIn</a> &middot; <a href="https://calendly.com/snapsuite/60min">Book a call</a></p>
+          </div>
+        </div>
+      </section>
+
+    </article>
+    <aside class="article-sidebar">
+      <h2>More from Dwain</h2>
+      <a href="https://dwain.me/free-course?src=blog">Take the free Cloudflare course</a>
+      <a href="/live">Watch live builds</a>
+      <a href="/community">Join Vibe Code to Profit</a>
+    </aside>
+  </main>
+
+  <footer class="page-shell page-footer dm-footer">
+    <div class="dm-footer-top">
+      <div class="dm-footer-about">
+        <a class="dm-footer-brand" href="/"><img src="/assets/images/logo.png" alt="">Dwain Browne</a>
+        <p>Founder and CEO of SnapSuite and LeadScore AI. Toronto, Canada.</p>
+      </div>
+      <div class="dm-footer-social" role="group" aria-label="Social media">
+        <a href="https://www.youtube.com/@dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on YouTube (@dwainbrowne)"><img width="24" height="24" src="/assets/images/youtube.png" alt=""><span class="dm-footer-social-label">YouTube <span>@dwainbrowne</span></span></a>
+        <a href="https://www.youtube.com/@dwainunfinished" target="_blank" rel="noopener" aria-label="Dwain on YouTube (@dwainunfinished)"><img width="24" height="24" src="/assets/images/youtube.png" alt=""><span class="dm-footer-social-label">YouTube <span>@dwainunfinished</span></span></a>
+        <a href="https://www.tiktok.com/@dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on TikTok (@dwainbrowne)"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="#1d1917"/><path fill="#fff" transform="translate(5.4 5.4) scale(0.55)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg><span class="dm-footer-social-label">TikTok <span>@dwainbrowne</span></span></a>
+        <a href="https://www.tiktok.com/@dwain.me" target="_blank" rel="noopener" aria-label="Dwain on TikTok (@dwain.me)"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="#1d1917"/><path fill="#fff" transform="translate(5.4 5.4) scale(0.55)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg><span class="dm-footer-social-label">TikTok <span>@dwain.me</span></span></a>
+        <a href="https://instagram.com/dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on Instagram (@dwainbrowne)"><img width="24" height="24" src="/assets/images/instagram.png" alt=""><span class="dm-footer-social-label">Instagram <span>@dwainbrowne</span></span></a>
+        <a href="https://twitter.com/dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on X (@dwainbrowne)"><img width="24" height="24" src="/assets/images/twitter.png" alt=""><span class="dm-footer-social-label">X <span>@dwainbrowne</span></span></a>
+        <a href="https://www.linkedin.com/in/dwainbrowne/" target="_blank" rel="noopener" aria-label="Dwain on LinkedIn (@dwainbrowne)"><img width="24" height="24" src="/assets/images/linkedIn.png" alt=""><span class="dm-footer-social-label">LinkedIn <span>@dwainbrowne</span></span></a>
+        <a href="https://www.pinterest.ca/dwainbrowne/" target="_blank" rel="noopener" aria-label="Dwain on Pinterest (@dwainbrowne)"><img width="24" height="24" src="/assets/images/pinterest.png" alt=""><span class="dm-footer-social-label">Pinterest <span>@dwainbrowne</span></span></a>
+      </div>
+    </div>
+    <nav class="dm-footer-cols" aria-label="Footer">
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Explore</p>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/live">Videos</a></li>
+          <li><a href="/speaking">Speaking</a></li>
+          <li><a href="/press-kit">Press Kit</a></li>
+          <li><a href="/one-sheet">One Sheet</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Companies</p>
+        <ul>
+          <li><a href="/companies">All companies</a></li>
+          <li><a href="/snapsuite">SnapSuite</a></li>
+          <li><a href="/leadscore">LeadScore</a></li>
+          <li><a href="/affordly">Affordly</a></li>
+          <li><a href="/vibe-code-to-profit">VibeCode 2 Profit</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Learn</p>
+        <ul>
+          <li><a href="/links">Start an AI business</a></li>
+          <li><a href="/free-course">Free course</a></li>
+          <li><a href="/free-community">Free community</a></li>
+          <li><a href="/community">Community</a></li>
+          <li><a href="/weekly-live">Weekly live</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Work with Dwain</p>
+        <ul>
+          <li><a href="/consultation/">Consult</a></li>
+          <li><a href="/strategy-call">Strategy call</a></li>
+          <li><a href="/connect">Connect</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group dm-footer-group-wide">
+        <p class="dm-footer-heading">Blog</p>
+        <ul>
+          <li><a href="/blog/how-to-survive-an-aws-outage-with-cloudflare">You can keep a SaaS app up through a cloud outage without paying for every region twice</a></li>
+          <li><a href="/blog/cloudflare-outage-validate-your-data">I broke down the November 2025 Cloudflare outage, and the lesson was to validate your own data</a></li>
+          <li><a href="/blog/vibe-coding-guide-beginner-pro">Pick the vibe coding tool for where you are, then give it context</a></li>
+          <li><a href="/blog/antigua-caribbean-need-for-ai">Antigua, the Caribbean and the need for AI</a></li>
+          <li><a href="/blog/cloudflare-for-non-technical-founders">Cloudflare is easier than it looks, and I built a beginner course to show non-technical founders how</a></li>
+          <li><a href="/blog">All posts</a></li>
+        </ul>
+      </div>
+    </nav>
+    <p class="dm-footer-legal">&copy; Copyright 2026 <span>Dwain Browne</span>. All rights reserved.</p>
+  </footer>
+<div class="page-shell"><p><a href="/privacy">Privacy</a> · <button class="db-button" type="button" data-dm-cookie-choices>Cookie choices</button></p></div>
+  <script src="../assets/js/nav.js"></script>
+  <script src="../assets/js/site.js"></script>
+<script id="dm-analytics-config" type="application/json">{"providers":{},"page":"/blog/how-to-survive-an-aws-outage-with-cloudflare","paths":["/","/about","/companies","/snapsuite","/leadscore","/affordly","/speaking","/live","/blog","/blog/vibe-coding-engineering-judgment","/blog/lead-scoring-prioritization","/blog/smallest-system-that-proves-the-point","/blog/read-ai-vs-fireflies-vs-otter","/blog/spec-kit-large-projects","/blog/spec-kit-alternative-large-codebase","/blog/github-copilot-cli-first-look","/blog/prove-the-ai-roi","/blog/cloudflare-30k-saas","/blog/secure-vibe-coded-app-cloudflare","/blog/build-second-brain-codebase","/blog/turning-meeting-transcripts-into-action-items","/blog/building-a-business-on-cloudflare","/blog/2026-entrepreneur-ai-coding-stack","/blog/non-u-s-entrepreneurs-can-start","/blog/5-levels-vibe-coding","/blog/vibe-coding-cloudflare-build-meeting-manager","/blog/lead-scoring-for-builders","/blog/cloudflare-for-non-technical-founders","/blog/antigua-caribbean-need-for-ai","/blog/vibe-coding-guide-beginner-pro","/blog/cloudflare-outage-validate-your-data","/blog/how-to-survive-an-aws-outage-with-cloudflare","/community","/vibe-code-to-profit","/connect","/speaking-trade-operations","/speaking-sales","/speaking-ai-operations","/speaking-vibe-code-to-profit","/press-kit","/one-sheet","/lives","/404.html","/consultation/","/privacy","/links","/free-community","/free-course","/solo-entrepreneur","/scaling-entrepreneur","/strategy-call","/weekly-live"],"anchors":["primary-menu","author-blurb"],"videos":[]}</script>
+    <script src="/assets/js/analytics.js"></script>
+</body>
+</html>
