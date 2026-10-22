@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Vibe Coding Guide: Pick a Tool, Then Give It Context | Dwain Browne</title>
+    <meta name="description" content="In a September 2025 video, Dwain Browne built one to-do app in ChatGPT, Lovable, Bolt.new and Copilot, then showed the five-step context method for AI.">
+    <meta property="article:published_time" content="2025-09-19T19:17:00-04:00">
+    <meta property="article:modified_time" content="2026-10-22">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css?v=20260529-9">
+    <link rel="stylesheet" type="text/css" href="../assets/css/additions.css">
+    <link rel="canonical" href="https://dwain.me/blog/vibe-coding-guide-beginner-pro">
+    <link rel="icon" type="image/png" href="../assets/images/logo.png">
+    <meta property="og:type" content="article">
+    <meta name="author" content="Dwain Browne">
+    <meta property="og:site_name" content="Dwain Browne">
+    <meta property="og:title" content="Vibe Coding Guide: Pick a Tool, Then Give It Context | Dwain Browne">
+    <meta property="og:description" content="In a September 2025 video, Dwain Browne built one to-do app in ChatGPT, Lovable, Bolt.new and Copilot, then showed the five-step context method for AI.">
+    <meta property="og:url" content="https://dwain.me/blog/vibe-coding-guide-beginner-pro">
+    <meta property="og:image" content="https://dwain.me/assets/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Dwain Browne, founder and CEO of SnapSuite and LeadScore AI">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@dwainbrowne">
+    <meta name="twitter:title" content="Vibe Coding Guide: Pick a Tool, Then Give It Context | Dwain Browne">
+    <meta name="twitter:description" content="In a September 2025 video, Dwain Browne built one to-do app in ChatGPT, Lovable, Bolt.new and Copilot, then showed the five-step context method for AI.">
+    <meta name="twitter:image" content="https://dwain.me/assets/images/og-image.png">
+    <script>
+(function () {
+  try {
+    var ss = window.sessionStorage, ls = window.localStorage, q = new URLSearchParams(location.search);
+    var r = document.referrer || "", external = r && r.indexOf(location.host) < 0;
+    var tags = {};
+    ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "src", "ref", "gclid", "fbclid", "ttclid"].forEach(function (k) {
+      var v = q.get(k); if (v) tags[k] = v.slice(0, 100);
+    });
+    var visit = JSON.stringify({ landing: (location.pathname + location.search).slice(0, 200), referrer: external ? r.slice(0, 300) : "", tags: tags, at: new Date().toISOString() });
+    if (!ss.getItem("dm-visit")) ss.setItem("dm-visit", visit);
+    if (!ls.getItem("dm-first")) ls.setItem("dm-first", visit);
+    var pages = JSON.parse(ss.getItem("dm-pages") || "[]");
+    if (pages[pages.length - 1] !== location.pathname) { pages.push(location.pathname); ss.setItem("dm-pages", JSON.stringify(pages.slice(-15))); }
+  } catch (e) {}
+})();
+</script>
+    <script>
+(function () {
+  try {
+    var q = new URLSearchParams(location.search), ss = window.sessionStorage;
+    if (q.get("full") === "1") { ss.setItem("dm-full", "1"); return; }
+    if (ss.getItem("dm-full")) return;
+    var ua = navigator.userAgent || "", ref = (document.referrer || "").toLowerCase();
+    if (ref.indexOf(location.host) > -1) return;
+    var phone = /iPhone|iPod|Android.*Mobile|Mobile Safari|musical_ly|BytedanceWebview|Instagram/i.test(ua) || (window.matchMedia && matchMedia("(pointer: coarse)").matches && Math.min(screen.width, screen.height) < 600);
+    if (!phone) return;
+    var tag = (q.get("src") || q.get("ref") || q.get("utm_source") || "").toLowerCase();
+    var from = /tiktok|^tt$/.test(tag) || /musical_ly|bytedance|tiktok/i.test(ua) || /tiktok\.com/.test(ref) ? "tiktok"
+      : /instagram|^ig$/.test(tag) || /Instagram/.test(ua) || /instagram\.com/.test(ref) ? "instagram"
+      : /youtube|shorts|^yt$/.test(tag) || /youtube\.com|youtu\.be|android\.youtube/.test(ref) ? "youtube" : "";
+    if (!from) return;
+    ss.setItem("dm-social", from);
+    var home = /^\/(index(\.html)?)?$/.test(location.pathname);
+    if (home && !ss.getItem("dm-routed")) { ss.setItem("dm-routed", "1"); location.replace("/links?src=" + from); return; }
+    document.documentElement.setAttribute("data-dm-social", from);
+  } catch (e) {}
+})();
+</script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": "https://dwain.me/blog/vibe-coding-guide-beginner-pro#article",
+  "mainEntityOfPage": "https://dwain.me/blog/vibe-coding-guide-beginner-pro",
+  "headline": "Pick the vibe coding tool for where you are, then give it context.",
+  "description": "In a September 2025 video, Dwain Browne built one to-do app in ChatGPT, Lovable, Bolt.new and Copilot, then showed the five-step context method for AI.",
+  "image": "https://dwain.me/assets/images/og-image.png",
+  "datePublished": "2025-09-19T19:17:00-04:00",
+  "dateModified": "2026-10-22",
+  "articleSection": "AI developer",
+  "keywords": "AI",
+  "inLanguage": "en-CA",
+  "author": {
+    "@type": "Person",
+    "@id": "https://dwain.me/#person",
+    "name": "Dwain Browne",
+    "url": "https://dwain.me/about"
+  },
+  "publisher": {
+    "@id": "https://dwain.me/#person"
+  },
+  "isPartOf": {
+    "@id": "https://dwain.me/#website"
+  },
+  "video": {
+    "@type": "VideoObject",
+    "name": "Vibe Coding Guide: From Beginner to Pro",
+    "description": "In a September 2025 video, Dwain Browne built one to-do app in ChatGPT, Lovable, Bolt.new and Copilot, then showed the five-step context method for AI.",
+    "thumbnailUrl": "https://i.ytimg.com/vi/omImg7UXtRM/hqdefault.jpg",
+    "uploadDate": "2025-09-19T19:17:00-04:00",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/omImg7UXtRM",
+    "contentUrl": "https://www.youtube.com/watch?v=omImg7UXtRM"
+  }
+}
+    </script>
+<meta name="referrer" content="no-referrer">
+</head>
+<body class="site-page" data-clarity-mask="True">
+  <nav class="page-nav dm-header" aria-label="Primary navigation">
+    <a class="brand-link" href="/"><img src="../assets/images/logo.png" alt="">Dwain Browne</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span class="screen-reader-text">Menu</span>
+    </button>
+    <div class="page-nav-links" id="primary-menu">
+      <a href="/about">About</a>
+      <a href="/companies">Companies</a>
+      <a href="../consultation/">Consult</a>
+      <a href="/community">Community</a>
+      <a href="/links">Courses</a>
+      <a href="/speaking">Speaking</a>
+      <a href="/live">Videos</a>
+      <a href="/blog">Blog</a>
+      <a href="/connect">Connect</a>
+      <a class="dm-menu-cta" href="/connect#contact">Get in touch</a>
+    </div>
+    <a class="db-button primary dm-header-cta" href="/connect#contact">Get in touch</a>
+  </nav>
+
+  <main class="page-shell article-layout">
+    <article class="article-body">
+      <p class="article-meta">AI developer &middot; <time datetime="2025-09-19">September 19, 2025</time></p>
+      <h1>Pick the vibe coding tool for where you are, then give it context.</h1>
+      <p>In a September 2025 video I built the same to-do app four ways: ChatGPT, Lovable, Bolt.new, then the exported Bolt code in VS Code with GitHub Copilot. The tool rankings were a September 2025 snapshot, and I said on camera the video would be outdated in a week. The framework still applies: pick the tool for your skill level, then give the AI context so it remembers your project.</p>
+      <h2>The business case</h2>
+      <p>This is the first time I&#x27;ve seen very senior technical people learning the same thing as junior people, at the same time. That&#x27;s good news for a business owner with an app idea. It also makes picking a tool hard if you&#x27;ve never programmed, which is why I drew the map first.</p>
+      <p>The cost of a wrong setup shows up later. On a big app with vague requirements, you end up in a prompt loop typing &quot;fix it, fix it&quot; while the AI breaks code it already wrote. In the video I said the five-step context method below is how I&#x27;ve consistently built applications. That method is the part to keep when the tools change.</p>
+      <h2>My vibe coding quadrant</h2>
+      <p>I sort tools on two axes: easy to complex, hobby to professional. <a href="https://apps.apple.com/us/app/chatgpt/id6448311069">ChatGPT</a> and <a href="https://claude.com">Claude</a> sit on the easy, hobby side. You chat, copy the code, paste it somewhere and run it. At the professional, complex end, AI agents work in the background and you check their progress hours later. My placement of each logo was subjective. Focus on where you are.</p>
+      <p>I also split tools into four categories: autocomplete and chat tools, agent and assistant tools, IDE platforms, and code-review tools. Beginners live in the first two. Professionals live in the last two. <a href="https://code.visualstudio.com">Visual Studio Code</a> owns serious development, and <a href="https://cursor.com">Cursor</a> is a fork of it. I&#x27;ve been a <a href="https://visualstudio.microsoft.com">Visual Studio</a> developer for 20 years.</p>
+      <h2>Where each tool fit</h2>
+      <p><a href="https://docs.lovable.dev">Lovable</a> has a consumer feel. <a href="https://docs.replit.com">Replit</a> suits knowledge workers building internal apps inside a large organization. <a href="https://bolt.new">Bolt.new</a> and <a href="https://v0.app">v0</a> sat between easy and professional, and both handed you code a developer can keep working on. Bolt was my go-to for scaffolding a project. v0 was better at UI, but it gave me trouble on full apps and wanted to write <a href="https://nextjs.org">Next.js</a> and <a href="https://react.dev">React</a>.</p>
+      <p>I build in <a href="https://vuejs.org">Vue</a> and <a href="https://nuxt.com">Nuxt</a>. In my opinion, Vue is easier for a newcomer to read than React. For seasoned developers, <a href="https://claude.com/product/claude-code">Claude Code</a> was the best on the market when I filmed. I used Claude inside VS Code because I&#x27;m a mouse-and-click person. For IDE work the leaders then were <a href="https://github.com/features/copilot">GitHub Copilot</a>, Claude and Cursor. <a href="https://aws.amazon.com/q/developer/">Amazon Q Developer</a> was in the picture, but I wouldn&#x27;t call it a leader.</p>
+      <h2>Build one in ChatGPT</h2>
+      <p>Skip the bare &quot;build me a to-do app&quot; prompt. When I typed that, ChatGPT gave me C# because it knows my history. Create a ChatGPT Project instead, then add instructions: keep everything in HTML, CSS and JavaScript in one file, and link any outside libraries from a CDN. ChatGPT wasn&#x27;t good at multi-page apps, so one file keeps it on track. I dictated prompts with <a href="https://wisprflow.ai">Wispr Flow</a>. I have no affiliation with them.</p>
+      <p>To run it, I pasted the code into an index.html file in VS Code and started a simple live-server extension with its Go Live button. The tasks saved in the browser&#x27;s local storage, so they survived closing the page. You could also drag that one file into <a href="https://developers.cloudflare.com/pages/">Cloudflare</a> and have it on the internet.</p>
+      <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin:1.5rem 0;border-radius:12px"><iframe style="position:absolute;inset:0;width:100%;height:100%;border:0" src="https://www.youtube-nocookie.com/embed/omImg7UXtRM" title="Vibe Coding Guide - From Beginner to Pro" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <p><strong>Jump to</strong></p>
+      <ul>
+      <li><a href="https://www.youtube.com/watch?v=omImg7UXtRM&amp;t=0s">0:00 Introduction to Vibe Coding</a></li>
+      <li><a href="https://www.youtube.com/watch?v=omImg7UXtRM&amp;t=27s">0:27 Overview of Vibe Coding Tools</a></li>
+      <li><a href="https://www.youtube.com/watch?v=omImg7UXtRM&amp;t=151s">2:31 Categories of Vibe Coding Tools</a></li>
+      <li><a href="https://www.youtube.com/watch?v=omImg7UXtRM&amp;t=196s">3:16 Easy vs. Professional Tools</a></li>
+      <li><a href="https://www.youtube.com/watch?v=omImg7UXtRM&amp;t=1007s">16:47 Build a Basic To-Do Application</a></li>
+      <li><a href="https://www.youtube.com/watch?v=omImg7UXtRM&amp;t=1073s">17:53 Using ChatGPT for To-Do App</a></li>
+      <li><a href="https://www.youtube.com/watch?v=omImg7UXtRM&amp;t=1449s">24:09 Intermediate Lovable and Bolt Tools</a></li>
+      <li><a href="https://www.youtube.com/watch?v=omImg7UXtRM&amp;t=1669s">27:49 Publishing the App Live</a></li>
+      <li><a href="https://www.youtube.com/watch?v=omImg7UXtRM&amp;t=1736s">28:56 Why Export Your Bolt Code</a></li>
+      <li><a href="https://www.youtube.com/watch?v=omImg7UXtRM&amp;t=1855s">30:55 Using GitHub Copilot for Advance Development</a></li>
+      <li><a href="https://www.youtube.com/watch?v=omImg7UXtRM&amp;t=2088s">34:48 Context Is King</a></li>
+      <li><a href="https://www.youtube.com/watch?v=omImg7UXtRM&amp;t=2407s">40:07 Professionally Vibe Coding a To-Do Application</a></li>
+      <li><a href="https://www.youtube.com/watch?v=omImg7UXtRM&amp;t=2975s">49:35 Final Thoughts and Recommendations</a></li>
+      </ul>
+      <p>I build all four versions and set up the context files on screen in the full video on my channel: <a href="https://www.youtube.com/watch?v=omImg7UXtRM">Vibe coding guide on YouTube</a>.</p>
+      <h2>Lovable and Bolt compared</h2>
+      <p>I gave Lovable the same instructions. It refused a single HTML file and built a React app instead. The interface was much nicer, and one click published it to a live URL. Asking for a light mode version worked too. Exporting the code looked blocked on my plan.</p>
+      <p>Bolt&#x27;s UI was plainer, but the code had more structure. It also published in one click. The export is the reason to use it. I downloaded a zip, opened it in VS Code, and used <a href="https://docs.npmjs.com">npm</a> to run it locally with <code>npm install</code> and then <code>npm run dev</code>.</p>
+      <h2>Copilot for the long run</h2>
+      <p>Once the code was local, I kept going in GitHub Copilot. It has Ask, Edit and Agent modes. Keep it on Agent for vibe coding. You can highlight one section and have Copilot change only that. That granular control matters once you maintain a larger app over a long period, and I couldn&#x27;t do it properly in Bolt. For Copilot on a real bug in the terminal, see <a href="https://dwain.me/blog/github-copilot-cli-first-look">my GitHub Copilot CLI test</a>.</p>
+      <h2>Context is king</h2>
+      <p>As a web developer I was taught content is king. With AI, context is king. Be very descriptive about what you&#x27;re building, how it&#x27;s structured and which features you want. My five steps:</p>
+      <ol>
+        <li>Tell the AI what you&#x27;re building.</li>
+        <li>Have it write a software requirements document.</li>
+        <li>Have it write a feature checklist.</li>
+        <li>Make it check items off as it finishes them.</li>
+        <li>Make it document everything, so it can pick up where it left off a week later.</li>
+      </ol>
+      <p>Context is memory, stored as text files. In the demo I talked the requirements through with a voice AI, got the requirements document back in markdown, then a feature checklist grouped by screen.</p>
+      <h2>Wire up the instructions file</h2>
+      <p>Every coding agent reads an instructions file: <code>.github/copilot-instructions.md</code> for Copilot, a Claude file for Claude Code, <a href="https://agents.md">AGENTS.md</a> for <a href="https://learn.chatgpt.com/docs/cloud">Codex</a>, and a rules folder for Cursor. The same idea works in Windsurf, since renamed Devin Desktop, and <a href="https://gemini.google.com">Gemini</a>. I had Copilot put both documents in a docs folder, link them from the instructions file, and add a rule to document every new feature there. That loop keeps the docs current as the app grows. When the model veers off, add a note to the instructions file so it doesn&#x27;t repeat the mistake.</p>
+      <p>Two gotchas. The AI has no memory of your code, so feed it documentation. If it goes in circles, clear the chat and restart from the files, because long context makes it forget. <a href="https://github.com/github/spec-kit">GitHub Spec Kit</a> had just come out as a more formal version of this approach for large apps. I covered it in <a href="https://dwain.me/blog/spec-kit-large-projects">Spec Kit for large projects</a>.</p>
+      <h2>Learn the principles</h2>
+      <p>Early GitHub Copilot was garbage, and I never used it. That was no longer true by September 2025. Pick a tool, go hard in it, and learn the principles, because they carry forward when the next tool shows up. The tools still need your judgment, which I wrote about in <a href="https://dwain.me/blog/vibe-coding-engineering-judgment">vibe coding still needs engineering judgment</a>. If you want help choosing a stack and setting up context files for your own app, <a href="https://dwain.me/strategy-call?src=blog">book a strategy call</a>.</p>
+      <section id="author-blurb">
+        <h2>About Dwain</h2>
+        <div class="dm-f-teacher">
+          <img src="../assets/images/profile/dwain-headshot.jpg" alt="Dwain Browne" width="96" height="96" loading="lazy">
+          <div>
+            <p>I'm Dwain Browne, Founder of LeadScore AI and SnapSuite. I'm a Toronto-based software architect with 25+ years across software, sales, operations and entrepreneurship. SnapSuite helps contractors and trades teams get paid faster, and LeadScore AI shows you which leads deserve your next call. I also run Vibe Code to Profit, a community helping people build software with AI.</p>
+            <p><a href="https://www.youtube.com/@dwainbrowne">YouTube</a> &middot; <a href="https://www.linkedin.com/in/dwainbrowne">LinkedIn</a> &middot; <a href="https://calendly.com/snapsuite/60min">Book a call</a></p>
+          </div>
+        </div>
+      </section>
+
+    </article>
+    <aside class="article-sidebar">
+      <h2>More from Dwain</h2>
+      <a href="https://dwain.me/strategy-call?src=blog">Book a strategy call</a>
+      <a href="/live">Watch live builds</a>
+      <a href="/community">Join Vibe Code to Profit</a>
+    </aside>
+  </main>
+
+  <footer class="page-shell page-footer dm-footer">
+    <div class="dm-footer-top">
+      <div class="dm-footer-about">
+        <a class="dm-footer-brand" href="/"><img src="/assets/images/logo.png" alt="">Dwain Browne</a>
+        <p>Founder and CEO of SnapSuite and LeadScore AI. Toronto, Canada.</p>
+      </div>
+      <div class="dm-footer-social" role="group" aria-label="Social media">
+        <a href="https://www.youtube.com/@dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on YouTube (@dwainbrowne)"><img width="24" height="24" src="/assets/images/youtube.png" alt=""><span class="dm-footer-social-label">YouTube <span>@dwainbrowne</span></span></a>
+        <a href="https://www.youtube.com/@dwainunfinished" target="_blank" rel="noopener" aria-label="Dwain on YouTube (@dwainunfinished)"><img width="24" height="24" src="/assets/images/youtube.png" alt=""><span class="dm-footer-social-label">YouTube <span>@dwainunfinished</span></span></a>
+        <a href="https://www.tiktok.com/@dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on TikTok (@dwainbrowne)"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="#1d1917"/><path fill="#fff" transform="translate(5.4 5.4) scale(0.55)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg><span class="dm-footer-social-label">TikTok <span>@dwainbrowne</span></span></a>
+        <a href="https://www.tiktok.com/@dwain.me" target="_blank" rel="noopener" aria-label="Dwain on TikTok (@dwain.me)"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="#1d1917"/><path fill="#fff" transform="translate(5.4 5.4) scale(0.55)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg><span class="dm-footer-social-label">TikTok <span>@dwain.me</span></span></a>
+        <a href="https://instagram.com/dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on Instagram (@dwainbrowne)"><img width="24" height="24" src="/assets/images/instagram.png" alt=""><span class="dm-footer-social-label">Instagram <span>@dwainbrowne</span></span></a>
+        <a href="https://twitter.com/dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on X (@dwainbrowne)"><img width="24" height="24" src="/assets/images/twitter.png" alt=""><span class="dm-footer-social-label">X <span>@dwainbrowne</span></span></a>
+        <a href="https://www.linkedin.com/in/dwainbrowne/" target="_blank" rel="noopener" aria-label="Dwain on LinkedIn (@dwainbrowne)"><img width="24" height="24" src="/assets/images/linkedIn.png" alt=""><span class="dm-footer-social-label">LinkedIn <span>@dwainbrowne</span></span></a>
+        <a href="https://www.pinterest.ca/dwainbrowne/" target="_blank" rel="noopener" aria-label="Dwain on Pinterest (@dwainbrowne)"><img width="24" height="24" src="/assets/images/pinterest.png" alt=""><span class="dm-footer-social-label">Pinterest <span>@dwainbrowne</span></span></a>
+      </div>
+    </div>
+    <nav class="dm-footer-cols" aria-label="Footer">
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Explore</p>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/live">Videos</a></li>
+          <li><a href="/speaking">Speaking</a></li>
+          <li><a href="/press-kit">Press Kit</a></li>
+          <li><a href="/one-sheet">One Sheet</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Companies</p>
+        <ul>
+          <li><a href="/companies">All companies</a></li>
+          <li><a href="/snapsuite">SnapSuite</a></li>
+          <li><a href="/leadscore">LeadScore</a></li>
+          <li><a href="/affordly">Affordly</a></li>
+          <li><a href="/vibe-code-to-profit">VibeCode 2 Profit</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Learn</p>
+        <ul>
+          <li><a href="/links">Start an AI business</a></li>
+          <li><a href="/free-course">Free course</a></li>
+          <li><a href="/free-community">Free community</a></li>
+          <li><a href="/community">Community</a></li>
+          <li><a href="/weekly-live">Weekly live</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Work with Dwain</p>
+        <ul>
+          <li><a href="/consultation/">Consult</a></li>
+          <li><a href="/strategy-call">Strategy call</a></li>
+          <li><a href="/connect">Connect</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group dm-footer-group-wide">
+        <p class="dm-footer-heading">Blog</p>
+        <ul>
+          <li><a href="/blog/vibe-coding-guide-beginner-pro">Pick the vibe coding tool for where you are, then give it context</a></li>
+          <li><a href="/blog/antigua-caribbean-need-for-ai">Antigua, the Caribbean and the need for AI</a></li>
+          <li><a href="/blog/cloudflare-for-non-technical-founders">Cloudflare is easier than it looks, and I built a beginner course to show non-technical founders how</a></li>
+          <li><a href="/blog/lead-scoring-for-builders">One salesperson should be able to work 100,000 leads, and lead scoring is how I get there</a></li>
+          <li><a href="/blog/vibe-coding-cloudflare-build-meeting-manager">I started my own meeting manager with a sketch, not a database</a></li>
+          <li><a href="/blog">All posts</a></li>
+        </ul>
+      </div>
+    </nav>
+    <p class="dm-footer-legal">&copy; Copyright 2026 <span>Dwain Browne</span>. All rights reserved.</p>
+  </footer>
+<div class="page-shell"><p><a href="/privacy">Privacy</a> · <button class="db-button" type="button" data-dm-cookie-choices>Cookie choices</button></p></div>
+  <script src="../assets/js/nav.js"></script>
+  <script src="../assets/js/site.js"></script>
+<script id="dm-analytics-config" type="application/json">{"providers":{},"page":"/blog/vibe-coding-guide-beginner-pro","paths":["/","/about","/companies","/snapsuite","/leadscore","/affordly","/speaking","/live","/blog","/blog/vibe-coding-engineering-judgment","/blog/lead-scoring-prioritization","/blog/smallest-system-that-proves-the-point","/blog/read-ai-vs-fireflies-vs-otter","/blog/spec-kit-large-projects","/blog/spec-kit-alternative-large-codebase","/blog/github-copilot-cli-first-look","/blog/prove-the-ai-roi","/blog/cloudflare-30k-saas","/blog/secure-vibe-coded-app-cloudflare","/blog/build-second-brain-codebase","/blog/turning-meeting-transcripts-into-action-items","/blog/building-a-business-on-cloudflare","/blog/2026-entrepreneur-ai-coding-stack","/blog/non-u-s-entrepreneurs-can-start","/blog/5-levels-vibe-coding","/blog/vibe-coding-cloudflare-build-meeting-manager","/blog/lead-scoring-for-builders","/blog/cloudflare-for-non-technical-founders","/blog/antigua-caribbean-need-for-ai","/blog/vibe-coding-guide-beginner-pro","/community","/vibe-code-to-profit","/connect","/speaking-trade-operations","/speaking-sales","/speaking-ai-operations","/speaking-vibe-code-to-profit","/press-kit","/one-sheet","/lives","/404.html","/consultation/","/privacy","/links","/free-community","/free-course","/solo-entrepreneur","/scaling-entrepreneur","/strategy-call","/weekly-live"],"anchors":["primary-menu","author-blurb"],"videos":[]}</script>
+    <script src="/assets/js/analytics.js"></script>
+</body>
+</html>
