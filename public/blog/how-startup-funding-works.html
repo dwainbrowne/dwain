@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>How Startup Funding Works, Explained on a 2017 Whiteboard | Dwain Browne</title>
+    <meta name="description" content="In a December 2017 video, ten months into his startup, Dwain Browne drew how startup funding works: MVP, valuation, rounds, angels, VCs, dilution.">
+    <meta property="article:published_time" content="2017-12-02T20:13:00-05:00">
+    <meta property="article:modified_time" content="2026-10-24">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css?v=20260529-9">
+    <link rel="stylesheet" type="text/css" href="../assets/css/additions.css">
+    <link rel="canonical" href="https://dwain.me/blog/how-startup-funding-works">
+    <link rel="icon" type="image/png" href="../assets/images/logo.png">
+    <meta property="og:type" content="article">
+    <meta name="author" content="Dwain Browne">
+    <meta property="og:site_name" content="Dwain Browne">
+    <meta property="og:title" content="How Startup Funding Works, Explained on a 2017 Whiteboard | Dwain Browne">
+    <meta property="og:description" content="In a December 2017 video, ten months into his startup, Dwain Browne drew how startup funding works: MVP, valuation, rounds, angels, VCs, dilution.">
+    <meta property="og:url" content="https://dwain.me/blog/how-startup-funding-works">
+    <meta property="og:image" content="https://dwain.me/assets/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Dwain Browne, founder and CEO of SnapSuite and LeadScore AI">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@dwainbrowne">
+    <meta name="twitter:title" content="How Startup Funding Works, Explained on a 2017 Whiteboard | Dwain Browne">
+    <meta name="twitter:description" content="In a December 2017 video, ten months into his startup, Dwain Browne drew how startup funding works: MVP, valuation, rounds, angels, VCs, dilution.">
+    <meta name="twitter:image" content="https://dwain.me/assets/images/og-image.png">
+    <script>
+(function () {
+  try {
+    var ss = window.sessionStorage, ls = window.localStorage, q = new URLSearchParams(location.search);
+    var r = document.referrer || "", external = r && r.indexOf(location.host) < 0;
+    var tags = {};
+    ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "src", "ref", "gclid", "fbclid", "ttclid"].forEach(function (k) {
+      var v = q.get(k); if (v) tags[k] = v.slice(0, 100);
+    });
+    var visit = JSON.stringify({ landing: (location.pathname + location.search).slice(0, 200), referrer: external ? r.slice(0, 300) : "", tags: tags, at: new Date().toISOString() });
+    if (!ss.getItem("dm-visit")) ss.setItem("dm-visit", visit);
+    if (!ls.getItem("dm-first")) ls.setItem("dm-first", visit);
+    var pages = JSON.parse(ss.getItem("dm-pages") || "[]");
+    if (pages[pages.length - 1] !== location.pathname) { pages.push(location.pathname); ss.setItem("dm-pages", JSON.stringify(pages.slice(-15))); }
+  } catch (e) {}
+})();
+</script>
+    <script>
+(function () {
+  try {
+    var q = new URLSearchParams(location.search), ss = window.sessionStorage;
+    if (q.get("full") === "1") { ss.setItem("dm-full", "1"); return; }
+    if (ss.getItem("dm-full")) return;
+    var ua = navigator.userAgent || "", ref = (document.referrer || "").toLowerCase();
+    if (ref.indexOf(location.host) > -1) return;
+    var phone = /iPhone|iPod|Android.*Mobile|Mobile Safari|musical_ly|BytedanceWebview|Instagram/i.test(ua) || (window.matchMedia && matchMedia("(pointer: coarse)").matches && Math.min(screen.width, screen.height) < 600);
+    if (!phone) return;
+    var tag = (q.get("src") || q.get("ref") || q.get("utm_source") || "").toLowerCase();
+    var from = /tiktok|^tt$/.test(tag) || /musical_ly|bytedance|tiktok/i.test(ua) || /tiktok\.com/.test(ref) ? "tiktok"
+      : /instagram|^ig$/.test(tag) || /Instagram/.test(ua) || /instagram\.com/.test(ref) ? "instagram"
+      : /youtube|shorts|^yt$/.test(tag) || /youtube\.com|youtu\.be|android\.youtube/.test(ref) ? "youtube" : "";
+    if (!from) return;
+    ss.setItem("dm-social", from);
+    var home = /^\/(index(\.html)?)?$/.test(location.pathname);
+    if (home && !ss.getItem("dm-routed")) { ss.setItem("dm-routed", "1"); location.replace("/links?src=" + from); return; }
+    document.documentElement.setAttribute("data-dm-social", from);
+  } catch (e) {}
+})();
+</script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": "https://dwain.me/blog/how-startup-funding-works#article",
+  "mainEntityOfPage": "https://dwain.me/blog/how-startup-funding-works",
+  "headline": "Startup funding means selling slices of your company to grow faster than sales allow.",
+  "description": "In a December 2017 video, ten months into his startup, Dwain Browne drew how startup funding works: MVP, valuation, rounds, angels, VCs, dilution.",
+  "image": "https://dwain.me/assets/images/og-image.png",
+  "datePublished": "2017-12-02T20:13:00-05:00",
+  "dateModified": "2026-10-24",
+  "articleSection": "Entrepreneur",
+  "keywords": "Scaling sales systems",
+  "inLanguage": "en-CA",
+  "author": {
+    "@type": "Person",
+    "@id": "https://dwain.me/#person",
+    "name": "Dwain Browne",
+    "url": "https://dwain.me/about"
+  },
+  "publisher": {
+    "@id": "https://dwain.me/#person"
+  },
+  "isPartOf": {
+    "@id": "https://dwain.me/#website"
+  },
+  "video": {
+    "@type": "VideoObject",
+    "name": "How Startup Funding Works & How Investors Work (Oversimplified explanation)",
+    "description": "In a December 2017 video, ten months into his startup, Dwain Browne drew how startup funding works: MVP, valuation, rounds, angels, VCs, dilution.",
+    "thumbnailUrl": "https://i.ytimg.com/vi/TSE_ra4LcFU/hqdefault.jpg",
+    "uploadDate": "2017-12-02T20:13:00-05:00",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/TSE_ra4LcFU",
+    "contentUrl": "https://www.youtube.com/watch?v=TSE_ra4LcFU"
+  }
+}
+    </script>
+<meta name="referrer" content="no-referrer">
+</head>
+<body class="site-page" data-clarity-mask="True">
+  <nav class="page-nav dm-header" aria-label="Primary navigation">
+    <a class="brand-link" href="/"><img src="../assets/images/logo.png" alt="">Dwain Browne</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span class="screen-reader-text">Menu</span>
+    </button>
+    <div class="page-nav-links" id="primary-menu">
+      <a href="/about">About</a>
+      <a href="/companies">Companies</a>
+      <a href="../consultation/">Consult</a>
+      <a href="/community">Community</a>
+      <a href="/links">Courses</a>
+      <a href="/speaking">Speaking</a>
+      <a href="/live">Videos</a>
+      <a href="/blog">Blog</a>
+      <a href="/connect">Connect</a>
+      <a class="dm-menu-cta" href="/connect#contact">Get in touch</a>
+    </div>
+    <a class="db-button primary dm-header-cta" href="/connect#contact">Get in touch</a>
+  </nav>
+
+  <main class="page-shell article-layout">
+    <article class="article-body">
+      <p class="article-meta">Entrepreneur &middot; <time datetime="2017-12-02">December 2, 2017</time></p>
+      <h1>Startup funding means selling slices of your company to grow faster than sales allow.</h1>
+      <p>I published this in December 2017, about ten months after we started our company in February. I&#x27;m not an investment expert. Before that year I knew nothing about how investors work, so I drew it on a whiteboard the way I&#x27;d come to understand it. I oversimplify on purpose, and the dollar amounts below are my own round examples, not real deals.</p>
+      <h2>The business case</h2>
+      <p>Taking investment has little to do with survival. If you&#x27;re doing fine, you could find the next client, make a sale, pay yourself and repeat. That&#x27;s a good business. Investment exists so you can pour as much capital as possible into a company and grow it faster than sales alone would allow.</p>
+      <p>The pace I had in mind was zero to $10 million in two years in Canada, or zero to $100 million in two to three years in the US. I didn&#x27;t know if I could get our company that big, but I planned to try. A founder needs to know which game they&#x27;re signing up for before they take the first cheque.</p>
+      <h2>Two ways to build a business</h2>
+      <p>The traditional business runs on a loop. An ambitious owner has an idea and needs money, so he goes to a bank, brings in a partner with some cash, or asks family and friends. He makes a sale, gets paid, hires a few employees, makes another sale and hires a few more. Rinse and repeat.</p>
+      <p>The newer model has been around for a while, but over the last 10 to 20 years technology has become the main force in how investors decide where to put money. A founder, usually technical or paired with a technical partner, builds a minimum viable product (MVP). That means the fewest features, built as fast as possible. Some of it barely works.</p>
+      <p>The founder bootstraps, meaning they spend their own money. They convince a few people to try the product, take the feedback, add a module, win a few more trial users, and keep going on whatever cash they have.</p>
+      <h2>Pitching an investor</h2>
+      <p>Next the founder goes to an investor with a pitch close to this: the product is pretty crappy, but we have some customers. The investor sees an interesting product with early users and puts a value on the company.</p>
+      <p>My example: at an accelerator, an early valuation might land somewhere between $500,000 and $2 million. Say the company is valued at $1 million. The investor offers $100,000 for 10%. The founder takes the money, hires a few people, refines what works and copies it into more markets as fast as possible. The goal is to take a $1 million company to $10 million and raise again, maybe $1 million or $2 million in the next round.</p>
+      <p>The rounds get names. The first money often comes from an angel investor, then Series A, Series B, Series C and so on. The end goal is to sell the company, get acquired or go public through an IPO. You can&#x27;t hit that kind of growth on the sale, hire, repeat loop.</p>
+      <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin:1.5rem 0;border-radius:12px"><iframe style="position:absolute;inset:0;width:100%;height:100%;border:0" src="https://www.youtube-nocookie.com/embed/TSE_ra4LcFU" title="How Startup Funding Works &amp; How Investors Work (Oversimplified explanation)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <p><strong>Jump to</strong></p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=TSE_ra4LcFU&amp;t=0s">0:00 Why a startup takes investment</a></li>
+<li><a href="https://www.youtube.com/watch?v=TSE_ra4LcFU&amp;t=128s">2:08 Traditional business vs the new-school startup</a></li>
+<li><a href="https://www.youtube.com/watch?v=TSE_ra4LcFU&amp;t=434s">7:14 Pitching an investor: valuation, equity and rounds</a></li>
+<li><a href="https://www.youtube.com/watch?v=TSE_ra4LcFU&amp;t=665s">11:05 Growth examples: Uber, Airbnb and Tesla</a></li>
+<li><a href="https://www.youtube.com/watch?v=TSE_ra4LcFU&amp;t=950s">15:50 Shopify and Canadian vs US investors</a></li>
+<li><a href="https://www.youtube.com/watch?v=TSE_ra4LcFU&amp;t=1162s">19:22 Stages of investment: founders, friends and family, angels</a></li>
+<li><a href="https://www.youtube.com/watch?v=TSE_ra4LcFU&amp;t=1291s">21:31 How VCs work and the pressure on founders</a></li>
+<li><a href="https://www.youtube.com/watch?v=TSE_ra4LcFU&amp;t=1498s">24:58 Further reading: funding and dilution</a></li>
+</ul>
+      <p>The whiteboard version is in the video: <a href="https://www.youtube.com/watch?v=TSE_ra4LcFU">watch How Startup Funding Works on YouTube</a>.</p>
+      <h2>Growth stories I used</h2>
+      <p><a href="https://www.uber.com/us/en/about/">Uber</a> started as a black-car service you booked from your phone. After investors came in, it moved to regular cars and then rolled out city after city around the world. By late 2017 it had raised round after round at a huge valuation while still a private company, and its earliest investors stood to make many times their money.</p>
+      <p><a href="https://news.airbnb.com/about-us/">Airbnb</a> started with its founders renting out space in their own San Francisco home to guests. They proved the model themselves before asking other hosts to join. In the early days they went door to door, and when they saw that poor listing photos were holding hosts back, they worked on getting professional-quality photos of the listings.</p>
+      <p><a href="https://apps.apple.com/us/app/tesla/id582007913">Tesla</a> is my favourite story. It came close to failing more than once, and Elon Musk put his own money into it to keep it alive. Big wins come with huge risk, and the bet behind this model is that the wins outweigh the losses. I wasn&#x27;t claiming we&#x27;d be the next one of these companies. A few years before I recorded this, plenty of people in Canada hadn&#x27;t heard of Airbnb or Uber.</p>
+      <h2>Shopify, closer to home</h2>
+      <p>The company I&#x27;d compare us to is <a href="https://www.shopify.com">Shopify</a>, an Ontario company like us. Its e-commerce platform lets you open an online store and sell your products fast. The founder, Tobi Lütke, wanted to sell snowboards and couldn&#x27;t find a store platform with the features he wanted. He was a programmer, so he built his own, and <a href="https://www.entrepreneur.com/article/222967">the platform became the business</a>. Shopify is now a <a href="https://www.shopify.com/investors">public company</a>.</p>
+      <p>The early money came from family and friends, then an angel investor, and only later the bigger venture rounds. My take in 2017, and it&#x27;s a generalization, was that Canadian investors are risk averse and want to see a lot of traction first, while US investors play high risk, high reward. One of my mentors invested in Shopify, and in 2017 I was starting to meet the people who backed companies like it. Those people rarely get recognition, but they play a big part.</p>
+      <h2>Stages of investment</h2>
+      <p>When you start, you own 100% of your company. You build something and bring in a partner with skills you don&#x27;t have. Say you give them 40% and keep 60%.</p>
+      <p>Then you go to friends and family, because they&#x27;re closest to you. You might say: give me $20,000 and I&#x27;ll give you 5% of the company. After that, angel investors. Ask for maybe $100,000 for something like 20%. Each new round shrinks your slice. Investors call that dilution: as more money comes into the company, your share of it gets smaller.</p>
+      <h2>How VCs work</h2>
+      <p>After the angels come venture capitalists, and that&#x27;s a shark game. A VC firm raises a large fund, say $100 million, from its own backers. In my example those backers are institutions like mutual funds or credit unions. The firm keeps a piece for itself and spreads the rest across a group of startups.</p>
+      <p>The firm knows from plain statistics that a couple of those startups won&#x27;t make it. It doesn&#x27;t know which ones. Another will grow to a certain level and stall. The fund needs one big winner to cover all of that and still return more than $100 million to its backers.</p>
+      <p>That puts enormous pressure on the founders who are still in the game. If you take VC money, learn how the game works first, because if you can&#x27;t handle that pressure, it can break you and your personal life with it. It&#x27;s a big gamble, with a big payoff when it works.</p>
+      <p>I meant to cover our own fundraising strategy in this video and never got to it. If you&#x27;re working out your own path, my post on <a href="https://dwain.me/blog/non-u-s-entrepreneurs-can-start">how non-US entrepreneurs can start a US company</a> covers the setup side. If you want to talk through how to fund and grow your business, <a href="https://dwain.me/strategy-call?src=blog">book a strategy call</a>.</p>
+      <section id="author-blurb">
+        <h2>About Dwain</h2>
+        <div class="dm-f-teacher">
+          <img src="../assets/images/profile/dwain-headshot.jpg" alt="Dwain Browne" width="96" height="96" loading="lazy">
+          <div>
+            <p>I'm Dwain Browne, Founder of LeadScore AI and SnapSuite. I'm a Toronto-based software architect with 25+ years across software, sales, operations and entrepreneurship. SnapSuite helps contractors and trades teams get paid faster, and LeadScore AI shows you which leads deserve your next call. I also run Vibe Code to Profit, a community helping people build software with AI.</p>
+            <p><a href="https://www.youtube.com/@dwainbrowne">YouTube</a> &middot; <a href="https://www.linkedin.com/in/dwainbrowne">LinkedIn</a> &middot; <a href="https://calendly.com/snapsuite/60min">Book a call</a></p>
+          </div>
+        </div>
+      </section>
+    </article>
+    <aside class="article-sidebar">
+      <h2>More from Dwain</h2>
+      <a href="https://dwain.me/strategy-call?src=blog">Book a strategy call</a>
+      <a href="/live">Watch live builds</a>
+      <a href="/community">Join Vibe Code to Profit</a>
+    </aside>
+  </main>
+
+  <footer class="page-shell page-footer dm-footer">
+    <div class="dm-footer-top">
+      <div class="dm-footer-about">
+        <a class="dm-footer-brand" href="/"><img src="/assets/images/logo.png" alt="">Dwain Browne</a>
+        <p>Founder and CEO of SnapSuite and LeadScore AI. Toronto, Canada.</p>
+      </div>
+      <div class="dm-footer-social" role="group" aria-label="Social media">
+        <a href="https://www.youtube.com/@dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on YouTube (@dwainbrowne)"><img width="24" height="24" src="/assets/images/youtube.png" alt=""><span class="dm-footer-social-label">YouTube <span>@dwainbrowne</span></span></a>
+        <a href="https://www.youtube.com/@dwainunfinished" target="_blank" rel="noopener" aria-label="Dwain on YouTube (@dwainunfinished)"><img width="24" height="24" src="/assets/images/youtube.png" alt=""><span class="dm-footer-social-label">YouTube <span>@dwainunfinished</span></span></a>
+        <a href="https://www.tiktok.com/@dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on TikTok (@dwainbrowne)"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="#1d1917"/><path fill="#fff" transform="translate(5.4 5.4) scale(0.55)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg><span class="dm-footer-social-label">TikTok <span>@dwainbrowne</span></span></a>
+        <a href="https://www.tiktok.com/@dwain.me" target="_blank" rel="noopener" aria-label="Dwain on TikTok (@dwain.me)"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="#1d1917"/><path fill="#fff" transform="translate(5.4 5.4) scale(0.55)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg><span class="dm-footer-social-label">TikTok <span>@dwain.me</span></span></a>
+        <a href="https://instagram.com/dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on Instagram (@dwainbrowne)"><img width="24" height="24" src="/assets/images/instagram.png" alt=""><span class="dm-footer-social-label">Instagram <span>@dwainbrowne</span></span></a>
+        <a href="https://twitter.com/dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on X (@dwainbrowne)"><img width="24" height="24" src="/assets/images/twitter.png" alt=""><span class="dm-footer-social-label">X <span>@dwainbrowne</span></span></a>
+        <a href="https://www.linkedin.com/in/dwainbrowne/" target="_blank" rel="noopener" aria-label="Dwain on LinkedIn (@dwainbrowne)"><img width="24" height="24" src="/assets/images/linkedIn.png" alt=""><span class="dm-footer-social-label">LinkedIn <span>@dwainbrowne</span></span></a>
+        <a href="https://www.pinterest.ca/dwainbrowne/" target="_blank" rel="noopener" aria-label="Dwain on Pinterest (@dwainbrowne)"><img width="24" height="24" src="/assets/images/pinterest.png" alt=""><span class="dm-footer-social-label">Pinterest <span>@dwainbrowne</span></span></a>
+      </div>
+    </div>
+    <nav class="dm-footer-cols" aria-label="Footer">
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Explore</p>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/live">Videos</a></li>
+          <li><a href="/speaking">Speaking</a></li>
+          <li><a href="/press-kit">Press Kit</a></li>
+          <li><a href="/one-sheet">One Sheet</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Companies</p>
+        <ul>
+          <li><a href="/companies">All companies</a></li>
+          <li><a href="/snapsuite">SnapSuite</a></li>
+          <li><a href="/leadscore">LeadScore</a></li>
+          <li><a href="/affordly">Affordly</a></li>
+          <li><a href="/vibe-code-to-profit">VibeCode 2 Profit</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Learn</p>
+        <ul>
+          <li><a href="/links">Start an AI business</a></li>
+          <li><a href="/free-course">Free course</a></li>
+          <li><a href="/free-community">Free community</a></li>
+          <li><a href="/community">Community</a></li>
+          <li><a href="/weekly-live">Weekly live</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Work with Dwain</p>
+        <ul>
+          <li><a href="/consultation/">Consult</a></li>
+          <li><a href="/strategy-call">Strategy call</a></li>
+          <li><a href="/connect">Connect</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group dm-footer-group-wide">
+        <p class="dm-footer-heading">Blog</p>
+        <ul>
+          <li><a href="/blog/how-startup-funding-works">Startup funding means selling slices of your company to grow faster than sales allow</a></li>
+          <li><a href="/blog/how-to-survive-an-aws-outage-with-cloudflare">You can keep a SaaS app up through a cloud outage without paying for every region twice</a></li>
+          <li><a href="/blog/cloudflare-outage-validate-your-data">I broke down the November 2025 Cloudflare outage, and the lesson was to validate your own data</a></li>
+          <li><a href="/blog/vibe-coding-guide-beginner-pro">Pick the vibe coding tool for where you are, then give it context</a></li>
+          <li><a href="/blog/antigua-caribbean-need-for-ai">Antigua, the Caribbean and the need for AI</a></li>
+          <li><a href="/blog">All posts</a></li>
+        </ul>
+      </div>
+    </nav>
+    <p class="dm-footer-legal">&copy; Copyright 2026 <span>Dwain Browne</span>. All rights reserved.</p>
+  </footer>
+<div class="page-shell"><p><a href="/privacy">Privacy</a> · <button class="db-button" type="button" data-dm-cookie-choices>Cookie choices</button></p></div>
+  <script src="../assets/js/nav.js"></script>
+  <script src="../assets/js/site.js"></script>
+<script id="dm-analytics-config" type="application/json">{"providers":{},"page":"/blog/how-startup-funding-works","paths":["/","/about","/companies","/snapsuite","/leadscore","/affordly","/speaking","/live","/blog","/blog/vibe-coding-engineering-judgment","/blog/lead-scoring-prioritization","/blog/smallest-system-that-proves-the-point","/blog/read-ai-vs-fireflies-vs-otter","/blog/spec-kit-large-projects","/blog/spec-kit-alternative-large-codebase","/blog/github-copilot-cli-first-look","/blog/prove-the-ai-roi","/blog/cloudflare-30k-saas","/blog/secure-vibe-coded-app-cloudflare","/blog/build-second-brain-codebase","/blog/turning-meeting-transcripts-into-action-items","/blog/building-a-business-on-cloudflare","/blog/2026-entrepreneur-ai-coding-stack","/blog/non-u-s-entrepreneurs-can-start","/blog/5-levels-vibe-coding","/blog/vibe-coding-cloudflare-build-meeting-manager","/blog/lead-scoring-for-builders","/blog/cloudflare-for-non-technical-founders","/blog/antigua-caribbean-need-for-ai","/blog/vibe-coding-guide-beginner-pro","/blog/cloudflare-outage-validate-your-data","/blog/how-to-survive-an-aws-outage-with-cloudflare","/blog/how-startup-funding-works","/community","/vibe-code-to-profit","/connect","/speaking-trade-operations","/speaking-sales","/speaking-ai-operations","/speaking-vibe-code-to-profit","/press-kit","/one-sheet","/lives","/404.html","/consultation/","/privacy","/links","/free-community","/free-course","/solo-entrepreneur","/scaling-entrepreneur","/strategy-call","/weekly-live"],"anchors":["primary-menu","author-blurb"],"videos":[]}</script>
+    <script src="/assets/js/analytics.js"></script>
+</body>
+</html>
