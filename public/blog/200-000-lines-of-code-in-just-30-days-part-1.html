@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Why I Decided to Rewrite a 200,000-Line Startup App | Dwain Browne</title>
+    <meta name="description" content="In a late spring 2025 video, Dwain Browne explained why his 200,000-line SaaS app needed a rewrite: a decade of stacks, API sprawl and an async save path.">
+    <meta property="article:published_time" content="2025-06-02T12:00:00-04:00">
+    <meta property="article:modified_time" content="2026-10-31">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css?v=20260529-9">
+    <link rel="stylesheet" type="text/css" href="../assets/css/additions.css">
+    <link rel="canonical" href="https://dwain.me/blog/200-000-lines-of-code-in-just-30-days-part-1">
+    <link rel="icon" type="image/png" href="../assets/images/logo.png">
+    <meta property="og:type" content="article">
+    <meta name="author" content="Dwain Browne">
+    <meta property="og:site_name" content="Dwain Browne">
+    <meta property="og:title" content="Why I Decided to Rewrite a 200,000-Line Startup App | Dwain Browne">
+    <meta property="og:description" content="In a late spring 2025 video, Dwain Browne explained why his 200,000-line SaaS app needed a rewrite: a decade of stacks, API sprawl and an async save path.">
+    <meta property="og:url" content="https://dwain.me/blog/200-000-lines-of-code-in-just-30-days-part-1">
+    <meta property="og:image" content="https://dwain.me/assets/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Dwain Browne, founder and CEO of SnapSuite and LeadScore AI">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@dwainbrowne">
+    <meta name="twitter:title" content="Why I Decided to Rewrite a 200,000-Line Startup App | Dwain Browne">
+    <meta name="twitter:description" content="In a late spring 2025 video, Dwain Browne explained why his 200,000-line SaaS app needed a rewrite: a decade of stacks, API sprawl and an async save path.">
+    <meta name="twitter:image" content="https://dwain.me/assets/images/og-image.png">
+    <script>
+(function () {
+  try {
+    var ss = window.sessionStorage, ls = window.localStorage, q = new URLSearchParams(location.search);
+    var r = document.referrer || "", external = r && r.indexOf(location.host) < 0;
+    var tags = {};
+    ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "src", "ref", "gclid", "fbclid", "ttclid"].forEach(function (k) {
+      var v = q.get(k); if (v) tags[k] = v.slice(0, 100);
+    });
+    var visit = JSON.stringify({ landing: (location.pathname + location.search).slice(0, 200), referrer: external ? r.slice(0, 300) : "", tags: tags, at: new Date().toISOString() });
+    if (!ss.getItem("dm-visit")) ss.setItem("dm-visit", visit);
+    if (!ls.getItem("dm-first")) ls.setItem("dm-first", visit);
+    var pages = JSON.parse(ss.getItem("dm-pages") || "[]");
+    if (pages[pages.length - 1] !== location.pathname) { pages.push(location.pathname); ss.setItem("dm-pages", JSON.stringify(pages.slice(-15))); }
+  } catch (e) {}
+})();
+</script>
+    <script>
+(function () {
+  try {
+    var q = new URLSearchParams(location.search), ss = window.sessionStorage;
+    if (q.get("full") === "1") { ss.setItem("dm-full", "1"); return; }
+    if (ss.getItem("dm-full")) return;
+    var ua = navigator.userAgent || "", ref = (document.referrer || "").toLowerCase();
+    if (ref.indexOf(location.host) > -1) return;
+    var phone = /iPhone|iPod|Android.*Mobile|Mobile Safari|musical_ly|BytedanceWebview|Instagram/i.test(ua) || (window.matchMedia && matchMedia("(pointer: coarse)").matches && Math.min(screen.width, screen.height) < 600);
+    if (!phone) return;
+    var tag = (q.get("src") || q.get("ref") || q.get("utm_source") || "").toLowerCase();
+    var from = /tiktok|^tt$/.test(tag) || /musical_ly|bytedance|tiktok/i.test(ua) || /tiktok\.com/.test(ref) ? "tiktok"
+      : /instagram|^ig$/.test(tag) || /Instagram/.test(ua) || /instagram\.com/.test(ref) ? "instagram"
+      : /youtube|shorts|^yt$/.test(tag) || /youtube\.com|youtu\.be|android\.youtube/.test(ref) ? "youtube" : "";
+    if (!from) return;
+    ss.setItem("dm-social", from);
+    var home = /^\/(index(\.html)?)?$/.test(location.pathname);
+    if (home && !ss.getItem("dm-routed")) { ss.setItem("dm-routed", "1"); location.replace("/links?src=" + from); return; }
+    document.documentElement.setAttribute("data-dm-social", from);
+  } catch (e) {}
+})();
+</script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": "https://dwain.me/blog/200-000-lines-of-code-in-just-30-days-part-1#article",
+  "mainEntityOfPage": "https://dwain.me/blog/200-000-lines-of-code-in-just-30-days-part-1",
+  "headline": "I decided to rewrite a 200,000-line app from scratch because patching it had stopped making sense.",
+  "description": "In a late spring 2025 video, Dwain Browne explained why his 200,000-line SaaS app needed a rewrite: a decade of stacks, API sprawl and an async save path.",
+  "image": "https://dwain.me/assets/images/og-image.png",
+  "datePublished": "2025-06-02T12:00:00-04:00",
+  "dateModified": "2026-10-31",
+  "articleSection": "Architecture",
+  "keywords": "Operational efficiency",
+  "inLanguage": "en-CA",
+  "author": {
+    "@type": "Person",
+    "@id": "https://dwain.me/#person",
+    "name": "Dwain Browne",
+    "url": "https://dwain.me/about"
+  },
+  "publisher": {
+    "@id": "https://dwain.me/#person"
+  },
+  "isPartOf": {
+    "@id": "https://dwain.me/#website"
+  },
+  "video": {
+    "@type": "VideoObject",
+    "name": "200,000 Lines of Code in Just 30 Days: Part 1",
+    "description": "In a late spring 2025 video, Dwain Browne explained why his 200,000-line SaaS app needed a rewrite: a decade of stacks, API sprawl and an async save path.",
+    "thumbnailUrl": "https://i.ytimg.com/vi/sS_HyTuyLDs/hqdefault.jpg",
+    "uploadDate": "2025-06-02T12:00:00-04:00",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/sS_HyTuyLDs",
+    "contentUrl": "https://www.youtube.com/watch?v=sS_HyTuyLDs"
+  }
+}
+    </script>
+<meta name="referrer" content="no-referrer">
+</head>
+<body class="site-page" data-clarity-mask="True">
+  <nav class="page-nav dm-header" aria-label="Primary navigation">
+    <a class="brand-link" href="/"><img src="../assets/images/logo.png" alt="">Dwain Browne</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span class="screen-reader-text">Menu</span>
+    </button>
+    <div class="page-nav-links" id="primary-menu">
+      <a href="/about">About</a>
+      <a href="/companies">Companies</a>
+      <a href="../consultation/">Consult</a>
+      <a href="/community">Community</a>
+      <a href="/links">Courses</a>
+      <a href="/speaking">Speaking</a>
+      <a href="/live">Videos</a>
+      <a href="/blog">Blog</a>
+      <a href="/connect">Connect</a>
+      <a class="dm-menu-cta" href="/connect#contact">Get in touch</a>
+    </div>
+    <a class="db-button primary dm-header-cta" href="/connect#contact">Get in touch</a>
+  </nav>
+
+  <main class="page-shell article-layout">
+    <article class="article-body">
+      <p class="article-meta">Architecture &middot; <time datetime="2025-06-02">June 2, 2025</time></p>
+      <h1>I decided to rewrite a 200,000-line app from scratch because patching it had stopped making sense.</h1>
+      <p>I published this video in late spring 2025, about 30 days into a rewrite I was doing on evenings and weekends. The app is <a href="https://snapsuite.io">SnapSuite</a>, my startup&#x27;s business management tool, and at the time it was north of 200,000 lines of code across two applications. The rewrite wasn&#x27;t finished. This first part is about why I started it at all.</p>
+      <h2>The business case</h2>
+      <p>SnapSuite started as productivity software for construction and trade workers. It tracks service calls from new to dispatched to completed and ready to invoice. It handles work orders, notes, invoicing, quotes, clients and inventory. When you print or preview a document, it opens <a href="https://www.microsoft.com/microsoft-365/word">Microsoft Word</a> in the background, fills it in and hands you back a PDF.</p>
+      <p>I&#x27;d come to think the app could serve a broader market than construction. That was one reason to re-architect it. The bigger one was speed. A team of developers worked on it, and adding a new feature took too long. When a business can&#x27;t ship features quickly, it can&#x27;t chase a bigger market.</p>
+      <p>This isn&#x27;t a tutorial, and I&#x27;m not trying to sell you the product. It&#x27;s my own experience of deciding a rewrite was the right call.</p>
+      <h2>A decade of layers</h2>
+      <p>The first version was written around 2012. It grew from a single client build into a much bigger product. We grew, scaled down and grew again, and a lot of developers worked on it over the years.</p>
+      <p>The front end is <a href="https://vuejs.org/">Vue.js</a>. The back end is <a href="https://dotnet.microsoft.com/">.NET</a>. It started on .NET Framework 3.5, got upgraded to 4.8, moved onto <a href="https://dotnet.microsoft.com/en-us/apps/aspnet">ASP.NET Core</a> when Microsoft changed direction, and then went into <a href="https://azure.microsoft.com/products/functions/">Azure Functions</a>, where it sat for a long time.</p>
+      <p>None of that is wrong on its own. The trouble is that a decade of different technologies and business ideas ends up muddy. The API surface is huge. In the video I scroll through the <a href="https://www.postman.com/">Postman</a> collection, with print, billing and a long list of other APIs. A new developer can&#x27;t get productive in a codebase like that without a lot of time.</p>
+      <p>To be fair to the old app, it works. In the demo, with about 3,500 records in the dashboard, filtering by client or job type is fast.</p>
+      <h2>Proving the size</h2>
+      <p>I didn&#x27;t want anyone thinking I was exaggerating the line count. So in the video I ran a <a href="https://learn.microsoft.com/powershell/">PowerShell</a> script that walks the project folders and counts the lines in the C# files. The main application came back at about 114,000 lines. The two applications together came to about 214,000. Call it 200,000 and change.</p>
+      <h2>Thirty days of commits</h2>
+      <p>I started a brand-new project for the rewrite in late May. <a href="https://github.com/">GitHub</a>&#x27;s Insights view showed the code additions climbing from about 5,000 lines to 10,000, then 15,000, then past 20,000, before tapering off as the new app got bigger.</p>
+      <p>My goal for that stretch was to build as much of the infrastructure as I could on my own. Once the foundation can scale and the old pieces are replaced, the developers can jump in and focus on features instead of fighting the plumbing.</p>
+      <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin:1.5rem 0;border-radius:12px"><iframe style="position:absolute;inset:0;width:100%;height:100%;border:0" src="https://www.youtube-nocookie.com/embed/sS_HyTuyLDs" title="200,000 Lines of Code in Just 30 Days - Part 1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <p><strong>Jump to</strong></p>
+      <ul>
+      <li><a href="https://www.youtube.com/watch?v=sS_HyTuyLDs&amp;t=0s">0:00 Rewriting 200,000 Lines in 30 Days</a></li>
+      <li><a href="https://www.youtube.com/watch?v=sS_HyTuyLDs&amp;t=65s">1:05 What the App Does</a></li>
+      <li><a href="https://www.youtube.com/watch?v=sS_HyTuyLDs&amp;t=161s">2:41 A Decade of History and Why Rewrite</a></li>
+      <li><a href="https://www.youtube.com/watch?v=sS_HyTuyLDs&amp;t=237s">3:57 The Current Stack and API Sprawl</a></li>
+      <li><a href="https://www.youtube.com/watch?v=sS_HyTuyLDs&amp;t=369s">6:09 Proving the Line Count</a></li>
+      <li><a href="https://www.youtube.com/watch?v=sS_HyTuyLDs&amp;t=501s">8:21 30 Days of Commits and the Goal</a></li>
+      <li><a href="https://www.youtube.com/watch?v=sS_HyTuyLDs&amp;t=635s">10:35 Demo: Creating a Work Order</a></li>
+      <li><a href="https://www.youtube.com/watch?v=sS_HyTuyLDs&amp;t=767s">12:47 How the Back End Saves Data</a></li>
+      <li><a href="https://www.youtube.com/watch?v=sS_HyTuyLDs&amp;t=857s">14:17 Three Problems with the Async Save Path</a></li>
+      <li><a href="https://www.youtube.com/watch?v=sS_HyTuyLDs&amp;t=1126s">18:46 Wrap-Up and Part 2</a></li>
+      </ul>
+      <p>I walk through the app, the line count and the diagram in the full video on my channel: <a href="https://www.youtube.com/watch?v=sS_HyTuyLDs">200,000 lines of code in 30 days, Part 1 on YouTube</a>.</p>
+      <h2>How the old app saves data</h2>
+      <p>In the video I create a work order on test data, and it saves and shows up in the list within about a second. On the surface, nothing&#x27;s wrong.</p>
+      <p>Behind the scenes, the save goes to an Azure Function first. The function writes the record to <a href="https://azure.microsoft.com/products/cosmos-db/">Azure Cosmos DB</a>, which we use as a log we can replay. Then it drops a message on an <a href="https://azure.microsoft.com/products/service-bus/">Azure Service Bus</a> topic and returns success. It doesn&#x27;t write to the main database itself. A background service picks the message up later and puts the data into the database.</p>
+      <p>That architecture worked well at the time, and it still works. But it creates three problems I wanted gone.</p>
+      <h2>The missing PO number</h2>
+      <p>A technician out on the road creates a purchase order to buy materials for a job. What they need is the PO number, so they can hand it to the supplier. On the screen where they created it, there&#x27;s no number yet. The number comes from the database ID, and the record isn&#x27;t in the database until the background service writes it. It&#x27;s a delay of seconds, but the user is standing there waiting for it.</p>
+      <h2>The half success</h2>
+      <p>Rarely, a save makes it into the log, but the background service never picks it up. The user got a success message, and they&#x27;re not wrong, but the data never reached the database. It&#x27;s a half success. Then they&#x27;re scratching their heads about why their record isn&#x27;t on the dashboard. It doesn&#x27;t happen often, but the last thing you want is customers wondering whether your app worked.</p>
+      <h2>The note that blinks</h2>
+      <p>Add a note, and it shows up at the bottom of the list, disappears and comes back. The browser shows the note right away. Then the app polls the database for new data before the queue has written the note, so the note drops out. A second later the queue catches up and the note reappears. It&#x27;s not a big deal, but it annoys me, because I know exactly why it happens.</p>
+      <h2>What&#x27;s next</h2>
+      <p>Those three problems, plus a decade of layers and a huge API surface, were why I decided to rebuild instead of patch. In Part 2 I get into how I rewrote it, including how I used <a href="https://apps.apple.com/us/app/chatgpt/id6448311069">ChatGPT</a> in the process, and what changes in the new design.</p>
+      <p>If you&#x27;re weighing a rewrite of your own product, <a href="https://dwain.me/strategy-call?src=blog">book a strategy call</a> and we can talk it through.</p>
+      <section id="author-blurb">
+        <h2>About Dwain</h2>
+        <div class="dm-f-teacher">
+          <img src="../assets/images/profile/dwain-headshot.jpg" alt="Dwain Browne" width="96" height="96" loading="lazy">
+          <div>
+            <p>I'm Dwain Browne, Founder of LeadScore AI and SnapSuite. I'm a Toronto-based software architect with 25+ years across software, sales, operations and entrepreneurship. SnapSuite helps contractors and trades teams get paid faster, and LeadScore AI shows you which leads deserve your next call. I also run Vibe Code to Profit, a community helping people build software with AI.</p>
+            <p><a href="https://www.youtube.com/@dwainbrowne">YouTube</a> &middot; <a href="https://www.linkedin.com/in/dwainbrowne">LinkedIn</a> &middot; <a href="https://calendly.com/snapsuite/60min">Book a call</a></p>
+          </div>
+        </div>
+      </section>
+
+    </article>
+    <aside class="article-sidebar">
+      <h2>More from Dwain</h2>
+      <a href="https://dwain.me/strategy-call?src=blog">Book a strategy call</a>
+      <a href="/live">Watch live builds</a>
+      <a href="/community">Join Vibe Code to Profit</a>
+    </aside>
+  </main>
+
+  <footer class="page-shell page-footer dm-footer">
+    <div class="dm-footer-top">
+      <div class="dm-footer-about">
+        <a class="dm-footer-brand" href="/"><img src="/assets/images/logo.png" alt="">Dwain Browne</a>
+        <p>Founder and CEO of SnapSuite and LeadScore AI. Toronto, Canada.</p>
+      </div>
+      <div class="dm-footer-social" role="group" aria-label="Social media">
+        <a href="https://www.youtube.com/@dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on YouTube (@dwainbrowne)"><img width="24" height="24" src="/assets/images/youtube.png" alt=""><span class="dm-footer-social-label">YouTube <span>@dwainbrowne</span></span></a>
+        <a href="https://www.youtube.com/@dwainunfinished" target="_blank" rel="noopener" aria-label="Dwain on YouTube (@dwainunfinished)"><img width="24" height="24" src="/assets/images/youtube.png" alt=""><span class="dm-footer-social-label">YouTube <span>@dwainunfinished</span></span></a>
+        <a href="https://www.tiktok.com/@dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on TikTok (@dwainbrowne)"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="#1d1917"/><path fill="#fff" transform="translate(5.4 5.4) scale(0.55)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg><span class="dm-footer-social-label">TikTok <span>@dwainbrowne</span></span></a>
+        <a href="https://www.tiktok.com/@dwain.me" target="_blank" rel="noopener" aria-label="Dwain on TikTok (@dwain.me)"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="#1d1917"/><path fill="#fff" transform="translate(5.4 5.4) scale(0.55)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg><span class="dm-footer-social-label">TikTok <span>@dwain.me</span></span></a>
+        <a href="https://instagram.com/dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on Instagram (@dwainbrowne)"><img width="24" height="24" src="/assets/images/instagram.png" alt=""><span class="dm-footer-social-label">Instagram <span>@dwainbrowne</span></span></a>
+        <a href="https://twitter.com/dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on X (@dwainbrowne)"><img width="24" height="24" src="/assets/images/twitter.png" alt=""><span class="dm-footer-social-label">X <span>@dwainbrowne</span></span></a>
+        <a href="https://www.linkedin.com/in/dwainbrowne/" target="_blank" rel="noopener" aria-label="Dwain on LinkedIn (@dwainbrowne)"><img width="24" height="24" src="/assets/images/linkedIn.png" alt=""><span class="dm-footer-social-label">LinkedIn <span>@dwainbrowne</span></span></a>
+        <a href="https://www.pinterest.ca/dwainbrowne/" target="_blank" rel="noopener" aria-label="Dwain on Pinterest (@dwainbrowne)"><img width="24" height="24" src="/assets/images/pinterest.png" alt=""><span class="dm-footer-social-label">Pinterest <span>@dwainbrowne</span></span></a>
+      </div>
+    </div>
+    <nav class="dm-footer-cols" aria-label="Footer">
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Explore</p>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/live">Videos</a></li>
+          <li><a href="/speaking">Speaking</a></li>
+          <li><a href="/press-kit">Press Kit</a></li>
+          <li><a href="/one-sheet">One Sheet</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Companies</p>
+        <ul>
+          <li><a href="/companies">All companies</a></li>
+          <li><a href="/snapsuite">SnapSuite</a></li>
+          <li><a href="/leadscore">LeadScore</a></li>
+          <li><a href="/affordly">Affordly</a></li>
+          <li><a href="/vibe-code-to-profit">VibeCode 2 Profit</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Learn</p>
+        <ul>
+          <li><a href="/links">Start an AI business</a></li>
+          <li><a href="/free-course">Free course</a></li>
+          <li><a href="/free-community">Free community</a></li>
+          <li><a href="/community">Community</a></li>
+          <li><a href="/weekly-live">Weekly live</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Work with Dwain</p>
+        <ul>
+          <li><a href="/consultation/">Consult</a></li>
+          <li><a href="/strategy-call">Strategy call</a></li>
+          <li><a href="/connect">Connect</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group dm-footer-group-wide">
+        <p class="dm-footer-heading">Blog</p>
+        <ul>
+          <li><a href="/blog/200-000-lines-of-code-in-just-30-days-part-1">I decided to rewrite a 200,000-line app from scratch because patching it had stopped making sense.</a></li>
+          <li><a href="/blog/vibe-coding-production-apps">Vibe coding won&#x27;t ship a production app alone, but it changes a developer&#x27;s job.</a></li>
+          <li><a href="/blog/how-to-automate-your-meeting-notes-from-read-ai-to-notion-part-1">Before you automate your meeting notes, split your tools into two groups and don&#x27;t mix them.</a></li>
+          <li><a href="/blog/how-startup-funding-works">Startup funding means selling slices of your company to grow faster than sales allow</a></li>
+          <li><a href="/blog/how-to-survive-an-aws-outage-with-cloudflare">You can keep a SaaS app up through a cloud outage without paying for every region twice</a></li>
+          <li><a href="/blog">All posts</a></li>
+        </ul>
+      </div>
+    </nav>
+    <p class="dm-footer-legal">&copy; Copyright 2026 <span>Dwain Browne</span>. All rights reserved.</p>
+  </footer>
+<div class="page-shell"><p><a href="/privacy">Privacy</a> · <button class="db-button" type="button" data-dm-cookie-choices>Cookie choices</button></p></div>
+  <script src="../assets/js/nav.js"></script>
+  <script src="../assets/js/site.js"></script>
+<script id="dm-analytics-config" type="application/json">{"providers":{},"page":"/blog/200-000-lines-of-code-in-just-30-days-part-1","paths":["/","/about","/companies","/snapsuite","/leadscore","/affordly","/speaking","/live","/blog","/blog/vibe-coding-engineering-judgment","/blog/lead-scoring-prioritization","/blog/smallest-system-that-proves-the-point","/blog/read-ai-vs-fireflies-vs-otter","/blog/spec-kit-large-projects","/blog/spec-kit-alternative-large-codebase","/blog/github-copilot-cli-first-look","/blog/prove-the-ai-roi","/blog/cloudflare-30k-saas","/blog/secure-vibe-coded-app-cloudflare","/blog/build-second-brain-codebase","/blog/turning-meeting-transcripts-into-action-items","/blog/building-a-business-on-cloudflare","/blog/2026-entrepreneur-ai-coding-stack","/blog/non-u-s-entrepreneurs-can-start","/blog/5-levels-vibe-coding","/blog/vibe-coding-cloudflare-build-meeting-manager","/blog/lead-scoring-for-builders","/blog/cloudflare-for-non-technical-founders","/blog/antigua-caribbean-need-for-ai","/blog/vibe-coding-guide-beginner-pro","/blog/cloudflare-outage-validate-your-data","/blog/how-to-survive-an-aws-outage-with-cloudflare","/blog/how-startup-funding-works","/blog/how-to-automate-your-meeting-notes-from-read-ai-to-notion-part-1","/blog/vibe-coding-production-apps","/blog/200-000-lines-of-code-in-just-30-days-part-1","/community","/vibe-code-to-profit","/connect","/speaking-trade-operations","/speaking-sales","/speaking-ai-operations","/speaking-vibe-code-to-profit","/press-kit","/one-sheet","/lives","/404.html","/consultation/","/privacy","/links","/free-community","/free-course","/solo-entrepreneur","/scaling-entrepreneur","/strategy-call","/weekly-live"],"anchors":["primary-menu","author-blurb"],"videos":[]}</script>
+    <script src="/assets/js/analytics.js"></script>
+</body>
+</html>
