@@ -63,6 +63,12 @@
       if (!window.gtag && !window.dataLayer) {
         window.dataLayer = [];
         window.gtag = function () { window.dataLayer.push(arguments); };
+        // Upgraded Google tags may configure their destination before the per-ID
+        // config command. Apply defaults before loading the SDK to avoid an
+        // automatic pageview in addition to our explicit, sanitized pageview.
+        window.gtag("set", { send_page_view: false, allow_google_signals: false,
+          allow_ad_personalization_signals: false, page_location: "https://dwain.me" + cleanPath(new URL(location.href)),
+          page_referrer: "", page_title: config.page });
         window.gtag("consent", "default", { analytics_storage: "denied", ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied" });
         window.gtag("consent", "update", { analytics_storage: "granted" });
         window.gtag("js", new Date());
