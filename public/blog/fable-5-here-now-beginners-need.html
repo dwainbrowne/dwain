@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Fable 5 After 48 Hours: Faster Code Still Needs Judgment | Dwain Browne</title>
+    <meta name="description" content="In a July 2026 live stream, Dwain Browne shared 48 hours of Fable 5 results and why beginners need a mental model of their code before trusting AI output.">
+    <meta property="article:published_time" content="2026-07-03T14:26:00-04:00">
+    <meta property="article:modified_time" content="2026-11-18">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css?v=20260529-9">
+    <link rel="stylesheet" type="text/css" href="../assets/css/additions.css">
+    <link rel="canonical" href="https://dwain.me/blog/fable-5-here-now-beginners-need">
+    <link rel="icon" type="image/png" href="../assets/images/logo.png">
+    <meta property="og:type" content="article">
+    <meta name="author" content="Dwain Browne">
+    <meta property="og:site_name" content="Dwain Browne">
+    <meta property="og:title" content="Fable 5 After 48 Hours: Faster Code Still Needs Judgment | Dwain Browne">
+    <meta property="og:description" content="In a July 2026 live stream, Dwain Browne shared 48 hours of Fable 5 results and why beginners need a mental model of their code before trusting AI output.">
+    <meta property="og:url" content="https://dwain.me/blog/fable-5-here-now-beginners-need">
+    <meta property="og:image" content="https://dwain.me/assets/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Dwain Browne, founder and CEO of SnapSuite and LeadScore AI">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@dwainbrowne">
+    <meta name="twitter:title" content="Fable 5 After 48 Hours: Faster Code Still Needs Judgment | Dwain Browne">
+    <meta name="twitter:description" content="In a July 2026 live stream, Dwain Browne shared 48 hours of Fable 5 results and why beginners need a mental model of their code before trusting AI output.">
+    <meta name="twitter:image" content="https://dwain.me/assets/images/og-image.png">
+    <script>
+(function () {
+  try {
+    var ss = window.sessionStorage, ls = window.localStorage, q = new URLSearchParams(location.search);
+    var r = document.referrer || "", external = r && r.indexOf(location.host) < 0;
+    var tags = {};
+    ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "src", "ref", "gclid", "fbclid", "ttclid"].forEach(function (k) {
+      var v = q.get(k); if (v) tags[k] = v.slice(0, 100);
+    });
+    var visit = JSON.stringify({ landing: (location.pathname + location.search).slice(0, 200), referrer: external ? r.slice(0, 300) : "", tags: tags, at: new Date().toISOString() });
+    if (!ss.getItem("dm-visit")) ss.setItem("dm-visit", visit);
+    if (!ls.getItem("dm-first")) ls.setItem("dm-first", visit);
+    var pages = JSON.parse(ss.getItem("dm-pages") || "[]");
+    if (pages[pages.length - 1] !== location.pathname) { pages.push(location.pathname); ss.setItem("dm-pages", JSON.stringify(pages.slice(-15))); }
+  } catch (e) {}
+})();
+</script>
+    <script>
+(function () {
+  try {
+    var q = new URLSearchParams(location.search), ss = window.sessionStorage;
+    if (q.get("full") === "1") { ss.setItem("dm-full", "1"); return; }
+    if (ss.getItem("dm-full")) return;
+    var ua = navigator.userAgent || "", ref = (document.referrer || "").toLowerCase();
+    if (ref.indexOf(location.host) > -1) return;
+    var phone = /iPhone|iPod|Android.*Mobile|Mobile Safari|musical_ly|BytedanceWebview|Instagram/i.test(ua) || (window.matchMedia && matchMedia("(pointer: coarse)").matches && Math.min(screen.width, screen.height) < 600);
+    if (!phone) return;
+    var tag = (q.get("src") || q.get("ref") || q.get("utm_source") || "").toLowerCase();
+    var from = /tiktok|^tt$/.test(tag) || /musical_ly|bytedance|tiktok/i.test(ua) || /tiktok\.com/.test(ref) ? "tiktok"
+      : /instagram|^ig$/.test(tag) || /Instagram/.test(ua) || /instagram\.com/.test(ref) ? "instagram"
+      : /youtube|shorts|^yt$/.test(tag) || /youtube\.com|youtu\.be|android\.youtube/.test(ref) ? "youtube" : "";
+    if (!from) return;
+    ss.setItem("dm-social", from);
+    var home = /^\/(index(\.html)?)?$/.test(location.pathname);
+    if (home && !ss.getItem("dm-routed")) { ss.setItem("dm-routed", "1"); location.replace("/links?src=" + from); return; }
+    document.documentElement.setAttribute("data-dm-social", from);
+  } catch (e) {}
+})();
+</script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": "https://dwain.me/blog/fable-5-here-now-beginners-need#article",
+  "mainEntityOfPage": "https://dwain.me/blog/fable-5-here-now-beginners-need",
+  "headline": "Fable 5 fixed problems other models couldn&#x27;t, and I still review what it ships.",
+  "description": "In a July 2026 live stream, Dwain Browne shared 48 hours of Fable 5 results and why beginners need a mental model of their code before trusting AI output.",
+  "image": "https://dwain.me/assets/images/og-image.png",
+  "datePublished": "2026-07-03T14:26:00-04:00",
+  "dateModified": "2026-11-18",
+  "articleSection": "AI developer",
+  "keywords": "AI",
+  "inLanguage": "en-CA",
+  "author": {
+    "@type": "Person",
+    "@id": "https://dwain.me/#person",
+    "name": "Dwain Browne",
+    "url": "https://dwain.me/about"
+  },
+  "publisher": {
+    "@id": "https://dwain.me/#person"
+  },
+  "isPartOf": {
+    "@id": "https://dwain.me/#website"
+  },
+  "video": {
+    "@type": "VideoObject",
+    "name": "Fable 5 Is Here. Now Beginners Need Better Judgment",
+    "description": "In a July 2026 live stream, Dwain Browne shared 48 hours of Fable 5 results and why beginners need a mental model of their code before trusting AI output.",
+    "thumbnailUrl": "https://i.ytimg.com/vi/RyKd-JViRPQ/hqdefault.jpg",
+    "uploadDate": "2026-07-03T14:26:00-04:00",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/RyKd-JViRPQ",
+    "contentUrl": "https://www.youtube.com/watch?v=RyKd-JViRPQ"
+  }
+}
+    </script>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+</head>
+<body class="site-page" data-clarity-mask="True">
+  <nav class="page-nav dm-header" aria-label="Primary navigation">
+    <a class="brand-link" href="/"><img src="../assets/images/logo.png" alt="">Dwain Browne</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span class="screen-reader-text">Menu</span>
+    </button>
+    <div class="page-nav-links" id="primary-menu">
+      <a href="/about">About</a>
+      <a href="/companies">Companies</a>
+      <a href="../consultation/">Consult</a>
+      <a href="/community">Community</a>
+      <a href="/links">Courses</a>
+      <a href="/speaking">Speaking</a>
+      <a href="/live">Videos</a>
+      <a href="/blog">Blog</a>
+      <a href="/connect">Connect</a>
+      <a class="dm-menu-cta" href="/connect#contact">Get in touch</a>
+    </div>
+    <a class="db-button primary dm-header-cta" href="/connect#contact">Get in touch</a>
+  </nav>
+
+  <main class="page-shell article-layout">
+    <article class="article-body">
+      <p class="article-meta">AI developer &middot; <time datetime="2026-07-03">July 3, 2026</time></p>
+      <h1>Fable 5 fixed problems other models couldn&#x27;t, and I still review what it ships.</h1>
+      <p>In a July 2026 live stream I&#x27;d had about 48 hours with <a href="https://www.anthropic.com/claude/fable">Claude Fable 5</a>, Anthropic&#x27;s new model, and I&#x27;d already hit 100% of my usage. It handled things I couldn&#x27;t get done properly with <a href="https://developers.openai.com/api/docs/models/gpt-5.5">GPT-5.5</a> or <a href="https://www.anthropic.com/claude/opus">Claude Opus</a> 4.6 to 4.8. I could only use that speed because I know my own code well enough to check its work.</p>
+      <h2>The business case</h2>
+      <p>As of July 2026 I was spending about $1,200 a month on AI. About three weeks before the stream, after a Copilot bill of about $700, I left <a href="https://visualstudio.microsoft.com">Visual Studio</a> and <a href="https://github.com/features/copilot">GitHub Copilot</a> for <a href="https://claude.com/product/claude-code">Claude Code</a> and <a href="https://github.com/openai/codex">Codex</a>, full time and maxed out on both. In the 48 hours I&#x27;d had Fable, my GitHub contributions roughly doubled.</p>
+      <p>Our company is four people, and I plan to keep it that way. On any given day I get more done than my old team of six developers did in a month, maybe two. I said on stream that I think a five-person team could build a billion-dollar company.</p>
+      <p>The point of the stream was that Fable 5 won&#x27;t save you from bad judgment as a vibe coder. With output that fast, the calls that still need me are where code belongs, what the model got wrong, and when to stop building and sell. My advice to beginners was to build a mental model of your code before you trust an agent with it.</p>
+      <h2>What Fable 5 cracked</h2>
+      <p>I&#x27;d been building an AI calling assistant into my lead app for voicemail drops and appointment follow-ups, running <a href="https://signalwire.com">SignalWire</a> and <a href="https://www.twilio.com">Twilio</a> side by side. It worked as a prototype. In production it stalled for weeks while I iterated with GPT-5.5 and Opus 4.8. I told Fable how the system worked and how it should behave, and it churned for about 40 minutes. Then it said it would call my phone. The phone rang and I heard nothing. I told it so, it fixed one more problem, and that job was done.</p>
+      <p>It also built the website for <a href="https://getleadscore.ai">LeadScore AI</a>. I prototyped the front page in <a href="https://claude.com/product/design">Claude Design</a> and picked a product-style layout over a minimalist or bold one. Then I told Fable to go through my documentation, my code and my features and build the site. Beyond that I only gave it specific requirements for the marketing copy. It built about 30 pages, one per feature. Earlier models would have stopped around 10.</p>
+      <p>Over that weekend it built the outbound side of my system too, and the rules behind it came from what I&#x27;ve learned over the years. Start with a message built on a pain point your buyer has. If you send the same email to everyone, Google and Microsoft flag it as spam, so each email has to be personalized, which is where AI helps. My working number was about 30 to 35 emails a day, and even 50 is pushing it. Spread your sending across three or four inboxes per domain and several extra domains, and keep your main domain out of it. Fable built the part where I buy a domain and the system sets up deliverability, then routes replies from all of those domains back to one place.</p>
+      <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin:1.5rem 0;border-radius:12px"><iframe style="position:absolute;inset:0;width:100%;height:100%;border:0" src="https://www.youtube-nocookie.com/embed/RyKd-JViRPQ" title="Fable 5 Is Here. Now Beginners Need Better Judgment" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <p>I show the Fable results, the outbound system and my project board on screen in the full video on my channel: <a href="https://www.youtube.com/watch?v=RyKd-JViRPQ">Fable 5 live stream, July 2026, on YouTube</a>.</p>
+      <p><strong>Jump to</strong></p>
+      <ul>
+      <li><a href="https://www.youtube.com/watch?v=RyKd-JViRPQ&amp;t=0s">0:00 Fable 5 after 48 hours, next to Opus 4.6 to 4.8</a></li>
+      <li><a href="https://www.youtube.com/watch?v=RyKd-JViRPQ&amp;t=359s">5:59 Claude Code, Codex, Cursor and leaving Copilot</a></li>
+      <li><a href="https://www.youtube.com/watch?v=RyKd-JViRPQ&amp;t=785s">13:05 From reviewing every line to managing the AI</a></li>
+      <li><a href="https://www.youtube.com/watch?v=RyKd-JViRPQ&amp;t=1604s">26:44 The calling bug Fable fixed</a></li>
+      <li><a href="https://www.youtube.com/watch?v=RyKd-JViRPQ&amp;t=1836s">30:36 Outbound at scale: personalization, inbox caps and extra domains</a></li>
+      <li><a href="https://www.youtube.com/watch?v=RyKd-JViRPQ&amp;t=3284s">54:44 Why copy-paste coding builds your mental model</a></li>
+      <li><a href="https://www.youtube.com/watch?v=RyKd-JViRPQ&amp;t=4111s">1:08:31 Expo vs Flutter for mobile apps</a></li>
+      <li><a href="https://www.youtube.com/watch?v=RyKd-JViRPQ&amp;t=4684s">1:18:04 The 3 AM Codex routine, and when to stop building and sell</a></li>
+      </ul>
+      <h2>Twenty years of reading code</h2>
+      <p>I&#x27;ve been a developer for about 20 years. At one point I had 13 employees, six of them developers, and for about five years I reviewed every line of code they wrote, every day. That&#x27;s how I got my application stable.</p>
+      <p>Working in Claude and Codex feels like writing a Word document, and I act more like a project manager orchestrating people, even though I&#x27;m still checking in code and telling it don&#x27;t do this, change that. The shift took me about a week and a half. Visual Studio, the tool I&#x27;d used for most of my programming life, is now secondary.</p>
+      <p>The code is a monorepo I counted live on stream at about 1.5 to 1.6 million physical lines. <a href="https://cursor.com">Cursor</a> is really good, but for .NET I use <a href="https://www.jetbrains.com/rider/">JetBrains Rider</a> on my Mac, with Opus running in the <a href="https://claude.com/product/overview">Claude</a> desktop app and Codex beside it. Codex starts a job and Opus fact-checks it, especially on security work. For a new feature I let Codex write it and audit itself, take the output to Opus 4.6 for another audit, and then send that back to Codex. There are always small gaps. I wrote up how I run a codebase this size in <a href="https://dwain.me/blog/spec-kit-alternative-large-codebase">my monorepo post</a>.</p>
+      <h2>Copy code by hand first</h2>
+      <p>When I started my lead app, I designed the UI in <a href="https://v0.app">v0</a>. This was before <a href="https://docs.lovable.dev">Lovable</a>. v0 wrote everything in <a href="https://react.dev">React</a>, and I prefer <a href="https://nuxt.com">Nuxt</a> and <a href="https://vuejs.org">Vue</a>. I&#x27;d write code in v0, copy it down, edit it locally, and go back and forth. Building the app piece by piece like that means I know where each part of the code is supposed to live, so when the AI puts something in the wrong place, I can tell it where it goes.</p>
+      <p>I think that mental model is what separates junior vibe coders from seasoned developers. My advice for anyone learning now: ask <a href="https://apps.apple.com/us/app/chatgpt/id6448311069">ChatGPT</a> or Claude for the code, paste it into your editor yourself and make it work. Do that for a few websites, 20 if you can. It will feel slow and painful, like a waste of time. You&#x27;ll come out with a mental model that makes larger applications second nature. I go deeper on that in <a href="https://dwain.me/blog/vibe-coding-engineering-judgment">vibe coding with engineering judgment</a>.</p>
+      <h2>Review what ships overnight</h2>
+      <p>I run a Codex skill called transcript to issues. It takes a meeting transcript and turns it into categorized <a href="https://github.com">GitHub</a> issues. Every day at 3 a.m., a Codex routine takes the top issues from my ready and in-progress columns and works them. I told it to flag anything that touches the database, any major feature that spans several components, and any big overhaul. Entry-level to medium work it finishes without asking and checks in to dev, where I review and test it in the morning.</p>
+      <p>On the stream my board had 4 items in backlog, 9 ready, 14 in progress and 63 in review. I&#x27;d never had more work to review than code to write. Done is never done, though. I added another 30 or 40 issues that morning.</p>
+      <p>At some point you have to commit to selling. I&#x27;m guilty here too. There are days I&#x27;ve scaled back on selling my product because I wanted to keep building, and breaking off to sell is the hard part.</p>
+      <h2>Keep the judgment yours</h2>
+      <p>Fable 5 got me past problems I&#x27;d been stuck on for weeks. I could trust what it shipped because I knew where the code belonged, and I still review what it flags for me. If you want help setting up that kind of review loop on your own codebase, <a href="https://dwain.me/strategy-call?src=blog">book a strategy call</a>.</p>
+      <section id="author-blurb">
+        <h2>About Dwain</h2>
+        <div class="dm-f-teacher">
+          <img src="../assets/images/profile/dwain-headshot.jpg" alt="Dwain Browne" width="96" height="96" loading="lazy">
+          <div>
+            <p>I'm Dwain Browne, Founder of LeadScore AI and SnapSuite. I'm a Toronto-based software architect with 25+ years across software, sales, operations and entrepreneurship. SnapSuite helps contractors and trades teams get paid faster, and LeadScore AI shows you which leads deserve your next call. I also run Vibe Code to Profit, a community helping people build software with AI.</p>
+            <p><a href="https://www.youtube.com/@dwainbrowne">YouTube</a> &middot; <a href="https://www.linkedin.com/in/dwainbrowne">LinkedIn</a> &middot; <a href="https://calendly.com/snapsuite/60min">Book a call</a></p>
+          </div>
+        </div>
+      </section>
+    </article>
+    <aside class="article-sidebar">
+      <h2>More from Dwain</h2>
+      <a href="https://dwain.me/strategy-call?src=blog">Book a strategy call</a>
+      <a href="/live">Watch live builds</a>
+      <a href="/community">Join Vibe Code to Profit</a>
+    </aside>
+  </main>
+
+  <footer class="page-shell page-footer dm-footer">
+    <div class="dm-footer-top">
+      <div class="dm-footer-about">
+        <a class="dm-footer-brand" href="/"><img src="/assets/images/logo.png" alt="">Dwain Browne</a>
+        <p>Founder and CEO of SnapSuite and LeadScore AI. Toronto, Canada.</p>
+      </div>
+      <div class="dm-footer-social" role="group" aria-label="Social media">
+        <a href="https://www.youtube.com/@dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on YouTube (@dwainbrowne)"><img width="24" height="24" src="/assets/images/youtube.png" alt=""><span class="dm-footer-social-label">YouTube <span>@dwainbrowne</span></span></a>
+        <a href="https://www.youtube.com/@dwainunfinished" target="_blank" rel="noopener" aria-label="Dwain on YouTube (@dwainunfinished)"><img width="24" height="24" src="/assets/images/youtube.png" alt=""><span class="dm-footer-social-label">YouTube <span>@dwainunfinished</span></span></a>
+        <a href="https://www.tiktok.com/@dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on TikTok (@dwainbrowne)"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="#1d1917"/><path fill="#fff" transform="translate(5.4 5.4) scale(0.55)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg><span class="dm-footer-social-label">TikTok <span>@dwainbrowne</span></span></a>
+        <a href="https://www.tiktok.com/@dwain.me" target="_blank" rel="noopener" aria-label="Dwain on TikTok (@dwain.me)"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="#1d1917"/><path fill="#fff" transform="translate(5.4 5.4) scale(0.55)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg><span class="dm-footer-social-label">TikTok <span>@dwain.me</span></span></a>
+        <a href="https://instagram.com/dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on Instagram (@dwainbrowne)"><img width="24" height="24" src="/assets/images/instagram.png" alt=""><span class="dm-footer-social-label">Instagram <span>@dwainbrowne</span></span></a>
+        <a href="https://twitter.com/dwainbrowne" target="_blank" rel="noopener" aria-label="Dwain on X (@dwainbrowne)"><img width="24" height="24" src="/assets/images/twitter.png" alt=""><span class="dm-footer-social-label">X <span>@dwainbrowne</span></span></a>
+        <a href="https://www.linkedin.com/in/dwainbrowne/" target="_blank" rel="noopener" aria-label="Dwain on LinkedIn (@dwainbrowne)"><img width="24" height="24" src="/assets/images/linkedIn.png" alt=""><span class="dm-footer-social-label">LinkedIn <span>@dwainbrowne</span></span></a>
+        <a href="https://www.pinterest.ca/dwainbrowne/" target="_blank" rel="noopener" aria-label="Dwain on Pinterest (@dwainbrowne)"><img width="24" height="24" src="/assets/images/pinterest.png" alt=""><span class="dm-footer-social-label">Pinterest <span>@dwainbrowne</span></span></a>
+      </div>
+    </div>
+    <nav class="dm-footer-cols" aria-label="Footer">
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Explore</p>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/live">Videos</a></li>
+          <li><a href="/speaking">Speaking</a></li>
+          <li><a href="/press-kit">Press Kit</a></li>
+          <li><a href="/one-sheet">One Sheet</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Companies</p>
+        <ul>
+          <li><a href="/companies">All companies</a></li>
+          <li><a href="/snapsuite">SnapSuite</a></li>
+          <li><a href="/leadscore">LeadScore</a></li>
+          <li><a href="/affordly">Affordly</a></li>
+          <li><a href="/vibe-code-to-profit">VibeCode 2 Profit</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Learn</p>
+        <ul>
+          <li><a href="/links">Start an AI business</a></li>
+          <li><a href="/free-course">Free course</a></li>
+          <li><a href="/free-community">Free community</a></li>
+          <li><a href="/community">Community</a></li>
+          <li><a href="/weekly-live">Weekly live</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group">
+        <p class="dm-footer-heading">Work with Dwain</p>
+        <ul>
+          <li><a href="/consultation/">Consult</a></li>
+          <li><a href="/strategy-call">Strategy call</a></li>
+          <li><a href="/connect">Connect</a></li>
+        </ul>
+      </div>
+      <div class="dm-footer-group dm-footer-group-wide">
+        <p class="dm-footer-heading">Blog</p>
+        <ul>
+          <li><a href="/blog/fable-5-here-now-beginners-need">Fable 5 fixed problems other models couldn&#x27;t, and I still review what it ships</a></li>
+          <li><a href="/blog/harder-than-you-think-keep-pushing">I once priced a car at three websites, and I never got there</a></li>
+          <li><a href="/blog/women-leaders-toastmaster-international-contest">In 2017 I told a Toastmasters contest that hardworking women still rarely reach the top</a></li>
+          <li><a href="/blog/why-do-i-have-to-login">I explained every login on your computer with one house, from the front gate to the safe</a></li>
+          <li><a href="/blog/how-to-access-my-email-teach-my-mom">Your email lives on a server, so every device shows the same inbox</a></li>
+          <li><a href="/blog">All posts</a></li>
+        </ul>
+      </div>
+    </nav>
+    <p class="dm-footer-legal">&copy; Copyright 2026 <span>Dwain Browne</span>. All rights reserved.</p>
+  </footer>
+<div class="page-shell"><p><a href="/privacy">Privacy</a> · <button class="db-button" type="button" data-dm-cookie-choices>Cookie choices</button></p></div>
+  <script src="../assets/js/nav.js"></script>
+  <script src="../assets/js/site.js"></script>
+<script id="dm-analytics-config" type="application/json">{"providers":{},"page":"/blog/fable-5-here-now-beginners-need","paths":["/","/about","/companies","/snapsuite","/leadscore","/affordly","/speaking","/live","/blog","/blog/vibe-coding-engineering-judgment","/blog/lead-scoring-prioritization","/blog/smallest-system-that-proves-the-point","/blog/read-ai-vs-fireflies-vs-otter","/blog/spec-kit-large-projects","/blog/spec-kit-alternative-large-codebase","/blog/github-copilot-cli-first-look","/blog/prove-the-ai-roi","/blog/cloudflare-30k-saas","/blog/secure-vibe-coded-app-cloudflare","/blog/build-second-brain-codebase","/blog/turning-meeting-transcripts-into-action-items","/blog/building-a-business-on-cloudflare","/blog/2026-entrepreneur-ai-coding-stack","/blog/non-u-s-entrepreneurs-can-start","/blog/5-levels-vibe-coding","/blog/vibe-coding-cloudflare-build-meeting-manager","/blog/lead-scoring-for-builders","/blog/cloudflare-for-non-technical-founders","/blog/antigua-caribbean-need-for-ai","/blog/vibe-coding-guide-beginner-pro","/blog/cloudflare-outage-validate-your-data","/blog/how-to-survive-an-aws-outage-with-cloudflare","/blog/how-startup-funding-works","/blog/how-to-automate-your-meeting-notes-from-read-ai-to-notion-part-1","/blog/vibe-coding-production-apps","/blog/200-000-lines-of-code-in-just-30-days-part-1","/blog/how-i-became-an-entrepreneur-my-story","/blog/what-is-the-internet-teach-my-mom","/blog/what-is-a-browser-teach-my-mom","/blog/how-do-i-search-the-internet-teach-my-mom","/blog/what-can-i-do-on-the-internet-teach-my-mom","/blog/what-is-an-email-teach-my-mom","/blog/how-to-access-my-email-teach-my-mom","/blog/why-do-i-have-to-login","/blog/women-leaders-toastmaster-international-contest","/blog/harder-than-you-think-keep-pushing","/blog/fable-5-here-now-beginners-need","/community","/vibe-code-to-profit","/connect","/speaking-trade-operations","/speaking-sales","/speaking-ai-operations","/speaking-vibe-code-to-profit","/press-kit","/one-sheet","/lives","/404.html","/consultation/","/privacy","/links","/free-community","/free-course","/solo-entrepreneur","/scaling-entrepreneur","/strategy-call","/weekly-live"],"anchors":["primary-menu","author-blurb"],"videos":[]}</script>
+    <script src="/assets/js/analytics.js"></script>
+</body>
+</html>
