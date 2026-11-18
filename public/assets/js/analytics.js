@@ -22,14 +22,55 @@
     var p = url.pathname === "/index.html" ? "/" : url.pathname.replace(/\.html$/, "");
     return config.paths.indexOf(p) !== -1 ? p : null;
   }
-  function safeUrl(url, allowAnchors) {
-    return /^(dwain\.me|www\.dwain\.me)$/.test(url.hostname) && !!cleanPath(url) && !url.search &&
-      (!url.hash || (allowAnchors && config.anchors.indexOf(url.hash.slice(1)) !== -1));
+  var campaignKeys = { utm_source: "campaign_source", utm_medium: "campaign_medium",
+    utm_campaign: "campaign_name", utm_content: "campaign_content", utm_id: "campaign_id" };
+  function campaignLabel(value) {
+    // Public campaign labels only: no URLs, emails, long numbers, or opaque IDs.
+    return typeof value === "string" && /^[a-zA-Z][a-zA-Z0-9 _.\-]{0,79}$/.test(value) &&
+      !/(?:\d[ .\-]*){7}/.test(value) && !/[a-zA-Z0-9]{32}/.test(value);
   }
   function eligible(url) {
-    if (!safeUrl(url || new URL(location.href), true)) return false;
-    if (!document.referrer) return true;
-    try { return safeUrl(new URL(document.referrer), false); } catch (e) { return false; }
+    url = url || new URL(location.href);
+    // GA4 receives a canonical known path, never the raw location or referrer.
+    return /^(dwain\.me|www\.dwain\.me)$/.test(url.hostname) && !!cleanPath(url);
+  }
+  function campaign(url) {
+    var result = {};
+    Object.keys(campaignKeys).forEach(function (key) {
+      var values = url.searchParams.getAll(key);
+      if (values.length === 1 && campaignLabel(values[0])) result[campaignKeys[key]] = values[0];
+    });
+    return result;
+  }
+  function safeReferrer() {
+    try {
+      var ref = new URL(document.referrer);
+      if (!/^https?:$/.test(ref.protocol)) return "";
+      return ref.origin + (eligible(ref) ? cleanPath(ref) : "/");
+    } catch (e) { return ""; }
+  }
+  function pageData() {
+    var url = new URL(location.href), path = cleanPath(url);
+    return Object.assign({ page_path: path, page_location: "https://dwain.me" + path,
+      page_referrer: safeReferrer(), page_title: path }, campaign(url));
+  }
+  function recordingEligible(url) {
+    url = url || new URL(location.href);
+    if (!eligible(url) || (url.hash && config.anchors.indexOf(url.hash.slice(1)) === -1)) return false;
+    // Unlike GA4, recording SDKs inspect the browser URL themselves. Only let
+    // validated campaign parameters reach them; click IDs and private queries
+    // do not prevent the sanitized GA4 pageview.
+    var safe = true;
+    url.searchParams.forEach(function (value, key) {
+      if (!Object.prototype.hasOwnProperty.call(campaignKeys, key) ||
+          url.searchParams.getAll(key).length !== 1 || !campaignLabel(value)) safe = false;
+    });
+    if (!safe || !document.referrer) return safe;
+    try {
+      var ref = new URL(document.referrer);
+      return /^https?:$/.test(ref.protocol) && !ref.username && !ref.password && !ref.search && !ref.hash &&
+        (eligible(ref) || ref.pathname === "/");
+    } catch (e) { return false; }
   }
   function script(name, src) {
     if (document.getElementById("dm-provider-" + name)) return;
@@ -66,25 +107,23 @@
         // Upgraded Google tags may configure their destination before the per-ID
         // config command. Apply defaults before loading the SDK to avoid an
         // automatic pageview in addition to our explicit, sanitized pageview.
-        window.gtag("set", { send_page_view: false, allow_google_signals: false,
-          allow_ad_personalization_signals: false, page_location: "https://dwain.me" + cleanPath(new URL(location.href)),
-          page_referrer: "", page_title: config.page });
+        var defaults = Object.assign({ send_page_view: false, allow_google_signals: false,
+          allow_ad_personalization_signals: false }, pageData());
+        window.gtag("set", defaults);
         window.gtag("consent", "default", { analytics_storage: "denied", ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied" });
         window.gtag("consent", "update", { analytics_storage: "granted" });
         window.gtag("js", new Date());
-        window.gtag("config", providers.ga4, { send_page_view: false, allow_google_signals: false,
-          allow_ad_personalization_signals: false, page_location: "https://dwain.me" + cleanPath(new URL(location.href)),
-          page_referrer: "", page_title: config.page });
+        window.gtag("config", providers.ga4, defaults);
         started.ga4 = true;
         script("ga4", "https://www.googletagmanager.com/gtag/js?id=" + providers.ga4);
       }
     }
-    if (choice && choice.analytics && providers.clarity && !started.clarity && !window.clarity) {
+    if (choice && choice.analytics && recordingEligible() && providers.clarity && !started.clarity && !window.clarity) {
       stub("clarity"); started.clarity = true;
       window.clarity("consentv2", { analytics_Storage: "granted", ad_Storage: "denied" });
       script("clarity", "https://www.clarity.ms/tag/" + providers.clarity);
     }
-    if (choice && choice.marketing && providers.meta && !started.meta && !window.fbq) {
+    if (choice && choice.marketing && recordingEligible() && providers.meta && !started.meta && !window.fbq) {
       var f = window.fbq = function () { f.callMethod ? f.callMethod.apply(f, arguments) : f.queue.push(arguments); };
       window._fbq = f; f.push = f; f.loaded = true; f.version = "2.0"; f.queue = [];
       f("consent", "revoke"); f("set", "autoConfig", false, providers.meta); f("init", providers.meta);
@@ -96,12 +135,13 @@
   function event(name, details, once) {
     if (locked || !eligible() || !choice || privacySignal) return;
     var path = cleanPath(new URL(location.href));
-    var data = { page_path: path, page_location: "https://dwain.me" + path, page_referrer: "", page_title: path };
+    var data = pageData();
     // No arbitrary objects, labels, URLs, form values, or visitor identifiers.
     if (details && /^(header|footer|content|player|form)$/.test(details.placement || "")) data.placement = details.placement;
     if (details && config.videos.indexOf(details.video_id) !== -1) data.video_id = details.video_id;
     ["ga4", "clarity", "meta"].forEach(function (provider) {
-      if (!started[provider] || !(provider === "meta" ? choice.marketing : choice.analytics)) return;
+      if (!started[provider] || !(provider === "meta" ? choice.marketing : choice.analytics) ||
+          (provider !== "ga4" && !recordingEligible())) return;
       if (name === "page_view") {
         if (lastPage[provider] === path) return;
         lastPage[provider] = path;
@@ -193,12 +233,15 @@
   ["pushState", "replaceState"].forEach(function (method) {
     var original = history[method];
     history[method] = function (state, title, url) {
-      if (url != null && !eligible(new URL(url, location.href))) stop();
+      if (url != null) {
+        var target = new URL(url, location.href);
+        if (!eligible(target) || ((started.clarity || started.meta) && !recordingEligible(target))) stop();
+      }
       var result = original.apply(history, arguments); pageview(); return result;
     };
   });
-  window.addEventListener("popstate", function () { if (!eligible()) stop(); else pageview(); });
-  window.addEventListener("hashchange", function () { if (!eligible()) stop(); });
+  window.addEventListener("popstate", function () { if (!eligible() || ((started.clarity || started.meta) && !recordingEligible())) stop(); else pageview(); });
+  window.addEventListener("hashchange", function () { if (!eligible() || ((started.clarity || started.meta) && !recordingEligible())) stop(); });
   window.addEventListener("storage", function (e) { if (e.key === key || e.key === null) { stop(); location.reload(); } });
   window.dmAnalytics = Object.freeze({ openChoices: open });
   start();
